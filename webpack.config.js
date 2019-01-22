@@ -4,7 +4,7 @@ module.exports = {
   context: __dirname,
   entry: "./frontend/polygram_entry.jsx",
   output: {
-    path: path.resolve(__dirname, app, assets, javascripts),
+    path: path.resolve(__dirname, "app", "assets", 'javascripts'),
     filename: "bundle.js"
   },
   module: {

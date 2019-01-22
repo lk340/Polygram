@@ -9,10 +9,10 @@ class User < ApplicationRecord
   has_many :followers
   
   # FGRIPE
-  def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
-    if user && user.is_password?(password)
-      return user
+  def self.find_by_credentials(username, password, email)
+    @user = User.find_by(username: username, email: email)
+    if @user && @user.is_password?(password)
+      return @user
     end
     nil
   end
@@ -33,7 +33,7 @@ class User < ApplicationRecord
 
   def password=(password)
     @password = password
-    self.password_digest BCrypt::Password.create(password)
+    self.password_digest = BCrypt::Password.create(password)
   end
 
   def ensure_session_token
