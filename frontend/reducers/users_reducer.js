@@ -7,14 +7,11 @@ import RECEIVE_CURRENT_USER from '../actions/session_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
-
-  console.log("I've hit the users reducer!");
   
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
       // 1: { id: 1, username: "Example", email: "Example" }
       const newState = merge({}, state, { [action.currentUser.id]: action.currentUser });
-      debugger;
       return newState;
     default:
       return state;
