@@ -2,14 +2,4 @@
   "name": "polygram",
   "private": true,
   "dependencies": {}
-},
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "postinstall": "./node_modules/.bin/webpack --mode=production",
-  "start": "./node_modules/.bin/webpack --mode=production",
-  "webpack": "webpack --mode=development --watch"
-},
-"engines": {
-  "node": "10.6.0",
-  "npm": "6.1.0"
-},
+}
