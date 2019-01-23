@@ -9,6 +9,7 @@ export default class SessionForm extends React.Component {
     this.state = { username: "", password: "", email: "" };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.logInDemoUser = this.logInDemoUser.bind(this);
   }
 
   handleChange(field) {
@@ -22,13 +23,21 @@ export default class SessionForm extends React.Component {
     this.props.processForm(this.state);
   }
 
+  logInDemoUser(event) {
+    event.preventDefault();
+    const demo = { username: "demoUser", email: "demoUser@demo", password: "demodemo" };
+    this.props.processForm(demo);
+  }
+
   render() {
+    // ================================== CREATING ERROR LIS ==================================
     let errors;
     if (this.props.errors.session.length > 0) {
       errors = this.props.errors.session.map((error, index) => {
         return <li key={index}>{ error }</li>
       })
     }
+    // ================================== CREATING ERROR LIS ==================================
 
     let sessionFormClass;
     if (this.props.formType === "signin") {
@@ -86,11 +95,23 @@ export default class SessionForm extends React.Component {
     else {
       sessionFormContainer += " signInFormHeight";
     }
+    
 
     let sessionFormButton = "session-form-submit-button";
-    if ((this.state.email === "" || this.state.username === "") && this.props.formType === "signin") {
+    if ((this.state.email === "" && this.state.username === "") && this.props.formType === "signin") {
       sessionFormButton += " button-fade-out"
     }
+
+    // ================================== DEMO USER LOGIN ==================================
+    let demoUser;
+    if (this.props.formType === "signin") {
+      demoUser = (
+        <div>
+          <button className="demo-button" onClick={ this.logInDemoUser } >Demo User Login</button>
+        </div>
+      )
+    }
+    // ================================== DEMO USER LOGIN ==================================
     
     return (
       <div className={ sessionFormContainer }>
@@ -118,6 +139,8 @@ export default class SessionForm extends React.Component {
             <br />
 
             <input type="submit" value={this.props.formType === "signin" ? "Log In" : "Sign Up"} className={ sessionFormButton } />
+
+            <div>{ demoUser }</div>
 
             <div> {facebookTwo} </div>
           </form>

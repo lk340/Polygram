@@ -230,3 +230,21 @@
   line-height: 15px;
   margin: 0 18px;
 } */
+
+.demo-button {
+  background-color: var(--lightBlue);
+  border: var(--lightBlue) solid 1px;
+  color: white;
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 5px 9px;
+  height: 30px;
+  width: 268px;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 7px;
+}
+
+.demo-button:hover {
+  cursor: pointer;
+}
