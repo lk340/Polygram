@@ -5,20 +5,35 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 // TEST IMPORTS START //
-import * as ApiUtils from './utils/session_api_util';
-import { signUp, signIn, signOut } from './actions/session_actions'; 
+// import * as ApiUtils from './utils/session_api_util';
+// import { signUp, signIn, signOut } from './actions/session_actions'; 
 // TEST IMPORTS END //
 
 document.addEventListener("DOMContentLoaded", () => {
-  const store = configureStore();
+  let store;
+  
+  if (window.currentUser) {
+    const preloadedState = {
+      entities: {
+        users: { [window.currentUser.id]: window.currentUser }
+      },
+      session: { id: window.currentUser.id },
+    };
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  }
+
+  else {
+    store = configureStore();
+  }
 
   // TEST ZONE START //
-  window.signup = signUp;
-  window.signin = signIn;
-  window.signout = signOut;
+  // window.signup = signUp;
+  // window.signin = signIn;
+  // window.signout = signOut;
 
-  window.getState = store.getState();
-  window.dispatch = store.dispatch;
+  // window.getState = store.getState();
+  // window.dispatch = store.dispatch;
   // TEST ZONE END //
   
   ReactDOM.render(<Root store={store} />, document.getElementById("root"));
