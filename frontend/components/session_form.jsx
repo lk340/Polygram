@@ -78,9 +78,17 @@ export default class SessionForm extends React.Component {
         </div>
       )
     }
+
+    let sessionFormContainer = "session-form-container";
+    if (this.props.formType === "signup") {
+      sessionFormContainer += " signUpFormHeight";
+    }
+    else {
+      sessionFormContainer += " signInFormHeight";
+    }
     
     return (
-      <div className="session-form-container">
+      <div className={ sessionFormContainer }>
         <div className="session-form">
           {/* <h2>{this.props.formType === "signin" ? "Sign In" : "Sign Up"}</h2> */}
           <h1>Polygram</h1>

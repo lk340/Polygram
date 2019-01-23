@@ -2,11 +2,25 @@
   border: var(--lightGray) solid 1px;
   border-radius: 2px;
   text-align: center;
-  height: 564px;
   width: 350px;
   margin: 10px auto;
   color: var(--grayTextBold);
   background-color: white;
+}
+
+.signUpFormHeight {
+  height: 564px;
+}
+
+.signInFormHeight {
+  height: 410px;
+}
+
+.signUpFormMessage {
+  font-size: 14px;
+  width: 228px;
+  margin: auto;
+  margin-bottom: 40px;
 }
 
 .session-form h1 {
@@ -195,13 +209,7 @@
 .sign-in-form-bottom-half .facebookTwo-forgot-password {
   font-size: 12px;
   font-weight: normal;
-  margin: 10px 0;
-}
-
-.signUpFormMessage {
-  font-size: 14px;
-  width: 228px;
-  margin: auto;
+  margin-bottom: 5px;
 }
 
 /* .sign-in-form-bottom-half div .s312c {
