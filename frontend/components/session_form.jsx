@@ -119,9 +119,7 @@ export default class SessionForm extends React.Component {
     let sessionForm = "session-form"
     if (this.props.slash === "/") {
       slashImage = (
-        <div>
-          <img src={require("../../app/assets/images/instagram_signup_slash.png")} alt="slash-image" />
-        </div>
+        <img className="splashURL" src={window.splashURL} alt="polygram-slash-image"/>
       )
 
       sessionFormContainer += " slash-image-session-form-css"
@@ -129,10 +127,10 @@ export default class SessionForm extends React.Component {
     // ================================== SIGN UP SLASH PAGE IMAGE ==================================
     
     return (
-      <div>
-        <div id="sign-up-slash-image">
-          {slashImage}
-        </div>
+      <div className="sessionFormUltimateMasterContainer">
+        {/* <div id="sign-up-slash-image"> */}
+          { slashImage }
+        {/* </div> */}
 
         <div className={sessionFormContainer}>
 
