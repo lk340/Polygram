@@ -69,6 +69,15 @@ export default class SessionForm extends React.Component {
         </div>
       )
     }
+
+    let signUpFormMessage;
+    if (this.props.formType === "signup") {
+      signUpFormMessage = (
+        <div className="signUpFormMessage">
+          <span className="session-form-span">By signing up, you agree to our</span> <a href="#">Terms</a>, <a href="#">Data Policy</a>, and <a href="#">Cookies Policy</a>.
+        </div>
+      )
+    }
     
     return (
       <div className="session-form-container">
@@ -104,9 +113,9 @@ export default class SessionForm extends React.Component {
             {errors}
           </ul>
 
-          <p>
-            <span className="session-form-span">By signing up, you agree to our</span> <a href="#">Terms</a>, <a href="#">Data Policy</a>, and <a href="#">Cookies Policy</a>.
-          </p>
+          <div>
+            { signUpFormMessage }
+          </div>
         </div>
 
         <div className="sign-in-up">

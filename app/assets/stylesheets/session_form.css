@@ -185,10 +185,23 @@
 
 .sign-in-form-bottom-half .facebookTwo-target-blank, .sign-in-form-bottom-half .facebookTwo-forgot-password {
   color: #385185;
+  display: block;
 }
 
 .sign-in-form-bottom-half .facebookTwo-target-blank {
-  
+  font-size: 14px;
+}
+
+.sign-in-form-bottom-half .facebookTwo-forgot-password {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 10px 0;
+}
+
+.signUpFormMessage {
+  font-size: 14px;
+  width: 228px;
+  margin: auto;
 }
 
 /* .sign-in-form-bottom-half div .s312c {
