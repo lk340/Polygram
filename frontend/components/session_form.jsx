@@ -6,7 +6,7 @@ import Footer from './footer';
 export default class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "", email: "" };
+    this.state = { username: "", password: "", email: "", name: "" };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.logInDemoUser = this.logInDemoUser.bind(this);
@@ -125,6 +125,19 @@ export default class SessionForm extends React.Component {
       sessionFormContainer += " slash-image-session-form-css"
     }
     // ================================== SIGN UP SLASH PAGE IMAGE ==================================
+
+    // ================================== SIGN UP SPLASH PAGE USERNAME HTML TAG ==================================
+    let fullName;
+    if (this.props.formType === "signup") {
+      fullName = (
+        <div>
+          <input type="text" value={this.state.full_name} placeholder="Full Name" className="field-input" onChange={this.handleChange("name")} />
+
+          <br />
+        </div>
+      )
+    }
+    // ================================== SIGN UP SPLASH PAGE USERNAME HTML TAG ==================================
     
     return (
       <div className="sessionFormUltimateMasterContainer">
@@ -145,13 +158,11 @@ export default class SessionForm extends React.Component {
 
               <br />
 
+              { fullName }
+
               <input type="text" value={this.state.username} placeholder="Username" className="field-input" onChange={this.handleChange("username")} />
 
               <br />
-
-              {/* <input type="text" value={this.state.username} placeholder="Username" className="field-input" onChange={this.handleChange("username")} />
-
-            <br /> */}
 
               <input type="password" value={this.state.password} placeholder="Password" className="field-input" onChange={this.handleChange("password")} />
 

@@ -7,7 +7,7 @@
   border-radius: 2px;
   text-align: center;
   width: 350px;
-  margin: 10px auto;
+  margin: 13px auto 10px;
   color: var(--grayTextBold);
   background-color: white;
 }
@@ -271,7 +271,7 @@
   height: auto;
   float: left;
   margin-left: 227px;
-  margin-top: 92px;
+  margin-top: 89px;
 
   /* position: absolute;
   left: 227px; */
