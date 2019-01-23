@@ -9,6 +9,13 @@
   background-color: white;
 }
 
+.session-form h1 {
+  font-family: 'Grand Hotel', cursive;
+  color: black;
+  font-size: 3rem;
+  margin: 15px;
+}
+
 .session-form p {
   text-align: center;
   margin: auto;
@@ -39,6 +46,7 @@
   width: 268px;
   font-size: 14px;
   text-align: center;
+  margin-top: 7px;
 }
 
 .session-form-submit-button:hover {
@@ -57,6 +65,7 @@
   background-color: #FAFAFA;
   padding-left: 10px;
   font-size: 12px;
+  margin-bottom: 5px;
 }
 
 .field-input::placeholder {
@@ -139,7 +148,7 @@
   margin-bottom: 15px;
 }
 
-.sign-up-form-top-half div .s311c {
+.s311c {
   background-color: #efefef;
   height: 1px;
   top: 0.45rem;
@@ -149,17 +158,52 @@
   margin-bottom: 15px;
 }
 
-.sign-up-form-top-half div .s311c-1 {
+.s311c-1 {
   margin-left: 40px;
 }
 
-.sign-up-form-top-half div .s311c-2 {
+.s311c-2 {
   margin-right: 40px;
 }
 
-.sign-up-form-top-half div .or {
+.or {
   font-size: 13px;
   font-weight: 600;
   line-height: 15px;
   margin: 0 18px;
 }
+
+.sign-in-form-bottom-half {
+  margin-top: 15px;
+}
+
+.sign-in-form-bottom-half div {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.sign-in-form-bottom-half .facebookTwo-target-blank, .sign-in-form-bottom-half .facebookTwo-forgot-password {
+  color: #385185;
+}
+
+.sign-in-form-bottom-half .facebookTwo-target-blank {
+  
+}
+
+/* .sign-in-form-bottom-half div .s312c {
+  background-color: #efefef;
+  height: 1px;
+  top: 0.45rem;
+  flex-grow: 1;
+  flex-shrink: 1;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.sign-in-form-bottom-half div .or2 {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 15px;
+  margin: 0 18px;
+} */

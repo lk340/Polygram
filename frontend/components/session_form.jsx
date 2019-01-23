@@ -53,12 +53,28 @@ export default class SessionForm extends React.Component {
         </div>
       )
     }
+
+    let facebookTwo;
+    if (this.props.formType === "signin") {
+      facebookTwo = (
+        <div className="sign-in-form-bottom-half">
+          <div>
+            <div className="s311c s311c-1"></div>
+            <div className="or">OR</div>
+            <div className="s311c s311c-2"></div>
+          </div>
+          <a className="facebookTwo-target-blank" href="https://www.facebook.com/" target="_blank"><i className="fab fa-facebook"></i> Log in with Facebook</a>
+          <br/>
+          <a className="facebookTwo-forgot-password" href="#">Forgot password?</a>
+        </div>
+      )
+    }
     
     return (
       <div className="session-form-container">
         <div className="session-form">
           {/* <h2>{this.props.formType === "signin" ? "Sign In" : "Sign Up"}</h2> */}
-          <h2>Polygram</h2>
+          <h1>Polygram</h1>
 
           <div>{ facebook }</div>
 
@@ -66,24 +82,22 @@ export default class SessionForm extends React.Component {
             <input type="text" value={this.state.email} placeholder="Email" className="field-input" onChange={this.handleChange("email")} />
 
             <br />
-            <br />
 
             <input type="text" value={this.state.username} placeholder="Username" className="field-input" onChange={this.handleChange("username")} />
 
             <br />
-            <br />
 
             {/* <input type="text" value={this.state.username} placeholder="Username" className="field-input" onChange={this.handleChange("username")} />
 
-            <br />
             <br /> */}
 
             <input type="password" value={this.state.password} placeholder="Password" className="field-input" onChange={this.handleChange("password")} />
 
             <br />
-            <br />
 
             <input type="submit" value={this.props.formType === "signin" ? "Sign In" : "Sign Up"} className="session-form-submit-button" />
+
+            <div> {facebookTwo} </div>
           </form>
 
           <ul>
