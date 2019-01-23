@@ -54,7 +54,7 @@ export default class SessionForm extends React.Component {
         <div className="sign-up-form-top-half">
           <h2>Sign up to see photos and videos from your friends.</h2>
           {/* <button><a href="https://www.facebook.com/" target="_blank">Log in with Facebook</a></button> */}
-          <a href="https://www.facebook.com/" target="_blank"><i className="fab fa-facebook"></i>&nbsp; <span>Log in with Facebook</span></a>
+          <a href="https://github.com/lk340" target="_blank"><i class="fab fa-github"></i>&nbsp; <span>Check out my Github!</span></a>
           <div>
             <div className="s311c s311c-1"></div>
             <div className="or">OR</div>
@@ -79,7 +79,7 @@ export default class SessionForm extends React.Component {
             <div className="or">OR</div>
             <div className="s311c s311c-2"></div>
           </div>
-          <a className="facebookTwo-target-blank" href="https://www.facebook.com/" target="_blank"><i className="fab fa-facebook"></i> Log in with Facebook</a>
+          <a className="facebookTwo-target-blank" href="https://github.com/lk340" target="_blank"><i class="fab fa-github"></i>&nbsp; <span>Check out my Github!</span></a>
           <br/>
           <a className="facebookTwo-forgot-password" href="#">Forgot password?</a>
         </div>
@@ -182,7 +182,7 @@ export default class SessionForm extends React.Component {
               <div> {facebookTwo} </div>
             </form>
 
-            <ul>
+            <ul className="session-errors">
               {errors}
             </ul>
 

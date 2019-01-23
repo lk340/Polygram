@@ -165,7 +165,7 @@
   padding-bottom: 2px;
 }
 
-.fa-facebook {
+.fa-github {
   font-size: 18px;
 }
 
@@ -288,4 +288,17 @@
 
   /* position: absolute;
   left: 227px; */
+}
+
+.session-errors {
+  list-style: none;
+  padding: 0;
+  margin: 5px auto 5px;
+  width: 200px;
+}
+
+.session-errors li {
+  font-size: 13px;
+  color: red;
+  line-height: 1.4rem;
 }
