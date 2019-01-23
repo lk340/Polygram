@@ -41,16 +41,21 @@ export default class SessionForm extends React.Component {
     let facebook;
     if (this.props.formType === "signup") {
       facebook = (
-        <div>
-          <p>Sign up to see photos and videos from your friends.</p>
-          <a href="https://www.facebook.com/">Log in with Facebook</a>
-          <hr /> OR <hr />
+        <div className="sign-up-form-top-half">
+          <h2>Sign up to see photos and videos from your friends.</h2>
+          {/* <button><a href="https://www.facebook.com/" target="_blank">Log in with Facebook</a></button> */}
+          <a href="https://www.facebook.com/" target="_blank"><i className="fab fa-facebook"></i>&nbsp; <span>Log in with Facebook</span></a>
+          <div>
+            <div className="s311c s311c-1"></div>
+            <div className="or">OR</div>
+            <div className="s311c s311c-2"></div>
+          </div>
         </div>
       )
     }
     
     return (
-      <div>
+      <div className="session-form-container">
         <div className="session-form">
           {/* <h2>{this.props.formType === "signin" ? "Sign In" : "Sign Up"}</h2> */}
           <h2>Polygram</h2>
@@ -67,6 +72,11 @@ export default class SessionForm extends React.Component {
 
             <br />
             <br />
+
+            {/* <input type="text" value={this.state.username} placeholder="Username" className="field-input" onChange={this.handleChange("username")} />
+
+            <br />
+            <br /> */}
 
             <input type="password" value={this.state.password} placeholder="Password" className="field-input" onChange={this.handleChange("password")} />
 
