@@ -11,12 +11,7 @@ export default (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
       // 1: { id: 1, username: "Example", email: "Example" }
-<<<<<<< HEAD
-      const newState = merge({}, state, { [action.currentUser.id]: action.currentUser });
-      return newState;
-=======
       return merge({}, state, { [action.currentUser.id]: action.currentUser });
->>>>>>> userAuth
     default:
       return state;
   }

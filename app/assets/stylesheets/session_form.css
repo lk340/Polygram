@@ -2,11 +2,18 @@
   border: var(--lightGray) solid 1px;
   border-radius: 2px;
   text-align: center;
-  height: 564px;
   width: 350px;
   margin: 10px auto;
   color: var(--grayTextBold);
   background-color: white;
+}
+
+.sign-up-form-height {
+  height: 564px;
+}
+
+.sign-in-form-height {
+  height: 405px;
 }
 
 .session-form h1 {
@@ -29,6 +36,12 @@
   text-decoration: none;
   color: var(--grayTextBold);
   font-weight: bold;
+}
+
+.session-form-span-div {
+  width: 228px;
+  margin: auto;
+  font-size: 14px;
 }
 
 .session-form-span {
@@ -90,6 +103,12 @@
 .sign-in-up a {
   text-decoration: none;
   color: var(--lightBlue);
+}
+
+.submit-fade {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.3;
 }
 
 .get-the-app {
@@ -185,10 +204,17 @@
 
 .sign-in-form-bottom-half .facebookTwo-target-blank, .sign-in-form-bottom-half .facebookTwo-forgot-password {
   color: #385185;
+  display: block;
 }
 
 .sign-in-form-bottom-half .facebookTwo-target-blank {
-  
+  font-size: 14px;
+}
+
+.sign-in-form-bottom-half .facebookTwo-forgot-password {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 10px 0;
 }
 
 /* .sign-in-form-bottom-half div .s312c {

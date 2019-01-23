@@ -39,6 +39,7 @@ export default class SessionForm extends React.Component {
     }
 
     let facebook;
+    let span;
     if (this.props.formType === "signup") {
       facebook = (
         <div className="sign-up-form-top-half">
@@ -50,6 +51,12 @@ export default class SessionForm extends React.Component {
             <div className="or">OR</div>
             <div className="s311c s311c-2"></div>
           </div>
+        </div>
+      )
+
+      span = (
+        <div className="session-form-span-div">
+          <span className="session-form-span">By signing up, you agree to our</span> <a href="#">Terms</a>, <a href="#">Data Policy</a> , and < a href="#" > Cookies Policy</a >.
         </div>
       )
     }
@@ -69,10 +76,26 @@ export default class SessionForm extends React.Component {
         </div>
       )
     }
+
+    let sessionFormHeight = "session-form";
+    if (this.props.formType === "signup") {
+      sessionFormHeight += " sign-up-form-height"
+    }
+    else {
+      sessionFormHeight += " sign-in-form-height"
+    }
+
+    let sessionFormSubmitButton = "session-form-submit-button";
+    const email = this.state.email;
+    const username = this.state.username;
+    if ((email === "" || username === "") && this.props.formType === "signin") {
+      sessionFormSubmitButton += " submit-fade";
+    }
     
     return (
       <div className="session-form-container">
-        <div className="session-form">
+        {/* <div className="session-form"> */}
+        <div className={ sessionFormHeight }>
           {/* <h2>{this.props.formType === "signin" ? "Sign In" : "Sign Up"}</h2> */}
           <h1>Polygram</h1>
 
@@ -95,7 +118,7 @@ export default class SessionForm extends React.Component {
 
             <br />
 
-            <input type="submit" value={this.props.formType === "signin" ? "Sign In" : "Sign Up"} className="session-form-submit-button" />
+            <input type="submit" value={this.props.formType === "signin" ? "Log In" : "Sign Up"} className={ sessionFormSubmitButton } />
 
             <div> {facebookTwo} </div>
           </form>
@@ -104,9 +127,9 @@ export default class SessionForm extends React.Component {
             {errors}
           </ul>
 
-          <p>
-            <span className="session-form-span">By signing up, you agree to our</span> <a href="#">Terms</a>, <a href="#">Data Policy</a>, and <a href="#">Cookies Policy</a>.
-          </p>
+          <div>
+            { span }
+          </div>
         </div>
 
         <div className="sign-in-up">
