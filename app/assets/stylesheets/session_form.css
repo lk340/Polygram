@@ -67,10 +67,6 @@
   cursor: pointer;
 }
 
-.sign-up-form {
-  
-}
-
 .field-input {
   height: 38px;
   width: 268px;
@@ -159,7 +155,7 @@
 .sign-up-form-top-half div {
   display: flex;
   flex-direction: row;
-  margin-bottom: 15px;
+  margin-bottom: 9px;
 }
 
 .s311c {

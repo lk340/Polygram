@@ -88,7 +88,7 @@ export default class SessionForm extends React.Component {
     }
 
     let sessionFormButton = "session-form-submit-button";
-    if (this.state.email === "" || this.state.username === "") {
+    if ((this.state.email === "" || this.state.username === "") && this.props.formType === "signin") {
       sessionFormButton += " button-fade-out"
     }
     
