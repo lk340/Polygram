@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Footer from './footer';
+
 export default class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -35,41 +37,64 @@ export default class SessionForm extends React.Component {
     else {
       sessionFormClass = "sign-up-form"
     }
+
+    let facebook;
+    if (this.props.formType === "signup") {
+      facebook = (
+        <div>
+          <p>Sign up to see photos and videos from your friends.</p>
+          <a href="https://www.facebook.com/">Log in with Facebook</a>
+          <hr /> OR <hr />
+        </div>
+      )
+    }
     
     return (
-      <div className="session-form">
-        <h2>{ this.props.formType === "signin" ? "Sign In" : "Sign Up" }</h2>
-        
-        <form onSubmit={ this.handleSubmit } className={ sessionFormClass } >
-          <input type="text" value={this.state.email} placeholder="Email" onChange={this.handleChange("email")} />
+      <div>
+        <div className="session-form">
+          {/* <h2>{this.props.formType === "signin" ? "Sign In" : "Sign Up"}</h2> */}
+          <h2>Polygram</h2>
 
-          <br/>
-          <br/>
+          <div>{ facebook }</div>
 
-          <input type="text" value={this.state.username} placeholder="Username" onChange={ this.handleChange("username") } />
+          <form onSubmit={this.handleSubmit} className={sessionFormClass} >
+            <input type="text" value={this.state.email} placeholder="Email" className="field-input" onChange={this.handleChange("email")} />
 
-          <br/>
-          <br/>
+            <br />
+            <br />
 
-          <input type="password" value={ this.state.password } placeholder="Password" onChange={ this.handleChange("password") } />
+            <input type="text" value={this.state.username} placeholder="Username" className="field-input" onChange={this.handleChange("username")} />
 
-          <br/>
-          <br/>
+            <br />
+            <br />
 
-          <input type="submit" value={ this.props.formType === "signin" ? "Sign In" : "Sign Up" } />
-        </form>
+            <input type="password" value={this.state.password} placeholder="Password" className="field-input" onChange={this.handleChange("password")} />
 
-        <ul>
-          { errors }
-        </ul>
+            <br />
+            <br />
 
-        <div>
-          { this.props.formType === "signin" ? "Don't have an account?" : "Already have an account?" } &nbsp;
+            <input type="submit" value={this.props.formType === "signin" ? "Sign In" : "Sign Up"} className="session-form-submit-button" />
+          </form>
+
+          <ul>
+            {errors}
+          </ul>
+
+          <p>
+            <span className="session-form-span">By signing up, you agree to our</span> <a href="#">Terms</a>, <a href="#">Data Policy</a>, and <a href="#">Cookies Policy</a>.
+          </p>
+        </div>
+
+        <div className="sign-in-up">
+          {this.props.formType === "signin" ? "Don't have an account?" : "Have an account?"} &nbsp;
           <Link to={this.props.formType === "signin" ? "/accounts/emailsignup" : "/accounts/login"}>
             {this.props.formType === "signin" ? "Sign Up" : "Log In"}
           </Link>
         </div>
-        
+
+        <div className="get-the-app">Get the app.</div>
+
+        <Footer />
       </div>
     )
   }

@@ -14,19 +14,23 @@
  *= require_self
  */
 
+ /* GLOBAL */
 :root {
-  --lightGray: rgb(196, 196, 196);
+  --lightGray: #e6e6e6;
+  --lightBlue: #3897F0;
+
+  --grayText: #A7A7A7;
+  --grayTextBold: #999999;
 }
 
-/* SESSION FORM */
-.session-form {
-  border: var(--lightGray) solid 1px;
+html, body {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  /* background-color:  */
 }
 
-.sign-up-form {
-  
-}
-
-.sign-up-form input {
-  text-align: start;
+* {
+  box-sizing: border-box;
 }

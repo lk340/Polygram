@@ -26,14 +26,14 @@ export default class Greeting extends React.Component {
       )
     }
 
-    else {
-      welcome = (
-        <div>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/signin">Sign In</Link>
-        </div>
-      )
-    }
+    // else {
+    //   welcome = (
+    //     <div>
+    //       <Link to="/signup">Sign Up</Link>
+    //       <Link to="/signin">Sign In</Link>
+    //     </div>
+    //   )
+    // }
 
     return (
       <div>

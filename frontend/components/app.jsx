@@ -10,7 +10,7 @@ export default () => {
   return (
     <div>
       <header>
-        <h1>Polygram</h1>
+        {/* <h1>Polygram</h1> */}
         <GreetingContainer />
       </header>
 

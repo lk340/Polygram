@@ -1,0 +1,21 @@
+footer .footer-links {
+  width: 348px;
+  margin: auto;
+  text-align: center;
+}
+
+footer a {
+  color: #003569;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.7rem;
+}
+
+footer .copyright {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #AFAFAF;
+  margin: 5px 0;
+}
