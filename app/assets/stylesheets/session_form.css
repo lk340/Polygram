@@ -1,0 +1,209 @@
+.session-form {
+  border: var(--lightGray) solid 1px;
+  border-radius: 2px;
+  text-align: center;
+  height: 564px;
+  width: 350px;
+  margin: 10px auto;
+  color: var(--grayTextBold);
+  background-color: white;
+}
+
+.session-form h1 {
+  font-family: 'Grand Hotel', cursive;
+  color: black;
+  font-size: 3rem;
+  margin: 15px;
+}
+
+.session-form p {
+  text-align: center;
+  margin: auto;
+  width: 228px;
+  line-height: 18px;
+  color: #999;
+  font-size: 14px;
+}
+
+.session-form a {
+  text-decoration: none;
+  color: var(--grayTextBold);
+  font-weight: bold;
+}
+
+.session-form-span {
+  color: var(--grayText);
+}
+
+.session-form-submit-button {
+  background-color: var(--lightBlue);
+  border: var(--lightBlue) solid 1px;
+  color: white;
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 5px 9px;
+  height: 30px;
+  width: 268px;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 7px;
+}
+
+.session-form-submit-button:hover {
+  cursor: pointer;
+}
+
+.sign-up-form {
+  
+}
+
+.field-input {
+  height: 38px;
+  width: 268px;
+  border-radius: 3px;
+  border: rgb(230, 230, 230) solid 1px;
+  background-color: #FAFAFA;
+  padding-left: 10px;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.field-input::placeholder {
+  color: rgb(156, 155, 155);
+}
+
+.field-input:focus {
+  border: rgb(190, 190, 190) solid 1px;
+}
+
+.sign-in-up {
+  border: var(--lightGray) solid 1px;
+  border-radius: 2px;
+  text-align: center;
+  width: 348px;
+  margin: 10px auto;
+  padding: 27px 0;
+  font-size: 14px;
+  background-color: white;
+}
+
+.sign-in-up a {
+  text-decoration: none;
+  color: var(--lightBlue);
+}
+
+.get-the-app {
+  text-align: center;
+  font-size: 14px;
+  margin: 27px 0;
+}
+
+.sign-up-form-top-half h2 {
+  font-size: 17px;
+  margin: auto;
+  width: 268px;
+  height: 40px;
+}
+
+/* .sign-up-form-top-half button {
+  background-color: var(--lightBlue);
+  border: var(--lightGray) solid 1px;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 9px;
+  height: 30px;
+  width: 268px;
+  margin: auto;
+} */
+
+.sign-up-form-top-half a {
+  display: block;
+  background-color: var(--lightBlue);
+  border: var(--lightGray) solid 1px;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 7.5px 9px;
+  height: 35px;
+  width: 268px;
+  text-align: center;
+  margin: 15px auto;
+  /* line-height: 18px; */
+}
+
+.sign-up-form-top-half a span {
+  padding-bottom: 2px;
+}
+
+.fa-facebook {
+  font-size: 18px;
+}
+
+.sign-up-form-top-half div {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.s311c {
+  background-color: #efefef;
+  height: 1px;
+  top: 0.45rem;
+  flex-grow: 1;
+  flex-shrink: 1;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.s311c-1 {
+  margin-left: 40px;
+}
+
+.s311c-2 {
+  margin-right: 40px;
+}
+
+.or {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 15px;
+  margin: 0 18px;
+}
+
+.sign-in-form-bottom-half {
+  margin-top: 15px;
+}
+
+.sign-in-form-bottom-half div {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.sign-in-form-bottom-half .facebookTwo-target-blank, .sign-in-form-bottom-half .facebookTwo-forgot-password {
+  color: #385185;
+}
+
+.sign-in-form-bottom-half .facebookTwo-target-blank {
+  
+}
+
+/* .sign-in-form-bottom-half div .s312c {
+  background-color: #efefef;
+  height: 1px;
+  top: 0.45rem;
+  flex-grow: 1;
+  flex-shrink: 1;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.sign-in-form-bottom-half div .or2 {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 15px;
+  margin: 0 18px;
+} */

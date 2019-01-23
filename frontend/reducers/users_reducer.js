@@ -3,7 +3,7 @@
 // keeps track of all of our users
 import { merge } from 'lodash';
 
-import RECEIVE_CURRENT_USER from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
@@ -11,8 +11,12 @@ export default (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
       // 1: { id: 1, username: "Example", email: "Example" }
+<<<<<<< HEAD
       const newState = merge({}, state, { [action.currentUser.id]: action.currentUser });
       return newState;
+=======
+      return merge({}, state, { [action.currentUser.id]: action.currentUser });
+>>>>>>> userAuth
     default:
       return state;
   }

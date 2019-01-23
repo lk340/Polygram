@@ -1,9 +1,20 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
 
-export default () => {
+import App from './app';
+
+export default ({ store }) => {
   return (
-    <div>
-      <h1>Hello from React (from the root component)!</h1>
-    </div>
+    <Provider store={ store }>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </Provider>
   )
 }
+
+// TEST SIGN IN //
+// let loyd = {username: "Loyd", password: "starwars", email: "aaa"}
+// dispatch(signin(loyd))
+// TEST SIGN IN //

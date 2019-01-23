@@ -5,8 +5,8 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
-  has_many :posts
-  has_many :followers
+  # has_many :posts
+  # has_many :followers
   
   # FGRIPE
   def self.find_by_credentials(username, password, email)
@@ -37,6 +37,6 @@ class User < ApplicationRecord
   end
 
   def ensure_session_token
-    self.reset_session_token! || User.generate_session_token
+    self.session_token = User.generate_session_token
   end
 end
