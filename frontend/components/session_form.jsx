@@ -9,6 +9,7 @@ export default class SessionForm extends React.Component {
     this.state = { username: "", password: "", email: "" };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.logInDemoUser = this.logInDemoUser.bind(this);
   }
 
   handleChange(field) {
@@ -22,13 +23,21 @@ export default class SessionForm extends React.Component {
     this.props.processForm(this.state);
   }
 
+  logInDemoUser(event) {
+    event.preventDefault();
+    const demo = { username: "demoUser", email: "demoUser@demo", password: "demodemo" };
+    this.props.processForm(demo);
+  }
+
   render() {
+    // ================================== CREATING ERROR LIS ==================================
     let errors;
     if (this.props.errors.session.length > 0) {
       errors = this.props.errors.session.map((error, index) => {
         return <li key={index}>{ error }</li>
       })
     }
+    // ================================== CREATING ERROR LIS ==================================
 
     let sessionFormClass;
     if (this.props.formType === "signin") {
@@ -77,25 +86,43 @@ export default class SessionForm extends React.Component {
       )
     }
 
-    let sessionFormHeight = "session-form";
+    let signUpFormMessage;
     if (this.props.formType === "signup") {
-      sessionFormHeight += " sign-up-form-height"
-    }
-    else {
-      sessionFormHeight += " sign-in-form-height"
+      signUpFormMessage = (
+        <div className="signUpFormMessage">
+          <span className="session-form-span">By signing up, you agree to our</span> <a href="#">Terms</a>, <a href="#">Data Policy</a>, and <a href="#">Cookies Policy</a>.
+        </div>
+      )
     }
 
-    let sessionFormSubmitButton = "session-form-submit-button";
-    const email = this.state.email;
-    const username = this.state.username;
-    if ((email === "" || username === "") && this.props.formType === "signin") {
-      sessionFormSubmitButton += " submit-fade";
+    let sessionFormContainer = "session-form-container";
+    if (this.props.formType === "signup") {
+      sessionFormContainer += " signUpFormHeight";
+    }
+    else {
+      sessionFormContainer += " signInFormHeight";
     }
     
+
+    let sessionFormButton = "session-form-submit-button";
+    if ((this.state.email === "" && this.state.username === "") && this.props.formType === "signin") {
+      sessionFormButton += " button-fade-out"
+    }
+
+    // ================================== DEMO USER LOGIN ==================================
+    let demoUser;
+    if (this.props.formType === "signin") {
+      demoUser = (
+        <div>
+          <button className="demo-button" onClick={ this.logInDemoUser } >Demo User Login</button>
+        </div>
+      )
+    }
+    // ================================== DEMO USER LOGIN ==================================
+    
     return (
-      <div className="session-form-container">
-        {/* <div className="session-form"> */}
-        <div className={ sessionFormHeight }>
+      <div className={ sessionFormContainer }>
+        <div className="session-form">
           {/* <h2>{this.props.formType === "signin" ? "Sign In" : "Sign Up"}</h2> */}
           <h1>Polygram</h1>
 
@@ -118,7 +145,9 @@ export default class SessionForm extends React.Component {
 
             <br />
 
-            <input type="submit" value={this.props.formType === "signin" ? "Log In" : "Sign Up"} className={ sessionFormSubmitButton } />
+            <input type="submit" value={this.props.formType === "signin" ? "Log In" : "Sign Up"} className={ sessionFormButton } />
+
+            <div>{ demoUser }</div>
 
             <div> {facebookTwo} </div>
           </form>
@@ -128,7 +157,7 @@ export default class SessionForm extends React.Component {
           </ul>
 
           <div>
-            { span }
+            { signUpFormMessage }
           </div>
         </div>
 

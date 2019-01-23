@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import SessionForm from './session_form';
 import { signUp } from '../actions/session_actions';
 
-const msp = state => {
+const msp = (state, ownProps) => {
   return {
     formType: "signup",
     errors: state.errors,
+    slash: ownProps.match.params,
   };
 };
 
