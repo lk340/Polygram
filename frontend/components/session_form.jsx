@@ -112,7 +112,7 @@ export default class SessionForm extends React.Component {
 
             <br />
 
-            <input type="submit" value={this.props.formType === "signin" ? "Sign In" : "Sign Up"} className="session-form-submit-button" />
+            <input type="submit" value={this.props.formType === "signin" ? "Log In" : "Sign Up"} className="session-form-submit-button" />
 
             <div> {facebookTwo} </div>
           </form>
