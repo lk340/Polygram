@@ -86,6 +86,11 @@ export default class SessionForm extends React.Component {
     else {
       sessionFormContainer += " signInFormHeight";
     }
+
+    let sessionFormButton = "session-form-submit-button";
+    if (this.state.email === "" || this.state.username === "") {
+      sessionFormButton += " button-fade-out"
+    }
     
     return (
       <div className={ sessionFormContainer }>
@@ -112,7 +117,7 @@ export default class SessionForm extends React.Component {
 
             <br />
 
-            <input type="submit" value={this.props.formType === "signin" ? "Log In" : "Sign Up"} className="session-form-submit-button" />
+            <input type="submit" value={this.props.formType === "signin" ? "Log In" : "Sign Up"} className={ sessionFormButton } />
 
             <div> {facebookTwo} </div>
           </form>

@@ -212,6 +212,12 @@
   margin-bottom: 5px;
 }
 
+.button-fade-out {
+  cursor: default;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 /* .sign-in-form-bottom-half div .s312c {
   background-color: #efefef;
   height: 1px;
