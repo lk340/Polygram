@@ -112,58 +112,80 @@ export default class SessionForm extends React.Component {
       )
     }
     // ================================== DEMO USER LOGIN ==================================
+
+    // ================================== SIGN UP SLASH PAGE IMAGE ==================================
+    // if our url is "/", then insert image into sessionFormContainer and css to the "session-form"
+    let slashImage;
+    let sessionForm = "session-form"
+    if (this.props.slash === "/") {
+      slashImage = (
+        <div>
+          <img src={require("../../app/assets/images/instagram_signup_slash.png")} alt="slash-image" />
+        </div>
+      )
+
+      sessionFormContainer += " slash-image-session-form-css"
+    }
+    // ================================== SIGN UP SLASH PAGE IMAGE ==================================
     
     return (
-      <div className={ sessionFormContainer }>
-        <div className="session-form">
-          {/* <h2>{this.props.formType === "signin" ? "Sign In" : "Sign Up"}</h2> */}
-          <h1>Polygram</h1>
+      <div>
+        <div id="sign-up-slash-image">
+          {slashImage}
+        </div>
 
-          <div>{ facebook }</div>
+        <div className={sessionFormContainer}>
 
-          <form onSubmit={this.handleSubmit} className={sessionFormClass} >
-            <input type="text" value={this.state.email} placeholder="Email" className="field-input" onChange={this.handleChange("email")} />
+          <div className={sessionForm}>
+            {/* <h2>{this.props.formType === "signin" ? "Sign In" : "Sign Up"}</h2> */}
+            <h1>Polygram</h1>
 
-            <br />
+            <div>{facebook}</div>
 
-            <input type="text" value={this.state.username} placeholder="Username" className="field-input" onChange={this.handleChange("username")} />
+            <form onSubmit={this.handleSubmit} className={sessionFormClass} >
+              <input type="text" value={this.state.email} placeholder="Email" className="field-input" onChange={this.handleChange("email")} />
 
-            <br />
+              <br />
 
-            {/* <input type="text" value={this.state.username} placeholder="Username" className="field-input" onChange={this.handleChange("username")} />
+              <input type="text" value={this.state.username} placeholder="Username" className="field-input" onChange={this.handleChange("username")} />
+
+              <br />
+
+              {/* <input type="text" value={this.state.username} placeholder="Username" className="field-input" onChange={this.handleChange("username")} />
 
             <br /> */}
 
-            <input type="password" value={this.state.password} placeholder="Password" className="field-input" onChange={this.handleChange("password")} />
+              <input type="password" value={this.state.password} placeholder="Password" className="field-input" onChange={this.handleChange("password")} />
 
-            <br />
+              <br />
 
-            <input type="submit" value={this.props.formType === "signin" ? "Log In" : "Sign Up"} className={ sessionFormButton } />
+              <input type="submit" value={this.props.formType === "signin" ? "Log In" : "Sign Up"} className={sessionFormButton} />
 
-            <div>{ demoUser }</div>
+              <div>{demoUser}</div>
 
-            <div> {facebookTwo} </div>
-          </form>
+              <div> {facebookTwo} </div>
+            </form>
 
-          <ul>
-            {errors}
-          </ul>
+            <ul>
+              {errors}
+            </ul>
 
-          <div>
-            { signUpFormMessage }
+            <div>
+              {signUpFormMessage}
+            </div>
           </div>
-        </div>
 
-        <div className="sign-in-up">
-          {this.props.formType === "signin" ? "Don't have an account?" : "Have an account?"} &nbsp;
+          <div className="sign-in-up">
+            {this.props.formType === "signin" ? "Don't have an account?" : "Have an account?"} &nbsp;
           <Link to={this.props.formType === "signin" ? "/accounts/emailsignup" : "/accounts/login"}>
-            {this.props.formType === "signin" ? "Sign Up" : "Log In"}
-          </Link>
+              {this.props.formType === "signin" ? "Sign Up" : "Log In"}
+            </Link>
+          </div>
+
+          <div className="get-the-app">Get the app.</div>
+
+          <Footer />
         </div>
-
-        <div className="get-the-app">Get the app.</div>
-
-        <Footer />
       </div>
     )
   }
