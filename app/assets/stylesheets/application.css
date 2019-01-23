@@ -15,13 +15,18 @@
  */
 
 :root {
-  --lightGray: rgb(102, 102, 102);
+  --lightGray: rgb(196, 196, 196);
 }
 
-.sign-up-form {
+/* SESSION FORM */
+.session-form {
   border: var(--lightGray) solid 1px;
 }
 
-.sign-up-form label {
-  font-weight: bold;
+.sign-up-form {
+  
+}
+
+.sign-up-form input {
+  text-align: start;
 }

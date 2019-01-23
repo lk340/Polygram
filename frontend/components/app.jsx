@@ -15,8 +15,8 @@ export default () => {
       </header>
 
       <AuthRoute exact path="/" component={ SignUpFormContainer } />
-      <AuthRoute exact path="/signin" component={ SignInFormContainer } />
-      <AuthRoute exact path="/signup" component={ SignUpFormContainer } />
+      <AuthRoute exact path="/accounts/login" component={ SignInFormContainer } />
+      <AuthRoute exact path="/accounts/emailsignup" component={ SignUpFormContainer } />
     </div>
   )
 }

@@ -37,27 +37,21 @@ export default class SessionForm extends React.Component {
     }
     
     return (
-      <div>
+      <div className="session-form">
         <h2>{ this.props.formType === "signin" ? "Sign In" : "Sign Up" }</h2>
         
         <form onSubmit={ this.handleSubmit } className={ sessionFormClass } >
-          <input type="text" value={ this.state.username } onChange={ this.handleChange("username") } placeholder="Username" />
+          <input type="text" value={this.state.email} placeholder="Email" onChange={this.handleChange("email")} />
 
           <br/>
           <br/>
 
-          <label>
-            Password:
-            <input type="password" value={ this.state.password } onChange={ this.handleChange("password") } />
-          </label>
+          <input type="text" value={this.state.username} placeholder="Username" onChange={ this.handleChange("username") } />
 
           <br/>
           <br/>
 
-          <label>
-            Email:
-            <input type="text" value={ this.state.email } onChange={ this.handleChange("email") } />
-          </label>
+          <input type="password" value={ this.state.password } placeholder="Password" onChange={ this.handleChange("password") } />
 
           <br/>
           <br/>
@@ -69,9 +63,13 @@ export default class SessionForm extends React.Component {
           { errors }
         </ul>
 
-        <Link to={ this.props.formType === "signin" ? "/signup" : "/signin" }>
-          {this.props.formType === "signin" ? "Sign Up" : "Sign In"}
-        </Link>
+        <div>
+          { this.props.formType === "signin" ? "Don't have an account?" : "Already have an account?" } &nbsp;
+          <Link to={this.props.formType === "signin" ? "/accounts/emailsignup" : "/accounts/login"}>
+            {this.props.formType === "signin" ? "Sign Up" : "Log In"}
+          </Link>
+        </div>
+        
       </div>
     )
   }
