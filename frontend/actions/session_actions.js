@@ -30,10 +30,7 @@ export const signUp = user => dispatch => {
   return AJAX.signUpAjax(user)
     .then(
       currentUser => dispatch(receiveCurrentUser(currentUser)),
-      errors => {
-      
-        return dispatch(receiveErrors(errors.responseJSON));
-      },
+      errors => dispatch(receiveErrors(errors.responseJSON))
     );
 };
 

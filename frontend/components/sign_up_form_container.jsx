@@ -7,7 +7,7 @@ const msp = (state, ownProps) => {
   return {
     formType: "signup",
     errors: state.errors,
-    slash: ownProps.match.params,
+    slash: ownProps.match.path,
   };
 };
 
