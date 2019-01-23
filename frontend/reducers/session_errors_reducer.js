@@ -6,11 +6,10 @@ import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER } from '../actions/session
 
 export default (state = [], action) => {
   Object.freeze(state);
-  
+
   switch(action.type) {
     case RECEIVE_SESSION_ERRORS:
-      const errorsState = merge([], state, action.errors);
-      return errorsState;
+      return merge([], state, action.errors);
     case RECEIVE_CURRENT_USER:
       return [];
     default:

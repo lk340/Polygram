@@ -19,9 +19,10 @@ const signOutCurrentUser = () => {
 
 // Will take an array of errors (will iterate through this to display on website)
 const receiveErrors = errors => {
+
   return {
     type: RECEIVE_SESSION_ERRORS,
-    errors: errors.responseJSON,
+    errors,
   };
 };
 
@@ -29,7 +30,10 @@ export const signUp = user => dispatch => {
   return AJAX.signUpAjax(user)
     .then(
       currentUser => dispatch(receiveCurrentUser(currentUser)),
-      errors => dispatch(receiveErrors(errors))
+      errors => {
+      
+        return dispatch(receiveErrors(errors.responseJSON));
+      },
     );
 };
 
@@ -37,7 +41,7 @@ export const signIn = user => dispatch => {
   return AJAX.signInAjax(user)
     .then(
       currentUser => dispatch(receiveCurrentUser(currentUser)),
-      errors => dispatch(receiveErrors(errors))
+      errors => dispatch(receiveErrors(errors.responseJSON))
     );
 };
 

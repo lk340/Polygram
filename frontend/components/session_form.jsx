@@ -21,15 +21,27 @@ export default class SessionForm extends React.Component {
   }
 
   render() {
+    let errors;
+    if (this.props.errors.session.length > 0) {
+      errors = this.props.errors.session.map((error, index) => {
+        return <li key={index}>{ error }</li>
+      })
+    }
+
+    let sessionFormClass;
+    if (this.props.formType === "signin") {
+      sessionFormClass = "sign-in-form"
+    }
+    else {
+      sessionFormClass = "sign-up-form"
+    }
+    
     return (
       <div>
         <h2>{ this.props.formType === "signin" ? "Sign In" : "Sign Up" }</h2>
         
-        <form onSubmit={ this.handleSubmit } >
-          <label>
-            Username:
-            <input type="text" value={ this.state.username } onChange={ this.handleChange("username") } />
-          </label>
+        <form onSubmit={ this.handleSubmit } className={ sessionFormClass } >
+          <input type="text" value={ this.state.username } onChange={ this.handleChange("username") } placeholder="Username" />
 
           <br/>
           <br/>
@@ -52,6 +64,10 @@ export default class SessionForm extends React.Component {
 
           <input type="submit" value={ this.props.formType === "signin" ? "Sign In" : "Sign Up" } />
         </form>
+
+        <ul>
+          { errors }
+        </ul>
 
         <Link to={ this.props.formType === "signin" ? "/signup" : "/signin" }>
           {this.props.formType === "signin" ? "Sign Up" : "Sign In"}

@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+:root {
+  --lightGray: rgb(102, 102, 102);
+}
+
+.sign-up-form {
+  border: var(--lightGray) solid 1px;
+}
+
+.sign-up-form label {
+  font-weight: bold;
+}
