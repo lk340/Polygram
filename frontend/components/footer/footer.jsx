@@ -1,9 +1,19 @@
 import React from 'react';
 
-export default () => {
+export default (props) => {
+  let footer = "footer-container";
+  let footerLinks = "footer-links";
+  let footerCopy = "footer-copy";
+
+  if (props.footerPath === "/") {
+    footer += " splashFooter";
+    footerLinks = " splashFooter";
+    footerCopy += " splashFooter splashFooterCopy";
+  }
+
   return (
-    <footer>
-      <div className="footer-links">
+    <footer className={ footer } >
+      <div className={ footerLinks }>
         <a href="#">ABOUT US</a> &nbsp; &nbsp;
         <a href="#">SUPPORT</a> &nbsp; &nbsp;
         <a href="#">PRESS</a> &nbsp; &nbsp;
@@ -15,7 +25,7 @@ export default () => {
         <a href="#">PROFILES</a> &nbsp; &nbsp;
         <a href="#">HASHTAGS</a> &nbsp; &nbsp;
         <a href="#">LANGUAGE</a>
-        <a className="footer-copy">&copy; 2019 POLYGRAM</a>
+        <a className={ footerCopy }>&copy; 2019 POLYGRAM</a>
 
         {/* <div className="copyright"> */}
         {/* </div> */}

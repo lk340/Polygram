@@ -60,6 +60,14 @@
 .navbar-search-bar input::placeholder {
   text-align: center;
 }
+
+.navbar-search-bar input:focus::placeholder {
+  text-align: left;
+}
+
+.navbar-search-bar input:focus {
+  background-color: white;
+}
 /* ================== NAVBAR SEARCH BAR END ================== */
 
 /* ================== NAVBAR ICONS START ================== */

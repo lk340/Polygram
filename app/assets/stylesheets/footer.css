@@ -1,5 +1,6 @@
-footer {
-  margin-bottom: 51px;
+.footer-container {
+  /* margin-bottom: 51px; */
+  margin: 0 auto 51px;
 
   /* border: red solid 1px; */
   position: fixed;
@@ -9,9 +10,6 @@ footer {
 }
 
 footer .footer-links {
-  /* width: 348px;
-  margin: auto;
-  text-align: center; */
   text-align: center;
 }
 
@@ -26,4 +24,9 @@ footer a {
 footer .footer-copy {
   color: #AFAFAF;
   margin-left: 5%;
+}
+
+.splashFooter {
+  width: 600px;
+  text-align: left;
 }

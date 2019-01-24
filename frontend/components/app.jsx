@@ -7,7 +7,8 @@ import SignUpFormContainer from './sign_up_form_container';
 import { AuthRoute } from '../utils/route_util';
 
 import NavbarContainer from './posts/navbar_container';
-import Footer from './footer';
+// import Footer from './footer/footer';
+import FooterContainer from './footer/footer_container';
 
 export default () => {
   return (
@@ -26,7 +27,7 @@ export default () => {
       </div>
 
       <div className="app-footer">
-        <Footer />
+        <Route path="/" component={ FooterContainer } />
       </div>
     </div>
   )
