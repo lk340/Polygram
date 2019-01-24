@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.signin = signIn;
   // window.signout = signOut;
 
-  // window.getState = store.getState();
-  // window.dispatch = store.dispatch;
+  window.getState = store.getState();
+  window.dispatch = store.dispatch;
   // TEST ZONE END //
   
   ReactDOM.render(<Root store={store} />, document.getElementById("root"));

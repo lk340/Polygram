@@ -1,0 +1,78 @@
+.navbar-container {
+  position: relative;
+  
+  background-color: white;
+  border-bottom: var(--lightGray) solid 1px;
+  height: 77px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 77px;
+  /* margin: 0 2%; */
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin-bottom: 77px;
+}
+
+/* ================== POLYGRAM LOGO START ================== */
+.navbar-polygram-logo a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  font-family: 'Grand Hotel', cursive;
+  font-size: 27px;
+}
+
+.navbar-polygram-logo div {
+  background-color: black;
+  height: 28px;
+  width: 1px;
+  margin: 0 16px;
+}
+
+.navbar-polygram-logo .fa-instagram {
+  font-size: 24px;
+}
+/* ================== POLYGRAM LOGO END ================== */
+
+/* ================== NAVBAR SEARCH BAR START ================== */
+.navbar-search-bar {
+  margin: 0 240px;
+}
+
+.navbar-search-bar input {
+  height: 28px;
+  width: 215px;
+  border: #dbdbdb solid 1px;
+  border-radius: 3px;
+  padding: 0 10px;
+  font-size: 12px;
+  background-color: var(--lighterGray);
+}
+
+.navbar-search-bar input::placeholder {
+  text-align: center;
+}
+/* ================== NAVBAR SEARCH BAR END ================== */
+
+/* ================== NAVBAR ICONS START ================== */
+.navbar-icons {
+  display: flex;
+  font-size: 28px;
+}
+
+.navbar-icons > div {
+  margin-left: 26px;
+}
+
+.navbar-icons > div:first-child {
+  margin: 0;
+}
+/* ================== NAVBAR ICONS END ================== */
