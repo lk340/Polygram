@@ -29,6 +29,8 @@ html, body {
   border: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #FAFAFA;
+  height: 100%;
+  width: 100%;
 }
 
 * {

@@ -1,0 +1,11 @@
+.app-container {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+}
+
+.app-body {
+  height: 100%;
+
+  /* border: red solid 1px; */
+}

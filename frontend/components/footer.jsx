@@ -15,11 +15,13 @@ export default () => {
         <a href="#">PROFILES</a> &nbsp; &nbsp;
         <a href="#">HASHTAGS</a> &nbsp; &nbsp;
         <a href="#">LANGUAGE</a>
+        <a className="footer-copy">&copy; 2019 POLYGRAM</a>
+
+        {/* <div className="copyright"> */}
+        {/* </div> */}
       </div>
 
-      <div className="copyright">
-        &copy; 2019 POLYGRAM
-      </div>
+      
     </footer>
   )
 }

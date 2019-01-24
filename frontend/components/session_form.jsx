@@ -34,7 +34,7 @@ export default class SessionForm extends React.Component {
     let errors;
     if (this.props.errors.session.length > 0) {
       errors = this.props.errors.session.map((error, index) => {
-        return <li key={index}>{ error }</li>
+        return <li key={index}>{error}</li>
       })
     }
     // ================================== CREATING ERROR LIS ==================================
@@ -80,7 +80,7 @@ export default class SessionForm extends React.Component {
             <div className="s311c s311c-2"></div>
           </div>
           <a className="facebookTwo-target-blank" href="https://github.com/lk340" target="_blank"><i class="fab fa-github"></i>&nbsp; <span>Check out my Github!</span></a>
-          <br/>
+          <br />
           <a className="facebookTwo-forgot-password" href="#">Forgot password?</a>
         </div>
       )
@@ -102,7 +102,7 @@ export default class SessionForm extends React.Component {
     else {
       sessionFormContainer += " signInFormHeight";
     }
-    
+
 
     let sessionFormButton = "session-form-submit-button";
     if ((this.state.email === "" && this.state.username === "") && this.props.formType === "signin") {
@@ -114,7 +114,7 @@ export default class SessionForm extends React.Component {
     if (this.props.formType === "signin") {
       demoUser = (
         <div>
-          <button className="demo-button" onClick={ this.logInDemoUser } >Demo User Login</button>
+          <button className="demo-button" onClick={this.logInDemoUser} >Demo User Login</button>
         </div>
       )
     }
@@ -126,7 +126,7 @@ export default class SessionForm extends React.Component {
     let sessionForm = "session-form"
     if (this.props.slash === "/") {
       slashImage = (
-        <img className="splashURL" src={window.splashURL} alt="polygram-slash-image"/>
+        <img className="splashURL" src={window.splashURL} alt="polygram-slash-image" />
       )
 
       sessionFormContainer = ""
@@ -150,63 +150,64 @@ export default class SessionForm extends React.Component {
       )
     }
     // ================================== SIGN UP SPLASH PAGE USERNAME HTML TAG ==================================
-    
+
     return (
-      <div className="sessionFormUltimateMasterContainer">
-        {/* <div id="sign-up-slash-image"> */}
-          { slashImage }
-        {/* </div> */}
+      <div>
+        <div className="sessionFormUltimateMasterContainer">
+          {/* <div id="sign-up-slash-image"> */}
+          {slashImage}
+          {/* </div> */}
 
-        <div className={sessionFormContainer}>
+          <div className={sessionFormContainer}>
 
-          <div className={sessionForm}>
-            {/* <h2>{this.props.formType === "signin" ? "Sign In" : "Sign Up"}</h2> */}
-            <h1>Polygram</h1>
+            <div className={sessionForm}>
+              {/* <h2>{this.props.formType === "signin" ? "Sign In" : "Sign Up"}</h2> */}
+              <h1>Polygram</h1>
 
-            <div>{facebook}</div>
+              <div>{facebook}</div>
 
-            <form onSubmit={this.handleSubmit} className={sessionFormClass} >
-              <input type="text" value={this.state.email} placeholder="Email" className="field-input" onChange={this.handleChange("email")} />
+              <form onSubmit={this.handleSubmit} className={sessionFormClass} >
+                <input type="text" value={this.state.email} placeholder="Email" className="field-input" onChange={this.handleChange("email")} />
 
-              <br />
+                <br />
 
-              { fullName }
+                {fullName}
 
-              <input type="text" value={this.state.username} placeholder="Username" className="field-input" onChange={this.handleChange("username")} />
+                <input type="text" value={this.state.username} placeholder="Username" className="field-input" onChange={this.handleChange("username")} />
 
-              <br />
+                <br />
 
-              <input type="password" value={this.state.password} placeholder="Password" className="field-input" onChange={this.handleChange("password")} />
+                <input type="password" value={this.state.password} placeholder="Password" className="field-input" onChange={this.handleChange("password")} />
 
-              <br />
+                <br />
 
-              <input type="submit" value={this.props.formType === "signin" ? "Log In" : "Sign Up"} className={sessionFormButton} />
+                <input type="submit" value={this.props.formType === "signin" ? "Log In" : "Sign Up"} className={sessionFormButton} />
 
-              <div>{demoUser}</div>
+                <div>{demoUser}</div>
 
-              <div> {facebookTwo} </div>
-            </form>
+                <div> {facebookTwo} </div>
+              </form>
 
-            <ul className="session-errors">
-              {errors}
-            </ul>
+              <ul className="session-errors">
+                {errors}
+              </ul>
 
-            <div>
-              {signUpFormMessage}
+              <div>
+                {signUpFormMessage}
+              </div>
             </div>
-          </div>
 
-          <div className="sign-in-up">
-            {this.props.formType === "signin" ? "Don't have an account?" : "Have an account?"} &nbsp;
+            <div className="sign-in-up">
+              {this.props.formType === "signin" ? "Don't have an account?" : "Have an account?"} &nbsp;
           <Link to={this.props.formType === "signin" ? "/accounts/emailsignup" : "/accounts/login"}>
-              {this.props.formType === "signin" ? "Sign Up" : "Log In"}
-            </Link>
+                {this.props.formType === "signin" ? "Sign Up" : "Log In"}
+              </Link>
+            </div>
+
+            <div className="get-the-app">Get the app.</div>
           </div>
-
-          <div className="get-the-app">Get the app.</div>
-
-          <Footer />
         </div>
+        {/* <Footer /> */}
       </div>
     )
   }
