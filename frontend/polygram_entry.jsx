@@ -7,6 +7,8 @@ import configureStore from './store/store';
 // TEST IMPORTS START //
 // import * as ApiUtils from './utils/session_api_util';
 // import { signUp, signIn, signOut } from './actions/session_actions'; 
+// import { allPosts, showPost, createPost, editPost, deletePost } from './utils/post_api_util';
+import { allPosts, showPost, createPost, editPost, deletePost } from './actions/post_actions';
 // TEST IMPORTS END //
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -31,6 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.signup = signUp;
   // window.signin = signIn;
   // window.signout = signOut;
+
+  window.allPosts = allPosts;
+  window.showPost = showPost;
+  window.createPost = createPost;
+  window.editPost = editPost;
+  window.deletePost = deletePost;
+  // let postOne = { post: { caption: "first post!", image_url: "too lazy to get a link" } }
 
   window.getState = store.getState();
   window.dispatch = store.dispatch;
