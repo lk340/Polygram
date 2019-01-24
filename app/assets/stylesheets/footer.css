@@ -1,10 +1,17 @@
 footer {
   margin-bottom: 51px;
+
+  /* border: red solid 1px; */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 footer .footer-links {
-  width: 348px;
+  /* width: 348px;
   margin: auto;
+  text-align: center; */
   text-align: center;
 }
 
@@ -13,14 +20,10 @@ footer a {
   text-decoration: none;
   font-size: 12px;
   font-weight: bold;
-  font-weight: 500;
   line-height: 1.5rem;
 }
 
-footer .copyright {
-  text-align: center;
-  font-size: 12px;
-  font-weight: bold;
+footer .footer-copy {
   color: #AFAFAF;
-  margin: 5px 0;
+  margin-left: 5%;
 }
