@@ -13,10 +13,10 @@ const receivePostsAction = posts => {
   };
 };
 
-const receivePostAction = postId => {
+const receivePostAction = post => {
   return {
     type: RECEIVE_POST,
-    postId,
+    post,
   };
 };
 
@@ -50,8 +50,8 @@ export const showPost = id => dispatch => {
 };
 
 export const createPost = post => dispatch => {
-  return PostAJAX.createPost(post).then(post => dispatch(createPostAction(post)))
-}
+  return PostAJAX.createPost(post).then(post => dispatch(createPostAction(post)));
+};
 
 export const editPost = post => dispatch => {
   return PostAJAX.editPost(post).then(post => dispatch(editPostAction(post)));
