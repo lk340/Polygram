@@ -43,7 +43,6 @@ const deletePostAction = postId => {
 };
 
 const postErrorsAction = errors => {
-  debugger;
   return {
     type: POST_ERRORS,
     errors,

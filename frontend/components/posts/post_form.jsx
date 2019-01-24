@@ -11,7 +11,7 @@ export default class Post extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.currentUser) this.props.posts();
+    // if (this.props.currentUser) this.props.posts();
   }
 
   handleFile(event) {
@@ -26,25 +26,25 @@ export default class Post extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    
+     
     const formData = new FormData();
     formData.append("post[caption]", this.state.caption);
-    formData.append("post[image_url]", this.state.image_url);
+    formData.append("post[image]", this.state.image_url);
     formData.append("post[user_id]", this.state.user_id);
     
-    this.props.create(this.state);
+    this.props.create(formData);
   }
   
   render() {
+    console.log(this.state);
     return (
       <div>
         <form onSubmit={ this.handleSubmit }>
-
           <input type="file" onChange={ this.handleFile } />
           <br/>
           <input type="text" placeholder="Your caption here." onChange={ this.handleChange("caption") } />
           <br/>
-          <input type="submit" value="submit" />
+          <input type="submit" value="Share" />
         </form>
       </div>
     )
