@@ -6,6 +6,7 @@ import { showPost } from '../../utils/post_api_util';
 const msp = state => {
   return {
     sessionId: state.session.id,
+    currentUser: state.entities.users[state.session.id],
   };
 };
 
