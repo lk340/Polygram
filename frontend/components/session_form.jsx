@@ -129,7 +129,12 @@ export default class SessionForm extends React.Component {
         <img className="splashURL" src={window.splashURL} alt="polygram-slash-image"/>
       )
 
-      sessionFormContainer += " slash-image-session-form-css"
+      sessionFormContainer = ""
+      sessionForm = "slash-image-session-form-css"
+    }
+
+    else if (this.props.slash === "/accounts/emailsignup") {
+      sessionForm = "emailsignup-session-form"
     }
     // ================================== SIGN UP SLASH PAGE IMAGE ==================================
 
