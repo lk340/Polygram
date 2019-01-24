@@ -2,7 +2,7 @@ import { merge } from 'lodash';
 
 import { RECEIVE_POSTS, RECEIVE_POST, CREATE_POST, EDIT_POST, DELETE_POST } from '../actions/post_actions';
 
-export default (state = {}, action) {
+export default (state = {}, action) => {
   Object.freeze(state);
   const newState = merge({}, state);
   
@@ -24,4 +24,4 @@ export default (state = {}, action) {
     default:
       return state;
   }
-}
+};

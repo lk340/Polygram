@@ -5,6 +5,7 @@ export const RECEIVE_POST = "RECEIVE_POST";
 export const CREATE_POST = "CREATE_POST";
 export const EDIT_POST = "EDIT_POST";
 export const DELETE_POST = "DELETE_POST";
+export const POST_ERRORS = "POST_ERRORS";
 
 const receivePostsAction = posts => {
   return {
@@ -41,22 +42,46 @@ const deletePostAction = postId => {
   };
 };
 
+const postErrorsAction = errors => {
+  debugger;
+  return {
+    type: POST_ERRORS,
+    errors,
+  };
+};
+
 export const allPosts = () => dispatch => {
   return PostAJAX.allPosts().then(posts => dispatch(receivePostsAction(posts)));
 };
 
 export const showPost = id => dispatch => {
-  return PostAJAX.showPost(id).then(post => dispatch(receivePostAction(post)));
+  return PostAJAX.showPost(id)
+    .then(
+      post => dispatch(receivePostAction(post)),
+      errors => dispatch(postErrorsAction(errors.responseJSON))
+    );
 };
 
 export const createPost = post => dispatch => {
-  return PostAJAX.createPost(post).then(post => dispatch(createPostAction(post)));
+  return PostAJAX.createPost(post)
+    .then(
+      post => dispatch(createPostAction(post)),
+      errors => dispatch(postErrorsAction(errors.responseJSON))
+    );
 };
 
 export const editPost = post => dispatch => {
-  return PostAJAX.editPost(post).then(post => dispatch(editPostAction(post)));
+  return PostAJAX.editPost(post)
+    .then(
+      post => dispatch(editPostAction(post)),
+      errors => dispatch(postErrorsAction(errors.responseJSON))
+    );
 };
 
 export const deletePost = id => dispatch => {
-  return PostAJAX.deletePost(id).then(post => dispatch(deletePostAction(post.id)));
+  return PostAJAX.deletePost(id)
+    .then(
+      post => dispatch(deletePostAction(post.id)),
+      errors => dispatch(postErrorsAction(errors.responseJSON))
+    );
 };

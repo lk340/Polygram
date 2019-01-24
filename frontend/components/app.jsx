@@ -8,6 +8,7 @@ import { AuthRoute } from '../utils/route_util';
 
 import NavbarContainer from './posts/navbar_container';
 // import Footer from './footer/footer';
+import PostFormContainer from './posts/post_form_container';
 import FooterContainer from './footer/footer_container';
 
 export default () => {
@@ -19,6 +20,7 @@ export default () => {
             <NavbarContainer />
           </nav>
           <GreetingContainer />
+          <PostFormContainer />
         </header>
 
         <AuthRoute exact path="/" component={ SignUpFormContainer } />

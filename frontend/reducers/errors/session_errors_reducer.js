@@ -1,10 +1,21 @@
-import { combineReducers } from 'redux';
+// In charge of handling our session errors in our errors slice of state.
 
-import sessionErrorsReducer from './session_errors_reducer';
+import { merge } from 'lodash';
 
-export default combineReducers({
-  session: sessionErrorsReducer,
-});
+import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER } from '../../actions/session_actions';
+
+export default (state = [], action) => {
+  Object.freeze(state);
+
+  switch(action.type) {
+    case RECEIVE_SESSION_ERRORS:
+      return merge([], state, action.errors);
+    case RECEIVE_CURRENT_USER:
+      return [];
+    default:
+      return state;
+  }
+};
 
 // The Redux state structure below will be created by our reducers that will use the data given via our actions.
 // =================================================

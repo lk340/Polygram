@@ -35,11 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.signout = signOut;
 
   window.allPosts = allPosts;
-  window.showPost = showPost;
+  window.showPost = showPost; 
   window.createPost = createPost;
   window.editPost = editPost;
   window.deletePost = deletePost;
-  // let postOne = { post: { caption: "first post!", image_url: "too lazy to get a link" } }
+  // let postOne = { caption: "first post!", image_url: "too lazy to get a link", user_id: 7 }
 
   window.getState = store.getState();
   window.dispatch = store.dispatch;
