@@ -21,12 +21,12 @@ export default () => {
             <NavbarContainer />
           </nav>
           <GreetingContainer />
-          <PostFormContainer />
         </header>
 
         <AuthRoute exact path="/" component={ SignUpFormContainer } />
         <AuthRoute exact path="/accounts/login" component={ SignInFormContainer } />
         <AuthRoute exact path="/accounts/emailsignup" component={ SignUpFormContainer } />
+        <Route exact path="/uploadpost" component={ PostFormContainer } />
       </div>
 
       <Uploadbar />

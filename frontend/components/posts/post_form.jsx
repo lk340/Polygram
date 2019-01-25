@@ -51,21 +51,26 @@ export default class Post extends React.Component {
   }
   
   render() {
-    console.log(this.state);
+    // console.log(this.state);
 
     const preview = this.state.photoURL ? <img src={ this.state.photoURL } /> : null;
-    
-    return (
-      <div>
-        <form onSubmit={ this.handleSubmit }>
-          <input type="file" onChange={ this.handleFile } />
+    let postForm;
+    if (this.props.currentUser) {
+      postForm = (
+        <form onSubmit={this.handleSubmit}>
+          <input type="file" onChange={this.handleFile} />
           <h3> Post Preview </h3>
-           {preview }
-          <br/>
-          <input type="text" placeholder="Your caption here." onChange={ this.handleChange("caption") } />
-          <br/>
+          {preview}
+          <br />
+          <input type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} />
+          <br />
           <input type="submit" value="Share" />
         </form>
+      )
+    }
+    return (
+      <div>
+        { postForm }
       </div>
     )
   }
