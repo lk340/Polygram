@@ -14,6 +14,10 @@ export default class Navbar extends React.Component {
   }
   
   render() {
+    let navbarHeart = "navbar-heart";
+
+    let activityOnPosts = "activity-on-posts";
+    
     let navBar;
     if (this.props.sessionId) {
       navBar = (
@@ -33,7 +37,7 @@ export default class Navbar extends React.Component {
 
             <div className="navbar-icons">
               <div className="navbar-compass"><i class="far fa-compass"></i></div>
-              <div className="navbar-heart"><i class="far fa-heart"></i></div>
+              <div className={ navbarHeart }><i class="far fa-heart"></i></div>
               <div className="navbar-user"><Link to={`/${this.props.currentUser.username}`}>{<i class="far fa-user"></i>}</Link></div>
             </div>
 
@@ -45,6 +49,12 @@ export default class Navbar extends React.Component {
     return (
       <div>
         {navBar}
+        <div className="triangle"></div>
+        <div className={ activityOnPosts }>
+          <div>Heart</div>
+          <div>Activity On Your Posts</div>
+          <div>When someone likes or comments on one of your posts, you'll see it here.</div>
+        </div>
       </div>
     )
   }

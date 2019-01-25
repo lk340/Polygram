@@ -5,11 +5,11 @@ export default (props) => {
   let footerLinks = "footer-links";
   let footerCopy = "footer-copy";
 
-  if (props.footerPath === "/") {
-    footer += " splashFooter";
-    footerLinks = " splashFooter";
-    footerCopy += " splashFooter splashFooterCopy";
-  }
+  // if (props.footerPath === "/") {
+  //   footer += " splashFooter";
+  //   footerLinks = " splashFooter";
+  //   footerCopy += " splashFooter splashFooterCopy";
+  // }
 
   return (
     <footer className={ footer } >

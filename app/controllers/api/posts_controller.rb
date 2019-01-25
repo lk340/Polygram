@@ -25,7 +25,11 @@ class Api::PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = post.find(params[:id])
+  end
+
+  def update
+    @post = Post.new(post_params)
 
     if @post
       render :edit
