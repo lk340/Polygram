@@ -19,8 +19,8 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
     # debugger
     if @post.save
-      # render :show
-      render json: { message: "You did it!" }
+      render :show
+      # render json: "You did it!"
     else
       render json: @post.errors.full_messages, status: 422
     end

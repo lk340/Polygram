@@ -84,3 +84,11 @@ export const deletePost = id => dispatch => {
       errors => dispatch(postErrorsAction(errors.responseJSON))
     );
 };
+
+export const createPostAWS = formData => dispatch => {
+  return PostAJAX.createPostAWS(formData)
+    .then(
+      formPost => dispatch(createPostAction(formPost)),
+      errors => dispatch(postErrorsAction(errors.responseJSON))
+    );
+};

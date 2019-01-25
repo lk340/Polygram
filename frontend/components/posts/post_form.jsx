@@ -39,16 +39,19 @@ export default class Post extends React.Component {
     }
     formData.append("post[user_id]", this.state.user_id);
 
-    $.ajax({
-      method: "POST",
-      url: "/api/posts",
-      data: formData,
-      contentType: false,
-      processData: false,
-    }).then(
-      response => console.log(response.message),
-      errors => console.log(errors.responseJSON)
-    );
+    this.props.createAWS(formData); // thunk action creator
+
+    // $.ajax({
+    //   method: "POST",
+    //   url: "/api/posts",
+    //   data: formData,
+    //   contentType: false,
+    //   processData: false,
+    // }).then(
+    //   response => console.log(response.message),
+    //   errors => console.log(errors.responseJSON)
+    // );
+
   }
   
   render() {
@@ -63,9 +66,9 @@ export default class Post extends React.Component {
           <br />
           <br />
           {/* <input type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} /> */}
-          <textarea maxlength="2200" type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} />
+          <textarea maxLength="2200" type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} />
           <br />
-          <input className="post-form-submit-button" type="submit" value="share" />
+          <input className="post-form-submit-button" type="submit" value="share" onClick={ this.postRedirect } />
           <br />
           <div className="post-form-preview-divider"></div>
           <h3> Preview </h3>
@@ -84,8 +87,8 @@ export default class Post extends React.Component {
       <div className="post-form-container">
         <h2>Polygram</h2>
         <div className="post-form">
-          {postForm}
-          {redirect}
+          { postForm }
+          { redirect }
         </div>
       </div>
     )

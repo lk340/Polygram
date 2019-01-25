@@ -11,6 +11,7 @@ import NavbarContainer from './posts/navbar_container';
 import PostFormContainer from './posts/post_form_container';
 import Uploadbar from './upload_bar/upload_bar';
 import FooterContainer from './footer/footer_container';
+import PostIndexContainer from './posts/post_index_container';
 
 export default () => {
   return (

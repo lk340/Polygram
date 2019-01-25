@@ -17,8 +17,6 @@ export const createPost = post => {
     method: "POST",
     url: "/api/posts",
     data: { post },
-    contentType: false,
-    processData: false,
   });
 };
 
@@ -36,3 +34,13 @@ export const deletePost = id => {
     url: `/api/posts/${id}`,
   });
 };
+
+export const createPostAWS = formData => {
+  return $.ajax({
+    method: "POST",
+    url: "/api/posts",
+    data: formData,
+    contentType: false,
+    processData: false,
+  });
+}
