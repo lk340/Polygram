@@ -73,7 +73,7 @@ export default class Post extends React.Component {
           <div className="post-form-preview-divider"></div>
           <h3> Preview </h3>
           <h3><i class="fas fa-sort-down"></i></h3>
-          {preview}
+          { preview }
         </form>
       )
     }

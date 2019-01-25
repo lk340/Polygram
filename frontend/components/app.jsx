@@ -24,6 +24,8 @@ export default () => {
           <GreetingContainer />
         </header>
 
+        <PostIndexContainer />
+
         <AuthRoute exact path="/" component={ SignUpFormContainer } />
         <AuthRoute exact path="/accounts/login" component={ SignInFormContainer } />
         <AuthRoute exact path="/accounts/emailsignup" component={ SignUpFormContainer } />
