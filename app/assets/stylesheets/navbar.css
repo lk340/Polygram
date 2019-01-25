@@ -94,18 +94,25 @@
 /* ================== NAVBAR ICONS END ================== */
 
 /* ================== ACTIVITY ON POSTS ================== */
+.navbar-heart-pop-up {
+  display: none;
+}
+
+.navbar-heart-show {
+  display: block;
+}
+
 .activity-on-posts {
-  /* border: var(--lighterGray) solid 1px; */
   background-color: white;
-  border: black solid 1px;
+  /* border: var(--lightGray) solid 1px; */
   border-radius: 3px;
   text-align: center;
   position: absolute;
   padding: 30px;
-  z-index: 2;
+  z-index: 1000;
   top: 7%;
   right: 24.8%;
-  box-shadow: 0, 0, 4px 5px, black;
+  box-shadow: 0 0 5px 1px rgb(230, 230, 230);
 }
 
 .triangle {
@@ -113,9 +120,9 @@
   height: 0;
   border-left: 12.4px solid transparent;
   border-right: 12.4px solid transparent;
-  border-bottom: 12.4px solid black;
+  border-bottom: 12.4px solid var(--lightGray);
   position: absolute;
-  z-index: 2;
+  z-index: 1000;
   top: 5.7%;
   right: 27.6%;
 }

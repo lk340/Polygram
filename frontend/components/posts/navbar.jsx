@@ -49,11 +49,14 @@ export default class Navbar extends React.Component {
     return (
       <div>
         {navBar}
-        <div className="triangle"></div>
-        <div className={ activityOnPosts }>
-          <div>Heart</div>
-          <div>Activity On Your Posts</div>
-          <div>When someone likes or comments on one of your posts, you'll see it here.</div>
+        
+        <div className="navbar-heart-pop-up" >
+          <div className="triangle"></div>
+          <div className={activityOnPosts}>
+            <div>Heart</div>
+            <div>Activity On Your Posts</div>
+            <div>When someone likes or comments on one of your posts, you'll see it here.</div>
+          </div>
         </div>
       </div>
     )
