@@ -1,0 +1,14 @@
+.upload-bar {
+  height: 47px;
+  background-color: white;
+  border-top: var(--lightGray) solid 1px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 27px;
+}
+
+.upload-bar a {
+  color: rgb(54, 54, 54);
+  display: block;
+}

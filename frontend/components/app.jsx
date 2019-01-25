@@ -9,6 +9,7 @@ import { AuthRoute } from '../utils/route_util';
 import NavbarContainer from './posts/navbar_container';
 // import Footer from './footer/footer';
 import PostFormContainer from './posts/post_form_container';
+import Uploadbar from './upload_bar/upload_bar';
 import FooterContainer from './footer/footer_container';
 
 export default () => {
@@ -27,6 +28,8 @@ export default () => {
         <AuthRoute exact path="/accounts/login" component={ SignInFormContainer } />
         <AuthRoute exact path="/accounts/emailsignup" component={ SignUpFormContainer } />
       </div>
+
+      <Uploadbar />
 
       <div className="app-footer">
         <Route path="/" component={ FooterContainer } />

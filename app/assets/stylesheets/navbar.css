@@ -76,6 +76,10 @@
   font-size: 28px;
 }
 
+.navbar-icons a {
+  color: black;
+}
+
 .navbar-icons > div {
   margin-left: 26px;
 }

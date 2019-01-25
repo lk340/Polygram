@@ -20,7 +20,7 @@
   --lightGray: #e6e6e6;
   --lightBlue: #3897F0;
 
-  --grayText: #A7A7A7;
+  --grayText: rgb(252, 235, 235);
   --grayTextBold: #999999;
 }
 

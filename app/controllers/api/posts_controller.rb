@@ -15,8 +15,9 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
     debugger
+    @post = Post.new(post_params)
+    # debugger
     if @post.save
       render :show
     else
@@ -51,6 +52,6 @@ class Api::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:caption, :image_url, :user_id, :image)
+    params.require(:post).permit(:caption, :image_url, :user_id, :image, images: [])
   end
 end
