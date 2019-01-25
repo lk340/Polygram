@@ -1,0 +1,48 @@
+.post-index {
+  text-align: center;
+}
+
+.post-container {
+  border: var(--lightGray) solid 1px;
+  width: 615px;
+  margin: 0 auto 4.5%;
+}
+
+.post-top {
+  display: flex;
+  padding: 12px 0;;
+  padding-left: 12px;
+}
+
+.post-caption {
+  text-align: left;
+  padding-left: 12px;
+}
+
+.post-username {
+  text-align: left;
+}
+
+.post-username-span {
+  font-weight: bold;
+}
+
+.post-index img {
+  width: 614px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6rem;
+}
+
+.post-like-comment {
+  display: flex;
+}
+
+.fa-heart {
+  margin-left: 3%;
+  border: red solid 1px;
+}
+
