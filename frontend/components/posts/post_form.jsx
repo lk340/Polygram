@@ -4,31 +4,21 @@ export default class Post extends React.Component {
   constructor(props) {
     super(props);
     const { sessionId } = this.props;
-    this.state = { caption: "", image_url: "", image: null, user_id: sessionId };
+    this.state = { caption: "", photoFile: null, photoURL: null, user_id: sessionId };
 
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    // if (this.props.currentUser) this.props.posts();
-  }
-
   handleFile(event) {
-    const reader = new FileReader();
+    // debugger;
     const file = event.currentTarget.files[0];
-    reader.onloadend = () => {
-      // this.setState({ image_url: event.currentTarget.files[0] });
-      this.setState({ image_url: reader.result, image: file });
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ photoFile: file, photoURL: fileReader.result });
     };
-
-    // can use image_url to preview image!
-
     if (file) {
-      reader.readAsDataURL(file);
-    }
-    else {
-      this.setState({ image_url: "", image: null });
+      fileReader.readAsDataURL(file);
     }
   }
 
@@ -40,16 +30,11 @@ export default class Post extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-     
+    
     const formData = new FormData();
     formData.append("post[caption]", this.state.caption);
-    formData.append("post[image_url]", this.state.image_url);
+    formData.append("post[photo]", this.state.photoFile);
     formData.append("post[user_id]", this.state.user_id);
-    
-    // this.props.create(formData);
-    if (this.state.image) {
-      formData.append("post[image]", this.state.image);
-    }
 
     $.ajax({
       method: "POST",
@@ -57,11 +42,17 @@ export default class Post extends React.Component {
       data: formData,
       contentType: false,
       processData: false,
-    });
+    }).then(
+      response => console.log(response.message),
+      errors => console.log(errors.responseJSON)
+    );
   }
   
   render() {
     console.log(this.state);
+
+    const preview = this.state.photoURL ? <img src={ this.state.photoURL } /> : null;
+    
     return (
       <div>
         <form onSubmit={ this.handleSubmit }>

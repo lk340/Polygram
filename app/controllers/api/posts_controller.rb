@@ -15,11 +15,12 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    debugger
+    # debugger
     @post = Post.new(post_params)
     # debugger
     if @post.save
-      render :show
+      # render :show
+      render json: { message: "You did it!" }
     else
       render json: @post.errors.full_messages, status: 422
     end
@@ -52,6 +53,6 @@ class Api::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:caption, :image_url, :user_id, :image, images: [])
+    params.require(:post).permit(:caption, :user_id, :photo)
   end
 end
