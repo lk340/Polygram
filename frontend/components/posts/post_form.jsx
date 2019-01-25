@@ -33,7 +33,9 @@ export default class Post extends React.Component {
     
     const formData = new FormData();
     formData.append("post[caption]", this.state.caption);
-    formData.append("post[photo]", this.state.photoFile);
+    if (this.state.photoFile) {
+      formData.append("post[photo]", this.state.photoFile);
+    }
     formData.append("post[user_id]", this.state.user_id);
 
     $.ajax({
@@ -57,6 +59,8 @@ export default class Post extends React.Component {
       <div>
         <form onSubmit={ this.handleSubmit }>
           <input type="file" onChange={ this.handleFile } />
+          <h3> Post Preview </h3>
+           {preview }
           <br/>
           <input type="text" placeholder="Your caption here." onChange={ this.handleChange("caption") } />
           <br/>

@@ -1,5 +1,13 @@
 class Post < ApplicationRecord
   validates :caption, :user_id, presence: true
+  validate :ensure_photo
+
+  def ensure_photo
+    unless self.photo.attached?
+      errors[:photo].push("You need to provide an image!")
+    end
+  end
+  
 
   belongs_to :user
 
