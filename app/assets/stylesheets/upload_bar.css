@@ -2,7 +2,8 @@
   height: 47px;
   background-color: white;
   border-top: var(--lightGray) solid 1px;
-  display: flex;
+  /* display: flex; */
+  display: none;
   justify-content: space-around;
   align-items: center;
   font-size: 27px;

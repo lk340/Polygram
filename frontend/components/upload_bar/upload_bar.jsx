@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// REMINDER: THIS IS FOR MOBILE VERSION (when width becomes small enough)!
+
 export default () => {
   return (
     <div className="upload-bar" >
