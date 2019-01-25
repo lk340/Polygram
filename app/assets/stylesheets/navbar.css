@@ -9,7 +9,9 @@
 .navbar {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
+  background-color: white;
+  border-bottom: var(--lightGray) solid 1px;
   height: 77px;
   /* margin: 0 2%; */
 
@@ -39,6 +41,10 @@
 
 .navbar-polygram-logo .fa-instagram {
   font-size: 24px;
+}
+
+.navbar-polygram-logo span {
+  font-size: 29px;
 }
 /* ================== POLYGRAM LOGO END ================== */
 
@@ -95,6 +101,17 @@
 .navbar-user a {
   color: black;
 }
+
+/* cog */
+.fa-cog {
+  transition-duration: 0.5s;
+}
+
+.fa-cog:hover {
+  cursor: pointer;
+  color: var(--lightBlue);
+}
+/* cog */
 /* ================== NAVBAR ICONS END ================== */
 
 /* ================== ACTIVITY ON POSTS ================== */

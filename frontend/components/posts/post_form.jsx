@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 export default class Post extends React.Component {
   constructor(props) {
@@ -58,19 +59,34 @@ export default class Post extends React.Component {
     if (this.props.currentUser) {
       postForm = (
         <form onSubmit={this.handleSubmit}>
-          <input type="file" onChange={this.handleFile} />
-          <h3> Post Preview </h3>
+          <input className="post-form-file-button" type="file" onChange={this.handleFile} />
+          <br />
+          <br />
+          {/* <input type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} /> */}
+          <textarea maxlength="2200" type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} />
+          <br />
+          <input className="post-form-submit-button" type="submit" value="share" />
+          <br />
+          <div className="post-form-preview-divider"></div>
+          <h3> Preview </h3>
+          <h3><i class="fas fa-sort-down"></i></h3>
           {preview}
-          <br />
-          <input type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} />
-          <br />
-          <input type="submit" value="Share" />
         </form>
       )
     }
+
+    let redirect;
+    if (!this.props.currentUser) {
+      redirect = <Redirect to="/" />
+    }
+    
     return (
-      <div>
-        { postForm }
+      <div className="post-form-container">
+        <h2>Polygram</h2>
+        <div className="post-form">
+          {postForm}
+          {redirect}
+        </div>
       </div>
     )
   }

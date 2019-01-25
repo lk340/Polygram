@@ -199,7 +199,7 @@ export default class SessionForm extends React.Component {
 
             <div className="sign-in-up">
               {this.props.formType === "signin" ? "Don't have an account?" : "Have an account?"} &nbsp;
-          <Link to={this.props.formType === "signin" ? "/accounts/emailsignup" : "/accounts/login"}>
+              <Link to={this.props.formType === "signin" ? "/accounts/emailsignup" : "/accounts/login"}>
                 {this.props.formType === "signin" ? "Sign Up" : "Log In"}
               </Link>
             </div>

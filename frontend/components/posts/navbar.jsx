@@ -28,7 +28,7 @@ export default class Navbar extends React.Component {
               <a href="#">
                 <i class="fab fa-instagram"></i>
                 <div></div>
-                Polygram
+                <span>Polygram</span>
             </a>
             </div>
 
@@ -40,6 +40,7 @@ export default class Navbar extends React.Component {
               <div className="navbar-compass"><Link to="/"> {<i class="far fa-compass"></i>} </Link></div>
               <div className={ navbarHeart }><i class="far fa-heart"></i></div>
               <div className="navbar-user"><Link to={`/${this.props.currentUser.username}`}>{<i class="far fa-user"></i>}</Link></div>
+              <div><i class="fas fa-cog"></i></div>
             </div>
 
           </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import GreetingContainer from './greeting_container';
 import SignInFormContainer from './sign_in_form_container';

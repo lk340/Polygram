@@ -1,12 +1,18 @@
 .footer-container {
   /* margin-bottom: 51px; */
-  margin: 0 auto 51px;
+  /* margin: 0 auto 51px; */
 
-  /* border: red solid 1px; */
+  
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  background-color: var(--lighterGray);
 }
 
 footer .footer-links {
@@ -23,5 +29,5 @@ footer a {
 
 footer .footer-copy {
   color: #AFAFAF;
-  margin-left: 5%;
+  line-height: 1.5rem;
 }

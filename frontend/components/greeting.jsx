@@ -11,6 +11,7 @@ export default class Greeting extends React.Component {
   handleSignOut(event) {
     event.preventDefault();
     this.props.signOut();
+    this.props.history.push("/");
   }
   
   render() {
@@ -21,7 +22,7 @@ export default class Greeting extends React.Component {
       welcome = (
         <div className="greeting">
           <h3>Welcome, { currentUser.username }!</h3>
-          <button onClick={ this.handleSignOut } >Sign Out</button>
+          <button onClick={this.handleSignOut} >Sign Out</button>
         </div>
       )
     }

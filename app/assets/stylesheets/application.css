@@ -20,7 +20,7 @@
   --lightGray: #e6e6e6;
   --lightBlue: #3897F0;
 
-  --grayText: rgb(252, 235, 235);
+  --grayText: rgb(148, 148, 148);
   --grayTextBold: #999999;
 }
 
@@ -38,6 +38,8 @@ html, body {
   box-sizing: border-box;
 }
 
-input, button {
+input, button, textarea {
   outline: none;
 }
+
+/* font-family: 'Grand Hotel', cursive; */
