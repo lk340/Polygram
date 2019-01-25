@@ -8,7 +8,6 @@ export default (state = {}, action) => {
   
   switch(action.type) {
     case RECEIVE_POSTS:
-    debugger;
       return action.posts;
     case RECEIVE_POST:
       newState[action.post.id] = action.post;

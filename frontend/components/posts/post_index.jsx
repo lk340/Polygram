@@ -20,19 +20,20 @@ export default class PostIndex extends React.Component {
 
             <div className="post-actions">
               <div className="post-like-comment">
-                <div><i class="far fa-heart"></i></div>
-                <div><i class="far fa-comment"></i></div>
+                <div><i className="far fa-heart"></i></div>
+                <div><i className="fas fa-heart heart2"></i></div>
+                <div><i className="far fa-comment"></i></div>
                 <div></div>
               </div>
 
-              <div><i class="fas fa-ribbon"></i></div>
+              <div><i className="fas fa-ribbon"></i></div>
             </div>
 
             <div className="post-likes">insert # likes here</div>
             
-            <div className="post-caption" key={`post-${index}`}>
+            <p className="post-caption" key={`post-${index}`}>
               <span className="post-username-span"> { this.props.currentUser.username } </span> { post.caption }
-            </div>
+            </p>
           </div>
           )
       });

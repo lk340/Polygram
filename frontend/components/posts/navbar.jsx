@@ -26,21 +26,21 @@ export default class Navbar extends React.Component {
 
             <div className="navbar-polygram-logo">
               <a href="#">
-                <i class="fab fa-instagram"></i>
+                <i className="fab fa-instagram"></i>
                 <div></div>
                 <span>Polygram</span>
             </a>
             </div>
 
-            {/* <i class="fas fa-search"></i> */}
-            <div className="navbar-search-bar"><input type="search" placeholder={`${<i class="fas fa-search"></i>} Search`} onSubmit={this.handleSubmit} /></div>
+            {/* <i className="fas fa-search"></i> */}
+            <div className="navbar-search-bar"><input type="search" placeholder={`${<i className="fas fa-search"></i>} Search`} onSubmit={this.handleSubmit} /></div>
 
             <div className="navbar-icons">
-              <div><Link to="/uploadpost"> {<i class="far fa-plus-square"></i>} </Link></div>
-              <div className="navbar-compass"><Link to="/"> {<i class="far fa-compass"></i>} </Link></div>
-              <div className={ navbarHeart }><i class="far fa-heart"></i></div>
-              <div className="navbar-user"><Link to={`/${this.props.currentUser.username}`}>{<i class="far fa-user"></i>}</Link></div>
-              <div><i class="fas fa-cog"></i></div>
+              <div><Link to="/uploadpost"> {<i className="far fa-plus-square"></i>} </Link></div>
+              <div className="navbar-compass"><Link to="/"> {<i className="far fa-compass"></i>} </Link></div>
+              <div className={navbarHeart}><i className="far fa-heart"></i></div>
+              <div className="navbar-user"><Link to={`/${this.props.currentUser.username}`}>{<i className="far fa-user"></i>}</Link></div>
+              <div><i className="fas fa-cog"></i></div>
             </div>
 
           </div>

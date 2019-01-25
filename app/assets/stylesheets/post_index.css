@@ -4,7 +4,7 @@
 
 .post-container {
   border: var(--lightGray) solid 1px;
-  width: 615px;
+  width: 616px;
   margin: 0 auto 4.5%;
 }
 
@@ -14,7 +14,7 @@
   padding-left: 12px;
 }
 
-.post-caption {
+.post-caption, .post-likes {
   text-align: left;
   padding-left: 12px;
 }
@@ -35,14 +35,21 @@
   display: flex;
   justify-content: space-between;
   font-size: 1.6rem;
+  margin: 8px 0;
 }
 
 .post-like-comment {
   display: flex;
 }
 
-.fa-heart {
-  margin-left: 3%;
-  border: red solid 1px;
+.post-like-comment > div {
+  margin-left: 14px;
 }
 
+.heart2 {
+  color: red;
+}
+
+.fa-ribbon {
+  margin-right: 14px;
+}
