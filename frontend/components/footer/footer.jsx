@@ -25,7 +25,7 @@ export default (props) => {
           <a href="#">DIRECTORY</a> &nbsp; &nbsp;
           <a href="#">PROFILES</a> &nbsp; &nbsp;
           <a href="#">HASHTAGS</a> &nbsp; &nbsp;
-          <a href="#">LANGUAGE</a> &nbsp; &nbsp;
+          <a href="#">LANGUAGE</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
           <a className={footerCopy}>&copy; 2019 POLYGRAM</a>
         </div>
       </nav>

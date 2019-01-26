@@ -71,7 +71,7 @@ export default class Post extends React.Component {
           <input className="post-form-submit-button" type="submit" value="share" onClick={ this.postRedirect } />
           <br />
           <div className="post-form-preview-divider"></div>
-          <h3> Preview </h3>
+          <h3> Image Preview </h3>
           <h3><i className="fas fa-sort-down"></i></h3>
           { preview }
         </form>

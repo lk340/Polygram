@@ -2,24 +2,23 @@
   position: relative;
   
   background-color: white;
-  border-bottom: var(--lightGray) solid 1px;
+  /* border-bottom: var(--lightGray) solid 1px; */
   height: 77px;
 }
 
 .navbar {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
+  height: 77px;
   background-color: white;
   border-bottom: var(--lightGray) solid 1px;
-  height: 77px;
-  /* margin: 0 2%; */
+
 
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  /* margin-bottom: 77px; */
 }
 
 /* ================== POLYGRAM LOGO START ================== */
