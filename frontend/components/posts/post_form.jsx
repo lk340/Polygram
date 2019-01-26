@@ -57,7 +57,7 @@ export default class Post extends React.Component {
   render() {
     // console.log(this.state);
 
-    const preview = this.state.photoURL ? <img src={ this.state.photoURL } /> : null;
+    const preview = this.state.photoURL ? <img className="post-form-image-preview" src={ this.state.photoURL } /> : null;
     let postForm;
     if (this.props.currentUser) {
       postForm = (

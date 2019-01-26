@@ -92,3 +92,9 @@
 .fa-sort-down {
   margin-bottom: 15px;
 }
+
+.post-form-image-preview {
+  margin: auto;
+  width: 500px;
+  height: auto;
+}
