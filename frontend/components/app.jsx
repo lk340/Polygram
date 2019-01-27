@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Link } from 'react-router-dom';
 
 import GreetingContainer from './greeting_container';
 import SignInFormContainer from './sign_in_form_container';
@@ -34,6 +34,12 @@ export default () => {
 
             <div className="app-user-profile">
               <Route exact path="/demoUser" component={ UserProfileContainer } />
+              <div className="app-user-profile-splitter">
+                <Link to="/">POSTS</Link>
+                <Link to="/">IGTV</Link>
+                <Link to="/">SAVED</Link>
+                <Link to="/">TAGGED</Link>
+              </div>
               <Route exact path="/demoUser" component={ UserPostsContainer } />
             </div>
 

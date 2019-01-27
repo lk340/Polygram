@@ -33,3 +33,19 @@
 
   border: red solid 1px;
 }
+
+.app-user-profile-splitter {
+  border-top: var(--lightGray) solid 1px;
+  display: flex;
+  justify-content: center;
+  margin-top: 52px;
+}
+
+.app-user-profile-splitter a {
+  margin: 20px 0;
+  margin-right: 60px;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
