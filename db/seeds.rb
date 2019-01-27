@@ -8,3 +8,7 @@
 
 User.destroy_all
 User.create(username: "demoUser", email: "demoUser@demo", password: "demodemo", name: "Demo User", biography: "I am a demo user!")
+
+Post.destroy_all
+Post.create(caption: "test")
+# caption, user_id, photo

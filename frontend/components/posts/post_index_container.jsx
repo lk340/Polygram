@@ -6,7 +6,7 @@ import { allPosts } from '../../actions/post_actions';
 const msp = (state, ownProps) => {
   // debugger;
   return {
-    allPosts: Object.values(state.entities.posts),
+    allPosts: Object.values(state.entities.posts).reverse(),
     currentUser: state.entities.users[state.session.id],
     currentURL: ownProps.match.path,
   };

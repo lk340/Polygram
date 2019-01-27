@@ -9,6 +9,12 @@ export default class Post extends React.Component {
 
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.postRedirect = this.postRedirect.bind(this);
+  }
+
+  postRedirect(event) {
+    event.preventDefault();
+    
   }
 
   handleFile(event) {
