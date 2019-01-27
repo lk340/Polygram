@@ -15,9 +15,9 @@ export default class UserPosts extends React.Component {
     const posts = this.props.userPosts.map((post, index) => {
       if (post.user_id === this.props.sessionId) {
         return (
-          // <div key={index}>
-            <img className="user-post-photo" src={ post.photoURL } alt="photo" key={ index } />
-          // </div>
+          <div className="user-post-photo" key={index}>
+            <img src={ post.photoURL } alt="photo" />
+          </div>
         )
       }
     });

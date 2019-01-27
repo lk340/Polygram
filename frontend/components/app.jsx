@@ -31,7 +31,8 @@ export default () => {
             </header>
 
             <Route exact path="/" component={ PostIndexContainer } />
-            <div className="user-profile">
+
+            <div className="app-user-profile">
               <Route exact path="/demoUser" component={ UserProfileContainer } />
               <Route exact path="/demoUser" component={ UserPostsContainer } />
             </div>

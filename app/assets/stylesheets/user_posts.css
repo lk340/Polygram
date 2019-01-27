@@ -2,10 +2,27 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 28px;
+
+  /* display: flex;
+  justify-content: center; */
 }
 
 .user-post-photo {
-  width: 302.33px;
-  height: 302.33px;
+  width: 293px;
+  height: 293px;
+  background-color: black;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.user-post-photo img {
+  width: 100%;
+}
+
+.user-post-photo img:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}

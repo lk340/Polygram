@@ -25,3 +25,10 @@
 .app-body {
   height: 100%;
 }
+
+.app-user-profile {
+  margin: auto;
+  width: 935px;
+
+  border: red solid 1px;
+}
