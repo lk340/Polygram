@@ -9,7 +9,7 @@ const msp = state => {
     // posts: Object.values(state.entities.posts),
     // userPosts: 
     sessionId: state.session.id,
-    userPosts: Object.values(state.entities.posts),
+    userPosts: Object.values(state.entities.posts).reverse(),
   };
 };
 

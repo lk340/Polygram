@@ -21,7 +21,7 @@ export default class Greeting extends React.Component {
     if (currentUserId) {
       welcome = (
         <div className="greeting">
-          <h3>Welcome, { currentUser.username }!</h3>
+          {/* <h3>Welcome, { currentUser.username }!</h3> */}
           <button onClick={this.handleSignOut} >Sign Out</button>
         </div>
       )

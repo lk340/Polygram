@@ -1,4 +1,5 @@
 .navbar-container {
+  z-index: 99999;
   position: relative;
   
   background-color: white;

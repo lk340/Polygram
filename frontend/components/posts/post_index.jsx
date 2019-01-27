@@ -26,7 +26,7 @@ export default class PostIndex extends React.Component {
                 <div></div>
               </div>
 
-              <div><i class="far fa-bookmark"></i></div>
+              <div><i className="far fa-bookmark"></i></div>
             </div>
 
             <div className="post-likes">insert # likes here</div>
