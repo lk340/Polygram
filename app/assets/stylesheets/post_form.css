@@ -98,3 +98,9 @@
   width: 500px;
   height: auto;
 }
+
+.faded-submit {
+  cursor: default;
+  opacity: 0.3;
+  pointer-events: none;
+}

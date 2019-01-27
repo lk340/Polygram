@@ -1,0 +1,11 @@
+.user-posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 28px;
+}
+
+.user-post-photo {
+  width: 302.33px;
+  height: 302.33px;
+}
+

@@ -12,6 +12,8 @@ import PostFormContainer from './posts/post_form_container';
 import Uploadbar from './upload_bar/upload_bar';
 import FooterContainer from './footer/footer_container';
 import PostIndexContainer from './posts/post_index_container';
+import UserProfileContainer from './user_profile/user_profile_container';
+import UserPostsContainer from './user_profile/user_posts_container';
 
 export default () => {
   return (
@@ -28,12 +30,16 @@ export default () => {
               <GreetingContainer />
             </header>
 
-            <Route exact path="/" component={PostIndexContainer} />
+            <Route exact path="/" component={ PostIndexContainer } />
+            <div className="user-profile">
+              <Route exact path="/demoUser" component={ UserProfileContainer } />
+              <Route exact path="/demoUser" component={ UserPostsContainer } />
+            </div>
 
-            <AuthRoute exact path="/" component={SignUpFormContainer} />
-            <AuthRoute exact path="/accounts/login" component={SignInFormContainer} />
-            <AuthRoute exact path="/accounts/emailsignup" component={SignUpFormContainer} />
-            <Route exact path="/uploadpost" component={PostFormContainer} />
+            <AuthRoute exact path="/" component={ SignUpFormContainer } />
+            <AuthRoute exact path="/accounts/login" component={ SignInFormContainer } />
+            <AuthRoute exact path="/accounts/emailsignup" component={ SignUpFormContainer } />
+            <Route exact path="/posts/new" component={ PostFormContainer } />
           </div>
 
           <Uploadbar />

@@ -100,17 +100,6 @@
 .navbar-user a {
   color: black;
 }
-
-/* cog */
-.fa-cog {
-  transition-duration: 0.5s;
-}
-
-.fa-cog:hover {
-  cursor: pointer;
-  color: var(--lightBlue);
-}
-/* cog */
 /* ================== NAVBAR ICONS END ================== */
 
 /* ================== ACTIVITY ON POSTS ================== */

@@ -8,7 +8,7 @@ export default () => {
     <div className="upload-bar" >
       <div><Link to="/"> { <i className="fas fa-home"></i> } </Link></div>
       <div><Link to="/"> { <i className="fas fa-search"></i> } </Link></div>
-      <div><Link to="/uploadpost"> { <i className="far fa-plus-square"></i> } </Link></div>
+      <div><Link to="/posts/new"> { <i className="far fa-plus-square"></i> } </Link></div>
       <div><Link to="/"> { <i className="far fa-heart"></i> } </Link></div>
       <div><Link to="/"> { <i className="far fa-user"></i> } </Link></div>
     </div>

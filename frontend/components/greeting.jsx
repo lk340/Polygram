@@ -11,7 +11,7 @@ export default class Greeting extends React.Component {
   handleSignOut(event) {
     event.preventDefault();
     this.props.signOut();
-    this.props.history.push("/");
+    // this.props.history.push("/");
   }
   
   render() {

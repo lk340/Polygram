@@ -12,6 +12,10 @@ export default class SessionForm extends React.Component {
     this.logInDemoUser = this.logInDemoUser.bind(this);
   }
 
+  // componentDidMount() {
+  //   debugger;
+  // }
+  
   handleChange(field) {
     return event => {
       this.setState({ [field]: event.target.value });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 export default class Post extends React.Component {
   constructor(props) {
@@ -9,13 +9,13 @@ export default class Post extends React.Component {
 
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.postRedirect = this.postRedirect.bind(this);
+    // this.postRedirect = this.postRedirect.bind(this);
   }
 
-  postRedirect(event) {
-    event.preventDefault();
-    
-  }
+  // postRedirect(event) {
+  //   event.preventDefault();
+
+  // }
 
   handleFile(event) {
     // debugger;
@@ -61,8 +61,14 @@ export default class Post extends React.Component {
   }
   
   render() {
-    // console.log(this.state);
+    console.log(this.state);
 
+    let postFormSubmitButton = "post-form-submit-button";
+    // if the caption is empty and if there is no selected image
+    if (this.state.caption === "" || this.state.photoURL === null) {
+      postFormSubmitButton += " faded-submit";
+    }
+    
     const preview = this.state.photoURL ? <img className="post-form-image-preview" src={ this.state.photoURL } /> : null;
     let postForm;
     if (this.props.currentUser) {
@@ -74,7 +80,8 @@ export default class Post extends React.Component {
           {/* <input type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} /> */}
           <textarea maxLength="2200" type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} />
           <br />
-          <input className="post-form-submit-button" type="submit" value="share" onClick={ this.postRedirect } />
+          <input className={ postFormSubmitButton } type="submit" value="share" onClick={ this.postRedirect } />
+          {/* <button className="post-form-submit-button" type="submit"><Link to="/">share</Link></button> */}
           <br />
           <div className="post-form-preview-divider"></div>
           <h3> Image Preview </h3>
