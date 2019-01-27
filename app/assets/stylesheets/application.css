@@ -38,7 +38,7 @@ html, body {
   box-sizing: border-box;
 }
 
-input, button, textarea {
+input, button, textarea, link {
   outline: none;
 }
 

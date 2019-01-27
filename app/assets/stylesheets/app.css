@@ -28,7 +28,8 @@
 
 .app-user-profile {
   margin: auto;
-  width: 935px;
+  width: 937px;
+  position: relative;
 
   border: red solid 1px;
 }
