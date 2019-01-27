@@ -8,6 +8,7 @@ export default (props) => {
       <div className="user-information">
         <div className="profile-picture">
           [ propic ]
+          {/* <img src="../../../app/assets/images/default_profile_picture.jpg" alt="default-profile-picture"/> */}
         </div>
 
         <div className="profile-information">
@@ -19,13 +20,13 @@ export default (props) => {
           </div>
 
           <div className="posts-followers-following">
-            <div className="user-posts">userposts</div>
-            <div className="user-followers">userfollowers</div>
-            <div className="user-following">userfollowing</div>
+            <div className="user-posts"><b>1</b> posts</div>
+            <div className="user-followers"><b>1</b> followers</div>
+            <div className="user-following"><b>1</b> following</div>
           </div>
 
           <div className="user-info">
-            <div className="users-name">User's Name Here</div>
+            <div className="users-name"><b>User's Name Here</b></div>
             <div className="user-bio">
               User's biography here
             </div>

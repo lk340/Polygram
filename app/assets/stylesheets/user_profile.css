@@ -1,42 +1,54 @@
 .user-information {
   display: flex;
-  justify-content: center;
+  margin-bottom: 44px;
+  /* justify-content: center; */
   /* display: inline-block; */
 }
 
 .profile-picture {
-
+  /* width: 293.66px; */
+  width: 33.3333333%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
   /* border: red solid 1px; */
 }
 
 .profile-information {
-  /* display: grid;
-  grid-template-columns: 1fr; */
+  /* width: 615.34px; */
+  width: 66.6666666%;
+  height: 150px;
 }
 
 .user-name-edit-profile-gear-icon {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
+  margin-bottom: 20px;
 
   /* border: red solid 1px; */
 }
 
+.user-name-edit-profile-gear-icon > div {
+  margin-right: 17px;
+}
+
 .posts-followers-following {
-  /* display: flex; */
+  margin-bottom: 20px;
 
   /* border: red solid 1px; */
 }
 
 .posts-followers-following div {
   display: inline-block;  
-  
+  margin-right: 38px;
   /* border: blue solid 1px; */
 }
 
 .user-info {
   /* display: flex; */
-
+  line-height: 24px;
   /* border: red solid 1px; */
 }
 
@@ -57,7 +69,8 @@
  /* background-color: white; */
  display: block;
  text-decoration: none;
- color: black;
+ color: #262626;
+ font-size: 14px;
  font-weight: 600;
  text-align: center;
  border: #dbdbdb solid 1px;
