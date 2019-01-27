@@ -35,10 +35,10 @@ export default () => {
             <div className="app-user-profile">
               <Route exact path="/demoUser" component={ UserProfileContainer } />
               <div className="app-user-profile-splitter">
-                <Link to="/">POSTS</Link>
-                <Link to="/">IGTV</Link>
-                <Link to="/">SAVED</Link>
-                <Link to="/">TAGGED</Link>
+                <Link to="/"><i class="fas fa-th"></i> POSTS</Link>
+                <Link to="/"><i class="fas fa-tv"></i> IGTV</Link>
+                <Link to="/"><i class="far fa-bookmark"></i>SAVED</Link>
+                <Link to="/"><i class="fal fa-id-card-alt"></i> TAGGED</Link>
               </div>
               <Route exact path="/demoUser" component={ UserPostsContainer } />
             </div>
