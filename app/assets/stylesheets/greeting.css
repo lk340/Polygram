@@ -1,6 +1,21 @@
 .greeting {
   display: flex;
   flex-direction: column;
+  margin-top: -20px;
+  margin-left: -20px;
+  overflow: hidden;
+  /* transition-duration:  */
+
+  animation: greeting 0.3s linear;
+}
+
+@keyframes greeting {
+  0% {
+    transform: translateZ(10px), scale(1.1),
+  }
+  100% {
+    transform: translateZ(0), scale(1),
+  }
 }
 
 .greeting > div {

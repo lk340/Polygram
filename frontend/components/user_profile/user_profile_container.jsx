@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import UserProfile from './user_profile';
 import { allPosts } from '../../actions/post_actions';
+import { signOut } from '../../actions/session_actions';
 
 const msp = state => {
   return {
@@ -14,6 +15,7 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     allPosts: () => dispatch(allPosts()),
+    signOut: () => dispatch(signOut()),
   };
 };
 

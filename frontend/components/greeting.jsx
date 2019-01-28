@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
+import Modal from 'react-modal';
 
 export default class Greeting extends React.Component {
   constructor(props) {
     super(props);
 
     // this.state = { class: "cog-button-modal" };
-    this.state = { class: "cog-button-modal" };
+    // this.state = { class: "cog-button-modal" };
 
     this.handleSignOut = this.handleSignOut.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
@@ -30,7 +31,8 @@ export default class Greeting extends React.Component {
     if (currentUserId) {
       welcome = (
         // <div className="cog-button-modal hide-greeting-modal">
-        <div className={ this.state.class }>
+        // <div className={ this.state.class }>
+        <div className="cog-button-modal">
           <div className="greeting-container">
             <div className="greeting">
               {/* <h3>Welcome, { currentUser.username }!</h3> */}

@@ -19,14 +19,6 @@ import UserProfileMasterContainer from './user_profile/user_profile_master_conta
 export default () => {
   return (
     <div className="app-container">
-    
-      {/* <div className="cog-button-modal hide-greeting-modal"> */}
-        {/* <div className="cog-button-modal-background"></div> */}
-        {/* <div className="greeting-container"><GreetingContainer /></div>
-      </div> */}
-
-      <GreetingContainer/>
-
       <div className="app-body-container">
         <div className="app-main">
 
