@@ -16,7 +16,7 @@ export default (props) => {
           <div className="user-name-edit-profile-gear-icon">
             <div><span className="user-profile-username">{props.currentUser.username}</span></div>
             <div><Link to="/accounts/edit" className="edit-profile-button">Edit Profile</Link></div>
-            <div><i className="fas fa-cog"></i></div>
+            <div className="user-profile-cog"><i className="fas fa-cog"></i></div>
           </div>
 
           <div className="posts-followers-following">

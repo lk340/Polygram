@@ -3,9 +3,11 @@ import React from 'react';
 export default class PostIndex extends React.Component {
   componentDidMount() {
     this.props.posts();
+    // this.props.users();
   }
   
   render() {
+    
     let posts;
     if (this.props.currentUser && this.props.currentURL === "/") {
       posts = this.props.allPosts.map((post, index) => {

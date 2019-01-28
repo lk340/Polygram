@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :caption, :user_id, presence: true
+  validates :user_id, presence: true
   validate :ensure_photo
 
   def ensure_photo

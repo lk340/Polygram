@@ -14,10 +14,16 @@ import FooterContainer from './footer/footer_container';
 import PostIndexContainer from './posts/post_index_container';
 import UserProfileContainer from './user_profile/user_profile_container';
 import UserPostsContainer from './user_profile/user_posts_container';
+import UserProfileMasterContainer from './user_profile/user_profile_master_container'
 
 export default () => {
   return (
     <div className="app-container">
+    
+      <div className="cog-button-modal hide-greeting-modal">
+        {/* <div className="cog-button-modal-background"></div> */}
+        <div className="greeting-container"><GreetingContainer /></div>
+      </div>
 
       <div className="app-body-container">
         <div className="app-main">
@@ -27,20 +33,22 @@ export default () => {
               <nav>
                 <NavbarContainer />
               </nav>
-              <GreetingContainer />
             </header>
 
             <Route exact path="/" component={ PostIndexContainer } />
 
             <div className="app-user-profile">
-              <Route exact path="/demoUser" component={ UserProfileContainer } />
+              <Route exact path="/demoUser" component={UserProfileMasterContainer} />
+            
+              {/* <UserProfileMasterContainer /> */}
+              {/* <Route exact path="/demoUser" component={ UserProfileContainer } />
               <div className="app-user-profile-splitter">
                 <Link to="/"><i className="fas fa-th"></i> POSTS</Link>
                 <Link to="/"><i className="fas fa-tv"></i> IGTV</Link>
                 <Link to="/"><i className="far fa-bookmark"></i>SAVED</Link>
                 <Link to="/"><i className="fal fa-id-card-alt"></i> TAGGED</Link>
               </div>
-              <Route exact path="/demoUser" component={ UserPostsContainer } />
+              <Route exact path="/demoUser" component={ UserPostsContainer } /> */}
             </div>
 
             <AuthRoute exact path="/" component={ SignUpFormContainer } />

@@ -1,8 +1,14 @@
-$.noConflict();
-jQuery(document).ready(function ($) {
-  $("body #root .app-container .app-body header nav .navbar-heart-pop-up").hide();
+// $.noConflict();
+// jQuery(document).ready(function ($) {
+//   $(".user-profile-cog").on("click", function () {
+//     console.log("HELLO THERE");
+//     $(".cog-button-modal").removeClass("hide-greeting-modal");
+//   });
+// });
 
-  $(".navbar-heart").click(() => {
-    $(".navbar-heart-pop-up").css({ "display": "block" });
+$(document).ready(function() {
+  $(".user-profile-cog").on("click", function() {
+    console.log("HELLO THERE");
+    $(".cog-button-modal").removeClass("hide-greeting-modal");
   });
 });

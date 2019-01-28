@@ -9,13 +9,7 @@ export default class Post extends React.Component {
 
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.postRedirect = this.postRedirect.bind(this);
   }
-
-  // postRedirect(event) {
-  //   event.preventDefault();
-
-  // }
 
   handleFile(event) {
     // debugger;
@@ -58,6 +52,7 @@ export default class Post extends React.Component {
     //   errors => console.log(errors.responseJSON)
     // );
 
+    this.props.history.push("/");
   }
   
   render() {
@@ -65,7 +60,7 @@ export default class Post extends React.Component {
 
     let postFormSubmitButton = "post-form-submit-button";
     // if the caption is empty and if there is no selected image
-    if (this.state.caption === "" || this.state.photoURL === null) {
+    if (this.state.photoURL === null) {
       postFormSubmitButton += " faded-submit";
     }
     
@@ -75,14 +70,17 @@ export default class Post extends React.Component {
       postForm = (
         <form onSubmit={this.handleSubmit}>
           <input className="post-form-file-button" type="file" onChange={this.handleFile} />
+          
           <br />
           <br />
-          {/* <input type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} /> */}
+          
           <textarea maxLength="2200" type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} />
           <br />
-          <input className={ postFormSubmitButton } type="submit" value="share" onClick={ this.postRedirect } />
-          {/* <button className="post-form-submit-button" type="submit"><Link to="/">share</Link></button> */}
+          
+          <input className={ postFormSubmitButton } type="submit" value="share" />
+          
           <br />
+          
           <div className="post-form-preview-divider"></div>
           <h3> Image Preview </h3>
           <h3><i className="fas fa-sort-down"></i></h3>
