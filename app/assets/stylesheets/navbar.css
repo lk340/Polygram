@@ -5,6 +5,8 @@
   background-color: white;
   /* border-bottom: var(--lightGray) solid 1px; */
   height: 77px;
+
+  margin-bottom: 58px;
 }
 
 .navbar {

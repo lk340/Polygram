@@ -52,7 +52,7 @@ export default class Post extends React.Component {
     //   errors => console.log(errors.responseJSON)
     // );
 
-    this.props.history.push("/");
+    // this.props.history.push("/");
   }
   
   render() {

@@ -20,10 +20,12 @@ export default () => {
   return (
     <div className="app-container">
     
-      <div className="cog-button-modal hide-greeting-modal">
+      {/* <div className="cog-button-modal hide-greeting-modal"> */}
         {/* <div className="cog-button-modal-background"></div> */}
-        <div className="greeting-container"><GreetingContainer /></div>
-      </div>
+        {/* <div className="greeting-container"><GreetingContainer /></div>
+      </div> */}
+
+      <GreetingContainer/>
 
       <div className="app-body-container">
         <div className="app-main">
@@ -38,7 +40,7 @@ export default () => {
             <Route exact path="/" component={ PostIndexContainer } />
 
             <div className="app-user-profile">
-              <Route exact path="/demoUser" component={UserProfileMasterContainer} />
+              <Route exact path="/users/profile" component={UserProfileMasterContainer} />
             
               {/* <UserProfileMasterContainer /> */}
               {/* <Route exact path="/demoUser" component={ UserProfileContainer } />

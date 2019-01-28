@@ -171,7 +171,7 @@ export default class SessionForm extends React.Component {
               <div>{facebook}</div>
 
               <form onSubmit={this.handleSubmit} className={sessionFormClass} >
-                <input type="text" value={this.state.email} placeholder="Email" className="field-input" onChange={this.handleChange("email")} required />
+                <input type="email" value={this.state.email} placeholder="Email" className="field-input" onChange={this.handleChange("email")} required />
 
                 <br />
 

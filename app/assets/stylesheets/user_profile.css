@@ -11,7 +11,7 @@
   height: 150px;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   /* border: red solid 1px; */
 }
 
@@ -70,6 +70,7 @@
  display: block;
  text-decoration: none;
  color: #262626;
+ background-color: var(--lighterGray);
  font-size: 14px;
  font-weight: 600;
  text-align: center;
@@ -82,4 +83,9 @@
   font-weight: 300;
   line-height: 32px;
   margin: -5px 0 -6px;
+}
+
+.user-pro-pic {
+  width: 150px;
+  height: 150px;
 }

@@ -7,7 +7,6 @@ import FeaturedLinks from './featured_links';
 import CogButtonModal from './cog_button_modal';
 
 export default class UserProfileMaster extends React.Component {
-  
   render() {
     let userProfileMaster;
     if (this.props.currentUser) {

@@ -8,7 +8,7 @@ const msp = (state, ownProps) => {
   // debugger;
   return {
     allPosts: Object.values(state.entities.posts).reverse(),
-    allUsers: Object.values(state.entities.users),
+    allUsers: state.entities.users,
     currentUser: state.entities.users[state.session.id],
     currentURL: ownProps.match.path,
   };

@@ -7,12 +7,12 @@ class Api::UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
+    # @user.photo.attach(io: File.open("#{Rails.root}/app/assets/images/default_profile_picture.jpg"), filename: "default_profile_picture.jpg")
+    
     if @user.save
-
       sign_in(@user)
       render :show
     else
-
       render json: @user.errors.full_messages, status: 422
     end
   end
