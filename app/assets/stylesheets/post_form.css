@@ -1,11 +1,14 @@
 .post-form-container {
   /* border: var(--lightBlue) solid 1px; */
-  border: var(--lighterGray) solid 1px;
+  /* border: var(--lighterGray) solid 1px; */
+  /* border: white solid 1px; */
   border-radius: 8px;
   /* background-color: var(--lightBlue); */
-  background-image: linear-gradient(rgb(0, 102, 255), rgb(103, 201, 193));
-  width: 70%;
-  margin: 40px auto 80px;
+  /* background-image: linear-gradient(rgb(0, 102, 255), rgb(103, 201, 193)); */
+  /* width: 100%; */
+  /* margin: 40px auto 80px; */
+  /* margin: auto; */
+  padding-top: 30px;
 }
 
 .post-form-container h2 {

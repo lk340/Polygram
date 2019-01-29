@@ -56,7 +56,7 @@ export default class Post extends React.Component {
   }
   
   render() {
-    console.log(this.state);
+    // console.log(this.state);
 
     let postFormSubmitButton = "post-form-submit-button";
     // if the caption is empty and if there is no selected image

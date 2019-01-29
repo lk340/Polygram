@@ -95,6 +95,10 @@
   color: black;
 }
 
+.fa-plus-square {
+  cursor: pointer;
+}
+
 .navbar-icons > div {
   margin-left: 26px;
 }
@@ -110,6 +114,8 @@
 .navbar-user a {
   color: black;
 }
+
+
 /* ================== NAVBAR ICONS END ================== */
 
 /* ================== ACTIVITY ON POSTS ================== */
