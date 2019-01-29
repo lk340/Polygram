@@ -26,6 +26,12 @@ export default class EditProfile extends React.Component {
   
   render() {
     const { name, username, biography, email } = this.state;
+
+    const initialState = this.state;
+    let editProfileSubmit = "edit-profile-submit";
+    if (this.state === initialState) {
+      editProfileSubmit += " submit-fade";
+    }
     
     return (
       <div className="edit-profile-container">
@@ -57,7 +63,8 @@ export default class EditProfile extends React.Component {
               <li><textarea onChange={this.handleChange("biography")} >{biography}</textarea></li>
               <li><div>Private Information</div></li>
               <li><input type="text" value={email} onChange={this.handleChange("email")} /></li>
-              <li><button className="edit-profile-field-confirm-email">Confirm Email</button></li>
+              <li><a href="https://github.com/lk340" target="_blank" className="edit-profile-field-confirm-email">Github</a></li>
+              <li><button type="submit" className={ editProfileSubmit }>Submit</button></li>
             </ul>
           </div>
         </form>

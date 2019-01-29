@@ -104,3 +104,33 @@
   margin-top: 3px;
   margin-bottom: 22px;
 }
+
+.edit-profile-field-confirm-email {
+  border: var(--lightBlue) solid 1px;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  background-color: var(--lightBlue);
+  font-weight: 600;
+  padding: 6px 9px;
+  margin-bottom: 18px;
+  display: block;
+  text-decoration: none;
+  width: 70px;
+  height: 30px;
+  text-align: center;
+}
+
+.edit-profile-submit {
+  width: 68.8px;
+  height: 30px;
+  background-color: var(--lightBlue);
+  color: white;
+  border: var(--lightBlue) solid 1px;
+  border-radius: 4px;
+  /* padding: 5px 9px; */
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+}
