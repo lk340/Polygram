@@ -4,6 +4,8 @@
 
 .post-container {
   border: var(--lightGray) solid 1px;
+  border-radius: 3px;
+  background-color: white;
   width: 616px;
   margin: 0 auto 4.5%;
 }
@@ -41,7 +43,7 @@
   margin: 8px 0;
 }
 
-.fa-heart, .fa-comment {
+.fa-heart, .fa-comment, .fa-bookmark {
   cursor: pointer;
 }
 
@@ -57,6 +59,14 @@
   color: #ED4956;
 }
 
+.bookmark-hide {
+  display: none;
+}
+
+.bookmark-show {
+  display: block;
+}
+
 .post-like-comment {
   display: flex;
 }
@@ -67,4 +77,38 @@
 
 .fa-bookmark {
   margin-right: 14px;
+}
+
+.post-index-comment-container {
+  width: 582px;
+  height: 56px;
+  padding-right: 26px;
+  border-top: var(--lightGray) solid 1px;
+  margin: 4px auto 0;
+  font-size: 14px;
+  line-height: 18px;
+  min-height: 56px;
+
+  display: flex;
+  align-items: center;
+}
+
+.post-index-comment-form textarea {
+  width: 556px;
+  height: 18px;
+  max-height: 80px;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  resize: none;
+  border: none;
+  font-size: 14px;
+}
+
+.post-index-comment-container span {
+  height: 24px;
+  width: 24px;
+  font-size: 24px;
+  cursor: pointer;
+  margin-bottom: 8px;
 }
