@@ -195,3 +195,7 @@
 }
 
 /* ============== PHOTO MODAL DATA END ============== */
+
+.photo-modal-span {
+  cursor: pointer;
+}

@@ -6,6 +6,7 @@ export default class UserPosts extends React.Component {
     super(props);
     this.state = {
       modalOpen: false, 
+      modalOpen2: false, 
       photoURL: null, 
       photoCaption: null,
       heartStatus: "photo-show-heart",
@@ -18,6 +19,8 @@ export default class UserPosts extends React.Component {
     this.onModalClose = this.onModalClose.bind(this);
     this.handleHeartClick = this.handleHeartClick.bind(this);
     this.handleBookmarkClick = this.handleBookmarkClick.bind(this);
+    this.modalCeption = this.modalCeption.bind(this);
+    this.onModalClose2 = this.onModalClose2.bind(this);
   }
   
   componentDidMount() {
@@ -51,6 +54,14 @@ export default class UserPosts extends React.Component {
     else {
       this.setState({ bookmarkStatus: "photo-show-bookmark", bookmark2Status: "photo-hide-bookmark" });
     }
+  }
+
+  modalCeption() {
+    this.setState({ modalOpen2: true });
+  }
+
+  onModalClose2() {
+    this.setState({ modalOpen2: false });
   }
   
   render() {
@@ -90,6 +101,25 @@ export default class UserPosts extends React.Component {
         border: "none",
       }
     };
+
+    const modalStyle2 = {
+      overlay: {
+        position: "fixed",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        zIndex: 99999,
+      },
+      content: {
+        width: "400px",
+        height: "240px",
+        margin: "auto",
+        borderRadius: "12px",
+        padding: 0,
+      }
+    };
     
     return (
       <div className="user-posts">
@@ -124,17 +154,37 @@ export default class UserPosts extends React.Component {
                     <div className={this.state.bookmark2Status} onClick={this.handleBookmarkClick}><i className="fas fa-bookmark"></i></div>
                   </div>
                 </div>
-                <div className="photo-modal-number-likes">number likes</div>
-                <div className="photo-modal-post-date">when it was posted</div>
+                
+                <div className="photo-modal-number-likes">
+                  Be the first to <b>like this</b>
+                  {/* 
+                    REMINDER: if there are no likes yet, show "be the first to like this".
+                    Otherwise, do something like: (likes.count > 1 || likes.count === 0) ? "Likes" : "Like";
+                  */}
+                </div>
+                
+                <div className="photo-modal-post-date">
+                  when it was posted
+                </div>
 
                 <div className="photo-modal-comment-and-modal">
                   <div>
                     <textarea placeholder="Add a comment..."></textarea>
-                    <span>...</span>
+                    <span className="photo-modal-span" onClick={this.modalCeption}>...</span>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </Modal>
+
+        <Modal isOpen={this.state.modalOpen2} onRequestClose={this.onModalClose2} style={modalStyle2}>
+          <div className="user-posts-modal-ception">
+            <div><a href="https://github.com/lk340" target="_blank">Github</a></div>
+            <div><a href="#" target="_blank">LinkedIn</a></div>
+            <div><a href="#" target="_blank">Instagram</a></div>
+            <div><a href="#" target="_blank">Filler</a></div>
+            <div><a onClick={this.onModalClose2}>Cancel</a></div>
           </div>
         </Modal>
       </div>

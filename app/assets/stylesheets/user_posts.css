@@ -28,3 +28,29 @@
   cursor: pointer;
   opacity: 0.7;
 }
+
+.user-posts-modal-ception {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-posts-modal-ception > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: var(--lightGray) solid 1px;
+}
+
+.user-posts-modal-ception a {
+  text-decoration: none;
+  color: black;
+  width: 400px;
+  height: 48px;
+}
+
+.user-posts-modal-ception a:last-child {
+  border: none;
+}
