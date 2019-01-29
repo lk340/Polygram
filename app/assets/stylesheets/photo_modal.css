@@ -1,13 +1,17 @@
 .photo-modal {
-  width: 935px;
-  height: 600px;
-  margin-top: -2.3%;
-  margin-left: -2.3%;
+  /* width: 935px;
+  height: 600px; */
+  /* margin-top: -2.3%; */
+  /* margin-left: -2.3%; */
 
   /* margin-top: -21px;
   margin-left: -21px; */
 
   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* border: green solid 4px; */
 }
 
 .photo-modal > div {
@@ -15,8 +19,24 @@
 }
 /* ============== PHOTO MODAL PICTURE START ============== */
 .photo-modal-picture {
-  width: 600px;
+  /* width: 600px; */
+  /* width: auto; */
   height: 600px;
+  display: flex;
+  justify-content: flex-end;
+  background-color: black;
+
+  /* border: black solid 3px; */
+}
+
+.photo-modal-picture-image {
+  /* width: 600px; */
+  width: auto;
+  max-width: 600px;
+  height: 600px;
+  object-fit: contain;
+  padding: 0;
+  margin: 0;
 }
 /* ============== PHOTO MODAL PICTURE END ============== */
 
@@ -28,6 +48,9 @@
   height: 600px;
   font-size: 14px;
   line-height: 18px;
+  background-color: white;
+
+  /* border: red solid 3px; */
 }
 
 .photo-modal-data  {
@@ -37,7 +60,8 @@
 .photo-modal-username {
   width: 287px;
   height: 78px;
-  padding: 40px 0 20px;
+  /* padding: 40px 0 20px; */
+  padding: 0 20px;
   margin: auto;
   display: flex;
   /* justify-content: center; */
@@ -94,11 +118,10 @@
   height: 19px;
 }
 
-.photo-modal-comment-and-modal {
+.photo-modal-comment-and-modal div {
   width: 287px;
   height: 56px;
-  padding-right: 26px;
-  margin-top: 4px;
+  /* margin-top: 4px; */
   border-top: var(--lightGray) solid 1px;
   
   display: flex;
@@ -107,7 +130,11 @@
   /* border: red solid 1px; */
 }
 
-.photo-modal-comment-and-modal textarea {
+.photo-modal-comment-and-modal div {
+  display: flex;
+}
+
+.photo-modal-comment-and-modal div textarea {
   resize: none;
   height: 18px;
   max-height: 80px;
@@ -117,6 +144,14 @@
   color: black;
   font-size: 14px;
   align-self: center;
+  padding-right: 26px;
+}
+
+.photo-modal-comment-and-modal div  span {
+  height: 24px;
+  width: 24px;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 /* ============== PHOTO MODAL DATA END ============== */

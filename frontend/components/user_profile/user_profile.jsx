@@ -92,7 +92,7 @@ export default class UserProfile extends React.Component {
             </Modal>
 
             <div className="posts-followers-following">
-              <div className="user-posts"><b>{ numberPosts }</b> { numberPosts > 1 ? "posts" : "post" } </div>
+              <div className="user-posts"><b>{ numberPosts }</b> { numberPosts > 1 || numberPosts === 0 ? "posts" : "post" } </div>
               <div className="user-followers"><b>1</b> followers</div>
               <div className="user-following"><b>1</b> following</div>
             </div>

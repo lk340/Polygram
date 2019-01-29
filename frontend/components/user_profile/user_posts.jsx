@@ -15,6 +15,7 @@ export default class UserPosts extends React.Component {
   }
   
   handleClick(post) {
+    // debugger;
     return () => {
       this.setState({ modalOpen: true, photoURL: post.photoURL });
     };
@@ -57,6 +58,8 @@ export default class UserPosts extends React.Component {
         height: "600px",
         margin: "auto",
         padding: "0",
+        backgroundColor: "transparent",
+        border: "none",
       }
     };
     
@@ -66,7 +69,7 @@ export default class UserPosts extends React.Component {
         <Modal isOpen={ this.state.modalOpen } onRequestClose={ this.onModalClose } style={ modalStyle } >
           <div className="photo-modal">
             <div className="photo-modal-picture">
-
+              <img className="photo-modal-picture-image" src={ this.state.photoURL } alt="photo"/>
             </div>
 
             <div className="photo-modal-data">
@@ -84,7 +87,12 @@ export default class UserPosts extends React.Component {
                 <div className="photo-modal-number-likes">number likes</div>
                 <div className="photo-modal-post-date">when it was posted</div>
 
-                <div className="photo-modal-comment-and-modal"><textarea placeholder="Add a comment..."></textarea></div>
+                <div className="photo-modal-comment-and-modal">
+                  <div>
+                    <textarea placeholder="Add a comment..."></textarea>
+                    <span>...</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
