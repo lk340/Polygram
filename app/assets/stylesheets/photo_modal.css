@@ -30,31 +30,36 @@
   line-height: 18px;
 }
 
-.photo-modal-data > div {
-  display: flex;
-
+.photo-modal-data  {
   /* border: red solid 1px; */
 }
 
 .photo-modal-username {
   width: 287px;
   height: 78px;
-  padding: 20px 0;
+  padding: 40px 0 20px;
   margin: auto;
-  justify-content: center;
+  display: flex;
+  /* justify-content: center; */
   align-items: center;
   border-bottom: var(--lightGray) solid 1px;
 }
 
-/* .photo-modal-divider {
-  
-} */
+.photo-modal-caption-holder {
+  padding: 0 16px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .photo-modal-caption {
-  width: 335px;
+  /* width: 335px; */
+  width: 287px;
   height: 378px;
-  padding: 12px 24px;
-  overflow: auto;
+  /* padding: 12px 24px; */
+  padding: 12px 0;
+  /* overflow: auto; */
 }
 
 .photo-modal-caption span {
@@ -62,7 +67,13 @@
 }
 
 .photo-modal-caption-comments {
-  
+
+}
+
+.photo-modal-data-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .photo-modal-like-comment {
@@ -89,6 +100,11 @@
   padding-right: 26px;
   margin-top: 4px;
   border-top: var(--lightGray) solid 1px;
+  
+  display: flex;
+  align-items: center;
+
+  /* border: red solid 1px; */
 }
 
 .photo-modal-comment-and-modal textarea {
