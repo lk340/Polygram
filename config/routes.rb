@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   namespace :api, defaults: { format: :json } do
     # User Auth Start
-    resources :users, only: [:index, :create] #sign up
+    resources :users, only: [:index, :show, :create, :update] #sign up
     resource :session, only: [:create, :destroy] #sign in / sign out
     # User Auth End
 

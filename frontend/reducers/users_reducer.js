@@ -4,7 +4,7 @@
 import { merge } from 'lodash';
 
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
-import { RECEIVE_ALL_USERS } from '../actions/user_actions';
+import { RECEIVE_ALL_USERS, RECEIVE_USER, CHANGE_USER_INFO } from '../actions/user_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
@@ -15,6 +15,12 @@ export default (state = {}, action) => {
       return merge({}, state, { [action.currentUser.id]: action.currentUser });
     case RECEIVE_ALL_USERS:
       return action.users;
+    case RECEIVE_USER:
+      return merge({}, state, action.user);
+    case CHANGE_USER_INFO:
+      const newState = merge({}, state);
+      newState[action.data.id] = action.data;
+      return newState;
     default:
       return state;
   }

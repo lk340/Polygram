@@ -15,6 +15,7 @@ import PostIndexContainer from './posts/post_index_container';
 import UserProfileContainer from './user_profile/user_profile_container';
 import UserPostsContainer from './user_profile/user_posts_container';
 import UserProfileMasterContainer from './user_profile/user_profile_master_container'
+import EditProfileContainer from './user_profile/edit_profile_container';
 
 export default () => {
   return (
@@ -49,6 +50,7 @@ export default () => {
             <AuthRoute exact path="/accounts/login" component={ SignInFormContainer } />
             <AuthRoute exact path="/accounts/emailsignup" component={ SignUpFormContainer } />
             <Route exact path="/posts/new" component={ PostFormContainer } />
+            <Route exact path="/accounts/edit" component={ EditProfileContainer } />
           </div>
 
           <Uploadbar />
