@@ -16,7 +16,10 @@
 }
 
 .user-post-photo img {
-  width: 100%;
+  /* width: 100%; */
+  width: 293px;
+  height: 293px;
+  object-fit: cover;
 
   /* border: red solid 1px; */
 }

@@ -26,17 +26,35 @@
 .post-username-span {
   font-weight: bold;
 }
+/* ============================================== */
 
 .post-index img {
   width: 614px;
   height: auto;
 }
 
+/* ============================================== */
 .post-actions {
   display: flex;
   justify-content: space-between;
   font-size: 1.6rem;
   margin: 8px 0;
+}
+
+.fa-heart, .fa-comment {
+  cursor: pointer;
+}
+
+.heart-hide {
+  display: none;
+}
+
+.heart-show {
+  display: block;
+}
+
+.red-heart {
+  color: #ED4956;
 }
 
 .post-like-comment {
@@ -45,10 +63,6 @@
 
 .post-like-comment > div {
   margin-left: 14px;
-}
-
-.heart2 {
-  color: red;
 }
 
 .fa-bookmark {

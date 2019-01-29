@@ -1,6 +1,11 @@
 import React from 'react';
 
 export default class PostIndex extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  
   componentDidMount() {
     this.props.users();
     this.props.posts();
@@ -11,7 +16,7 @@ export default class PostIndex extends React.Component {
     if (this.props.currentUser && this.props.currentURL === "/") {
       posts = this.props.allPosts.map((post, index) => {
         return (
-          <div className="post-container">
+          <div className="post-container" key={index}>
             <div className="post-top">
               <div className="user-photo">[ userphoto ] &nbsp;</div>
               <div className="post-username">{ this.props.allUsers[post.user_id].username }</div>
@@ -22,7 +27,7 @@ export default class PostIndex extends React.Component {
             <div className="post-actions">
               <div className="post-like-comment">
                 <div><i className="far fa-heart"></i></div>
-                <div><i className="fas fa-heart heart2"></i></div>
+                <div className="heart-show"><i className="fas fa-heart red-heart"></i></div>
                 <div><i className="far fa-comment"></i></div>
                 <div></div>
               </div>
