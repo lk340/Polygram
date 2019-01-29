@@ -105,6 +105,46 @@
   height: 43px;
   border-top: var(--lightGray) solid 1px;
   padding-top: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.photo-modal-like-comment > div {
+  display: flex;
+}
+
+.photo-modal-like-comment > div > div {
+  margin-top: 8px;
+}
+
+.photo-modal-like-comment .fa-heart,
+.photo-modal-like-comment .fa-comment,
+.photo-modal-like-comment .fa-bookmark {
+  font-size: 24px;
+}
+
+.user-posts-heart-icon div {
+  margin-right: 12px;
+}
+
+.user-posts-bookmark-icon div {
+  width: 18px;
+}
+
+.photo-hide-heart {
+  display: none;
+}
+
+.photo-show-heart {
+  display: block;
+}
+
+.photo-hide-bookmark {
+  display: none;
+}
+
+.photo-show-bookmark {
+  display: block;
 }
 
 .photo-modal-number-likes {

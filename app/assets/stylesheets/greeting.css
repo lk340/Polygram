@@ -5,6 +5,7 @@
   margin-left: -20px;
   overflow: hidden;
   /* transition-duration:  */
+  width: 400px;
 
   animation: greeting 0.3s linear;
 }
@@ -22,6 +23,10 @@
   /* display: flex;
   justify-content: center;
   align-items: center; */
+}
+
+.greeting-first-link {
+  width: 400px;
 }
 
 .greeting-first-link a {
