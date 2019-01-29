@@ -61,12 +61,19 @@
   border: #dbdbdb solid 1px;
   border-radius: 3px;
   padding: 0 10px;
-  font-size: 12px;
+  font-size: 14px;
   background-color: var(--lighterGray);
+}
+
+.fa-search {
+  color: var(--grayText);
+  padding-right: 10px;
+  height: 28px;
 }
 
 .navbar-search-bar input::placeholder {
   text-align: center;
+  color: var(--grayText);
 }
 
 .navbar-search-bar input:focus::placeholder {

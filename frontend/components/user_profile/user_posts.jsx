@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 export default class UserPosts extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { modalOpen: false, photoURL: null };
+    this.state = { modalOpen: false, photoURL: null, photoCaption: null };
 
     this.handleClick = this.handleClick.bind(this);
     this.onModalClose = this.onModalClose.bind(this);
@@ -17,7 +17,7 @@ export default class UserPosts extends React.Component {
   handleClick(post) {
     // debugger;
     return () => {
-      this.setState({ modalOpen: true, photoURL: post.photoURL });
+      this.setState({ modalOpen: true, photoURL: post.photoURL, photoCaption: post.caption });
     };
   }
 
@@ -77,8 +77,8 @@ export default class UserPosts extends React.Component {
 
               <div className="photo-modal-caption-holder">
                 <div className="photo-modal-caption">
-                  <div><span>{this.props.currentUser.username} </span> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod cum saepe quidem consectetur reiciendis commodi amet, quam totam, iure eum rem corporis nesciunt eveniet consequuntur impedit modi sequi aspernatur sunt. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos ea tempore culpa soluta voluptatem qui neque nam facilis. Fugit ad nisi eum eligendi enim neque illo alias necessitatibus modi quam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium dolorem quis quod, assumenda laboriosam impedit, fuga dicta deleniti ea tempora maxime. Minus ab omnis labore sapiente odio eius, reprehenderit tempore? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex laboriosam magni obcaecati eius temporibus consequatur iusto pariatur perferendis voluptatibus omnis dolorem voluptates libero labore, suscipit vel vitae nihil aliquid corporis! Veniam quis facilis recusandae maiores quod, modi in fuga, molestiae rem omnis nostrum repellendus obcaecati aliquam ratione odit totam deleniti, doloremque pariatur laudantium. Maiores, placeat! Architecto, ratione reprehenderit dolores illo corrupti aspernatur molestias. Ut nemo, obcaecati quaerat dolor molestias ad, illum commodi fugit numquam culpa eligendi ducimus nihil saepe consequuntur? Vitae soluta accusamus nihil beatae consectetur minima rem, modi architecto culpa explicabo aliquam neque quas error iusto fugiat itaque deleniti!</div>
-                  <div className="photo-modal-caption-comments">Comments go here</div>
+                  <div><span>{this.props.currentUser.username} </span> {this.state.photoCaption}</div>
+                  <div className="photo-modal-caption-comments"><b>[Commenter Username]</b> Comments go here</div>
                 </div>
               </div>
 

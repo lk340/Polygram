@@ -13,6 +13,7 @@ import { allPosts, showPost, createPost, editPost, deletePost } from './actions/
 // TEST IMPORTS END //
 
 document.addEventListener("DOMContentLoaded", () => {
+  
   Modal.setAppElement(document.body); // tells modal to disable the entire body whenever a modal is loaded
   
   let store;

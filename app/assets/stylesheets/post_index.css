@@ -12,8 +12,11 @@
 
 .post-top {
   display: flex;
-  padding: 12px 0;;
+  /* padding: 12px 0; */
   padding-left: 12px;
+  height: 60px;
+  padding: 16px;
+  align-items: center;
 }
 
 .post-caption, .post-likes {
@@ -23,6 +26,8 @@
 
 .post-username {
   text-align: left;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .post-username-span {
