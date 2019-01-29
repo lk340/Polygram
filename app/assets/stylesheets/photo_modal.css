@@ -1,0 +1,63 @@
+.photo-modal {
+  width: 935px;
+  height: 600px;
+  margin-top: -2.3%;
+  margin-left: -2.3%;
+
+  /* margin-top: -21px;
+  margin-left: -21px; */
+
+  display: flex;
+}
+
+.photo-modal > div {
+  border: black solid 1px;
+}
+/* ============== PHOTO MODAL PICTURE START ============== */
+.photo-modal-picture {
+  width: 600px;
+  height: 600px;
+}
+/* ============== PHOTO MODAL PICTURE END ============== */
+
+
+
+/* ============== PHOTO MODAL DATA START ============== */
+.photo-modal-data {
+  width: 335px;
+  height: 600px;
+}
+
+.photo-modal-data > div {
+  border: red solid 1px;
+}
+
+.photo-modal-username {
+
+}
+
+.photo-modal-divider {
+  
+}
+
+.photo-modal-caption {
+  
+}
+
+.photo-modal-like-comment {
+  
+}
+
+.photo-modal-number-likes {
+  
+}
+
+.photo-modal-post-date {
+  
+}
+
+.photo-modal-comment-and-modal {
+  
+}
+
+/* ============== PHOTO MODAL DATA END ============== */

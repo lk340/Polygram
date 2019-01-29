@@ -29,16 +29,23 @@
   background-color: var(--lighterGray);
 }
 
-.edit-profile-container form {
+.edit-profile-container h1 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 22px;
+  margin-bottom: 13px;
+  margin-left: 174px;
+}
+
+.edit-profile-container .form-bottom {
   display: flex;
+  
   width: 696px;
   height: 706px;
   border-left: none;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   margin: auto;
-
-  /* border: red solid 1px; */
 }
 
 .edit-profile-container ul {
@@ -47,11 +54,9 @@
   margin: 0;
 }
 
-/* .edit-profile-labels ul {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-} */
+.edit-profile-labels {
+  margin-left: 32px;
+}
 
 .edit-profile-labels ul li {
   text-align: right;

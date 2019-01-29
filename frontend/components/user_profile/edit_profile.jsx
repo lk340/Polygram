@@ -4,6 +4,7 @@ export default class EditProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: this.props.currentUser.id,
       name: this.props.currentUser.name,
       username: this.props.currentUser.username,
       biography: this.props.currentUser.biography,
@@ -25,14 +26,13 @@ export default class EditProfile extends React.Component {
   }
   
   render() {
-    const { name, username, biography, email } = this.state;
-
-    const initialState = this.state;
+    // const initialState = this.state;
     let editProfileSubmit = "edit-profile-submit";
-    if (this.state === initialState) {
-      editProfileSubmit += " submit-fade";
-    }
+    // if (this.state === initialState) {
+    //   editProfileSubmit += " submit-fade";
+    // }
     
+    const { name, username, biography, email } = this.state;
     return (
       <div className="edit-profile-container">
         <div className="edit-profile-options">
@@ -47,25 +47,28 @@ export default class EditProfile extends React.Component {
         </div>
 
         <form onSubmit={this.handleSubmit}>
-          <div className="edit-profile-labels">
-            <ul>
-              <li>Name</li>
-              <li>Username</li>
-              <li>Bio</li>
-              <li>Email</li>
-            </ul>
-          </div>
+          <h1>{ this.props.currentUser.username }</h1>
+          <div className="form-bottom">
+            <div className="edit-profile-labels">
+              <ul>
+                <li>Name</li>
+                <li>Username</li>
+                <li>Bio</li>
+                <li>Email</li>
+              </ul>
+            </div>
 
-          <div className="edit-profile-fields">
-            <ul>
-              <li><input type="text" value={name} onChange={this.handleChange("name")} /></li>
-              <li><input type="text" value={username} onChange={this.handleChange("username")} /></li>
-              <li><textarea onChange={this.handleChange("biography")} >{biography}</textarea></li>
-              <li><div>Private Information</div></li>
-              <li><input type="text" value={email} onChange={this.handleChange("email")} /></li>
-              <li><a href="https://github.com/lk340" target="_blank" className="edit-profile-field-confirm-email">Github</a></li>
-              <li><button type="submit" className={ editProfileSubmit }>Submit</button></li>
-            </ul>
+            <div className="edit-profile-fields">
+              <ul>
+                <li><input type="text" value={name} onChange={this.handleChange("name")} /></li>
+                <li><input type="text" value={username} onChange={this.handleChange("username")} /></li>
+                <li><textarea onChange={this.handleChange("biography")} >{biography}</textarea></li>
+                <li><div>Private Information</div></li>
+                <li><input type="text" value={email} onChange={this.handleChange("email")} /></li>
+                <li><a href="https://github.com/lk340" target="_blank" className="edit-profile-field-confirm-email">Github</a></li>
+                <li><button type="submit" className={editProfileSubmit}>Submit</button></li>
+              </ul>
+            </div>
           </div>
         </form>
       </div>
