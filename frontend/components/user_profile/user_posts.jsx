@@ -63,19 +63,22 @@ export default class UserPosts extends React.Component {
         <Modal isOpen={ this.state.modalOpen } onRequestClose={ this.onModalClose } style={ modalStyle } >
           <div className="photo-modal">
             <div className="photo-modal-picture">
-              
+
             </div>
 
             <div className="photo-modal-data">
-              <div className="photo-modal-username">{ this.props.currentUser.username }</div>
-              <div className="photo-modal-divider">divider</div>
-              <div className="photo-modal-caption">username and caption (need to have scrolling)</div>
-              <div className="photo-modal-divider">divider</div>
+              <div className="photo-modal-username"><div>{ this.props.currentUser.username }</div></div>
+              {/* <div className="photo-modal-divider">divider</div> */}
+              <div className="photo-modal-caption">
+                <div><span>{this.props.currentUser.username} </span> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod cum saepe quidem consectetur reiciendis commodi amet, quam totam, iure eum rem corporis nesciunt eveniet consequuntur impedit modi sequi aspernatur sunt. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos ea tempore culpa soluta voluptatem qui neque nam facilis. Fugit ad nisi eum eligendi enim neque illo alias necessitatibus modi quam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium dolorem quis quod, assumenda laboriosam impedit, fuga dicta deleniti ea tempora maxime. Minus ab omnis labore sapiente odio eius, reprehenderit tempore? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex laboriosam magni obcaecati eius temporibus consequatur iusto pariatur perferendis voluptatibus omnis dolorem voluptates libero labore, suscipit vel vitae nihil aliquid corporis! Veniam quis facilis recusandae maiores quod, modi in fuga, molestiae rem omnis nostrum repellendus obcaecati aliquam ratione odit totam deleniti, doloremque pariatur laudantium. Maiores, placeat! Architecto, ratione reprehenderit dolores illo corrupti aspernatur molestias. Ut nemo, obcaecati quaerat dolor molestias ad, illum commodi fugit numquam culpa eligendi ducimus nihil saepe consequuntur? Vitae soluta accusamus nihil beatae consectetur minima rem, modi architecto culpa explicabo aliquam neque quas error iusto fugiat itaque deleniti!</div>
+                <div className="photo-modal-caption-comments"></div>
+              </div>
+              {/* <div className="photo-modal-divider">divider</div> */}
               <div className="photo-modal-like-comment">like comment share favorite</div>
               <div className="photo-modal-number-likes">number likes</div>
               <div className="photo-modal-post-date">when it was posted</div>
-              <div className="photo-modal-divider">divider</div>
-              <div className="photo-modal-comment-and-modal">add a comment... and another modal in a ...</div>
+              {/* <div className="photo-modal-divider">divider</div> */}
+              <div className="photo-modal-comment-and-modal"><textarea placeholder="Add a comment..."></textarea></div>
             </div>
           </div>
         </Modal>

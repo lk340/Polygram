@@ -11,7 +11,7 @@
 }
 
 .photo-modal > div {
-  border: black solid 1px;
+  /* border: black solid 1px; */
 }
 /* ============== PHOTO MODAL PICTURE START ============== */
 .photo-modal-picture {
@@ -26,38 +26,81 @@
 .photo-modal-data {
   width: 335px;
   height: 600px;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .photo-modal-data > div {
-  border: red solid 1px;
+  display: flex;
+
+  /* border: red solid 1px; */
 }
 
 .photo-modal-username {
-
+  width: 287px;
+  height: 78px;
+  padding: 20px 0;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  border-bottom: var(--lightGray) solid 1px;
 }
 
-.photo-modal-divider {
+/* .photo-modal-divider {
   
-}
+} */
 
 .photo-modal-caption {
+  width: 335px;
+  height: 378px;
+  padding: 12px 24px;
+  overflow: auto;
+}
+
+.photo-modal-caption span {
+  font-weight: 600;
+}
+
+.photo-modal-caption-comments {
   
 }
 
 .photo-modal-like-comment {
-  
+  width: 287px;
+  height: 43px;
+  border-top: var(--lightGray) solid 1px;
+  padding-top: 2px;
 }
 
 .photo-modal-number-likes {
-  
+  width: 287px;
+  height: 18px;
+  margin-bottom: 4px;
 }
 
 .photo-modal-post-date {
-  
+  width: 287px;
+  height: 19px;
 }
 
 .photo-modal-comment-and-modal {
-  
+  width: 287px;
+  height: 56px;
+  padding-right: 26px;
+  margin-top: 4px;
+  border-top: var(--lightGray) solid 1px;
+}
+
+.photo-modal-comment-and-modal textarea {
+  resize: none;
+  height: 18px;
+  max-height: 80px;
+  width: 261px;
+  background-color: white;
+  border: 0;
+  color: black;
+  font-size: 14px;
+  align-self: center;
 }
 
 /* ============== PHOTO MODAL DATA END ============== */
