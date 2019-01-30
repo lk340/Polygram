@@ -113,8 +113,8 @@ export default class UserPosts extends React.Component {
         zIndex: 99999,
       },
       content: {
-        width: "400px",
-        height: "240px",
+        width: "401px",
+        height: "246px",
         margin: "auto",
         borderRadius: "12px",
         padding: 0,

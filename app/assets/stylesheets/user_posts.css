@@ -37,11 +37,12 @@
 }
 
 .user-posts-modal-ception > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   border-bottom: var(--lightGray) solid 1px;
+  cursor: pointer;
+}
+
+.user-posts-modal-ception div:last-child {
+  border-bottom: none;
 }
 
 .user-posts-modal-ception a {
@@ -49,6 +50,9 @@
   color: black;
   width: 400px;
   height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-posts-modal-ception a:last-child {

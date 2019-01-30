@@ -47,45 +47,48 @@ export default class PostIndex extends React.Component {
   render() {
     let posts;
     // debugger;
-    if ((Object.keys(this.props.allUsers).length > 1) && (this.props.currentURL === "/")) {
+    // if ((Object.keys(this.props.allUsers).length > 1) && (this.props.currentURL === "/")) {
+    if ((this.props.currentUser) && (this.props.currentURL === "/")) {
       posts = this.props.allPosts.map((post, index) => {
-        return (
-          <div className="post-container" key={index}>
-            <div className="post-top">
-              <div className="user-photo">[ userphoto ] &nbsp;</div>
-              <div className="post-username">{ this.props.allUsers[post.user_id].username }</div>
-            </div>
-
-            <img src={ post.photoURL } />
-
-            <div className="post-actions">
-              <div className="post-like-comment">
-                <div className={this.state.heartStatus} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div>
-                <div className={this.state.heart2Status} onClick={this.handleHeartClick}><i className="fas fa-heart red-heart"></i></div>
-                <div><i className="far fa-comment"></i></div>
-                <div></div>
+        if (this.props.allUsers[post.user_id]) {
+          return (
+            <div className="post-container" key={index}>
+              <div className="post-top">
+                <div className="user-photo">[ userphoto ] &nbsp;</div>
+                <div className="post-username">{this.props.allUsers[post.user_id].username}</div>
               </div>
 
-              <div className={this.state.bookmarkStatus} onClick={this.handleBookmarkClick} ><i className="far fa-bookmark"></i></div>
-              <div className={this.state.bookmark2Status} onClick={this.handleBookmarkClick} ><i className="fas fa-bookmark"></i></div>
-            </div>
+              <img src={post.photoURL} />
 
-            <div className="post-likes">insert # likes here</div>
-            
-            <p className="post-caption" key={`post-${ index }`}>
-              <span className="post-username-span"> { this.props.allUsers[post.user_id].username } </span> { post.caption }
-            </p>
+              <div className="post-actions">
+                <div className="post-like-comment">
+                  <div className={this.state.heartStatus} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div>
+                  <div className={this.state.heart2Status} onClick={this.handleHeartClick}><i className="fas fa-heart red-heart"></i></div>
+                  <div><i className="far fa-comment"></i></div>
+                  <div></div>
+                </div>
 
-            <div className="post-index-comment-container">
-              <div className="post-index-comment">
-                <form className="post-index-comment-form" onSubmit={this.handleCommentSubmit}>
-                  <textarea placeholder="Add a comment..."></textarea>
-                </form>
+                <div className={this.state.bookmarkStatus} onClick={this.handleBookmarkClick} ><i className="far fa-bookmark"></i></div>
+                <div className={this.state.bookmark2Status} onClick={this.handleBookmarkClick} ><i className="fas fa-bookmark"></i></div>
               </div>
-              <span>...</span>
+
+              <div className="post-likes">insert # likes here</div>
+
+              <p className="post-caption" key={`post-${index}`}>
+                <span className="post-username-span"> {this.props.allUsers[post.user_id].username} </span> {post.caption}
+              </p>
+
+              <div className="post-index-comment-container">
+                <div className="post-index-comment">
+                  <form className="post-index-comment-form" onSubmit={this.handleCommentSubmit}>
+                    <textarea placeholder="Add a comment..."></textarea>
+                  </form>
+                </div>
+                <span>...</span>
+              </div>
             </div>
-          </div>
           )
+        }
       });
     }
 
