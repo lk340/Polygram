@@ -81,11 +81,11 @@ export default class UserProfile extends React.Component {
 
             <Modal isOpen={ this.state.modalOpen } onRequestClose={ this.onModalClose } style={ modalStyle } >
               <div className="greeting">
-                <div className="greeting-first-link"><Link to="/">Change Password</Link></div>
-                <div><Link to="/">Nametag</Link></div>
-                <div><Link to="/">Authorized Apps</Link></div>
-                <div><Link to="/">Notifications</Link></div>
-                <div><Link to="/">Privacy and Security</Link></div>
+                <div className="greeting-first-link"><Link to="/" target="_blank">Change Password</Link></div>
+                <div><Link to="/" target="_blank">Nametag</Link></div>
+                <div><Link to="/" target="_blank">Authorized Apps</Link></div>
+                <div><Link to="/" target="_blank">Notifications</Link></div>
+                <div><Link to="/" target="_blank">Privacy and Security</Link></div>
                 <div><a onClick={this.handleSignOut}> Log Out </a></div>
                 <div><a className="greeting-cancel" onClick={this.onModalClose}> Cancel </a></div>
               </div>

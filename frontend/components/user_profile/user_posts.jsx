@@ -182,7 +182,7 @@ export default class UserPosts extends React.Component {
           <div className="user-posts-modal-ception">
             <div><a href="https://github.com/lk340" target="_blank">Github</a></div>
             <div><a href="#" target="_blank">LinkedIn</a></div>
-            <div><a href="#" target="_blank">Instagram</a></div>
+            <div><a href="https://www.instagram.com/" target="_blank">Instagram</a></div>
             <div><a href="#" target="_blank">Filler</a></div>
             <div><a onClick={this.onModalClose2}>Cancel</a></div>
           </div>
