@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy] #sign in / sign out
     # User Auth End
 
-    resources :posts, only: [:index, :show, :create, :update, :destroy]
+    resources :posts, only: [:index, :show, :create, :edit, :update, :destroy]
   end
 end
 

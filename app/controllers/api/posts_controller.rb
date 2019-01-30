@@ -24,9 +24,9 @@ class Api::PostsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @post = post.find(params[:id])
-  # end
+  def edit
+    @post = post.find(params[:id])
+  end
 
   def update
     @post = Post.new(post_params)
@@ -51,6 +51,6 @@ class Api::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:caption, :user_id, :photo)
+    params.require(:post).permit(:id, :caption, :user_id, :photo)
   end
 end

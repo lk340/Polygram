@@ -259,6 +259,8 @@ export default class UserPosts extends React.Component {
         <Modal isOpen={this.state.modalOpen3} onRequestClose={this.onModalClose3} style={modalStyle3} >
           <div className="edit-post-form">
             <form onSubmit={this.handleFormEditSubmit}>
+              <input type="file"/>
+              <br/>
               <label htmlFor="edit-post-caption">Caption</label>
               <br/>
               <input type="text" id="edit-post-caption" value={this.state.photoCaption} onChange={this.handleEditPostChange} />
