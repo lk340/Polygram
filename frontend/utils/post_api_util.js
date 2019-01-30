@@ -39,8 +39,9 @@ export const createPostAWS = formData => {
   return $.ajax({
     method: "POST",
     url: "/api/posts",
-    data: formData,
-    contentType: false,
     processData: false,
+    contentType: false,
+    dataType: "json",
+    data: formData,
   });
-}
+};

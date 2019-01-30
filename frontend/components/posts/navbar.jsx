@@ -6,7 +6,13 @@ export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
     const { sessionId } = this.props;
-    this.state = { modalOpen: false, caption: "", photoFile: null, photoURL: null, user_id: sessionId };
+    this.state = {
+      modalOpen: false,
+      caption: "",
+      photoFile: null,
+      photoURL: null,
+      user_id: sessionId
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleModalClick = this.handleModalClick.bind(this);
@@ -32,6 +38,14 @@ export default class Navbar extends React.Component {
       this.setState({ [field]: event.target.value });
     };
   }
+  
+  handleModalClick() {
+    this.setState({ modalOpen: true });
+  }
+
+  onModalClose() {
+    this.setState({ modalOpen: false });
+  }
 
   handleSubmitForm(event) {
     event.preventDefault();
@@ -44,14 +58,8 @@ export default class Navbar extends React.Component {
     formData.append("post[user_id]", this.state.user_id);
 
     this.props.createAWS(formData); // thunk action creator
-  }
-  
-  handleModalClick() {
-    this.setState({ modalOpen: true });
-  }
-
-  onModalClose() {
-    this.setState({ modalOpen: false });
+    this.onModalClose();
+    this.setState({ photoFile: null, photoURL: null });
   }
 
   handleSubmit(event) {
@@ -104,6 +112,33 @@ export default class Navbar extends React.Component {
 
     const preview = this.state.photoURL ? <img className="post-form-image-preview" src={this.state.photoURL} /> : null;
     let postForm;
+    if(this.props.currentUser) {
+      postForm = (
+        <div className="post-form-container">
+          <h2>Polygram</h2>
+          <div className="post-form">
+            <form onSubmit={this.handleSubmitForm}>
+              <input className="post-form-file-button" type="file" onChange={this.handleFile} />
+
+              <br />
+              <br />
+
+              <textarea maxLength="2200" type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} />
+              <br />
+
+              <input className={postFormSubmitButton} type="submit" value="share" />
+
+              <br />
+
+              <div className="post-form-preview-divider"></div>
+              <h3> Image Preview </h3>
+              <h3><i className="fas fa-sort-down"></i></h3>
+              {preview}
+            </form>
+          </div>
+        </div>
+      )
+    }
 
     const modalStyle = {
       overlay: {
@@ -142,29 +177,7 @@ export default class Navbar extends React.Component {
 
         {/* { modal } */}
         <Modal isOpen={this.state.modalOpen} onRequestClose={this.onModalClose} style={modalStyle}>
-        <div className="post-form-container">
-          <h2>Polygram</h2>
-          <div className="post-form">
-            <form onSubmit={this.handleSubmitForm}>
-              <input className="post-form-file-button" type="file" onChange={this.handleFile} />
-
-              <br />
-              <br />
-
-              <textarea maxLength="2200" type="text" placeholder="Your caption here." onChange={this.handleChange("caption")} />
-              <br />
-
-              <input className={postFormSubmitButton} type="submit" value="share" />
-
-              <br />
-
-              <div className="post-form-preview-divider"></div>
-              <h3> Image Preview </h3>
-              <h3><i className="fas fa-sort-down"></i></h3>
-              {preview}
-            </form>
-          </div>
-        </div>
+          {postForm}
         </Modal>
       </div>
     )

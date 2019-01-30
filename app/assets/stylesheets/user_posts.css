@@ -61,6 +61,11 @@
 
 .user-post-delete-post {
   transition-duration: 0.4s;
+  width: 400px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-post-delete-post:hover {

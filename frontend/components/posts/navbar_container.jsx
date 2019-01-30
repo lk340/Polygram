@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Navbar from './navbar';
-import { showPost } from '../../utils/post_api_util';
+import { showPost, createPostAWS } from '../../actions/post_actions';
 
 const msp = state => {
   return {
@@ -13,6 +13,7 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     showPost: id => dispatch(showPost(id)),
+    createAWS: formData => dispatch(createPostAWS(formData)),
   };
 };
 

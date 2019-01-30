@@ -15,11 +15,6 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     createAWS: formData => dispatch(createPostAWS(formData)),
-    // posts: () => dispatch(allPosts()),
-    // show: id => dispatch(showPost(id)),
-    // create: post => dispatch(createPost(post)),
-    // edit: post => dispatch(editPost(post)),
-    // delete: id => dispatch(deletePost(id)),
   };
 };
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-import { deletePost } from '../../utils/post_api_util';
-
 export default class UserPosts extends React.Component {
   constructor(props) {
     super(props);
@@ -11,33 +9,48 @@ export default class UserPosts extends React.Component {
       modalOpen2: false, 
       photoURL: null, 
       photoCaption: null,
+      photoId: null,
       heartStatus: "photo-show-heart",
       heart2Status: "photo-hide-heart",
       bookmarkStatus: "photo-show-bookmark",
       bookmark2Status: "photo-hide-bookmark",
     };
 
-    this.handleClick = this.handleClick.bind(this);
-    this.onModalClose = this.onModalClose.bind(this);
+    this.handlePostClick = this.handlePostClick.bind(this);
     this.handleHeartClick = this.handleHeartClick.bind(this);
     this.handleBookmarkClick = this.handleBookmarkClick.bind(this);
-    this.modalCeption = this.modalCeption.bind(this);
+    this.onModalClose = this.onModalClose.bind(this);
     this.onModalClose2 = this.onModalClose2.bind(this);
+    this.modalCeption = this.modalCeption.bind(this);
     this.handleDeletePost = this.handleDeletePost.bind(this);
   }
   
   componentDidMount() {
     this.props.posts();
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.userPosts.length !== this.props.userPosts.length) {
+      this.props.posts();
+    }
+  }
   
-  handleClick(post) {
+  handlePostClick(post) {
     return () => {
-      this.setState({ modalOpen: true, photoURL: post.photoURL, photoCaption: post.caption });
+      this.setState({ modalOpen: true, photoURL: post.photoURL, photoCaption: post.caption, photoId: post.id });
     };
   }
 
   onModalClose() {
     this.setState({ modalOpen: false });
+  }
+  
+  onModalClose2() {
+    this.setState({ modalOpen2: false });
+  }
+
+  modalCeption() {
+    this.setState({ modalOpen2: true });
   }
 
   handleHeartClick() {
@@ -58,17 +71,11 @@ export default class UserPosts extends React.Component {
     }
   }
 
-  modalCeption() {
-    this.setState({ modalOpen2: true });
-  }
-
-  onModalClose2() {
-    this.setState({ modalOpen2: false });
-  }
-
   handleDeletePost(id) {
     return () => {
-      return deletePost(id);
+      this.props.deletePost(id);
+      this.onModalClose();
+      this.onModalClose2();
     };
   }
   
@@ -83,7 +90,7 @@ export default class UserPosts extends React.Component {
       if (post.user_id === this.props.sessionId) {
         return (
           <div className="user-post-photo" key={index}>
-            <img src={ post.photoURL } alt="photo" onClick={ this.handleClick(post) } />
+            <img src={ post.photoURL } alt="photo" onClick={ this.handlePostClick(post) } />
           </div>
         )
       }
@@ -155,7 +162,7 @@ export default class UserPosts extends React.Component {
                     <div className={this.state.heartStatus} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div>
                     <div className={this.state.heart2Status} onClick={this.handleHeartClick}><i className="fas fa-heart red-heart"></i></div>
 
-                    <div><i class="far fa-comment"></i></div>
+                    <div><i className="far fa-comment"></i></div>
                   </div>
 
                   <div className="user-posts-bookmark-icon">
@@ -192,7 +199,8 @@ export default class UserPosts extends React.Component {
             <div><a href="https://github.com/lk340" target="_blank">Github</a></div>
             <div><a href="#" target="_blank">LinkedIn</a></div>
             <div><a href="https://www.instagram.com/" target="_blank">Instagram</a></div>
-            <div onClick={this.handleDeletePost()} ><a className="user-post-delete-post" href="#" target="_blank">Delete Post</a></div>
+            {/* <div onClick={this.handleDeletePost(this.state.photoId)} ><a className="user-post-delete-post" href="#" target="_blank">Delete Post</a></div> */}
+            <div className="user-post-delete-post" onClick={this.handleDeletePost(this.state.photoId)} >Delete Post</div>
             <div><a onClick={this.onModalClose2}>Cancel</a></div>
           </div>
         </Modal>

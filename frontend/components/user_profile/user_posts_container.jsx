@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
 
 import UserPosts from './user_posts';
-import { allPosts, showPost } from '../../actions/post_actions';
+import { allPosts, deletePost } from '../../actions/post_actions';
 
 const msp = state => {
   return {
     // posts: Object.values(state.entities.posts),
-    // userPosts: 
     currentUser: state.entities.users[state.session.id],
     sessionId: state.session.id,
     userPosts: Object.values(state.entities.posts).reverse(),
@@ -16,6 +15,7 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     posts: () => dispatch(allPosts()),
+    deletePost: id => dispatch(deletePost(id)),
   };
 };
 

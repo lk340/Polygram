@@ -80,8 +80,12 @@ export const editPost = post => dispatch => {
 export const deletePost = id => dispatch => {
   return PostAJAX.deletePost(id)
     .then(
-      post => dispatch(deletePostAction(post.id)),
-      errors => dispatch(postErrorsAction(errors.responseJSON))
+      post => {
+        return dispatch(deletePostAction(post.id));
+      },
+      errors => {
+        return dispatch(postErrorsAction(errors.responseJSON));
+      }
     );
 };
 

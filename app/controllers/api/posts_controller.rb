@@ -19,7 +19,6 @@ class Api::PostsController < ApplicationController
 
     if @post.save
       render :show
-      # render json: "You did it!"
     else
       render json: @post.errors.full_messages, status: 422
     end
@@ -44,7 +43,7 @@ class Api::PostsController < ApplicationController
 
     if @post
       @post.destroy
-      render :show
+      render :delete
     else
       render json: @post.errors.full_messages, status: 404
     end
