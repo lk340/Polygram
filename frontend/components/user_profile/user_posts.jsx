@@ -1,6 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 
+import { deletePost } from '../../utils/post_api_util';
+
 export default class UserPosts extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +23,7 @@ export default class UserPosts extends React.Component {
     this.handleBookmarkClick = this.handleBookmarkClick.bind(this);
     this.modalCeption = this.modalCeption.bind(this);
     this.onModalClose2 = this.onModalClose2.bind(this);
+    this.handleDeletePost = this.handleDeletePost.bind(this);
   }
   
   componentDidMount() {
@@ -28,7 +31,6 @@ export default class UserPosts extends React.Component {
   }
   
   handleClick(post) {
-    // debugger;
     return () => {
       this.setState({ modalOpen: true, photoURL: post.photoURL, photoCaption: post.caption });
     };
@@ -62,6 +64,12 @@ export default class UserPosts extends React.Component {
 
   onModalClose2() {
     this.setState({ modalOpen2: false });
+  }
+
+  handleDeletePost(id) {
+    return () => {
+      return deletePost(id);
+    };
   }
   
   render() {
@@ -113,11 +121,12 @@ export default class UserPosts extends React.Component {
         zIndex: 99999,
       },
       content: {
-        width: "401px",
+        width: "400px",
         height: "246px",
         margin: "auto",
         borderRadius: "12px",
         padding: 0,
+        border: "white solid 0px",
       }
     };
     
@@ -183,7 +192,7 @@ export default class UserPosts extends React.Component {
             <div><a href="https://github.com/lk340" target="_blank">Github</a></div>
             <div><a href="#" target="_blank">LinkedIn</a></div>
             <div><a href="https://www.instagram.com/" target="_blank">Instagram</a></div>
-            <div><a href="#" target="_blank">Filler</a></div>
+            <div onClick={this.handleDeletePost()} ><a className="user-post-delete-post" href="#" target="_blank">Delete Post</a></div>
             <div><a onClick={this.onModalClose2}>Cancel</a></div>
           </div>
         </Modal>

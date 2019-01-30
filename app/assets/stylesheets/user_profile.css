@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: red solid 1px; */
+  border-radius: 50%;
 }
 
 .profile-information {
@@ -88,4 +88,7 @@
 .user-pro-pic {
   width: 150px;
   height: 150px;
+  border-radius: 50%;
+
+  /* border: red solid 1px; */
 }

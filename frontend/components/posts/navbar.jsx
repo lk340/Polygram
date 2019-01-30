@@ -17,7 +17,6 @@ export default class Navbar extends React.Component {
   }
   
   handleFile(event) {
-    // debugger;
     const file = event.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
@@ -45,19 +44,6 @@ export default class Navbar extends React.Component {
     formData.append("post[user_id]", this.state.user_id);
 
     this.props.createAWS(formData); // thunk action creator
-
-    // $.ajax({
-    //   method: "POST",
-    //   url: "/api/posts",
-    //   data: formData,
-    //   contentType: false,
-    //   processData: false,
-    // }).then(
-    //   response => console.log(response.message),
-    //   errors => console.log(errors.responseJSON)
-    // );
-
-    // this.props.history.push("/");
   }
   
   handleModalClick() {

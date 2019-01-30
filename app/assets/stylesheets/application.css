@@ -22,6 +22,8 @@
 
   --grayText: rgb(148, 148, 148);
   --grayTextBold: #999999;
+
+  --instaRed: #ED4956;
 }
 
 html, body {

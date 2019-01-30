@@ -4,7 +4,6 @@ import UserPosts from './user_posts';
 import { allPosts, showPost } from '../../actions/post_actions';
 
 const msp = state => {
-  // debugger;
   return {
     // posts: Object.values(state.entities.posts),
     // userPosts: 
@@ -15,7 +14,6 @@ const msp = state => {
 };
 
 const mdp = dispatch => {
-  // debugger;
   return {
     posts: () => dispatch(allPosts()),
   };

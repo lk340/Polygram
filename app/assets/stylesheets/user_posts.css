@@ -58,3 +58,12 @@
 .user-posts-modal-ception a:last-child {
   border: none;
 }
+
+.user-post-delete-post {
+  transition-duration: 0.4s;
+}
+
+.user-post-delete-post:hover {
+  background-color: var(--instaRed);
+  color: white;
+}

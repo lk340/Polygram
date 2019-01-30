@@ -5,7 +5,6 @@ import { allPosts } from '../../actions/post_actions';
 import { fetchUsers } from '../../actions/user_actions';
 
 const msp = (state, ownProps) => {
-  // debugger;
   return {
     allPosts: Object.values(state.entities.posts).reverse(),
     allUsers: state.entities.users,

@@ -46,7 +46,6 @@ export default class PostIndex extends React.Component {
   
   render() {
     let posts;
-    // debugger;
     // if ((Object.keys(this.props.allUsers).length > 1) && (this.props.currentURL === "/")) {
     if ((this.props.currentUser) && (this.props.currentURL === "/")) {
       posts = this.props.allPosts.map((post, index) => {
