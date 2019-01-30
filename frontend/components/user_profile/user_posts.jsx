@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 
 export default class UserPosts extends React.Component {
   constructor(props) {
@@ -162,7 +163,11 @@ export default class UserPosts extends React.Component {
                     <div className={this.state.heartStatus} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div>
                     <div className={this.state.heart2Status} onClick={this.handleHeartClick}><i className="fas fa-heart red-heart"></i></div>
 
-                    <div><i className="far fa-comment"></i></div>
+                    <div>
+                      <label htmlFor="show-post-comment">
+                        <i className="far fa-comment"></i>
+                      </label>
+                    </div>
                   </div>
 
                   <div className="user-posts-bookmark-icon">
@@ -185,7 +190,7 @@ export default class UserPosts extends React.Component {
 
                 <div className="photo-modal-comment-and-modal">
                   <div>
-                    <textarea placeholder="Add a comment..."></textarea>
+                    <textarea id="show-post-comment" placeholder="Add a comment..."></textarea>
                     <span className="photo-modal-span" onClick={this.modalCeption}>...</span>
                   </div>
                 </div>
@@ -196,9 +201,10 @@ export default class UserPosts extends React.Component {
 
         <Modal isOpen={this.state.modalOpen2} onRequestClose={this.onModalClose2} style={modalStyle2}>
           <div className="user-posts-modal-ception">
-            <div><a href="https://github.com/lk340" target="_blank">Github</a></div>
+            <div><a href="https://github.com/lk340" target="_bla{ nk}" >Github</a></div>
             <div><a href="#" target="_blank">LinkedIn</a></div>
-            <div><a href="https://www.instagram.com/" target="_blank">Instagram</a></div>
+            {/* <div><a href="https://www.instagram.com/" target="_blank">Instagram</a></div> */}
+            <div className="user-post-edit-post"><Link to="/" target="_blank">Edit Post</Link></div>
             {/* <div onClick={this.handleDeletePost(this.state.photoId)} ><a className="user-post-delete-post" href="#" target="_blank">Delete Post</a></div> */}
             <div className="user-post-delete-post" onClick={this.handleDeletePost(this.state.photoId)} >Delete Post</div>
             <div><a onClick={this.onModalClose2}>Cancel</a></div>

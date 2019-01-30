@@ -53,7 +53,7 @@ export default class PostIndex extends React.Component {
           return (
             <div className="post-container" key={index}>
               <div className="post-top">
-                <div className="user-photo">[ userphoto ] &nbsp;</div>
+                <div className="user-photo">[ userphoto size 30x30 border-radius 50% on image ] &nbsp;</div>
                 <div className="post-username">{this.props.allUsers[post.user_id].username}</div>
               </div>
 
@@ -63,7 +63,11 @@ export default class PostIndex extends React.Component {
                 <div className="post-like-comment">
                   <div className={this.state.heartStatus} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div>
                   <div className={this.state.heart2Status} onClick={this.handleHeartClick}><i className="fas fa-heart red-heart"></i></div>
-                  <div><i className="far fa-comment"></i></div>
+                  <div>
+                    <label htmlFor="index-comment">
+                      <i className="far fa-comment"></i>
+                    </label>
+                  </div>
                   <div></div>
                 </div>
 
@@ -80,7 +84,7 @@ export default class PostIndex extends React.Component {
               <div className="post-index-comment-container">
                 <div className="post-index-comment">
                   <form className="post-index-comment-form" onSubmit={this.handleCommentSubmit}>
-                    <textarea placeholder="Add a comment..."></textarea>
+                    <textarea id="index-comment" placeholder="Add a comment..."></textarea>
                   </form>
                 </div>
                 <span>...</span>

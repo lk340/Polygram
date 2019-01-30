@@ -72,3 +72,16 @@
   background-color: var(--instaRed);
   color: white;
 }
+
+.user-post-edit-post {
+  width: 400px;
+  height: 48px;
+  transition-duration: 0.4s;
+}
+
+.user-post-edit-post:hover {
+  background-color: var(--lightBlue);
+}
+.user-post-edit-post:hover a {
+  color: white;
+}
