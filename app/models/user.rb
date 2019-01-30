@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :posts
   # has_many :followers
+
+  has_one_attached :profile_picture
   
   # FGRIPE
   def self.find_by_credentials(username, password, email)

@@ -18,10 +18,10 @@ const receiveUser = user => {
   };
 };
 
-const changeUserInfo = data => {
+const changeUserInfo = user => {
   return {
     type: CHANGE_USER_INFO,
-    data,
+    user,
   };
 };
 
@@ -33,6 +33,9 @@ export const fetchUser = id => dispatch => {
   return UserAJAX.fetchUser(id).then(user => dispatch(receiveUser(user)));
 };
 
-export const editUser = data => dispatch => {
-  return UserAJAX.editUser(data).then(data => dispatch(changeUserInfo(data)));
+export const editUser = user => dispatch => {
+  return UserAJAX.editUser(user).then(user => {
+    debugger;
+    return dispatch(changeUserInfo(user));
+  });
 };

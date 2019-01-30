@@ -44,6 +44,7 @@ export default class Navbar extends React.Component {
 
   onModalClose() {
     this.setState({ modalOpen: false });
+    this.setState({ photoFile: null, photoURL: null });
   }
 
   handleSubmitForm(event) {
@@ -116,8 +117,9 @@ export default class Navbar extends React.Component {
         <div className="post-form-container">
           <h2>Polygram</h2>
           <div className="post-form">
-            <form onSubmit={this.handleSubmitForm}>
-              <input className="post-form-file-button" type="file" onChange={this.handleFile} />
+            <form className="post-form-file-input-form" onSubmit={this.handleSubmitForm}>
+              <label htmlFor="post-form-file-input">Choose An Image</label>
+              <input id="post-form-file-input" className="post-form-file-button" type="file" onChange={this.handleFile} />
 
               <br />
               <br />

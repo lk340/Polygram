@@ -92,3 +92,11 @@
 
   /* border: red solid 1px; */
 }
+
+.user-profile-picture-form label {
+  cursor: pointer;
+}
+/* 
+.user-profile-picture-form > input {
+  display: none;
+} */

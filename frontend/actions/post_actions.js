@@ -74,7 +74,7 @@ export const editPost = post => dispatch => {
     .then(
       post => {
         debugger;
-        dispatch(editPostAction(post));
+        return dispatch(editPostAction(post));
       },
       errors => dispatch(postErrorsAction(errors.responseJSON))
     );

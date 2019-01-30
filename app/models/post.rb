@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   validates :user_id, presence: true
   validate :ensure_photo
+  # validate :ensure_photo, allow_nil: true
 
   def ensure_photo
     unless self.photo.attached?

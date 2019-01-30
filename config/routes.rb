@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     # User Auth End
 
     resources :posts, only: [:index, :show, :create, :edit, :update, :destroy]
+    # resources :likes, only [:create, :destroy]
+    # resources :comments, only [:create, :update, :destroy]
   end
 end
 

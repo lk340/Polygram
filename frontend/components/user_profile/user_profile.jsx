@@ -8,11 +8,16 @@ export default class UserProfile extends React.Component {
     super(props);
 
     // this.state = { class: "greeting-modal-closed" };
-    this.state = { modalOpen: false };
+    this.state = {
+      modalOpen: false,
+      profile_picture: (this.props.currentUser.profile_picture === null ? window.userDefaultProfilePicture : this.props.currentUser.profile_picture),
+    };
     
     this.handleClick = this.handleClick.bind(this);
     this.onModalClose = this.onModalClose.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
+    this.handleProfilePictureSubmit = this.handleProfilePictureSubmit.bind(this);
+    this.handleProPicAutoSubmit = this.handleProPicAutoSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +40,23 @@ export default class UserProfile extends React.Component {
     event.preventDefault();
     this.props.signOut();
     // this.props.history.push("/");
+  }
+
+  handleProfilePictureSubmit(event) {
+    event.preventDefault();
+    console.log("successfully submitted!");
+    this.props.editUser({
+      id: this.props.sessionId,
+      username: this.props.currentUser.username,
+      email: this.props.currentUser.email,
+      name: this.props.currentUser.name,
+      biography: this.props.currentUser.biography,
+      profile_photo: this.props.currentUser.profile_photo,
+    });
+  }
+
+  handleProPicAutoSubmit() {
+    // submit();
   }
   
   render() {
@@ -69,7 +91,16 @@ export default class UserProfile extends React.Component {
         <div className="user-information">
           <div className="profile-picture">
             {/* [ propic ] */}
-            <img className="user-pro-pic" src={ window.userDefaultProfilePicture } alt="user-profile-picture" />
+            {/* <img className="user-pro-pic" src={ this.state.profile_picture } alt="user-profile-picture" /> */}
+
+            <form className="user-profile-picture-form" onSubmit={this.handleProfilePictureSubmit}>
+              <label htmlFor="user-profile-input">
+                <img className="user-pro-pic" src={this.state.profile_picture} alt="profile-picture"/>
+              </label>
+              <input type="file" id="user-profile-input" onChange={this.handleProPicAutoSubmit}/>
+              <input className="user-profile-picture-form-submit-input" type="submit"/>
+            </form>
+
           </div>
 
           <div className="profile-information">

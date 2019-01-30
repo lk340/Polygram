@@ -29,9 +29,9 @@ class Api::PostsController < ApplicationController
   end
 
   def update
-    @post = Post.new(post_params)
-
-    if @post.save
+    @post = Post.find(params[:post][:id])
+    # debugger
+    if @post.update(post_params)
       render :edit
     else
       render json: @post.errors.full_messages, status: 404

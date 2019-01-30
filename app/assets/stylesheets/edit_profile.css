@@ -11,9 +11,10 @@
 
 .edit-profile-options {
   width: 237px;
-  height: 706px;
+  height: calc(706px + 50px);
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
+  border-right: none;
 }
 
 .edit-profile-options ul li a {

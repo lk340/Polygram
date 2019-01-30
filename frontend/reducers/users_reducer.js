@@ -19,7 +19,7 @@ export default (state = {}, action) => {
       return merge({}, state, action.user);
     case CHANGE_USER_INFO:
       const newState = merge({}, state);
-      newState[action.data.id] = action.data;
+      newState[action.user.id] = action.user;
       return newState;
     default:
       return state;
