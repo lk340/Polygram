@@ -5,13 +5,12 @@ import Modal from 'react-modal';
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    const { sessionId } = this.props;
     this.state = {
       modalOpen: false,
       caption: "",
       photoFile: null,
       photoURL: null,
-      user_id: sessionId
+      user_id: this.props.sessionId,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);

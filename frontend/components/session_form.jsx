@@ -130,6 +130,7 @@ export default class SessionForm extends React.Component {
       )
 
       sessionFormContainer = ""
+      // sessionFormContainer = "session-form-container";
       sessionForm = "slash-image-session-form-css"
     }
 
