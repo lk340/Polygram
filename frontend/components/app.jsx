@@ -49,7 +49,7 @@ export default () => {
             <AuthRoute exact path="/" component={ SignUpFormContainer } />
             <AuthRoute exact path="/accounts/login" component={ SignInFormContainer } />
             <AuthRoute exact path="/accounts/emailsignup" component={ SignUpFormContainer } />
-            <Route exact path="/posts/new" component={ PostFormContainer } />
+            {/* <Route exact path="/posts/new" component={ PostFormContainer } /> */}
             <Route exact path="/accounts/edit" component={ EditProfileContainer } />
           </div>
 

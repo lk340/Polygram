@@ -72,7 +72,10 @@ export const createPost = post => dispatch => {
 export const editPost = post => dispatch => {
   return PostAJAX.editPost(post)
     .then(
-      post => dispatch(editPostAction(post)),
+      post => {
+        debugger;
+        dispatch(editPostAction(post));
+      },
       errors => dispatch(postErrorsAction(errors.responseJSON))
     );
 };

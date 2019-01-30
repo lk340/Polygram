@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import UserPosts from './user_posts';
-import { allPosts, deletePost } from '../../actions/post_actions';
+import { allPosts, deletePost, editPost } from '../../actions/post_actions';
 
 const msp = state => {
   return {
@@ -16,6 +16,7 @@ const mdp = dispatch => {
   return {
     posts: () => dispatch(allPosts()),
     deletePost: id => dispatch(deletePost(id)),
+    editPost: post => dispatch(editPost(post)),
   };
 };
 

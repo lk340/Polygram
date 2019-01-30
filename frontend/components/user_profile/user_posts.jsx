@@ -8,9 +8,11 @@ export default class UserPosts extends React.Component {
     this.state = {
       modalOpen: false, 
       modalOpen2: false, 
-      photoURL: null, 
-      photoCaption: null,
+      modalOpen3: false, 
       photoId: null,
+      photoCaption: null,
+      photoUserId: null,
+      photoURL: null, 
       heartStatus: "photo-show-heart",
       heart2Status: "photo-hide-heart",
       bookmarkStatus: "photo-show-bookmark",
@@ -22,8 +24,12 @@ export default class UserPosts extends React.Component {
     this.handleBookmarkClick = this.handleBookmarkClick.bind(this);
     this.onModalClose = this.onModalClose.bind(this);
     this.onModalClose2 = this.onModalClose2.bind(this);
+    this.onModalClose3 = this.onModalClose3.bind(this);
     this.modalCeption = this.modalCeption.bind(this);
     this.handleDeletePost = this.handleDeletePost.bind(this);
+    this.openEditPostModal = this.openEditPostModal.bind(this);
+    this.handleEditPostChange = this.handleEditPostChange.bind(this);
+    this.handleFormEditSubmit = this.handleFormEditSubmit.bind(this);
   }
   
   componentDidMount() {
@@ -38,8 +44,16 @@ export default class UserPosts extends React.Component {
   
   handlePostClick(post) {
     return () => {
-      this.setState({ modalOpen: true, photoURL: post.photoURL, photoCaption: post.caption, photoId: post.id });
+      this.setState({ modalOpen: true, photoId: post.id, photoCaption: post.caption, photoUserId: post.user_id, photoURL: post.photoURL });
     };
+  }
+
+  modalCeption() {
+    this.setState({ modalOpen2: true });
+  }
+
+  openEditPostModal() {
+    this.setState({ modalOpen3: true });
   }
 
   onModalClose() {
@@ -50,8 +64,8 @@ export default class UserPosts extends React.Component {
     this.setState({ modalOpen2: false });
   }
 
-  modalCeption() {
-    this.setState({ modalOpen2: true });
+  onModalClose3() {
+    this.setState({ modalOpen3: false });
   }
 
   handleHeartClick() {
@@ -78,6 +92,21 @@ export default class UserPosts extends React.Component {
       this.onModalClose();
       this.onModalClose2();
     };
+  }
+
+  handleEditPostChange(event) {
+    this.setState({ photoCaption: event.currentTarget.value });
+  }
+
+  handleFormEditSubmit(event) {
+    event.preventDefault();
+    this.props.editPost({
+      id: this.state.photoId,
+      caption: this.state.photoCaption,
+      user_id: this.state.photoUserId,
+    });
+    this.onModalClose3();
+    this.onModalClose2();
   }
   
   render() {
@@ -135,6 +164,21 @@ export default class UserPosts extends React.Component {
         borderRadius: "12px",
         padding: 0,
         border: "white solid 0px",
+      }
+    };
+
+    const modalStyle3 = {
+      overlay: {
+        position: "fixed",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        zIndex: 99999,
+      },
+      content: {
+        
       }
     };
     
@@ -204,13 +248,30 @@ export default class UserPosts extends React.Component {
             <div><a href="https://github.com/lk340" target="_bla{ nk}" >Github</a></div>
             <div><a href="#" target="_blank">LinkedIn</a></div>
             {/* <div><a href="https://www.instagram.com/" target="_blank">Instagram</a></div> */}
-            <div className="user-post-edit-post"><Link to="/" target="_blank">Edit Post</Link></div>
+            {/* <div className="user-post-edit-post"><Link to="/posts/edit" target="_blank">Edit Post</Link></div> */}
+            <div className="user-post-edit-post" onClick={this.openEditPostModal}>Edit Post Caption</div>
             {/* <div onClick={this.handleDeletePost(this.state.photoId)} ><a className="user-post-delete-post" href="#" target="_blank">Delete Post</a></div> */}
-            <div className="user-post-delete-post" onClick={this.handleDeletePost(this.state.photoId)} >Delete Post</div>
+            <div className="user-post-delete-post" onClick={this.handleDeletePost(this.state.photoId)}>Delete Post</div>
             <div><a onClick={this.onModalClose2}>Cancel</a></div>
+          </div>
+        </Modal>
+
+        <Modal isOpen={this.state.modalOpen3} onRequestClose={this.onModalClose3} style={modalStyle3} >
+          <div className="edit-post-form">
+            <form onSubmit={this.handleFormEditSubmit}>
+              <label htmlFor="edit-post-caption">Caption</label>
+              <br/>
+              <input type="text" id="edit-post-caption" value={this.state.photoCaption} onChange={this.handleEditPostChange} />
+              <br/>
+              <button type="submit">Change Caption</button>
+            </form>
           </div>
         </Modal>
       </div>
     )
   }
 }
+
+// photoURL: null,
+// photoCaption: null,
+// photoId: null,

@@ -24,14 +24,14 @@ class Api::PostsController < ApplicationController
     end
   end
 
-  def edit
-    @post = post.find(params[:id])
-  end
+  # def edit
+  #   @post = post.find(params[:id])
+  # end
 
   def update
     @post = Post.new(post_params)
 
-    if @post
+    if @post.save
       render :edit
     else
       render json: @post.errors.full_messages, status: 404

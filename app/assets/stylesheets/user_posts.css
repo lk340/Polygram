@@ -74,14 +74,15 @@
 }
 
 .user-post-edit-post {
+  transition-duration: 0.4s;
   width: 400px;
   height: 48px;
-  transition-duration: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-post-edit-post:hover {
   background-color: var(--lightBlue);
-}
-.user-post-edit-post:hover a {
   color: white;
 }
