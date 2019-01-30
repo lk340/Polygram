@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import UserProfile from './user_profile';
 import { allPosts } from '../../actions/post_actions';
 import { signOut } from '../../actions/session_actions';
-import { editUser } from '../../actions/user_actions';
+import { editUser, createUserAWS } from '../../actions/user_actions';
 
 const msp = state => {
   return {
@@ -19,6 +19,7 @@ const mdp = dispatch => {
     allPosts: () => dispatch(allPosts()),
     signOut: () => dispatch(signOut()),
     editUser: user => dispatch(editUser(user)),
+    createUserAWS: formData => dispatch(createUserAWS(formData)),
   };
 };
 

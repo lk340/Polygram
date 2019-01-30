@@ -17,7 +17,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     # @user.photo.attach(io: File.open("#{Rails.root}/app/assets/images/default_profile_picture.jpg"), filename: "default_profile_picture.jpg")
-    
+    debugger
     if @user.save
       sign_in(@user)
       render :show
@@ -39,7 +39,7 @@ class Api::UsersController < ApplicationController
   private
   def user_params
     # params.require(:user).permit(:username, :password, :email, :name, :biography, :image_url)
-    params.require(:user).permit(:username, :password, :email, :name, :biography, :profile_photo)
+    params.require(:user).permit(:username, :password, :email, :name, :biography, :profile_picture)
   end
 end
 

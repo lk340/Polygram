@@ -19,3 +19,14 @@ export const editUser = user => {
     data: { user },
   });
 };
+
+export const createUserAWS = formData => {
+  return $.ajax({
+    method: "POST",
+    url: "/api/users",
+    processData: false,
+    contentType: false,
+    dataType: "json",
+    data: formData,
+  });
+};

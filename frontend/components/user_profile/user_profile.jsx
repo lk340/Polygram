@@ -10,6 +10,8 @@ export default class UserProfile extends React.Component {
     // this.state = { class: "greeting-modal-closed" };
     this.state = {
       modalOpen: false,
+      photoFile: null,
+      photoURL: null,
       profile_picture: (this.props.profilePicture === null ? window.userDefaultProfilePicture : this.props.profilePicture),
     };
     
@@ -17,7 +19,7 @@ export default class UserProfile extends React.Component {
     this.onModalClose = this.onModalClose.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
     this.handleProfilePictureSubmit = this.handleProfilePictureSubmit.bind(this);
-    this.handleProPicAutoSubmit = this.handleProPicAutoSubmit.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   componentDidMount() {
@@ -42,18 +44,31 @@ export default class UserProfile extends React.Component {
     // this.props.history.push("/");
   }
 
+  handleFile(event) {
+    const file = event.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ photoFile: file, photoURL: fileReader.result });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+  
   handleProfilePictureSubmit(event) {
     event.preventDefault();
     console.log("successfully submitted!");
     
     const formData = new FormData();
     formData.append("user[username]", this.props.currentUser.username);
+    formData.append("user[email]", this.props.currentUser.email);
+    formData.append("user[name]", this.props.currentUser.name);
+    formData.append("user[biography]", this.props.currentUser.biography);
     if (this.state.photoFile) {
-      formData.append("user[photo]", this.state.photoFile);
+      formData.append("user[profile_picture]", this.state.photoFile);
     }
-    formData.append("post[user_id]", this.state.user_id);
 
-    this.props.createAWS(formData); // thunk action creator
+    this.props.createUserAWS(formData); // thunk action creator
     
     // this.props.editUser({
     //   id: this.props.sessionId,
@@ -63,10 +78,6 @@ export default class UserProfile extends React.Component {
     //   biography: this.props.currentUser.biography,
     //   profile_picture: this.props.profilePicture,
     // });
-  }
-
-  handleProPicAutoSubmit() {
-    // submit();
   }
   
   render() {
@@ -107,7 +118,7 @@ export default class UserProfile extends React.Component {
               <label htmlFor="user-profile-input">
                 <img className="user-pro-pic" src={this.state.profile_picture} alt="profile-picture"/>
               </label>
-              <input type="file" id="user-profile-input" onChange={this.handleProPicAutoSubmit}/>
+              <input type="file" id="user-profile-input" onChange={this.handleFile}/>
               <input className="user-profile-picture-form-submit-input" type="submit"/>
             </form>
 
