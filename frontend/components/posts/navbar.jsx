@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
+    debugger;
     this.state = {
       modalOpen: false,
       caption: "",
@@ -55,7 +56,7 @@ export default class Navbar extends React.Component {
     if (this.state.photoFile) {
       formData.append("post[photo]", this.state.photoFile);
     }
-    formData.append("post[user_id]", this.state.user_id);
+    formData.append("post[user_id]", this.props.sessionId);
 
     this.props.createAWS(formData); // thunk action creator
     this.onModalClose();
@@ -73,7 +74,7 @@ export default class Navbar extends React.Component {
     let activityOnPosts = "activity-on-posts";
     
     let navBar;
-    if (this.props.sessionId) {
+    if (this.props.currentUser) {
       navBar = (
         <div className="navbar-container">
           <div className="navbar">

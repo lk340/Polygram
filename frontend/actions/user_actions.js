@@ -35,7 +35,6 @@ export const fetchUser = id => dispatch => {
 
 export const editUser = user => dispatch => {
   return UserAJAX.editUser(user).then(user => {
-    debugger;
     return dispatch(changeUserInfo(user));
   });
 };

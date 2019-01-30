@@ -10,7 +10,7 @@ export default class UserProfile extends React.Component {
     // this.state = { class: "greeting-modal-closed" };
     this.state = {
       modalOpen: false,
-      profile_picture: (this.props.currentUser.profile_picture === null ? window.userDefaultProfilePicture : this.props.currentUser.profile_picture),
+      profile_picture: (this.props.profilePicture === null ? window.userDefaultProfilePicture : this.props.profilePicture),
     };
     
     this.handleClick = this.handleClick.bind(this);
@@ -45,14 +45,24 @@ export default class UserProfile extends React.Component {
   handleProfilePictureSubmit(event) {
     event.preventDefault();
     console.log("successfully submitted!");
-    this.props.editUser({
-      id: this.props.sessionId,
-      username: this.props.currentUser.username,
-      email: this.props.currentUser.email,
-      name: this.props.currentUser.name,
-      biography: this.props.currentUser.biography,
-      profile_photo: this.props.currentUser.profile_photo,
-    });
+    
+    const formData = new FormData();
+    formData.append("user[username]", this.props.currentUser.username);
+    if (this.state.photoFile) {
+      formData.append("user[photo]", this.state.photoFile);
+    }
+    formData.append("post[user_id]", this.state.user_id);
+
+    this.props.createAWS(formData); // thunk action creator
+    
+    // this.props.editUser({
+    //   id: this.props.sessionId,
+    //   username: this.props.currentUser.username,
+    //   email: this.props.currentUser.email,
+    //   name: this.props.currentUser.name,
+    //   biography: this.props.currentUser.biography,
+    //   profile_picture: this.props.profilePicture,
+    // });
   }
 
   handleProPicAutoSubmit() {

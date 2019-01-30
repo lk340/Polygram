@@ -14,6 +14,7 @@ class User < ApplicationRecord
   # FGRIPE
   def self.find_by_credentials(username, password, email)
     @user = User.find_by(username: username, email: email)
+    
     if @user && @user.is_password?(password)
       return @user
     end

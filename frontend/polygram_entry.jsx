@@ -14,7 +14,6 @@ import { allPosts, showPost, createPost, editPost, deletePost } from './actions/
 
 document.addEventListener("DOMContentLoaded", () => {
   
-  Modal.setAppElement(document.body); // tells modal to disable the entire body whenever a modal is loaded
   
   let store;
   
@@ -28,11 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore(preloadedState);
     delete window.currentUser;
   }
-
+  
   else {
     store = configureStore();
   }
-
+  
+  Modal.setAppElement(document.body); // tells modal to disable the entire body whenever a modal is loaded
   // TEST ZONE START //
   // window.signup = signUp;
   // window.signin = signIn;
