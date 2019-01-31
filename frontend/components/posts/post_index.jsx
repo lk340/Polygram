@@ -22,14 +22,7 @@ export default class PostIndex extends React.Component {
   componentDidMount() {
     this.props.users();
     this.props.posts();
-    this.props.likes();
     // this.interval = setInterval(() => this.tick(), 1000);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.allLikes.length !== prevProps.allLikes.length) {
-      this.props.likes();
-    }
   }
 
   // componentWillUnmount() {
@@ -51,57 +44,21 @@ export default class PostIndex extends React.Component {
   handleHeartClick(post) {
     // debugger;
     return () => {
-      // const post_ids = []; // ids of all posts that the like belongs to
-      // const user_ids = []; // ids of all the users that the like belongs to
-      // this.props.allLikes.forEach(like => {
-      //   post_ids.push(like.post_id);
-      //   user_ids.push(like.user_id);
-      // });
-
-      let post_ids = [];
-      this.props.allLikes.forEach(like => {
-        if (like.user_id === this.props.sessionId) {
-          post_ids.push(like.post_id);
-        }
-      });
-
-      // if (this.props.allLikes[this.props.sessionId] && this.props.allLikes[this.props.sessionId].post_id === postId) {
-      if (post_ids.includes(post.id)) {
-        // unliking a post
-
-        const index = post_ids.indexOf(post.id);
-        post_ids = post_ids.slice(0, index).concat(post_ids.slice(index+1));
-        // this.setState({ heartStatus: "heart-show", heart2Status: "heart-hide" });
-
-        let sessionLike;
-        this.props.allLikes.forEach(like => {
-          if (like.user_id === this.props.sessionId) {
-            sessionLike = like;
-          }
-        });
-        const likeId = sessionLike.id;
-        // debugger;
-        // this.props.unlikePost(this.props.allLikes[this.props.sessionId].id);
-        this.props.unlikePost(likeId);
-      }
-      
-      else {
-        // liking a post
-        
-        // this.setState({ heartStatus: "heart-hide", heart2Status: "heart-show" });
+      // console.log(post.id);
+      if(!post.likers.includes(this.props.sessionId)) {
+        // add my session id to post.likers
+        // change heart color to red.
         this.props.likePost({
           user_id: this.props.sessionId,
           post_id: post.id,
         });
+
+      }
+      else {
+        // remove my session id from post.likers
+        // change heart back to white.
       }
     };
-
-      // if (this.state.heartStatus === "heart-show" && this.state.heart2Status === "heart-hide") {
-      //   this.setState({ heartStatus: "heart-hide", heart2Status: "heart-show" });
-      // }
-      // else {
-      //   this.setState({ heartStatus: "heart-show", heart2Status: "heart-hide" });
-      // }
   }
 
   handleBookmarkClick() {
@@ -138,8 +95,8 @@ export default class PostIndex extends React.Component {
                 <div className="post-like-comment">
                   {/* <div className={this.state.heartStatus} onClick={this.handleHeartClick(post.id)}><i className="far fa-heart"></i></div>
                   <div className={this.state.heart2Status} onClick={this.handleHeartClick(post.id)}><i className="fas fa-heart red-heart"></i></div> */}
-                  <div className={this.props.allLikes[this.props.sessionId] ? "heart-hide" : "heart-show"} onClick={this.handleHeartClick(post)}><i className="far fa-heart"></i></div>
-                  <div className={this.props.allLikes[this.props.sessionId] ? "heart-show" : "heart-hide"} onClick={this.handleHeartClick(post)}><i className="fas fa-heart red-heart"></i></div>
+                  <div className={this.state.heartStatus} onClick={this.handleHeartClick(post)}><i className="far fa-heart"></i></div>
+                  <div className={this.state.heart2Status} onClick={this.handleHeartClick(post)}><i className="fas fa-heart red-heart"></i></div>
                   <div>
                     <label htmlFor="index-comment">
                       <i className="far fa-comment"></i>
@@ -153,7 +110,7 @@ export default class PostIndex extends React.Component {
               </div>
 
               <div className="post-likes">
-                
+                { post.likers.length === 0 ? (<span>Be the first to <b>like this</b></span>) : post.likers.length === 1 ? `${post.likers.length} like` : `${post.likers.length} likes` }
               </div>
 
               <div className="post-caption" key={`post-${index}`}>

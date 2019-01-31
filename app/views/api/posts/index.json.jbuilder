@@ -9,10 +9,8 @@
   json.set! post.id do
     json.extract! post, :id, :caption, :user_id, :created_at
     json.photoURL url_for(post.photo)
-    # json.user_id do
-    #   post.likes.each do |like|
-
-    #   end
-    # end
+    json.likers do
+      json.array! post.likes
+    end
   end
 end
