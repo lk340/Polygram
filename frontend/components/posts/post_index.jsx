@@ -11,7 +11,7 @@ export default class PostIndex extends React.Component {
       heart2Status: "heart-hide",
       bookmarkStatus: "bookmark-show",
       bookmark2Status: "bookmark-hide",
-      timer: 0,
+      // timer: 0,
     };
 
     this.handleHeartClick = this.handleHeartClick.bind(this);
@@ -22,26 +22,24 @@ export default class PostIndex extends React.Component {
   componentDidMount() {
     this.props.users();
     this.props.posts();
-    this.interval = setInterval(() => this.tick(), 1000);
+    // this.interval = setInterval(() => this.tick(), 1000);
   }
 
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
+  // componentWillUnmount() {
+  //   clearInterval(this.interval);
+  // }
   
-  componentDidUpdate(prevProps) {
-    // console.log(prevProps);
-    console.log(this.state.timer);
-    if (prevProps.allPosts.length !== this.props.allPosts.length) {
-      this.props.posts();
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.allPosts.length !== this.props.allPosts.length) {
+  //     this.props.posts();
+  //   }
+  // }
 
-  tick() {
-    this.setState(prevState => ({
-      timer: prevState.timer + 1
-    }));
-  }
+  // tick() {
+  //   this.setState(prevState => ({
+  //     timer: prevState.timer + 1
+  //   }));
+  // }
 
   handleHeartClick() {
     if (this.state.heartStatus === "heart-show" && this.state.heart2Status === "heart-hide") {
@@ -72,7 +70,6 @@ export default class PostIndex extends React.Component {
     if ((this.props.currentUser) && (this.props.currentURL === "/")) {
       posts = this.props.allPosts.map((post, index) => {
         if (this.props.allUsers[post.user_id]) {
-          debugger;
           return (
             <div className="post-container" key={index}>
               <div className="post-top">
