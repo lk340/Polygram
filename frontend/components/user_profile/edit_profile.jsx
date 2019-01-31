@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Redirect, Link } from 'react-router-dom';
+
 export default class EditProfile extends React.Component {
   constructor(props) {
     super(props);
@@ -33,44 +35,63 @@ export default class EditProfile extends React.Component {
     // }
     
     const { name, username, biography, email } = this.state;
-    return (
-      <div className="edit-profile-container">
-        <div className="edit-profile-options">
-          <ul>
-            <li><a href="#">Edit Profile</a></li>
-            <li><a href="#">Change Password</a></li>
-            <li><a href="#">Authorized Applications</a></li>
-            <li><a href="#">Email and SMS</a></li>
-            <li><a href="#">Manage Contacts</a></li>
-            <li><a href="#">Privacy and Security</a></li>
-          </ul>
-        </div>
 
-        <form onSubmit={this.handleSubmit}>
-          <h1>{ this.props.currentUser.username }</h1>
-          <div className="form-bottom">
-            <div className="edit-profile-labels">
-              <ul>
-                <li>Name</li>
-                <li>Username</li>
-                <li>Bio</li>
-                <li>Email</li>
-              </ul>
-            </div>
-
-            <div className="edit-profile-fields">
-              <ul>
-                <li><input type="text" value={name} onChange={this.handleChange("name")} /></li>
-                <li><input type="text" value={username} onChange={this.handleChange("username")} /></li>
-                <li><textarea onChange={this.handleChange("biography")} >{biography}</textarea></li>
-                <li><div>Private Information</div></li>
-                <li><input type="text" value={email} onChange={this.handleChange("email")} /></li>
-                <li><a href="https://github.com/lk340" target="_blank" className="edit-profile-field-confirm-email">Github</a></li>
-                <li><button type="submit" className={editProfileSubmit}>Submit</button></li>
-              </ul>
-            </div>
+    let editUserForm;
+    let redirect;
+    if (this.props.currentUser.id) {
+      editUserForm = (
+        <div className="edit-profile-container">
+          <div className="edit-profile-options">
+            <ul>
+              <li><a href="#">Edit Profile</a></li>
+              <li><a href="#">Change Password</a></li>
+              <li><a href="#">Authorized Applications</a></li>
+              <li><a href="#">Email and SMS</a></li>
+              <li><a href="#">Manage Contacts</a></li>
+              <li><a href="#">Privacy and Security</a></li>
+            </ul>
           </div>
-        </form>
+
+          <form onSubmit={this.handleSubmit}>
+            <h1>{this.props.currentUser.username}</h1>
+            <div className="form-bottom">
+              <div className="edit-profile-labels">
+                <ul>
+                  <li>Name</li>
+                  <li>Username</li>
+                  <li>Bio</li>
+                  <li>Email</li>
+                </ul>
+              </div>
+
+              <div className="edit-profile-fields">
+                <ul>
+                  <li><input type="text" value={name} onChange={this.handleChange("name")} /></li>
+                  <li><input type="text" value={username} onChange={this.handleChange("username")} /></li>
+                  <li><textarea onChange={this.handleChange("biography")} value={biography} ></textarea></li>
+                  <li><div>Private Information</div></li>
+                  <li><input type="text" value={email} onChange={this.handleChange("email")} /></li>
+                  <li><a href="https://github.com/lk340" target="_blank" className="edit-profile-field-confirm-email">Github</a></li>
+                  <li>
+                    <button type="submit" className={editProfileSubmit}>
+                      Submit
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </form>
+        </div>
+      )
+    }
+
+    else {
+      redirect = (<Redirect to="/" />)
+    }
+    return (
+      <div>
+        {editUserForm}
+        {redirect}
       </div>
     )
   }

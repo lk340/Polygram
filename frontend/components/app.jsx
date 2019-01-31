@@ -45,12 +45,12 @@ export default () => {
               </div>
               <Route exact path="/demoUser" component={ UserPostsContainer } /> */}
             </div>
+            <Route exact path="/accounts/edit" component={ EditProfileContainer } />
 
             <AuthRoute exact path="/" component={ SignUpFormContainer } />
             <AuthRoute exact path="/accounts/login" component={ SignInFormContainer } />
             <AuthRoute exact path="/accounts/emailsignup" component={ SignUpFormContainer } />
             {/* <Route exact path="/posts/new" component={ PostFormContainer } /> */}
-            <Route exact path="/accounts/edit" component={ EditProfileContainer } />
           </div>
 
           <Uploadbar />
