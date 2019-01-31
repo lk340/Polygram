@@ -10,6 +10,7 @@ import configureStore from './store/store';
 // import { signUp, signIn, signOut } from './actions/session_actions'; 
 // import { allPosts, showPost, createPost, editPost, deletePost } from './utils/post_api_util';
 import { allPosts, showPost, createPost, editPost, deletePost } from './actions/post_actions';
+import { formatTime } from './utils/date_util';
 // TEST IMPORTS END //
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.createPost = createPost;
   window.editPost = editPost;
   window.deletePost = deletePost;
+  window.formatTime = formatTime;
   // let postOne = { caption: "first post!", image_url: "too lazy to get a link", user_id: 7 }
 
   window.getState = store.getState();

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { formatTime } from '../../utils/date_util';
+
 export default class PostIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -50,6 +52,7 @@ export default class PostIndex extends React.Component {
     if ((this.props.currentUser) && (this.props.currentURL === "/")) {
       posts = this.props.allPosts.map((post, index) => {
         if (this.props.allUsers[post.user_id]) {
+          debugger;
           return (
             <div className="post-container" key={index}>
               <div className="post-top">
@@ -82,7 +85,7 @@ export default class PostIndex extends React.Component {
                 <span className="post-username-span"> {this.props.allUsers[post.user_id].username} </span> {post.caption}
               </div>
 
-              <div className="post-index-timestamp"><a href="#">Timestamp</a></div>
+              <div className="post-index-timestamp"><a href="#">{formatTime(post.createdAt)}</a></div>
 
               <div className="post-index-comment-container">
                 <div className="post-index-comment">
