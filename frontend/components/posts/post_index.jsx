@@ -11,6 +11,7 @@ export default class PostIndex extends React.Component {
       heart2Status: "heart-hide",
       bookmarkStatus: "bookmark-show",
       bookmark2Status: "bookmark-hide",
+      timer: 0,
     };
 
     this.handleHeartClick = this.handleHeartClick.bind(this);
@@ -21,6 +22,22 @@ export default class PostIndex extends React.Component {
   componentDidMount() {
     this.props.users();
     this.props.posts();
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    // clearInterval(this.interval);
+  }
+  
+  componentDidUpdate(prevProps) {
+    // console.log(prevProps);
+    console.log(this.state.timer);
+  }
+
+  tick() {
+    this.setState(prevState => ({
+      timer: prevState.timer + 1
+    }));
   }
 
   handleHeartClick() {
@@ -85,7 +102,7 @@ export default class PostIndex extends React.Component {
                 <span className="post-username-span"> {this.props.allUsers[post.user_id].username} </span> {post.caption}
               </div>
 
-              <div className="post-index-timestamp"><a href="#">{formatTime(post.createdAt)}</a></div>
+              <div className="post-index-timestamp"><a href="#">{formatTime(post.created_at)}</a></div>
 
               <div className="post-index-comment-container">
                 <div className="post-index-comment">
