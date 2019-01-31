@@ -12,7 +12,8 @@ export default class UserProfile extends React.Component {
       modalOpen: false,
       photoFile: null,
       photoURL: null,
-      profile_picture: (this.props.profilePicture === null ? window.userDefaultProfilePicture : this.props.profilePicture),
+      // profile_picture: (this.props.profilePicture === null ? window.userDefaultProfilePicture : this.props.profilePicture),
+      profile_picture: window.userDefaultProfilePicture,
     };
     
     this.handleClick = this.handleClick.bind(this);
@@ -112,15 +113,15 @@ export default class UserProfile extends React.Component {
         <div className="user-information">
           <div className="profile-picture">
             {/* [ propic ] */}
-            {/* <img className="user-pro-pic" src={ this.state.profile_picture } alt="user-profile-picture" /> */}
+            <img className="user-pro-pic" src={ this.state.profile_picture } alt="user-profile-picture" />
 
-            <form className="user-profile-picture-form" onSubmit={this.handleProfilePictureSubmit}>
+            {/* <form className="user-profile-picture-form" onSubmit={this.handleProfilePictureSubmit}>
               <label htmlFor="user-profile-input">
                 <img className="user-pro-pic" src={this.state.profile_picture} alt="profile-picture"/>
               </label>
               <input type="file" id="user-profile-input" onChange={this.handleFile}/>
               <input className="user-profile-picture-form-submit-input" type="submit"/>
-            </form>
+            </form> */}
 
           </div>
 

@@ -53,7 +53,8 @@ export default class PostIndex extends React.Component {
           return (
             <div className="post-container" key={index}>
               <div className="post-top">
-                <div className="user-photo">[ userphoto size 30x30 border-radius 50% on image ] &nbsp;</div>
+                {/* <div className="user-photo">[ userphoto size 30x30 border-radius 50% on image ] &nbsp;</div> */}
+                <div className="user-photo"><img src={window.userDefaultProfilePicture} alt="user-profile-picture" /> &nbsp;</div>
                 <div className="post-username">{this.props.allUsers[post.user_id].username}</div>
               </div>
 

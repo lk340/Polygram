@@ -117,3 +117,9 @@
   cursor: pointer;
   margin-bottom: 8px;
 }
+
+.user-photo img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
