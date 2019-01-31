@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PostIndex from './post_index';
 import { allPosts } from '../../actions/post_actions';
 import { fetchUsers } from '../../actions/user_actions';
-import { createLike, deleteLike } from '../../actions/like_actions';
+import { fetchLikes, createLike, deleteLike } from '../../actions/like_actions';
 
 const msp = (state, ownProps) => {
   // debugger;
@@ -14,6 +14,7 @@ const msp = (state, ownProps) => {
     allPosts: Object.values(state.entities.posts).reverse(),
     allUsers: state.entities.users,
     allPostsObject: state.entities.posts,
+    allLikes: state.entities.likes,
   };
 };
 
@@ -21,6 +22,7 @@ const mdp = dispatch => {
   return {
     posts: () => dispatch(allPosts()),
     users: () => dispatch(fetchUsers()),
+    likes: () => dispatch(fetchLikes()),
     likePost: like => dispatch(createLike(like)),
     unlikePost: likeId => dispatch(deleteLike(likeId)),
   };

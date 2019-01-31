@@ -22,6 +22,7 @@ export default class PostIndex extends React.Component {
   componentDidMount() {
     this.props.users();
     this.props.posts();
+    this.props.likes();
     // this.interval = setInterval(() => this.tick(), 1000);
   }
 
@@ -46,6 +47,7 @@ export default class PostIndex extends React.Component {
     return () => {
       // console.log(post.id);
       if(!post.likers.includes(this.props.sessionId)) {
+        // instantiate a new like object into back-end
         // add my session id to post.likers
         // change heart color to red.
         this.props.likePost({
@@ -53,10 +55,16 @@ export default class PostIndex extends React.Component {
           post_id: post.id,
         });
 
+        post.likers.push(this.props.sessionId);
       }
       else {
+        // delete like object from back-end (somehow gotta find a way to get the like-id)
         // remove my session id from post.likers
         // change heart back to white.
+        // this.props.unlikePost(this.props.allLikes[]);
+          
+        const session_index = post.likers.indexOf(this.props.sessionId);
+        post.likers = post.likers.slice(0, session_index).concat(post.likers.slice(session_index + 1));
       }
     };
   }
@@ -95,8 +103,8 @@ export default class PostIndex extends React.Component {
                 <div className="post-like-comment">
                   {/* <div className={this.state.heartStatus} onClick={this.handleHeartClick(post.id)}><i className="far fa-heart"></i></div>
                   <div className={this.state.heart2Status} onClick={this.handleHeartClick(post.id)}><i className="fas fa-heart red-heart"></i></div> */}
-                  <div className={this.state.heartStatus} onClick={this.handleHeartClick(post)}><i className="far fa-heart"></i></div>
-                  <div className={this.state.heart2Status} onClick={this.handleHeartClick(post)}><i className="fas fa-heart red-heart"></i></div>
+                  <div className={post.likers.includes(this.props.sessionId) ? "heart-hide" : "heart-show"} onClick={this.handleHeartClick(post)}><i className="far fa-heart"></i></div>
+                  <div className={post.likers.includes(this.props.sessionId) ? "heart-show" : "heart-hide"} onClick={this.handleHeartClick(post)}><i className="fas fa-heart red-heart"></i></div>
                   <div>
                     <label htmlFor="index-comment">
                       <i className="far fa-comment"></i>
