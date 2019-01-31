@@ -10,10 +10,10 @@ export default (state = {}, action) => {
     case RECEIVE_LIKES:
       return action.likes;
     case CREATE_LIKE:
-      newState[action.like.id] = action.like;
+      newState[action.like.user_id] = action.like;
       return newState;
     case DELETE_LIKE:
-      delete newState[action.likeId];
+      delete newState[action.userId];
       return newState;
     default:
       return state;

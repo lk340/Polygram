@@ -18,10 +18,10 @@ const spawnLike = like => {
   };
 };
 
-const removeLike = likeId => {
+const removeLike = userId => {
   return {
     type: DELETE_LIKE,
-    likeId,
+    userId,
   };
 };
 
@@ -34,5 +34,5 @@ export const createLike = like => dispatch => {
 };
 
 export const deleteLike = likeId => dispatch => {
-  return LikeAJAX.deleteLike(likeId).then(like => dispatch(removeLike(like.id)));
+  return LikeAJAX.deleteLike(likeId).then(like => dispatch(removeLike(like.user_id)));
 };

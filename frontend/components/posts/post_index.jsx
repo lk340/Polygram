@@ -43,25 +43,27 @@ export default class PostIndex extends React.Component {
   // }
 
   handleHeartClick(postId) {
+    // debugger;
     return () => {
-      const post_ids = []; // ids of all posts that the like belongs to
-      const user_ids = []; // ids of all the users that the like belongs to
-      this.props.allLikes.forEach(like => {
-        post_ids.push(like.post_id);
-        user_ids.push(like.user_id);
-      });
+      // const post_ids = []; // ids of all posts that the like belongs to
+      // const user_ids = []; // ids of all the users that the like belongs to
+      // this.props.allLikes.forEach(like => {
+      //   post_ids.push(like.post_id);
+      //   user_ids.push(like.user_id);
+      // });
 
-      if (user_ids.includes(this.props.sessionId)) {
+      if (this.props.allLikes[this.props.sessionId]) {
         this.setState({ heartStatus: "heart-show", heart2Status: "heart-hide" });
 
-        let sessionLike;
-        this.props.allLikes.forEach(like => {
-          if (like.user_id === this.props.sessionId) {
-            sessionLike = like;
-          }
-        });
-        const likeId = sessionLike.id;
-        this.props.unlikePost(likeId);
+        // let sessionLike;
+        // this.props.allLikes.forEach(like => {
+        //   if (like.user_id === this.props.sessionId) {
+        //     sessionLike = like;
+        //   }
+        // });
+        // const likeId = sessionLike.id;
+        // debugger;
+        this.props.unlikePost(this.props.allLikes[this.props.sessionId].id);
       }
       
       else {
