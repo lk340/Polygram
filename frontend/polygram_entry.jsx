@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.signin = signIn;
   // window.signout = signOut;
 
-  window.allPosts = allPosts;
-  window.showPost = showPost; 
-  window.createPost = createPost;
-  window.editPost = editPost;
-  window.deletePost = deletePost;
-  window.formatTime = formatTime;
+  // window.allPosts = allPosts;
+  // window.showPost = showPost; 
+  // window.createPost = createPost;
+  // window.editPost = editPost;
+  // window.deletePost = deletePost;
+  // window.formatTime = formatTime;
   // let postOne = { caption: "first post!", image_url: "too lazy to get a link", user_id: 7 }
 
   window.getState = store.getState();
