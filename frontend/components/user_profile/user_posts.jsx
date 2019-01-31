@@ -179,7 +179,10 @@ export default class UserPosts extends React.Component {
         zIndex: 99999,
       },
       content: {
-        
+        width: "602px",
+        height: "400px",
+        margin: "auto",
+        borderRadius: "5px",
       }
     };
     
@@ -197,7 +200,8 @@ export default class UserPosts extends React.Component {
 
               <div className="photo-modal-caption-holder">
                 <div className="photo-modal-caption">
-                  <div><span>{this.props.currentUser.username} </span> {this.state.photoCaption}</div>
+                  <div className="photo-modal-caption-caption"><span>{this.props.currentUser.username} </span> {this.state.photoCaption}</div>
+                  {/* <div><span>{this.props.currentUser.username} </span> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error voluptatibus, aliquid sit porro ex eos unde quaerat perspiciatis id suscipit pariatur laborum facere doloremque vitae reprehenderit alias, harum accusamus fugiat qui quos! Perferendis omnis error magnam officiis iste numquam deserunt quisquam, illum beatae ullam ratione expedita nobis ut dolores possimus. Ipsum enim vero distinctio, aspernatur ad hic facilis velit sint in natus rem adipisci. Natus tempore sed alias possimus molestias iste temporibus consequuntur iusto explicabo. Facilis nulla autem iure, reiciendis, vero animi ad maxime quidem porro mollitia molestias tempore! Tempore officiis maxime hic, commodi nulla corrupti, error ea reprehenderit officia temporibus quia quaerat aut vero minus, exercitationem perferendis. Repellat dolorem culpa voluptatum, illum doloribus harum molestiae adipisci quidem! Necessitatibus nisi culpa asperiores quaerat id perferendis, ipsum, doloribus aliquid animi suscipit similique hic repudiandae, autem modi reprehenderit blanditiis reiciendis totam accusamus? Officiis architecto aut consequuntur odio commodi. Dignissimos, cum. Delectus omnis sit velit ad nulla, autem quos impedit. Mollitia, enim quisquam sit exercitationem ullam autem quos ducimus omnis consectetur quidem nihil asperiores officiis laborum, corporis eligendi architecto obcaecati doloribus. Earum nemo repellat illum deleniti adipisci suscipit explicabo molestias, expedita, blanditiis beatae aliquam iste ab eum labore laborum optio veritatis voluptatibus similique, recusandae iure quae. Velit aut, sequi est accusamus possimus placeat omnis consequuntur eligendi dolores atque, at consequatur sunt quo impedit dolor beatae. Nemo est quos ipsa ratione mollitia quis, molestiae dicta facilis sit molestias culpa odio velit illum eum minus praesentium rem totam maiores adipisci. Obcaecati voluptas deleniti illo vero itaque? Laudantium animi soluta dicta mollitia deserunt distinctio! Modi, amet distinctio! Exercitationem ratione placeat quaerat, non quae molestiae nulla praesentium! Non, quos nam! Sequi ullam quasi enim mollitia voluptatibus. Odio accusantium totam sint placeat adipisci, recusandae cupiditate dolorem corrupti magnam aut. Qui, quam voluptate? Totam, cumque. Repellendus veritatis soluta maxime.</div> */}
                   <div className="photo-modal-caption-comments"><b>[Commenter Username]</b> Comments go here</div>
                 </div>
               </div>
@@ -262,7 +266,7 @@ export default class UserPosts extends React.Component {
             <form onSubmit={this.handleFormEditSubmit}>
               <label htmlFor="edit-post-caption">Caption</label>
               <br/>
-              <input type="text" id="edit-post-caption" value={this.state.photoCaption} onChange={this.handleEditPostChange} />
+              <textarea type="text" id="edit-post-caption" value={this.state.photoCaption} onChange={this.handleEditPostChange} />
               <br/>
               <button type="submit">Edit Post</button>
             </form>

@@ -86,3 +86,7 @@
   background-color: var(--lightBlue);
   color: white;
 }
+
+.photo-modal-caption-caption {
+  overflow-wrap: break-word;
+}
