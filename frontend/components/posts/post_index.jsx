@@ -26,6 +26,12 @@ export default class PostIndex extends React.Component {
     // this.interval = setInterval(() => this.tick(), 1000);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.allLikes.length !== prevProps.allLikes.length) {
+      this.props.likes();
+    }
+  }
+
   // componentWillUnmount() {
   //   clearInterval(this.interval);
   // }
@@ -42,7 +48,7 @@ export default class PostIndex extends React.Component {
   //   }));
   // }
 
-  handleHeartClick(postId) {
+  handleHeartClick(post) {
     // debugger;
     return () => {
       // const post_ids = []; // ids of all posts that the like belongs to
@@ -52,25 +58,40 @@ export default class PostIndex extends React.Component {
       //   user_ids.push(like.user_id);
       // });
 
-      if (this.props.allLikes[this.props.sessionId]) {
-        this.setState({ heartStatus: "heart-show", heart2Status: "heart-hide" });
+      let post_ids = [];
+      this.props.allLikes.forEach(like => {
+        if (like.user_id === this.props.sessionId) {
+          post_ids.push(like.post_id);
+        }
+      });
 
-        // let sessionLike;
-        // this.props.allLikes.forEach(like => {
-        //   if (like.user_id === this.props.sessionId) {
-        //     sessionLike = like;
-        //   }
-        // });
-        // const likeId = sessionLike.id;
+      // if (this.props.allLikes[this.props.sessionId] && this.props.allLikes[this.props.sessionId].post_id === postId) {
+      if (post_ids.includes(post.id)) {
+        // unliking a post
+
+        const index = post_ids.indexOf(post.id);
+        post_ids = post_ids.slice(0, index).concat(post_ids.slice(index+1));
+        // this.setState({ heartStatus: "heart-show", heart2Status: "heart-hide" });
+
+        let sessionLike;
+        this.props.allLikes.forEach(like => {
+          if (like.user_id === this.props.sessionId) {
+            sessionLike = like;
+          }
+        });
+        const likeId = sessionLike.id;
         // debugger;
-        this.props.unlikePost(this.props.allLikes[this.props.sessionId].id);
+        // this.props.unlikePost(this.props.allLikes[this.props.sessionId].id);
+        this.props.unlikePost(likeId);
       }
       
       else {
-        this.setState({ heartStatus: "heart-hide", heart2Status: "heart-show" });
+        // liking a post
+        
+        // this.setState({ heartStatus: "heart-hide", heart2Status: "heart-show" });
         this.props.likePost({
           user_id: this.props.sessionId,
-          post_id: postId,
+          post_id: post.id,
         });
       }
     };
@@ -115,8 +136,10 @@ export default class PostIndex extends React.Component {
 
               <div className="post-actions">
                 <div className="post-like-comment">
-                  <div className={this.state.heartStatus} onClick={this.handleHeartClick(post.id)}><i className="far fa-heart"></i></div>
-                  <div className={this.state.heart2Status} onClick={this.handleHeartClick(post.id)}><i className="fas fa-heart red-heart"></i></div>
+                  {/* <div className={this.state.heartStatus} onClick={this.handleHeartClick(post.id)}><i className="far fa-heart"></i></div>
+                  <div className={this.state.heart2Status} onClick={this.handleHeartClick(post.id)}><i className="fas fa-heart red-heart"></i></div> */}
+                  <div className={this.props.allLikes[this.props.sessionId] ? "heart-hide" : "heart-show"} onClick={this.handleHeartClick(post)}><i className="far fa-heart"></i></div>
+                  <div className={this.props.allLikes[this.props.sessionId] ? "heart-show" : "heart-hide"} onClick={this.handleHeartClick(post)}><i className="fas fa-heart red-heart"></i></div>
                   <div>
                     <label htmlFor="index-comment">
                       <i className="far fa-comment"></i>

@@ -13,9 +13,9 @@ const msp = (state, ownProps) => {
     sessionId: state.session.id,
     allPosts: Object.values(state.entities.posts).reverse(),
     allUsers: state.entities.users,
-    // allLikes: Object.values(state.entities.likes),
-    allLikes: state.entities.likes,
-    // likes: state.entities.likes,
+    allLikes: Object.values(state.entities.likes),
+    // allLikes: state.entities.likes,
+    likes: state.entities.likes,
   };
 };
 
