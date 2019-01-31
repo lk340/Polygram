@@ -26,12 +26,15 @@ export default class PostIndex extends React.Component {
   }
 
   componentWillUnmount() {
-    // clearInterval(this.interval);
+    clearInterval(this.interval);
   }
   
   componentDidUpdate(prevProps) {
     // console.log(prevProps);
     console.log(this.state.timer);
+    if (prevProps.allPosts.length !== this.props.allPosts.length) {
+      this.props.posts();
+    }
   }
 
   tick() {
