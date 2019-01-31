@@ -62,9 +62,13 @@ export default class PostIndex extends React.Component {
         // remove my session id from post.likers
         // change heart back to white.
         // this.props.unlikePost(this.props.allLikes[]);
-          
-        const session_index = post.likers.indexOf(this.props.sessionId);
-        post.likers = post.likers.slice(0, session_index).concat(post.likers.slice(session_index + 1));
+        const likesArr = Object.values(this.props.allLikes);
+        likesArr.forEach(like => {
+          if (like.user_id === this.props.sessionId) this.props.unlikePost(like.id);
+        });
+        
+        const user_id = post.likers.indexOf(this.props.sessionId);
+        post.likers.splice(user_id, 1);
       }
     };
   }
