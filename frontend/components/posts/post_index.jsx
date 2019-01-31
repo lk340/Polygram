@@ -43,9 +43,7 @@ export default class PostIndex extends React.Component {
   // }
 
   handleHeartClick(post) {
-    // debugger;
     return () => {
-      // console.log(post.id);
       if(!post.likers.includes(this.props.sessionId)) {
         // instantiate a new like object into back-end
         // add my session id to post.likers

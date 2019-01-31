@@ -6,7 +6,6 @@ import { fetchUsers } from '../../actions/user_actions';
 import { fetchLikes, createLike, deleteLike } from '../../actions/like_actions';
 
 const msp = (state, ownProps) => {
-  // debugger;
   return {
     currentUser: state.entities.users[state.session.id],
     currentURL: ownProps.match.path,
