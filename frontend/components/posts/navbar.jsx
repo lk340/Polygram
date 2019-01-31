@@ -5,7 +5,6 @@ import Modal from 'react-modal';
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    debugger;
     this.state = {
       modalOpen: false,
       caption: "",

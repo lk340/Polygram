@@ -4,7 +4,6 @@ import Navbar from './navbar';
 import { showPost, createPostAWS } from '../../actions/post_actions';
 
 const msp = state => {
-  debugger;
   return {
     sessionId: state.session.id,
     currentUser: state.entities.users[state.session.id],

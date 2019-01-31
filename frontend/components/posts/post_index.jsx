@@ -78,9 +78,11 @@ export default class PostIndex extends React.Component {
 
               <div className="post-likes">insert # likes here</div>
 
-              <p className="post-caption" key={`post-${index}`}>
+              <div className="post-caption" key={`post-${index}`}>
                 <span className="post-username-span"> {this.props.allUsers[post.user_id].username} </span> {post.caption}
-              </p>
+              </div>
+
+              <div className="post-index-timestamp"><a href="#">Timestamp</a></div>
 
               <div className="post-index-comment-container">
                 <div className="post-index-comment">

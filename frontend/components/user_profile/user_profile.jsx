@@ -58,7 +58,6 @@ export default class UserProfile extends React.Component {
   
   handleProfilePictureSubmit(event) {
     event.preventDefault();
-    console.log("successfully submitted!");
     
     const formData = new FormData();
     formData.append("user[username]", this.props.currentUser.username);
