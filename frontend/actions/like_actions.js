@@ -1,26 +1,38 @@
 import * as LikeAJAX from '../utils/like_api_util';
 
-export const RECEIVE_LIKE = "RECEIVE_LIKES";
-export const REMOVE_LIKE = "REMOVE_LIKE";
+export const RECEIVE_LIKES = "RECEIVE_LIKES";
+export const CREATE_LIKE = "CREATE_LIKE";
+export const DELETE_LIKE = "DELETE_LIKE";
 
-const receiveLike = like => {
+const receiveLikes = likes => {
   return {
-    type: RECEIVE_LIKE,
+    type: RECEIVE_LIKES,
+    likes,
+  };
+};
+
+const spawnLike = like => {
+  return {
+    type: CREATE_LIKE,
     like,
   };
 };
 
-const removeLike = like => {
+const removeLike = likeId => {
   return {
-    type: REMOVE_LIKE,
-    like,
+    type: DELETE_LIKE,
+    likeId,
   };
 };
 
-export const recordLike = postId => dispatch => {
-  return LikeAJAX.recordLike(postId).then(like => dispatch(receiveLike(like)));
+export const fetchLikes = () => dispatch => {
+  return LikeAJAX.fetchLikes().then(likes => dispatch(receiveLikes(likes)));
 };
 
-export const deleteLike = (postId, likeId) => dispatch => {
-  return LikeAJAX.deleteLike(postId, likeId).then(like => dispatch(removeLike(like)));
+export const createLike = like => dispatch => {
+  return LikeAJAX.createLike(like).then(like => dispatch(spawnLike(like)));
+};
+
+export const deleteLike = likeId => dispatch => {
+  return LikeAJAX.deleteLike(likeId).then(like => dispatch(removeLike(like.id)));
 };

@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 import PostIndex from './post_index';
 import { allPosts } from '../../actions/post_actions';
 import { fetchUsers } from '../../actions/user_actions';
-import { recordLike, deleteLike } from '../../actions/like_actions';
+import { fetchLikes, createLike, deleteLike } from '../../actions/like_actions';
 
 const msp = (state, ownProps) => {
   return {
-    allPosts: Object.values(state.entities.posts).reverse(),
-    allUsers: state.entities.users,
     currentUser: state.entities.users[state.session.id],
     currentURL: ownProps.match.path,
+    sessionId: state.session.id,
+    allPosts: Object.values(state.entities.posts).reverse(),
+    allUsers: state.entities.users,
     allLikes: Object.values(state.entities.likes),
+    // likes: state.entities.likes,
   };
 };
 
@@ -19,8 +21,9 @@ const mdp = dispatch => {
   return {
     posts: () => dispatch(allPosts()),
     users: () => dispatch(fetchUsers()),
-    getPostLikes: postId => dispatch(recordLike(postId)),
-    removeLike: (postId, likeId) => dispatch(deleteLike(postId, likeId)),
+    likes: () => dispatch(fetchLikes()),
+    likePost: like => dispatch(createLike(like)),
+    unlikePost: likeId => dispatch(deleteLike(likeId)),
   };
 };
 

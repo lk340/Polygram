@@ -12,7 +12,6 @@ export default class PostIndex extends React.Component {
       bookmarkStatus: "bookmark-show",
       bookmark2Status: "bookmark-hide",
       // timer: 0,
-      postLikeCount: 0,
     };
 
     this.handleHeartClick = this.handleHeartClick.bind(this);
@@ -23,6 +22,7 @@ export default class PostIndex extends React.Component {
   componentDidMount() {
     this.props.users();
     this.props.posts();
+    this.props.likes();
     // this.interval = setInterval(() => this.tick(), 1000);
   }
 
@@ -42,21 +42,36 @@ export default class PostIndex extends React.Component {
   //   }));
   // }
 
-  handleHeartClick(postId, userId) {
+  handleHeartClick(postId) {
     return () => {
-      this.props.getPostLikes(postId);
-      this.setState({ postLikeCount: this.props.allLikes.length });
-
+      const post_ids = []; // ids of all posts that the like belongs to
+      const user_ids = []; // ids of all the users that the like belongs to
       this.props.allLikes.forEach(like => {
-        if (like.user_id === userId) {
-          if (this.state.heartStatus === "heart-hide" && this.state.heart2Status === "heart-show") {
-            this.setState({ heartStatus: "heart-show", heart2Status: "heart-hide" });
-          }
-        }
-        else {
-          this.setState({ heartStatus: "heart-hide", heart2Status: "heart-show" });
-        }
+        post_ids.push(like.post_id);
+        user_ids.push(like.user_id);
       });
+
+      if (user_ids.includes(this.props.sessionId)) {
+        this.setState({ heartStatus: "heart-show", heart2Status: "heart-hide" });
+
+        let sessionLike;
+        this.props.allLikes.forEach(like => {
+          if (like.user_id === this.props.sessionId) {
+            sessionLike = like;
+          }
+        });
+        const likeId = sessionLike.id;
+        this.props.unlikePost(likeId);
+      }
+      
+      else {
+        this.setState({ heartStatus: "heart-hide", heart2Status: "heart-show" });
+        this.props.likePost({
+          user_id: this.props.sessionId,
+          post_id: postId,
+        });
+      }
+    };
 
       // if (this.state.heartStatus === "heart-show" && this.state.heart2Status === "heart-hide") {
       //   this.setState({ heartStatus: "heart-hide", heart2Status: "heart-show" });
@@ -64,7 +79,6 @@ export default class PostIndex extends React.Component {
       // else {
       //   this.setState({ heartStatus: "heart-show", heart2Status: "heart-hide" });
       // }
-    };
   }
 
   handleBookmarkClick() {
@@ -99,8 +113,8 @@ export default class PostIndex extends React.Component {
 
               <div className="post-actions">
                 <div className="post-like-comment">
-                  <div className={this.state.heartStatus} onClick={this.handleHeartClick(post.id, post.user_id)}><i className="far fa-heart"></i></div>
-                  <div className={this.state.heart2Status} onClick={this.handleHeartClick(post.id, post.user_id)}><i className="fas fa-heart red-heart"></i></div>
+                  <div className={this.state.heartStatus} onClick={this.handleHeartClick(post.id)}><i className="far fa-heart"></i></div>
+                  <div className={this.state.heart2Status} onClick={this.handleHeartClick(post.id)}><i className="fas fa-heart red-heart"></i></div>
                   <div>
                     <label htmlFor="index-comment">
                       <i className="far fa-comment"></i>
@@ -114,10 +128,7 @@ export default class PostIndex extends React.Component {
               </div>
 
               <div className="post-likes">
-                {this.state. === 0 : "be the "}
-                {/* <b> */}
-                  {/* {this.state.postLikeCount} {this.state.postLikeCount === 1 ? "like" : "likes"} */}
-                {/* </b> */}
+                
               </div>
 
               <div className="post-caption" key={`post-${index}`}>

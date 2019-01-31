@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import UserPosts from './user_posts';
 import { allPosts, deletePost, editPost } from '../../actions/post_actions';
+import { fetchLikes, createLike, deleteLike } from '../../actions/like_actions';
 
 const msp = state => {
   return {
