@@ -21,8 +21,8 @@ export default class PostIndex extends React.Component {
   
   componentDidMount() {
     this.props.users();
-    this.props.posts();
     this.props.likes();
+    this.props.posts();
     // this.interval = setInterval(() => this.tick(), 1000);
   }
 
@@ -30,11 +30,11 @@ export default class PostIndex extends React.Component {
   //   clearInterval(this.interval);
   // }
   
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.allPosts.length !== this.props.allPosts.length) {
-  //     this.props.posts();
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (prevProps.allPosts.length !== this.props.allPosts.length) {
+      this.props.posts();
+    }
+  }
 
   // tick() {
   //   this.setState(prevState => ({

@@ -13,6 +13,7 @@ export default class UserPosts extends React.Component {
       photoCaption: null,
       photoUserId: null,
       photoURL: null, 
+      post_likers: [],
       heartStatus: "photo-show-heart",
       heart2Status: "photo-hide-heart",
       bookmarkStatus: "photo-show-bookmark",
@@ -44,7 +45,7 @@ export default class UserPosts extends React.Component {
   
   handlePostClick(post) {
     return () => {
-      this.setState({ modalOpen: true, photoId: post.id, photoCaption: post.caption, photoUserId: post.user_id, photoURL: post.photoURL });
+      this.setState({ modalOpen: true, photoId: post.id, photoCaption: post.caption, photoUserId: post.user_id, photoURL: post.photoURL, post_likers: post.likers });
     };
   }
 
@@ -69,12 +70,30 @@ export default class UserPosts extends React.Component {
   }
 
   handleHeartClick() {
-    if (this.state.heartStatus === "photo-show-heart" && this.state.heart2Status === "photo-hide-heart") {
-      this.setState({ heartStatus: "photo-hide-heart", heart2Status: "photo-show-heart" });
+    if (!this.state.post_likers.includes(this.props.sessionId)) {
+      // instantiate a new like object into back-end
+      // add my session id to post.likers
+      // change heart color to red.
+      this.props.likePost({
+        user_id: this.props.sessionId,
+        post_id: this.state.photoId,
+      });
+
+      post_likers.push(this.props.sessionId);
     }
     else {
-      this.setState({ heartStatus: "photo-show-heart", heart2Status: "photo-hide-heart" });
-    }
+      // delete like object from back-end (somehow gotta find a way to get the like-id)
+      // remove my session id from post.likers
+      // change heart back to white.
+      // this.props.unlikePost(this.props.allLikes[]);
+      const likesArr = Object.values(this.props.allLikes);
+      likesArr.forEach(like => {
+        if (like.user_id === this.props.sessionId) this.props.unlikePost(like.id);
+      });
+
+      const user_id = post.likers.indexOf(this.props.sessionId);
+      post.likers.splice(user_id, 1);
+    };
   }
 
   handleBookmarkClick() {
@@ -209,8 +228,8 @@ export default class UserPosts extends React.Component {
               <div className="photo-modal-data-bottom">
                 <div className="photo-modal-like-comment">
                   <div className="user-posts-heart-icon">
-                    <div className={this.state.heartStatus} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div>
-                    <div className={this.state.heart2Status} onClick={this.handleHeartClick}><i className="fas fa-heart red-heart"></i></div>
+                    <div className={this.state.post_likers.includes(this.props.sessionId) ? "heart-hide" : "heart-show"} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div>
+                    <div className={this.state.post_likers.includes(this.props.sessionId) ? "heart-show" : "heart-hide"} onClick={this.handleHeartClick}><i className="fas fa-heart red-heart"></i></div>
 
                     <div>
                       <label htmlFor="show-post-comment">
