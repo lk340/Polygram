@@ -79,7 +79,7 @@ export default class UserPosts extends React.Component {
         post_id: this.state.photoId,
       });
 
-      post_likers.push(this.props.sessionId);
+      this.state.post_likers.push(this.props.sessionId);
     }
     else {
       // delete like object from back-end (somehow gotta find a way to get the like-id)
@@ -91,9 +91,9 @@ export default class UserPosts extends React.Component {
         if (like.user_id === this.props.sessionId) this.props.unlikePost(like.id);
       });
 
-      const user_id = post.likers.indexOf(this.props.sessionId);
-      post.likers.splice(user_id, 1);
-    };
+      const user_id = this.state.post_likers.indexOf(this.props.sessionId);
+      this.state.post_likers.splice(user_id, 1);
+    }
   }
 
   handleBookmarkClick() {
@@ -245,11 +245,7 @@ export default class UserPosts extends React.Component {
                 </div>
                 
                 <div className="photo-modal-number-likes">
-                  Be the first to <b>like this</b>
-                  {/* 
-                    REMINDER: if there are no likes yet, show "be the first to like this".
-                    Otherwise, do something like: (likes.count > 1 || likes.count === 0) ? "Likes" : "Like";
-                  */}
+                  {this.state.post_likers.length === 0 ? (<span>Be the first to <b>like this</b></span>) : this.state.post_likers.length === 1 ? `${this.state.post_likers.length} like` : `${this.state.post_likers.length} likes`}
                 </div>
                 
                 <div className="photo-modal-post-date">
