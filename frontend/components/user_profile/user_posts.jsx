@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
+import { formatTime } from '../../utils/date_util';
 
 export default class UserPosts extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class UserPosts extends React.Component {
       photoUserId: null,
       photoURL: null, 
       post_likers: [],
+      createdAt: null,
       heartStatus: "photo-show-heart",
       heart2Status: "photo-hide-heart",
       bookmarkStatus: "photo-show-bookmark",
@@ -48,7 +50,15 @@ export default class UserPosts extends React.Component {
   
   handlePostClick(post) {
     return () => {
-      this.setState({ modalOpen: true, photoId: post.id, photoCaption: post.caption, photoUserId: post.user_id, photoURL: post.photoURL, post_likers: post.likers });
+      this.setState({ 
+        modalOpen: true, 
+        photoId: post.id, 
+        photoCaption: post.caption, 
+        photoUserId: post.user_id, 
+        photoURL: post.photoURL, 
+        post_likers: post.likers,
+        createdAt: post.created_at
+      });
     };
   }
 
@@ -256,9 +266,11 @@ export default class UserPosts extends React.Component {
                   {this.state.post_likers.length === 0 ? (<span>Be the first to <span className="first-to-like-this" onClick={this.spanLike}>like this</span></span>) : this.state.post_likers.length === 1 ? `${this.state.post_likers.length} like` : `${this.state.post_likers.length} likes`}
                 </div>
                 
-                <div className="photo-modal-post-date">
+                {/* <div className="photo-modal-post-date">
                   when it was posted
-                </div>
+                </div> */}
+
+                <div className="photo-modal-post-date"><a href="#">{formatTime(this.state.createdAt)}</a></div>
 
                 <div className="photo-modal-comment-and-modal">
                   <div>

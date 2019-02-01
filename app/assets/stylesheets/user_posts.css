@@ -90,3 +90,19 @@
 .photo-modal-caption-caption {
   overflow-wrap: break-word;
 }
+
+.photo-modal-post-date {
+  height: 19px;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.photo-modal-post-date a {
+  text-decoration: none;
+  color: #999;
+  text-transform: uppercase;
+  font-size: 11px;
+  text-align: left;
+  display: block;
+}
