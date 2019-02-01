@@ -14,6 +14,11 @@ Users can sign up and log in. Their session will persist in the front-end, even 
 
 Users' sessions are protected via modern-day encryption methods and authentication.
 
+## Editing Profile Information
+
+Users can edit their profile information. This feature is accessible in the user's profile page.
+Users can edit their name, username, biography, and email.
+
 ## Images
 
 All features that require image uploads (posting and profile photo) utilize the AWS cloud service, allowing the website to run faster by not saving the images into the source code itself.
