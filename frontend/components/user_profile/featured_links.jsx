@@ -8,10 +8,10 @@ export default () => {
       <Link to="/"><i className="fas fa-tv"></i> IGTV</Link>
       <Link to="/"><i className="far fa-bookmark"></i>SAVED</Link>
       <Link to="/"><i className="fal fa-id-card-alt"></i> TAGGED</Link> */}
-      <a href="#"><i class="fas fa-home"></i> HOMEPAGE</a>
-      <a href="https://github.com/lk340" target="_blank"><i class="fab fa-github-square"></i> GITHUB</a>
-      <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LINKEDIN</a>
-      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+      <a href="#"><i className="fas fa-home"></i> HOMEPAGE</a>
+      <a href="https://github.com/lk340" target="_blank"><i className="fab fa-github-square"></i> GITHUB</a>
+      <a href="#" target="_blank"><i className="fab fa-linkedin"></i> LINKEDIN</a>
+      <a href="https://www.instagram.com/" target="_blank"><i className="fab fa-instagram"></i> INSTAGRAM</a>
     </div>
   )
 };
