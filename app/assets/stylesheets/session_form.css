@@ -1,6 +1,7 @@
 .sessionFormUltimateMasterContainer {
   position: relative;
   display: flex;
+  justify-content: center;
 }
 
 .session-form-container {
@@ -240,7 +241,8 @@
 .sign-in-form-bottom-half .facebookTwo-forgot-password {
   font-size: 12px;
   font-weight: normal;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
+  margin-bottom: 20px;
 }
 
 .button-fade-out {
@@ -310,7 +312,7 @@
   width: 430px;
   /* height: 618px; */
   height: 618px;
-  margin-left: 29%;
+  /* margin-left: 29%; */
   margin-top: 5.5%;
 
   /* border: red solid 1px; */

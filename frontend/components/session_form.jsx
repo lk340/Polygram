@@ -65,7 +65,8 @@ export default class SessionForm extends React.Component {
 
       span = (
         <div className="session-form-span-div">
-          <span className="session-form-span">By signing up, you agree to our</span> <a href="#">Terms</a>, <a href="#">Data Policy</a> , and < a href="#" > Cookies Policy</a >.
+          {/* <span className="session-form-span">By signing up, you agree to our</span> <a href="#">Terms</a>, <a href="#">Data Policy</a> , and < a href="#" > Cookies Policy</a >. */}
+          <span className="session-form-span">This project was made by Loyd Kim.</span>
         </div>
       )
     }
