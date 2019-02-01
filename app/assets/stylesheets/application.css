@@ -49,3 +49,8 @@ input, button, textarea, link {
 }
 
 /* font-family: 'Grand Hotel', cursive; */
+
+.first-to-like-this {
+  font-weight: 600;
+  cursor: pointer;
+}

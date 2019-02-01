@@ -17,6 +17,7 @@ export default class PostIndex extends React.Component {
     this.handleHeartClick = this.handleHeartClick.bind(this);
     this.handleBookmarkClick = this.handleBookmarkClick.bind(this);
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    this.spanLike = this.spanLike.bind(this);
   }
   
   componentDidMount() {
@@ -85,6 +86,10 @@ export default class PostIndex extends React.Component {
     // insert thunk action creator for posting a comment into the back end
   }
   
+  spanLike(post) {
+    return this.handleHeartClick(post);
+  }
+  
   render() {
     let posts;
     // if ((Object.keys(this.props.allUsers).length > 1) && (this.props.currentURL === "/")) {
@@ -120,7 +125,7 @@ export default class PostIndex extends React.Component {
               </div>
 
               <div className="post-likes">
-                { post.likers.length === 0 ? (<span>Be the first to <b>like this</b></span>) : post.likers.length === 1 ? `${post.likers.length} like` : `${post.likers.length} likes` }
+                { post.likers.length === 0 ? (<span>Be the first to <span className="first-to-like-this" onClick={this.spanLike(post)}>like this</span></span>) : post.likers.length === 1 ? `${post.likers.length} like` : `${post.likers.length} likes` }
               </div>
 
               <div className="post-caption" key={`post-${index}`}>

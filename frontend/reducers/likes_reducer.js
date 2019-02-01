@@ -14,7 +14,7 @@ export default (state = {}, action) => {
       newState[action.like.id] = action.like;
       return newState;
     case DELETE_LIKE:
-      delete newState[action.userId];
+      delete newState[action.likeId];
       return newState;
     default:
       return state;

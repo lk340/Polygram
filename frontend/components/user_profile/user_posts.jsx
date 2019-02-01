@@ -6,6 +6,7 @@ export default class UserPosts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      sessionId: this.props.sessionId,
       modalOpen: false, 
       modalOpen2: false, 
       modalOpen3: false, 
@@ -31,9 +32,11 @@ export default class UserPosts extends React.Component {
     this.openEditPostModal = this.openEditPostModal.bind(this);
     this.handleEditPostChange = this.handleEditPostChange.bind(this);
     this.handleFormEditSubmit = this.handleFormEditSubmit.bind(this);
+    this.spanLike = this.spanLike.bind(this);
   }
   
   componentDidMount() {
+    this.props.likes();
     this.props.posts();
   }
 
@@ -77,7 +80,7 @@ export default class UserPosts extends React.Component {
       this.props.likePost({
         user_id: this.props.sessionId,
         post_id: this.state.photoId,
-      });
+      }); 
 
       this.state.post_likers.push(this.props.sessionId);
     }
@@ -88,10 +91,11 @@ export default class UserPosts extends React.Component {
       // this.props.unlikePost(this.props.allLikes[]);
       const likesArr = Object.values(this.props.allLikes);
       likesArr.forEach(like => {
-        if (like.user_id === this.props.sessionId) this.props.unlikePost(like.id);
+        console.log(like);
+        if (like.user_id === this.state.sessionId) this.props.unlikePost(like.id);
       });
 
-      const user_id = this.state.post_likers.indexOf(this.props.sessionId);
+      const user_id = this.state.post_likers.indexOf(this.state.sessionId);
       this.state.post_likers.splice(user_id, 1);
     }
   }
@@ -127,6 +131,10 @@ export default class UserPosts extends React.Component {
     });
     this.onModalClose3();
     this.onModalClose2();
+  }
+
+  spanLike() {
+    return this.handleHeartClick();
   }
   
   render() {
@@ -245,7 +253,7 @@ export default class UserPosts extends React.Component {
                 </div>
                 
                 <div className="photo-modal-number-likes">
-                  {this.state.post_likers.length === 0 ? (<span>Be the first to <b>like this</b></span>) : this.state.post_likers.length === 1 ? `${this.state.post_likers.length} like` : `${this.state.post_likers.length} likes`}
+                  {this.state.post_likers.length === 0 ? (<span>Be the first to <span className="first-to-like-this" onClick={this.spanLike}>like this</span></span>) : this.state.post_likers.length === 1 ? `${this.state.post_likers.length} like` : `${this.state.post_likers.length} likes`}
                 </div>
                 
                 <div className="photo-modal-post-date">
