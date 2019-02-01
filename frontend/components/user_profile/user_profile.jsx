@@ -103,6 +103,7 @@ export default class UserProfile extends React.Component {
         margin: "auto",
         borderRadius: "14px",
         overflow: "hidden",
+        animation: "gearModal 0.05s linear",
       }
     };
     

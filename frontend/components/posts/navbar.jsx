@@ -160,6 +160,7 @@ export default class Navbar extends React.Component {
         // height: "626px",
         backgroundImage: "linear-gradient(rgb(0, 102, 255), rgb(103, 201, 193))",
         borderRadius: "8px",
+        animation: "postFormModal 0.7s linear",
       }
     }
 

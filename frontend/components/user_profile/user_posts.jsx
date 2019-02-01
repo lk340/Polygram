@@ -201,6 +201,7 @@ export default class UserPosts extends React.Component {
         borderRadius: "12px",
         padding: 0,
         border: "white solid 0px",
+        animation: "postEditDeleteModal 0.05s linear",
       }
     };
 
