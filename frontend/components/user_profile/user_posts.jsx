@@ -101,7 +101,6 @@ export default class UserPosts extends React.Component {
       // this.props.unlikePost(this.props.allLikes[]);
       const likesArr = Object.values(this.props.allLikes);
       likesArr.forEach(like => {
-        console.log(like);
         if (like.user_id === this.state.sessionId) this.props.unlikePost(like.id);
       });
 
