@@ -88,7 +88,7 @@ export default class Navbar extends React.Component {
 
             {/* <i className="fas fa-search"></i> */}
             {/* <div className="navbar-search-bar"><input type="search" placeholder={`${<i className="fas fa-search"></i>} Search`} onSubmit={this.handleSubmit} /></div> */}
-            <div className="navbar-search-bar"><i className="fas fa-search"></i><input type="search" placeholder="Search" onSubmit={this.handleSubmit} /></div>
+            <div className="navbar-search-bar"><input type="search" placeholder="Search" onSubmit={this.handleSubmit} /></div>
 
             <div className="navbar-icons">
               {/* <div><Link to="/posts/new"> {<i className="far fa-plus-square"></i>} </Link></div> */}
