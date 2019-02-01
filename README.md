@@ -4,7 +4,7 @@ Live Site: https://polygram-lk.herokuapp.com/#/
 
 Polygram is a social media website inspired by Instagram, where users can share photos, provide descriptive captions, like posts, comment on posts, and follow other users to create a richer dashboard.
 
-The backend is powered by Ruby on Rails with a PostgresQL database. The frontend was created using React-Redux to create a simple, single-page app filled with many features.
+The backend is powered by Ruby on Rails with a PostgreSQL database. The frontend was created using React-Redux to create a simple, single-page app filled with many features.
 
 # Features
 
