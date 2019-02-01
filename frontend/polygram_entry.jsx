@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.formatTime = formatTime;
   // let postOne = { caption: "first post!", image_url: "too lazy to get a link", user_id: 7 }
 
-  window.getState = store.getState();
-  window.dispatch = store.dispatch;
+  // window.getState = store.getState();
+  // window.dispatch = store.dispatch;
   // TEST ZONE END //
   
   ReactDOM.render(<Root store={store} />, document.getElementById("root"));
