@@ -21,7 +21,7 @@ Users can edit their name, username, biography, and email.
 
 ## Images
 
-All features that require image uploads (posting and profile photo) utilize the AWS cloud service, allowing the website to run faster by not saving the images into the source code itself.
+All features that require image uploads (posting and profile photo) utilize the AWS cloud service, allowing the website to run faster by not saving the images into the website itself.
 
 The images are attached to each post object in the back-end and are fetched by the front-end via AJAX requests.
 
