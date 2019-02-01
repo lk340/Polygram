@@ -47,6 +47,12 @@ Users can comment on any post.
 If the post belongs to the user, they can delete comments belonging to any user.
 If the post doesn't belong to the user, they can only delete their own comments.
 
+## Viewing Other Users' Profiles (under development)
+
+Users can have access to other users's profiles by clicking on their username on their post, clicking their username in a comment, or through the search feature.
+
+By having access to another user's profile, the user can choose to follow or unfollow them.
+
 ## Following Other Users (under development)
 
 Users can follow other users. By doing so, they will have access to posts created by other users on their dashboard.
