@@ -30,6 +30,7 @@ export default (props) => {
 
         <div className={footerLinks}>
           <a href="https://github.com/lk340" target="_blank">GITHUB</a> &nbsp; &nbsp;
+          <a href="https://github.com/lk340/Polygram" target="_blank">POLYGRAM ON GITHUB</a> &nbsp; &nbsp;
           <a href="#" target="_blank">LINKEDIN</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
           <a className={footerCopy}>&copy; 2019 POLYGRAM</a>
         </div>
