@@ -30,6 +30,7 @@ class Api::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:post][:id])
+    
     if @post.update(post_params)
       render :edit
     else

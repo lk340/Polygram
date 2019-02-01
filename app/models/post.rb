@@ -17,7 +17,7 @@ class Post < ApplicationRecord
     through: :likes,
     source: :user
 
-  # has_many :comments
+  has_many :comments
 
   # A special relation given by Active Storage
   has_one_attached :photo
