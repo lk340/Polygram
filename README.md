@@ -47,13 +47,13 @@ Users can comment on any post.
 If the post belongs to the user, they can delete comments belonging to any user.
 If the post doesn't belong to the user, they can only delete their own comments.
 
-## Searching for Other Users (under development)
-
-Users can search for other users based on username. By searching for a user, they will be able to view the searched user's profile page.
-
 ## Following Other Users (under development)
 
 Users can follow other users. By doing so, they will have access to posts created by other users on their dashboard.
 Users can also unfollow other users. By doing so, they will lose access to posts created by other users on their dashboard.
 
 By using Rails Association, database querying becomes more simple in development.
+
+## Searching for Other Users (under development)
+
+Users can search for other users based on username. By searching for a user, they will be able to view the searched user's profile page.
