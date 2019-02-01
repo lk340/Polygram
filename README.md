@@ -10,11 +10,17 @@ The backend is powered by Ruby on Rails with a PostgreSQL database. The frontend
 
 ## Signing Up / Logging In
 
+![Splash_Sign_Up](splash_sign_up.png)
+![Sign_Up_Form](sign_up_form.png)
+![Login_Form](login_form.png)
+
 Users can sign up and log in. Their session will persist in the front-end, even after refreshing the page.
 
 Users' sessions are protected via modern-day encryption methods and authentication.
 
 ## Editing Profile Information
+
+![Edit_Profile_Form](edit_profile_form.png)
 
 Users can edit their profile information. This feature is accessible in the user's profile page.
 Users can edit their name, username, biography, and email.
@@ -27,12 +33,17 @@ I used a special Rails Active Storage association (has_one_attached) to allow an
 
 ## Uploading Posts
 
+![Post_Modal](post_modal.png)
+
 Users can upload posts by providing an image and an optional caption. When uploading users will be able to get an image preview.
 
 The dashboard will feature posts created by the user and the users that they follow.
 The user's profile page will feature posts that were only created by the user.
 
 ## Editing Posts / Deleting Posts
+
+![Post_Options](image_options.png)
+![Edit_Post_Captions](edit_post_caption.png)
 
 Users can choose to edit posts; however, they can only edit captions.
 Users can also delete their posts, which will disappear from their profile page and the dashboard in real time.
@@ -48,6 +59,8 @@ If the post belongs to the user, they can delete comments belonging to any user.
 If the post doesn't belong to the user, they can only delete their own comments.
 
 ## Viewing Other Users' Profiles (under development)
+
+![User_Profile](user_profile.png)
 
 Users can have access to other users's profiles by clicking on their username on their post, clicking their username in a comment, or through the search feature.
 
