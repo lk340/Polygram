@@ -23,7 +23,7 @@ Users can edit their name, username, biography, and email.
 
 All features that require image uploads (posting and profile photo) utilize the AWS cloud service, allowing the website to run faster by not saving the images into the website itself.
 
-The images are attached to each post object in the back-end and are fetched by the front-end via AJAX requests.
+I used a special Rails Active Storage association (has_one_attached) to allow and have access to images that were attached to each post. By doing this, Polygram can use the AWS url that is attached to each post to display them.
 
 ## Uploading Posts
 
