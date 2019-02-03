@@ -28,7 +28,7 @@ module.exports = {
     path: path.resolve(__dirname, "app", "assets", 'javascripts'),
     filename: "bundle.js"
   },
-  // plugins: plugins,
+  plugins: plugins,
   module: {
     rules: [
       {
