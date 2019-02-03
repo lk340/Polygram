@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require("webpack");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 let plugins = []; // if using any plugins for both dev and production
 let devPlugins = []; // if using any plugins for development
@@ -23,16 +22,13 @@ plugins = plugins.concat(
 );
 
 module.exports = {
-  optimization: {
-    minimizer: [new UglifyJsPlugin()],
-  },
   context: __dirname,
   entry: "./frontend/polygram_entry.jsx",
   output: {
     path: path.resolve(__dirname, "app", "assets", 'javascripts'),
     filename: "bundle.js"
   },
-  plugins: plugins,
+  // plugins: plugins,
   module: {
     rules: [
       {
