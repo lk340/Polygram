@@ -9,13 +9,11 @@ import configureStore from './store/store';
 // import * as ApiUtils from './utils/session_api_util';
 // import { signUp, signIn, signOut } from './actions/session_actions'; 
 // import { allPosts, showPost, createPost, editPost, deletePost } from './utils/post_api_util';
-import { allPosts, showPost, createPost, editPost, deletePost } from './actions/post_actions';
-import { formatTime } from './utils/date_util';
+// import { allPosts, showPost, createPost, editPost, deletePost } from './actions/post_actions';
+// import { formatTime } from './utils/date_util';
 // TEST IMPORTS END //
 
 document.addEventListener("DOMContentLoaded", () => {
-  
-  
   let store;
   
   if (window.currentUser) {
