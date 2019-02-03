@@ -136,7 +136,6 @@ export default class UserPosts extends React.Component {
       id: this.state.photoId,
       caption: this.state.photoCaption,
       user_id: this.state.photoUserId,
-      // photo: this.state.photoURL,
     });
     this.onModalClose3();
     this.onModalClose2();
@@ -152,6 +151,7 @@ export default class UserPosts extends React.Component {
       // as the number of posts by users increases.
       // It's okay in the scope of this project, but not in the scope of a
       // real application.
+        // Solution: use an association: Users have many posts.
 
     const posts = this.props.userPosts.map((post, index) => {
       if (post.user_id === this.props.sessionId) {
