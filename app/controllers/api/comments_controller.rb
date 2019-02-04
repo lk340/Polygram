@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @comment.update(comment_params)
-      render :edit
+      render :show
     else
       render json: @comment.errors.full_messages, status: 404
     end

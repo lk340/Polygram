@@ -227,7 +227,7 @@ export default class UserPosts extends React.Component {
       <div className="user-posts">
         { posts }
         <Modal isOpen={ this.state.modalOpen } onRequestClose={ this.onModalClose } style={ modalStyle } >
-          <div className="photo-modal">
+          <div className="photo-modal" onDoubleClick={this.handleHeartClick}>
             <div className="photo-modal-picture">
               <img className="photo-modal-picture-image" src={ this.state.photoURL } alt="photo"/>
             </div>

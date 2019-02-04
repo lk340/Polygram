@@ -83,7 +83,7 @@ export default class PostIndex extends React.Component {
 
   handleCommentSubmit(event) {
     event.preventDefault();
-    // insert thunk action creator for posting a comment into the back end
+    this.props.makeComment(event.currentTarget.value);
   }
   
   spanLike(post) {
@@ -104,7 +104,7 @@ export default class PostIndex extends React.Component {
                 <div className="post-username">{this.props.allUsers[post.user_id].username}</div>
               </div>
 
-              <img src={post.photoURL} />
+              <img src={post.photoURL} onDoubleClick={this.handleHeartClick(post)} />
 
               <div className="post-actions">
                 <div className="post-like-comment">
@@ -133,6 +133,10 @@ export default class PostIndex extends React.Component {
               </div>
 
               <div className="post-index-timestamp"><a href="#">{formatTime(post.created_at)}</a></div>
+
+              <div className="post-index comments">
+                hello comment
+              </div>
 
               <div className="post-index-comment-container">
                 <div className="post-index-comment">
