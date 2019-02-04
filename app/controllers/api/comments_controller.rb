@@ -1,7 +1,12 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
+  def index
+    @comments = Comment.all
+    render :index
+  end
+  
   def create
     @comment = Comment.new(comment_params)
-
+    # debugger
     if @comment.save
       render :show
     else
@@ -32,6 +37,6 @@ class CommentsController < ApplicationController
   
   private
   def comment_params
-    params.require(:comment).permit(:comment)
+    params.require(:comment).permit(:comment, :post_id, :user_id)
   end  
 end

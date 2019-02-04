@@ -12,18 +12,21 @@ export default class PostIndex extends React.Component {
       bookmarkStatus: "bookmark-show",
       bookmark2Status: "bookmark-hide",
       // timer: 0,
+      comment: "",
     };
 
     this.handleHeartClick = this.handleHeartClick.bind(this);
     this.handleBookmarkClick = this.handleBookmarkClick.bind(this);
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.spanLike = this.spanLike.bind(this);
+    this.handleCommentChange = this.handleCommentChange.bind(this);
   }
   
   componentDidMount() {
     this.props.users();
     this.props.likes();
     this.props.posts();
+    this.props.getComments();
     // this.interval = setInterval(() => this.tick(), 1000);
   }
 
@@ -34,6 +37,10 @@ export default class PostIndex extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.allPosts.length !== this.props.allPosts.length) {
       this.props.posts();
+    }
+
+    if (prevProps.getComments.length !== this.props.getComments.length) {
+      this.props.getComments();
     }
   }
 
@@ -81,13 +88,25 @@ export default class PostIndex extends React.Component {
     }
   }
 
-  handleCommentSubmit(event) {
-    event.preventDefault();
-    this.props.makeComment(event.currentTarget.value);
+  handleCommentSubmit(post) {
+    // debugger;
+    return (event) => {
+      event.preventDefault();
+      // debugger;
+      this.props.makeComment({
+        comment: this.state.comment,
+        post_id: post.id,
+        user_id: post.user_id,
+      });
+    };
   }
   
   spanLike(post) {
     return this.handleHeartClick(post);
+  }
+
+  handleCommentChange(event) {
+    this.setState({ comment: event.currentTarget.value });
   }
   
   render() {
@@ -135,16 +154,14 @@ export default class PostIndex extends React.Component {
               <div className="post-index-timestamp"><a href="#">{formatTime(post.created_at)}</a></div>
 
               <div className="post-index comments">
-                { post.comments.forEach((comment, index) => {
-                  return <div key={`comment-${index}`}>{comment}</div>
-                }) }
+                
               </div>
 
               <div className="post-index-comment-container">
                 <div className="post-index-comment">
-                  <form className="post-index-comment-form" onSubmit={this.handleCommentSubmit}>
+                  <form className="post-index-comment-form" onSubmit={this.handleCommentSubmit(post)}>
                     {/* <textarea id="index-comment" placeholder="Add a comment..."></textarea> */}
-                    <input id="index-comment" placeholder="Add a comment..."></input>
+                    <input id="index-comment" placeholder="Add a comment..." onChange={this.handleCommentChange}></input>
                   </form>
                 </div>
                 <span>...</span>

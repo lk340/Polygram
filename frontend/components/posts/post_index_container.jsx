@@ -4,7 +4,7 @@ import PostIndex from './post_index';
 import { allPosts } from '../../actions/post_actions';
 import { fetchUsers } from '../../actions/user_actions';
 import { fetchLikes, createLike, deleteLike } from '../../actions/like_actions';
-import { postComment, patchComment, deleteComment } from '../../actions/comment_actions';
+import { fetchComments, postComment, patchComment, deleteComment } from '../../actions/comment_actions';
 
 const msp = (state, ownProps) => {
   return {
@@ -25,6 +25,7 @@ const mdp = dispatch => {
     likes: () => dispatch(fetchLikes()),
     likePost: like => dispatch(createLike(like)),
     unlikePost: likeId => dispatch(deleteLike(likeId)),
+    getComments: () => dispatch(fetchComments()),
     makeComment: comment => dispatch(postComment(comment)),
     editComment: comment => dispatch(patchComment(comment)),
     removeComment: commentId => dispatch(deleteComment(commentId)),

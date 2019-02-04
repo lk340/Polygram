@@ -1,9 +1,17 @@
 import * as CommentAJAX from '../utils/comment_api_util';
 
+export const GET_COMMENTS = "GET_COMMENTS";
 export const CREATE_COMMENT = "CREATE_COMMENT";
 export const EDIT_COMMENT = "EDIT_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
 export const COMMENT_ERROR = "COMMENT_ERROR";
+
+const getComments = (comments) => {
+  return {
+    type: FETCH_COMMENTS,
+    comments,
+  };
+};
 
 const createComment = comment => {
   return {
@@ -31,6 +39,10 @@ const commentError = error => {
     type: COMMENT_ERROR,
     error,
   };
+};
+
+export const fetchComments = () => {
+  return CommentAJAX.fetchComments().then(comments => dispatch(getComments(comments)));
 };
 
 export const postComment = data => dispatch => {
