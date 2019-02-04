@@ -135,13 +135,16 @@ export default class PostIndex extends React.Component {
               <div className="post-index-timestamp"><a href="#">{formatTime(post.created_at)}</a></div>
 
               <div className="post-index comments">
-                hello comment
+                { post.comments.forEach((comment, index) => {
+                  return <div key={`comment-${index}`}>{comment}</div>
+                }) }
               </div>
 
               <div className="post-index-comment-container">
                 <div className="post-index-comment">
                   <form className="post-index-comment-form" onSubmit={this.handleCommentSubmit}>
-                    <textarea id="index-comment" placeholder="Add a comment..."></textarea>
+                    {/* <textarea id="index-comment" placeholder="Add a comment..."></textarea> */}
+                    <input id="index-comment" placeholder="Add a comment..."></input>
                   </form>
                 </div>
                 <span>...</span>

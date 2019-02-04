@@ -37,7 +37,7 @@ export const postComment = data => dispatch => {
   return CommentAJAX.postComment(data)
     .then(
       data => dispatch(createComment(data)),
-      error => dispatch(commentError(error))
+      error => dispatch(commentError(error.responseJSON))
     );
 };
 
@@ -45,7 +45,7 @@ export const patchComment = data => dispatch => {
   return CommentAJAX.patchComment(data)
     .then(
       data => dispatch(editComment(data)),
-      error => dispatch(commentError(error))
+      error => dispatch(commentError(error.responseJSON))
     );
 };
 
@@ -53,6 +53,6 @@ export const deleteComment = id => dispatch => {
   return CommentAJAX.deleteComment(id)
     .then(
       data => dispatch(removeComment(data.id)),
-      error => dispatch(commentError(error))
+      error => dispatch(commentError(error.responseJSON))
     );
 };
