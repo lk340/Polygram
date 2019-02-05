@@ -3,7 +3,7 @@ import React from 'react';
 export default class UserPostComments extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { forcedRender: true };
+    this.state = { comments: this.props.comments };
     
     this.handleCommentDelete = this.handleCommentDelete.bind(this);
   }
@@ -15,8 +15,7 @@ export default class UserPostComments extends React.Component {
   componentWillUpdate(prevProps) {
     // debugger;
     if (prevProps.allComments.length !== this.props.allComments.length) {
-      // this.setState({ forcedRender: this.state.forcedRender === true ? false : true });
-      this.forceUpdate();
+      this.props.getComments();
     }
   }
 
@@ -29,7 +28,7 @@ export default class UserPostComments extends React.Component {
   render() {
     let commentLis;
     if (this.props.comments) {
-      commentLis = Object.values(this.props.comments).map((commentObject, index) => {
+      commentLis = this.props.allComments.map((commentObject, index) => {
         return <li key={`comment-${index}`}><b>{this.props.username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject.id)}>{commentObject.comment}</span></li>
       });
     }
