@@ -69,7 +69,7 @@ export default class UserPosts extends React.Component {
         photoURL: post.photoURL, 
         post_likers: post.likers,
         createdAt: post.created_at,
-        comments: post.comments,
+        comments: post.comment_objects,
       });
     };
   }
@@ -172,9 +172,10 @@ export default class UserPosts extends React.Component {
     this.setState({ comment: "" });
   }
 
-  handleCommentDelete(event) {
-    debugger;
-    this.props.removeComment()
+  handleCommentDelete(commentId) {
+    return () => {
+      this.props.removeComment(commentId);
+    };
   }
   
   render() {
@@ -195,9 +196,12 @@ export default class UserPosts extends React.Component {
       }
     });
 
-    const commentLis = this.state.comments.map((comment, index) => {
-      return <li key={`comment-${index}`} onMouseEnter={this.handleCommentDelete}><b>{this.props.currentUser.username}</b> {comment}</li>
-    });
+    let commentLis;
+    if (this.state.comments) {
+      commentLis = Object.values(this.state.comments).map((commentObject, index) => {
+        return <li key={`comment-${index}`}><b>{this.props.currentUser.username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject.id)}>{commentObject.comment}</span></li>
+      });
+    }
     
     const modalStyle = {
       overlay: {
