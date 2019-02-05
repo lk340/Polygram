@@ -21,6 +21,7 @@ export default class PostIndex extends React.Component {
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.spanLike = this.spanLike.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
+    this.handleCommentDelete = this.handleCommentDelete.bind(this);
   }
   
   componentDidMount() {
@@ -111,19 +112,27 @@ export default class PostIndex extends React.Component {
   handleCommentChange(event) {
     this.setState({ comment: event.currentTarget.value });
   }
+
+  handleCommentDelete(commentId) {
+    return () => {
+      this.props.removeComment(commentId);
+    };
+  }
   
   render() {
     let posts;
+    let commentLis;
     // if ((Object.keys(this.props.allUsers).length > 1) && (this.props.currentURL === "/")) {
     if ((this.props.currentUser) && (this.props.currentURL === "/")) {
       posts = this.props.allPosts.map((post, index) => {
 
         if (this.props.allUsers[post.user_id]) {
-          const commentLis = post.comments.forEach((comment, index) => {
-            return <li key={`comment-${index}`}>{comment}</li>
-            // debugger;
-          });
           // debugger;
+          if (post.comment_objects) {
+            commentLis = Object.values(post.comment_objects).map((commentObject, index) => {
+              return <li key={`comment-${index}`}><b>{this.props.currentUser.username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject.id)}>{commentObject.comment}</span></li>
+            });
+          }
 
           return (
             <div className="post-container" key={index}>
@@ -161,12 +170,13 @@ export default class PostIndex extends React.Component {
                 <span className="post-username-span"> {this.props.allUsers[post.user_id].username} </span> {post.caption}
               </div>
 
-              <div className="post-index-timestamp"><a href="#">{formatTime(post.created_at)}</a></div>
-
               <div className="post-index-comments">
-                {/* {commentLis} */}
-                {post.comments.reverse()}
+                <ul>
+                  {commentLis}
+                </ul>
               </div>
+
+              <div className="post-index-timestamp"><a href="#">{formatTime(post.created_at)}</a></div>
 
               <div className="post-index-comment-container">
                 <div className="post-index-comment">

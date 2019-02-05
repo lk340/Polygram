@@ -170,9 +170,24 @@
   font-size: 11px;
   text-align: left;
   display: block;
+  margin-top: 5px;
 }
 
 .post-index-comments {
   text-align: left;
   margin-left: 15px;
+}
+
+.post-index-comments ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-index-comments ul li {
+  padding: 3px 0;
+}
+
+.comment-li:hover {
+  cursor: pointer;
 }

@@ -187,6 +187,19 @@
   padding-right: 26px;
 }
 
+.photo-modal-comment-and-modal div input {
+  resize: none;
+  height: 18px;
+  max-height: 80px;
+  width: 261px;
+  background-color: white;
+  border: 0;
+  color: black;
+  font-size: 14px;
+  align-self: center;
+  padding-right: 26px;
+}
+
 .photo-modal-comment-and-modal div  span {
   height: 24px;
   width: 24px;
@@ -200,3 +213,12 @@
   cursor: pointer;
 }
 
+.photo-modal-caption-comments ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.photo-modal-caption-comments ul li {
+  padding: 3px 0;
+}

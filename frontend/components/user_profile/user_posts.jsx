@@ -21,6 +21,8 @@ export default class UserPosts extends React.Component {
       heart2Status: "photo-hide-heart",
       bookmarkStatus: "photo-show-bookmark",
       bookmark2Status: "photo-hide-bookmark",
+      comment: "",
+      comments: [],
     };
 
     this.handlePostClick = this.handlePostClick.bind(this);
@@ -35,15 +37,24 @@ export default class UserPosts extends React.Component {
     this.handleEditPostChange = this.handleEditPostChange.bind(this);
     this.handleFormEditSubmit = this.handleFormEditSubmit.bind(this);
     this.spanLike = this.spanLike.bind(this);
+    this.handleCommentChange = this.handleCommentChange.bind(this);
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    this.handleCommentDelete = this.handleCommentDelete.bind(this);
   }
   
   componentDidMount() {
     this.props.likes();
     this.props.posts();
+    this.props.getComments();
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.userPosts.length !== this.props.userPosts.length) {
+      this.props.posts();
+    }
+
+    if (prevProps.allComments.length !== this.props.allComments.length) {
+      this.props.getComments();
       this.props.posts();
     }
   }
@@ -57,7 +68,8 @@ export default class UserPosts extends React.Component {
         photoUserId: post.user_id, 
         photoURL: post.photoURL, 
         post_likers: post.likers,
-        createdAt: post.created_at
+        createdAt: post.created_at,
+        comments: post.comments,
       });
     };
   }
@@ -144,6 +156,26 @@ export default class UserPosts extends React.Component {
   spanLike() {
     return this.handleHeartClick();
   }
+
+  handleCommentChange(event) {
+    this.setState({ comment: event.currentTarget.value });
+  }
+
+  handleCommentSubmit(event) {
+    event.preventDefault();
+    // debugger;
+    this.props.makeComment({
+      comment: this.state.comment,
+      post_id: this.state.photoId,
+      user_id: this.state.photoUserId,
+    });
+    this.setState({ comment: "" });
+  }
+
+  handleCommentDelete(event) {
+    debugger;
+    this.props.removeComment()
+  }
   
   render() {
     // NOTE TO SELF: Find a more efficient way to go about this.
@@ -161,6 +193,10 @@ export default class UserPosts extends React.Component {
           </div>
         )
       }
+    });
+
+    const commentLis = this.state.comments.map((comment, index) => {
+      return <li key={`comment-${index}`} onMouseEnter={this.handleCommentDelete}><b>{this.props.currentUser.username}</b> {comment}</li>
     });
     
     const modalStyle = {
@@ -239,7 +275,12 @@ export default class UserPosts extends React.Component {
                 <div className="photo-modal-caption">
                   <div className="photo-modal-caption-caption"><span>{this.props.currentUser.username} </span> {this.state.photoCaption}</div>
                   {/* <div><span>{this.props.currentUser.username} </span> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error voluptatibus, aliquid sit porro ex eos unde quaerat perspiciatis id suscipit pariatur laborum facere doloremque vitae reprehenderit alias, harum accusamus fugiat qui quos! Perferendis omnis error magnam officiis iste numquam deserunt quisquam, illum beatae ullam ratione expedita nobis ut dolores possimus. Ipsum enim vero distinctio, aspernatur ad hic facilis velit sint in natus rem adipisci. Natus tempore sed alias possimus molestias iste temporibus consequuntur iusto explicabo. Facilis nulla autem iure, reiciendis, vero animi ad maxime quidem porro mollitia molestias tempore! Tempore officiis maxime hic, commodi nulla corrupti, error ea reprehenderit officia temporibus quia quaerat aut vero minus, exercitationem perferendis. Repellat dolorem culpa voluptatum, illum doloribus harum molestiae adipisci quidem! Necessitatibus nisi culpa asperiores quaerat id perferendis, ipsum, doloribus aliquid animi suscipit similique hic repudiandae, autem modi reprehenderit blanditiis reiciendis totam accusamus? Officiis architecto aut consequuntur odio commodi. Dignissimos, cum. Delectus omnis sit velit ad nulla, autem quos impedit. Mollitia, enim quisquam sit exercitationem ullam autem quos ducimus omnis consectetur quidem nihil asperiores officiis laborum, corporis eligendi architecto obcaecati doloribus. Earum nemo repellat illum deleniti adipisci suscipit explicabo molestias, expedita, blanditiis beatae aliquam iste ab eum labore laborum optio veritatis voluptatibus similique, recusandae iure quae. Velit aut, sequi est accusamus possimus placeat omnis consequuntur eligendi dolores atque, at consequatur sunt quo impedit dolor beatae. Nemo est quos ipsa ratione mollitia quis, molestiae dicta facilis sit molestias culpa odio velit illum eum minus praesentium rem totam maiores adipisci. Obcaecati voluptas deleniti illo vero itaque? Laudantium animi soluta dicta mollitia deserunt distinctio! Modi, amet distinctio! Exercitationem ratione placeat quaerat, non quae molestiae nulla praesentium! Non, quos nam! Sequi ullam quasi enim mollitia voluptatibus. Odio accusantium totam sint placeat adipisci, recusandae cupiditate dolorem corrupti magnam aut. Qui, quam voluptate? Totam, cumque. Repellendus veritatis soluta maxime.</div> */}
-                  <div className="photo-modal-caption-comments"><b>[Commenter Username]</b> Comments go here</div>
+                  <div className="photo-modal-caption-comments">
+                    {/* <b>[Commenter Username]</b> Comments go here */}
+                    <ul>
+                      {commentLis}
+                    </ul>
+                  </div>
                 </div>
               </div>
 
@@ -274,7 +315,9 @@ export default class UserPosts extends React.Component {
 
                 <div className="photo-modal-comment-and-modal">
                   <div>
-                    <textarea id="show-post-comment" placeholder="Add a comment..."></textarea>
+                    <form className="photo-modal-comment-form" onSubmit={this.handleCommentSubmit}>
+                      <input id="show-post-comment" placeholder="Add a comment..." onChange={this.handleCommentChange} value={this.state.comment}/>
+                    </form>
                     <span className="photo-modal-span" onClick={this.modalCeption}>...</span>
                   </div>
                 </div>
