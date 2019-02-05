@@ -52,7 +52,7 @@
 }
 /* ============================================== */
 
-.post-index img {
+.index-post-image {
   width: 614px;
   height: auto;
 }
@@ -194,4 +194,21 @@
 
 .comment-li:hover {
   cursor: pointer;
+}
+
+.index-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-like-heart-show {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  opacity: 0.7;
+}
+
+.index-like-heart-hide {
+  display: none;
 }
