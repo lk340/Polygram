@@ -13,8 +13,10 @@ export default class UserPostComments extends React.Component {
   }
   
   componentWillUpdate(prevProps) {
+    // debugger;
     if (prevProps.allComments.length !== this.props.allComments.length) {
-      this.setState({ forcedRender: this.state.forcedRender === true ? false : true });
+      // this.setState({ forcedRender: this.state.forcedRender === true ? false : true });
+      this.forceUpdate();
     }
   }
 

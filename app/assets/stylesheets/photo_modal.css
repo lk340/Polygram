@@ -86,12 +86,12 @@
   /* overflow: auto; */
 }
 
-.photo-modal-caption-caption span {
-  font-weight: 600;
+.photo-modal-caption-caption {
+  margin-bottom: 4px;
 }
 
-.photo-modal-caption-comments {
-
+.photo-modal-caption-caption span {
+  font-weight: 600;
 }
 
 .photo-modal-data-bottom {
