@@ -15,6 +15,7 @@ const msp = (state, ownProps) => {
     allUsers: state.entities.users,
     allPostsObject: state.entities.posts,
     allLikes: state.entities.likes,
+    allComments: Object.values(state.entities.comments),
   };
 };
 

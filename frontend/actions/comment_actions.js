@@ -8,7 +8,7 @@ export const COMMENT_ERROR = "COMMENT_ERROR";
 
 const getComments = (comments) => {
   return {
-    type: FETCH_COMMENTS,
+    type: GET_COMMENTS,
     comments,
   };
 };
@@ -41,7 +41,7 @@ const commentError = error => {
   };
 };
 
-export const fetchComments = () => {
+export const fetchComments = () => dispatch => {
   return CommentAJAX.fetchComments().then(comments => dispatch(getComments(comments)));
 };
 

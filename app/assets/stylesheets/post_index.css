@@ -127,6 +127,18 @@
   font-size: 14px;
 }
 
+.post-index-comment-form input {
+  width: 556px;
+  height: 18px;
+  max-height: 80px;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  resize: none;
+  border: none;
+  font-size: 14px;
+}
+
 .post-index-comment-container span {
   height: 24px;
   width: 24px;
@@ -158,4 +170,9 @@
   font-size: 11px;
   text-align: left;
   display: block;
+}
+
+.post-index-comments {
+  text-align: left;
+  margin-left: 15px;
 }
