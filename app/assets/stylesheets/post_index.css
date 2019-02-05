@@ -188,6 +188,10 @@
   padding: 3px 0;
 }
 
+.comment-li {
+  font-weight: 100;
+}
+
 .comment-li:hover {
   cursor: pointer;
 }
