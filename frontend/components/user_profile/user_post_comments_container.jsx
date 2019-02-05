@@ -4,10 +4,8 @@ import UserPostComments from './user_post_comments';
 import { fetchComments, postComment, patchComment, deleteComment } from '../../actions/comment_actions';
 
 const msp = state => {
-  // debugger;
   return {
     allComments: Object.values(state.entities.comments),
-    // allComments: state.entities.comments,
   };
 };
 

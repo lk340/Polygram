@@ -165,7 +165,6 @@ export default class UserPosts extends React.Component {
 
   handleCommentSubmit(event) {
     event.preventDefault();
-    // debugger;
     this.props.makeComment({
       comment: this.state.comment,
       post_id: this.state.photoId,

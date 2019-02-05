@@ -92,10 +92,8 @@ export default class PostIndex extends React.Component {
   }
 
   handleCommentSubmit(post) {
-    // debugger;
     return (event) => {
       event.preventDefault();
-      // debugger;
       this.props.makeComment({
         comment: this.state.comment,
         post_id: post.id,
@@ -127,7 +125,6 @@ export default class PostIndex extends React.Component {
       posts = this.props.allPosts.map((post, index) => {
 
         if (this.props.allUsers[post.user_id]) {
-          // debugger;
           if (post.comment_objects) {
             commentLis = Object.values(post.comment_objects).map((commentObject, index) => {
               return <li key={`comment-${index}`}><b>{this.props.currentUser.username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject.id)}>{commentObject.comment}</span></li>
