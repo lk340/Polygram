@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 import { formatTime } from '../../utils/date_util';
 
+import UserPostComments from './user_post_comments';
 import UserPostCommentsContainer from './user_post_comments_container';
 
 export default class UserPosts extends React.Component {
@@ -272,6 +273,7 @@ export default class UserPosts extends React.Component {
             </div>
 
             <div className="photo-modal-data">
+              {/* <div className="user-photo"><img src={window.userDefaultProfilePicture} alt="user-profile-picture" /> &nbsp;</div> */}
               <div className="photo-modal-username"><div>{ this.props.currentUser.username }</div></div>
 
               <div className="photo-modal-caption-holder">
@@ -283,7 +285,8 @@ export default class UserPosts extends React.Component {
                       {commentLis}
                     </ul>
                   </div> */}
-                  <UserPostCommentsContainer comments={this.state.comments} username={this.props.currentUser.username} />
+                  <UserPostCommentsContainer postId={this.state.photoId} comments={this.state.comments} username={this.props.currentUser.username} />
+                  {/* <UserPostComments comments={this.state.comments} username={this.props.currentUser.username} /> */}
                 </div>
               </div>
 

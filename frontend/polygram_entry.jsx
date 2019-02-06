@@ -8,7 +8,7 @@ import configureStore from './store/store';
 // TEST IMPORTS START //
 // import * as ApiUtils from './utils/session_api_util';
 // import { signUp, signIn, signOut } from './actions/session_actions'; 
-// import { allPosts, showPost, createPost, editPost, deletePost } from './utils/post_api_util';
+import { allPosts, showPost, createPost, editPost, deletePost } from './utils/post_api_util';
 // import { allPosts, showPost, createPost, editPost, deletePost } from './actions/post_actions';
 // import { formatTime } from './utils/date_util';
 // TEST IMPORTS END //
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.signout = signOut;
 
   // window.allPosts = allPosts;
-  // window.showPost = showPost; 
+  window.showPost = showPost; 
   // window.createPost = createPost;
   // window.editPost = editPost;
   // window.deletePost = deletePost;

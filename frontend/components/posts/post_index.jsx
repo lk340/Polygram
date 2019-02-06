@@ -37,11 +37,7 @@ export default class PostIndex extends React.Component {
   // }
   
   componentDidUpdate(prevProps) {
-    if (prevProps.allPosts.length !== this.props.allPosts.length) {
-      this.props.posts();
-    }
-
-    if (prevProps.allComments.length !== this.props.allComments.length) {
+    if ((prevProps.allPosts.length !== this.props.allPosts.length) || (prevProps.allComments.length !== this.props.allComments.length)) {
       this.props.getComments();
       this.props.posts();
     }
@@ -139,7 +135,10 @@ export default class PostIndex extends React.Component {
                 <div className="post-username">{this.props.allUsers[post.user_id].username}</div>
               </div>
 
-              <img src={post.photoURL} onDoubleClick={this.handleHeartClick(post)} />
+              <div className="index-images">
+                {/* <img src={window.likeHeart} alt="like-heart" className="index-like-heart-show" /> */}
+                <img src={post.photoURL} className="index-post-image" onDoubleClick={this.handleHeartClick(post)} />
+              </div>
 
               <div className="post-actions">
                 <div className="post-like-comment">
