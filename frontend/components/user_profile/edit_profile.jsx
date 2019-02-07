@@ -43,12 +43,12 @@ export default class EditProfile extends React.Component {
         <div className="edit-profile-container">
           <div className="edit-profile-options">
             <ul>
-              <li><a href="#">Edit Profile</a></li>
-              <li><a href="#">Change Password</a></li>
+              <li><a href="#"><b>Edit Profile</b></a></li>
+              {/* <li><a href="#">Change Password</a></li>
               <li><a href="#">Authorized Applications</a></li>
               <li><a href="#">Email and SMS</a></li>
               <li><a href="#">Manage Contacts</a></li>
-              <li><a href="#">Privacy and Security</a></li>
+              <li><a href="#">Privacy and Security</a></li> */}
             </ul>
           </div>
 

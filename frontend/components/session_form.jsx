@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Footer from './footer/footer';
+import { timingSafeEqual } from 'crypto';
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -10,6 +11,14 @@ export default class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.logInDemoUser = this.logInDemoUser.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.clear();
+  }
+  
+  componentWillUnmount() {
+    this.props.clear();
   }
   
   handleChange(field) {
