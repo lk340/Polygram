@@ -69,6 +69,10 @@
   border-bottom: var(--lightGray) solid 1px;
 }
 
+.photo-modal-username-span {
+  cursor: pointer;
+}
+
 .photo-modal-caption-holder {
   padding: 0 16px;
   overflow: auto;
@@ -92,6 +96,7 @@
 
 .photo-modal-caption-caption span {
   font-weight: 600;
+  cursor: pointer;
 }
 
 .photo-modal-data-bottom {

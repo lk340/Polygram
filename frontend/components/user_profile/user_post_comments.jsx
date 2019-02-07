@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { showPost } from '../../utils/post_api_util';
 
@@ -47,7 +48,7 @@ export default class UserPostComments extends React.Component {
       commentLis = Object.values(this.props.allComments).map((commentObject, index) => {
         if (commentObject.post_id === this.props.postId) {
           // return <li key={`comment-${index}`}><b>{this.props.username}</b> <span className="comment-li" onClick={commentObject.user_id === this.props.currentUser.id ? this.handleCommentDelete(commentObject.id) : console.log("")}>{commentObject.comment}</span></li>
-          return <li key={`comment-${index}`}><b>{this.props.allUsers[commentObject.user_id].username}</b> <span className="comment-li" onClick={commentObject.user_id === this.props.currentUser.id ? this.handleCommentDelete(commentObject.id) : console.log("")}>{commentObject.comment}</span></li>
+          return <li key={`comment-${index}`}><b>{<Link to={`/users/${commentObject.user_id}`} className="profile-link" onClick={this.props.modalClose}>{this.props.allUsers[commentObject.user_id].username}</Link>}</b> <span className="comment-li" onClick={commentObject.user_id === this.props.currentUser.id ? this.handleCommentDelete(commentObject.id) : console.log("")}>{commentObject.comment}</span></li>
         }
       });
     }
