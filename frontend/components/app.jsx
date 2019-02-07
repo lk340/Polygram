@@ -34,17 +34,8 @@ export default () => {
 
             <div className="app-user-profile">
               <Route exact path="/users/profile" component={UserProfileMasterContainer} />
-            
-              {/* <UserProfileMasterContainer /> */}
-              {/* <Route exact path="/demoUser" component={ UserProfileContainer } />
-              <div className="app-user-profile-splitter">
-                <Link to="/"><i className="fas fa-th"></i> POSTS</Link>
-                <Link to="/"><i className="fas fa-tv"></i> IGTV</Link>
-                <Link to="/"><i className="far fa-bookmark"></i>SAVED</Link>
-                <Link to="/"><i className="fal fa-id-card-alt"></i> TAGGED</Link>
-              </div>
-              <Route exact path="/demoUser" component={ UserPostsContainer } /> */}
             </div>
+            
             <Route exact path="/accounts/edit" component={ EditProfileContainer } />
 
             <AuthRoute exact path="/" component={ SignUpFormContainer } />
@@ -65,3 +56,15 @@ export default () => {
     </div>
   )
 }
+
+
+            
+{/* <UserProfileMasterContainer /> */}
+{/* <Route exact path="/demoUser" component={ UserProfileContainer } />
+<div className="app-user-profile-splitter">
+  <Link to="/"><i className="fas fa-th"></i> POSTS</Link>
+  <Link to="/"><i className="fas fa-tv"></i> IGTV</Link>
+  <Link to="/"><i className="far fa-bookmark"></i>SAVED</Link>
+  <Link to="/"><i className="fal fa-id-card-alt"></i> TAGGED</Link>
+</div>
+<Route exact path="/demoUser" component={ UserPostsContainer } /> */}

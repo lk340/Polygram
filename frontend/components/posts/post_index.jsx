@@ -93,7 +93,7 @@ export default class PostIndex extends React.Component {
       this.props.makeComment({
         comment: this.state.comment,
         post_id: post.id,
-        user_id: post.user_id,
+        user_id: this.props.currentUser.id,
       });
       this.setState({ comment: "" });
     };
@@ -118,17 +118,17 @@ export default class PostIndex extends React.Component {
     let commentLis;
     // if ((Object.keys(this.props.allUsers).length > 1) && (this.props.currentURL === "/")) {
     if ((this.props.currentUser) && (this.props.currentURL === "/")) {
-      posts = this.props.allPosts.map((post, index) => {
-
+      posts = this.props.allPosts.map((post, postIndex) => {
+        // debugger;
         if (this.props.allUsers[post.user_id]) {
           if (post.comment_objects) {
-            commentLis = Object.values(post.comment_objects).map((commentObject, index) => {
-              return <li key={`comment-${index}`}><b>{this.props.currentUser.username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject.id)}>{commentObject.comment}</span></li>
+            commentLis = Object.values(post.comment_objects).map((commentObject, commentIndex) => {
+              return <li key={`comment-${commentIndex}`}><b>{this.props.allUsers[commentObject.user_id].username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject.id)}>{commentObject.comment}</span></li>
             });
           }
 
           return (
-            <div className="post-container" key={index}>
+            <div className="post-container" key={postIndex}>
               <div className="post-top">
                 {/* <div className="user-photo">[ userphoto size 30x30 border-radius 50% on image ] &nbsp;</div> */}
                 <div className="user-photo"><img src={window.userDefaultProfilePicture} alt="user-profile-picture" /> &nbsp;</div>
@@ -162,7 +162,7 @@ export default class PostIndex extends React.Component {
                 { post.likers.length === 0 ? (<span>Be the first to <span className="first-to-like-this" onClick={this.spanLike(post)}>like this</span></span>) : post.likers.length === 1 ? `${post.likers.length} like` : `${post.likers.length} likes` }
               </div>
 
-              <div className="post-caption" key={`post-${index}`}>
+              <div className="post-caption" key={`post-${postIndex}`}>
                 <span className="post-username-span"> {this.props.allUsers[post.user_id].username} </span> {post.caption}
               </div>
 

@@ -6,6 +6,7 @@ import { showPost } from '../../actions/post_actions';
 
 const msp = state => {
   return {
+    currentUser: state.entities.users[state.session.id],
     allComments: Object.values(state.entities.comments),
   };
 };
