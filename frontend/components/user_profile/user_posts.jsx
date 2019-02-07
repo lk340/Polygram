@@ -46,8 +46,9 @@ export default class UserPosts extends React.Component {
   }
   
   componentDidMount() {
-    this.props.likes();
+    this.props.users();
     this.props.posts();
+    this.props.likes();
     this.props.getComments();
   }
 
@@ -195,6 +196,14 @@ export default class UserPosts extends React.Component {
         )
       }
     });
+
+    // const posts = this.props.posts.map((post, index) => {
+    //   return (
+    //     <div className="user-post-photo" key={`userpost-${index}`}>
+    //       <img src={ post.photoURL } alt="photo" onClick={ this.handlePostClick(post) }/>
+    //     </div>
+    //   )
+    // });
 
     let commentLis;
     if (this.state.comments) {

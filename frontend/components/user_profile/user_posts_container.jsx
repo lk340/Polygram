@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import UserPosts from './user_posts';
+import { fetchUsers } from '../../actions/user_actions';
 import { allPosts, deletePost, editPost } from '../../actions/post_actions';
 import { fetchLikes, createLike, deleteLike } from '../../actions/like_actions';
 import { fetchComments, postComment, patchComment, deleteComment } from '../../actions/comment_actions';
@@ -11,6 +12,7 @@ const msp = state => {
     currentUser: state.entities.users[state.session.id],
     sessionId: state.session.id,
     userPosts: Object.values(state.entities.posts).reverse(),
+    // posts: Object.values(state.entities.users.userPosts).reverse(),
     allUsers: state.entities.users,
     allLikes: state.entities.likes,
     allComments: Object.values(state.entities.comments),
@@ -19,6 +21,7 @@ const msp = state => {
 
 const mdp = dispatch => {
   return {
+    users: () => dispatch(fetchUsers()),
     posts: () => dispatch(allPosts()),
     deletePost: id => dispatch(deletePost(id)),
     editPost: post => dispatch(editPost(post)),
