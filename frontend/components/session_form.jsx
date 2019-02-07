@@ -90,8 +90,8 @@ export default class SessionForm extends React.Component {
             <div className="s311c s311c-2"></div>
           </div>
           <a className="facebookTwo-target-blank" href="https://github.com/lk340" target="_blank"><i className="fab fa-github"></i>&nbsp; <span>Check out my Github!</span></a>
-          <br />
-          <a className="facebookTwo-forgot-password" href="https://github.com/lk340" target="_blank">Forgot password?</a>
+          {/* <br /> */}
+          {/* <a className="facebookTwo-forgot-password" href="https://github.com/lk340" target="_blank">Forgot password?</a> */}
         </div>
       )
     }
