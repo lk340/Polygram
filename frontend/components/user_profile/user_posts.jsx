@@ -284,7 +284,13 @@ export default class UserPosts extends React.Component {
             <div className="photo-modal-data">
               {/* <div className="user-photo"><img src={window.userDefaultProfilePicture} alt="user-profile-picture" /> &nbsp;</div> */}
               {/* <div className="photo-modal-username" onClick={this.onModalClose}><div><span className="photo-modal-username-span">{ this.props.currentUser.username }</span></div></div> */}
-              <div className="photo-modal-username"><div><span className="photo-modal-username-span" onClick={this.onModalClose}>{ this.props.allUsers[this.props.user_id].username }</span></div></div>
+              <div className="photo-modal-username">
+                <div>
+                  <div className="photo-modal-user-photo"><img src={window.userDefaultProfilePicture} alt="user-profile-picture" /></div>
+                  &nbsp; &nbsp;
+                  <span className="photo-modal-username-span" onClick={this.onModalClose}><b>{ this.props.allUsers[this.props.user_id].username }</b></span>
+                </div>
+              </div>
               {/* <div className="photo-modal-username"><div>{ <Link to={`/users/${this.props.user_id}`}>{this.props.currentUser.username}</Link> }</div></div> */}
 
               <div className="photo-modal-caption-holder">

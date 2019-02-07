@@ -62,11 +62,27 @@
   height: 78px;
   /* padding: 40px 0 20px; */
   padding: 0 20px;
+  padding-left: 0;
   margin: auto;
   display: flex;
   /* justify-content: center; */
   align-items: center;
   border-bottom: var(--lightGray) solid 1px;
+}
+
+.photo-modal-username > div {
+  display: flex;
+  align-items: center;
+}
+
+.photo-modal-user-photo {
+  width: 40px;
+  height: 40px;
+}
+
+.photo-modal-user-photo img {
+  width: 40px;
+  height: 40px;
 }
 
 .photo-modal-username-span {
