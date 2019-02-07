@@ -24,6 +24,7 @@ export default class UserProfile extends React.Component {
   }
 
   componentDidMount() {
+    // debugger;
     this.props.allPosts();
   }
   
@@ -127,7 +128,7 @@ export default class UserProfile extends React.Component {
 
           <div className="profile-information">
             <div className="user-name-edit-profile-gear-icon">
-              <div><span className="user-profile-username">{this.props.currentUser.username}</span></div>
+              <div><span className="user-profile-username">{this.props.allUsers[this.props.user_id].username}</span></div>
               <div><Link to="/accounts/edit" className="edit-profile-button">Edit Profile</Link></div>
               <div className="user-profile-cog" onClick={ this.handleClick }><i className="fas fa-cog"></i></div>
             </div>
@@ -151,8 +152,9 @@ export default class UserProfile extends React.Component {
             </div>
 
             <div className="user-info">
-              <div className="users-name"><b>{ this.props.currentUser.name }</b></div>
-              <div className="user-bio">{ this.props.currentUser.biography }</div>
+              <div className="users-name"><b>{ this.props.allUsers[this.props.user_id].username }</b></div>
+              {/* <div className="user-bio">{ this.props.currentUser.biography }</div> */}
+              <div className="user-bio">{ this.props.allUsers[this.props.user_id].biography }</div>
             </div>
           </div>
         </div>

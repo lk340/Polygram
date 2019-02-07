@@ -12,9 +12,9 @@ export default class UserProfileMaster extends React.Component {
     if (this.props.currentUser) {
       userProfileMaster = (
         <div>
-          <UserProfileContainer />
+          <UserProfileContainer user_id={this.props.userId} />
           <FeaturedLinks />
-          <UserPostsContainer />
+          <UserPostsContainer user_id={this.props.userId} />
         </div>
       )
     }

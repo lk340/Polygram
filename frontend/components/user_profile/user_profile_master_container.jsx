@@ -6,6 +6,7 @@ const msp = (state, ownProps) => {
   // debugger;
   return {
     currentUser: state.entities.users[state.session.id],
+    userId: parseInt(ownProps.match.params.userId),
   };
 };
 
