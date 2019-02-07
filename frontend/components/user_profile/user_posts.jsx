@@ -46,6 +46,7 @@ export default class UserPosts extends React.Component {
   }
   
   componentDidMount() {
+    console.log(this.state.photoUserId);
     this.props.users();
     this.props.posts();
     this.props.likes();
@@ -294,7 +295,7 @@ export default class UserPosts extends React.Component {
                       {commentLis}
                     </ul>
                   </div> */}
-                  <UserPostCommentsContainer postId={this.state.photoId} comments={this.state.comments} username={this.props.currentUser.username} />
+                  <UserPostCommentsContainer postId={this.state.photoId} comments={this.state.comments} username={this.props.allUsers[this.props.sessionId].username} />
                   {/* <UserPostComments comments={this.state.comments} username={this.props.currentUser.username} /> */}
                 </div>
               </div>
