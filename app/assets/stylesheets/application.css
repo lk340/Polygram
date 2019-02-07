@@ -54,3 +54,8 @@ input, button, textarea, link {
   font-weight: 600;
   cursor: pointer;
 }
+
+.profile-link {
+  text-decoration: none;
+  color: black;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { formatTime } from '../../utils/date_util';
+import { Link } from 'react-router-dom';
 
 export default class PostIndexPost extends React.Component {
   constructor(props) {
@@ -107,7 +108,8 @@ export default class PostIndexPost extends React.Component {
     if (this.props.allUsers[this.props.post.user_id]) {
       if (this.props.post.comment_objects) {
         commentLis = Object.values(this.props.post.comment_objects).map((commentObject, commentIndex) => {
-          return <li key={`comment-${commentIndex}`}><b>{this.props.allUsers[commentObject.user_id].username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span></li>
+          // return <li key={`comment-${commentIndex}`}><b>{this.props.allUsers[commentObject.user_id].username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span></li>
+          return <li key={`comment-${commentIndex}`}><b>{<Link className="profile-link" to={`/users/${this.props.allUsers[commentObject.user_id].id}`}>{this.props.allUsers[commentObject.user_id].username}</Link>}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span></li>
         });
       }
     }
@@ -117,7 +119,8 @@ export default class PostIndexPost extends React.Component {
         <div className="post-top">
           {/* <div className="user-photo">[ userphoto size 30x30 border-radius 50% on image ] &nbsp;</div> */}
           <div className="user-photo"><img src={window.userDefaultProfilePicture} alt="user-profile-picture" /> &nbsp;</div>
-          <div className="post-username">{this.props.allUsers[this.props.post.user_id].username}</div>
+          {/* <div className="post-username">{this.props.allUsers[this.props.post.user_id].username}</div> */}
+          <div className="post-username">{<Link className="profile-link" to={`/users/${this.props.allUsers[this.props.post.user_id].id}`}>{this.props.allUsers[this.props.post.user_id].username}</Link>}</div>
         </div>
 
         <div className="index-images">
@@ -148,7 +151,8 @@ export default class PostIndexPost extends React.Component {
         </div>
 
         <div className="post-caption">
-          <span className="post-username-span"> {this.props.allUsers[this.props.post.user_id].username} </span> {this.props.post.caption}
+          {/* <span className="post-username-span"> {this.props.allUsers[this.props.post.user_id].username} </span> {this.props.post.caption} */}
+          <span className="post-username-span"> {<Link className="profile-link" to={`/users/${this.props.allUsers[this.props.post.user_id].id}`}>{this.props.allUsers[this.props.post.user_id].username}</Link>} </span> {this.props.post.caption}
         </div>
 
         <div className="post-index-comments">
