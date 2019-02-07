@@ -107,10 +107,12 @@ export default class PostIndex extends React.Component {
     this.setState({ comment: event.currentTarget.value });
   }
 
-  handleCommentDelete(commentId) {
-    return () => {
-      this.props.removeComment(commentId);
-    };
+  handleCommentDelete(commentObject) {
+    if (commentObject.user_id === this.props.currentUser.id) {
+      return () => {
+        this.props.removeComment(commentObject.id);
+      };
+    }
   }
   
   render() {
@@ -123,7 +125,7 @@ export default class PostIndex extends React.Component {
         if (this.props.allUsers[post.user_id]) {
           if (post.comment_objects) {
             commentLis = Object.values(post.comment_objects).map((commentObject, commentIndex) => {
-              return <li key={`comment-${commentIndex}`}><b>{this.props.allUsers[commentObject.user_id].username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject.id)}>{commentObject.comment}</span></li>
+              return <li key={`comment-${commentIndex}`}><b>{this.props.allUsers[commentObject.user_id].username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span></li>
             });
           }
 
