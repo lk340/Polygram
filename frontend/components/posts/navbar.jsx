@@ -96,7 +96,8 @@ export default class Navbar extends React.Component {
               <div className="navbar-compass"><Link to="/"> {<i className="far fa-compass"></i>} </Link></div>
               <div className={navbarHeart}><i className="far fa-heart"></i></div>
               {/* <div className="navbar-user"><Link to={`/${this.props.currentUser.username}`}>{<i className="far fa-user"></i>}</Link></div> */}
-              <div className="navbar-user"><Link to={"/users/profile"}>{<i className="far fa-user"></i>}</Link></div>
+              {/* <div className="navbar-user"><Link to={"/users/profile"}>{<i className="far fa-user"></i>}</Link></div> */}
+              <div className="navbar-user"><Link to={`/users/${this.props.sessionId}`}>{<i className="far fa-user"></i>}</Link></div>
             </div>
 
           </div>
