@@ -8,6 +8,7 @@ const msp = state => {
   return {
     currentUser: state.entities.users[state.session.id],
     allComments: Object.values(state.entities.comments),
+    allPosts: state.entities.posts,
   };
 };
 
