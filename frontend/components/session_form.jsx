@@ -207,7 +207,7 @@ export default class SessionForm extends React.Component {
               </Link>
             </div>
 
-            <div className="get-the-app">Get the app.</div>
+            {/* <div className="get-the-app">Get the app.</div> */}
           </div>
         </div>
         {/* <Footer /> */}
