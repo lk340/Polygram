@@ -188,7 +188,7 @@ export default class UserPosts extends React.Component {
         // Solution: use an association: Users have many posts.
 
     const posts = this.props.userPosts.map((post, index) => {
-      if (post.user_id === this.props.sessionId) {
+      if (post.user_id === this.props.user_id) {
         return (
           <div className="user-post-photo" key={index}>
             <img src={ post.photoURL } alt="photo" onClick={ this.handlePostClick(post) } />
