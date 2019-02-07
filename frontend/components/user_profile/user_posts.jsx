@@ -46,7 +46,6 @@ export default class UserPosts extends React.Component {
   }
   
   componentDidMount() {
-    console.log(this.state.photoUserId);
     this.props.users();
     this.props.posts();
     this.props.likes();

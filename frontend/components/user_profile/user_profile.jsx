@@ -85,7 +85,7 @@ export default class UserProfile extends React.Component {
     const allPosts = Object.values(this.props.posts);
     let numberPosts = 0;
     allPosts.forEach(post => {
-      if(post.user_id === this.props.sessionId) numberPosts += 1;
+      if(post.user_id === this.props.user_id) numberPosts += 1;
     });
     
     const modalStyle = {
