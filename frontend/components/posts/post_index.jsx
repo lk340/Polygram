@@ -1,27 +1,15 @@
 import React from 'react';
 
 import { formatTime } from '../../utils/date_util';
+import PostIndexPostContainer from './post_index_post_container';
 
 export default class PostIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { 
-      heartStatus: "heart-show", 
-      heart2Status: "heart-hide",
-      bookmarkStatus: "bookmark-show",
-      bookmark2Status: "bookmark-hide",
+    this.state = {
       // timer: 0,
-      comment: "",
-      comments: [],
     };
-
-    this.handleHeartClick = this.handleHeartClick.bind(this);
-    this.handleBookmarkClick = this.handleBookmarkClick.bind(this);
-    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
-    this.spanLike = this.spanLike.bind(this);
-    this.handleCommentChange = this.handleCommentChange.bind(this);
-    this.handleCommentDelete = this.handleCommentDelete.bind(this);
   }
   
   componentDidMount() {
@@ -95,7 +83,7 @@ export default class PostIndex extends React.Component {
         post_id: post.id,
         user_id: this.props.currentUser.id,
       });
-      this.setState({ comment: "" });
+      // this.setState({ comment: "" });
     };
   }
   
@@ -130,62 +118,7 @@ export default class PostIndex extends React.Component {
           }
 
           return (
-            <div className="post-container" key={postIndex}>
-              <div className="post-top">
-                {/* <div className="user-photo">[ userphoto size 30x30 border-radius 50% on image ] &nbsp;</div> */}
-                <div className="user-photo"><img src={window.userDefaultProfilePicture} alt="user-profile-picture" /> &nbsp;</div>
-                <div className="post-username">{this.props.allUsers[post.user_id].username}</div>
-              </div>
-
-              <div className="index-images">
-                {/* <img src={window.likeHeart} alt="like-heart" className="index-like-heart-show" /> */}
-                <img src={post.photoURL} className="index-post-image" onDoubleClick={this.handleHeartClick(post)} />
-              </div>
-
-              <div className="post-actions">
-                <div className="post-like-comment">
-                  {/* <div className={this.state.heartStatus} onClick={this.handleHeartClick(post.id)}><i className="far fa-heart"></i></div>
-                  <div className={this.state.heart2Status} onClick={this.handleHeartClick(post.id)}><i className="fas fa-heart red-heart"></i></div> */}
-                  <div className={post.likers.includes(this.props.sessionId) ? "heart-hide" : "heart-show"} onClick={this.handleHeartClick(post)}><i className="far fa-heart"></i></div>
-                  <div className={post.likers.includes(this.props.sessionId) ? "heart-show" : "heart-hide"} onClick={this.handleHeartClick(post)}><i className="fas fa-heart red-heart"></i></div>
-                  <div>
-                    <label htmlFor="index-comment">
-                      <i className="far fa-comment"></i>
-                    </label>
-                  </div>
-                  <div></div>
-                </div>
-
-                <div className={this.state.bookmarkStatus} onClick={this.handleBookmarkClick} ><i className="far fa-bookmark"></i></div>
-                <div className={this.state.bookmark2Status} onClick={this.handleBookmarkClick} ><i className="fas fa-bookmark"></i></div>
-              </div>
-
-              <div className="post-likes">
-                { post.likers.length === 0 ? (<span>Be the first to <span className="first-to-like-this" onClick={this.spanLike(post)}>like this</span></span>) : post.likers.length === 1 ? `${post.likers.length} like` : `${post.likers.length} likes` }
-              </div>
-
-              <div className="post-caption" key={`post-${postIndex}`}>
-                <span className="post-username-span"> {this.props.allUsers[post.user_id].username} </span> {post.caption}
-              </div>
-
-              <div className="post-index-comments">
-                <ul>
-                  {commentLis}
-                </ul>
-              </div>
-
-              <div className="post-index-timestamp"><a href="#">{formatTime(post.created_at)}</a></div>
-
-              <div className="post-index-comment-container">
-                <div className="post-index-comment">
-                  <form className="post-index-comment-form" onSubmit={this.handleCommentSubmit(post)}>
-                    {/* <textarea id="index-comment" placeholder="Add a comment..." onChange={this.handleCommentChange}></textarea> */}
-                    <input id="index-comment" placeholder="Add a comment..." onChange={this.handleCommentChange} value={this.state.comment}></input>
-                  </form>
-                </div>
-                <span>...</span>
-              </div>
-            </div>
+            <PostIndexPostContainer key={`index-post-${postIndex}`} post={post} />
           )
         }
       });
