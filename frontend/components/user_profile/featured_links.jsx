@@ -10,7 +10,7 @@ export default () => {
       <Link to="/"><i className="fal fa-id-card-alt"></i> TAGGED</Link> */}
       <a href="#"><i className="fas fa-home"></i> HOMEPAGE</a>
       <a href="https://github.com/lk340" target="_blank"><i className="fab fa-github-square"></i> GITHUB</a>
-      <a href="#" target="_blank"><i className="fab fa-linkedin"></i> LINKEDIN</a>
+      <a href="https://www.linkedin.com/in/loyd-k-b58176166/" target="_blank"><i className="fab fa-linkedin"></i> LINKEDIN</a>
       <a href="https://www.instagram.com/" target="_blank"><i className="fab fa-instagram"></i> INSTAGRAM</a>
     </div>
   )

@@ -335,7 +335,7 @@ export default class UserPosts extends React.Component {
         <Modal isOpen={this.state.modalOpen2} onRequestClose={this.onModalClose2} style={modalStyle2}>
           <div className="user-posts-modal-ception">
             <div><a href="https://github.com/lk340" target="_bla{ nk}" >Github</a></div>
-            <div><a href="#" target="_blank">LinkedIn</a></div>
+            <div><a href="https://www.linkedin.com/in/loyd-k-b58176166/" target="_blank">LinkedIn</a></div>
             {/* <div><a href="https://www.instagram.com/" target="_blank">Instagram</a></div> */}
             {/* <div className="user-post-edit-post"><Link to="/posts/edit" target="_blank">Edit Post</Link></div> */}
             <div className="user-post-edit-post" onClick={this.openEditPostModal}>Edit Post Caption</div>
