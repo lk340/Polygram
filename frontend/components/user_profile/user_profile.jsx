@@ -271,7 +271,7 @@ export default class UserProfile extends React.Component {
     if (this.props.allUsers[this.props.user_id]) {
       if (this.props.allUsers[this.props.user_id].user_followers) {
         followingLi = this.props.allFollows.map((followObject, index) => {
-          if (followObject.follower_id === this.props.sessionId) {
+          if (followObject.follower_id === this.props.user_id) {
             return (
               <li key={`follow-${index}`}>
                 <img src={this.state.profile_picture} alt="profile-picture" style={{"width": "30px"}} />
