@@ -160,12 +160,16 @@ export default class UserProfile extends React.Component {
         zIndex: 99999,
       },
       content: {
-        // width: "400px",
-        // height: "336px",
-        // margin: "auto",
-        // borderRadius: "14px",
-        // overflow: "hidden",
-        // animation: "gearModal 0.05s linear",
+        width: "400px",
+        height: "400px",
+        margin: "auto",
+        border: "none",
+        borderRadius: "0",
+        borderTopLeftRadius: "12px",
+        borderTopRightRadius: "12px",
+        overflow: "auto",
+        animation: "gearModal 0.05s linear",
+        padding: "0",
       }
     };
 
@@ -272,8 +276,21 @@ export default class UserProfile extends React.Component {
             </div>
 
               <Modal isOpen={ this.state.modalOpen2 } onRequestClose={ this.onModalClose2 } style={ modalStyle2 }>
-                <div className="follower-modal">
-                hi
+                <div className="followers-modal">
+                  <div className="followers-modal-header">
+                    <div className="top-left"></div>
+
+                    <h3><div>Followers</div></h3>
+
+                    <div className="followers-modal-close" onClick={this.onModalClose2}>
+                      <div><img src={window.followerModalClose} alt="close-follower-modal" /></div>
+                    </div>
+                  </div>
+
+                  <div className="followers-modal-list">
+                    {/* { followersLi } */}
+                    
+                  </div>
                 </div>
               </Modal>
 

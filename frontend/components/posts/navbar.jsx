@@ -74,7 +74,7 @@ export default class Navbar extends React.Component {
   }
 
   handleHeartClick(event) {
-    alert("this is under development!");
+    alert("This is under development!");
   }
   
   render() {
