@@ -13,7 +13,9 @@
 
     json.user_followers do
       user.followers.each do |follower|
-        follower.pluck(:id)
+        # follower.pluck(:id)
+        # json.array! follower, :id
+        json.follow follower.id
       end
     end
     

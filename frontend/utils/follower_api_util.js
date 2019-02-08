@@ -1,8 +1,15 @@
-export const createFollow = follow => {
+export const getFollowers = () => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/followers",
+  });
+};
+
+export const createFollow = follower => {
   return $.ajax({
     method: "POST",
     url: "/api/followers",
-    data: { follow }
+    data: { follower },
   });
 };
 

@@ -29,6 +29,7 @@ export default class UserProfile extends React.Component {
   componentDidMount() {
     this.props.getUsers();
     this.props.allPosts();
+    this.props.getFollows();
   }
   
   // showGreetingModal(event) {
@@ -86,6 +87,10 @@ export default class UserProfile extends React.Component {
 
   handleFollow(event) {
     event.preventDefault();
+    this.props.followUser({
+      user_id: this.props.user_id,
+      follower_id: this.props.sessionId
+    }); 
   }
   
   render() {

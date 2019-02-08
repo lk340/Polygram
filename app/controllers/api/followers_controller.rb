@@ -1,4 +1,9 @@
 class Api::FollowersController < ApplicationController
+  def index
+    @followers = Follower.all
+    render :index
+  end
+  
   def create
     @follower = Follower.new(follower_params)
 

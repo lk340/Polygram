@@ -4,6 +4,7 @@ import UserProfile from './user_profile';
 import { allPosts } from '../../actions/post_actions';
 import { signOut } from '../../actions/session_actions';
 import { fetchUsers, editUser, createUserAWS } from '../../actions/user_actions';
+import { follows, createFollow, deleteFollow } from '../../actions/follower_action';
 
 const msp = state => {
   return {
@@ -22,6 +23,9 @@ const mdp = dispatch => {
     signOut: () => dispatch(signOut()),
     editUser: user => dispatch(editUser(user)),
     createUserAWS: formData => dispatch(createUserAWS(formData)),
+    getFollows: () => dispatch(follows()),
+    followUser: follow => dispatch(createFollow(follow)),
+    unfollowUser: followId => dispatch(deleteFollow(followId)),
   };
 };
 

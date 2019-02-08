@@ -13,7 +13,7 @@ export default combineReducers({
   posts: postsReducer,
   likes: likesReducer,
   comments: commentsReducer,
-  followers: followersReducer,
+  follows: followersReducer,
 });
 
 // The Redux state structure below will be created by our reducers that will use the data given via our actions.
