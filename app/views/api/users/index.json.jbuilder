@@ -11,7 +11,7 @@
       end
     end
 
-    json.user_followers user.followers.pluck(:id)
+    json.user_followers user.followers.pluck(:follower_id)
     # json.following user.following.pluck(:id)
 
     # json.user_followers do

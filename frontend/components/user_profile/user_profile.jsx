@@ -105,7 +105,7 @@ export default class UserProfile extends React.Component {
     event.preventDefault();
     this.props.followUser({
       user_id: this.props.user_id,
-      follower_id: this.props.sessionId
+      follower_id: this.props.currentUser.id,
     });
   }
 
@@ -191,13 +191,14 @@ export default class UserProfile extends React.Component {
     }
     
     else {
-      profileBar = (
-        // if I am NOT following the user, show the button below
-        <button className="user-profile-follow-button" onClick={this.handleFollow}>Follow</button>
-        // otherwise, show the button below
-        // <button className="user-profile-unfollow-button" onClick={this.handleUnfollow}>Following</button>
-        
-      )
+      if (this.props.allUsers[this.props.user_id]) {
+        if (!this.props.allUsers[this.props.user_id].user_followers.includes(this.props.sessionId)) {
+          profileBar = <button className="user-profile-follow-button" onClick={this.handleFollow}>Follow</button>
+        }
+        else {
+          profileBar = <button className="user-profile-unfollow-button" onClick={this.handleUnfollow}>Following</button>
+        }
+      }
     }
 
     let followerLengthValue;
