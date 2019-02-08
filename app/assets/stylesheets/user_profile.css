@@ -55,6 +55,18 @@
   font-size: 14px;
 }
 
+.user-profile-unfollow-button {
+  background-color: white;
+  border: #dbdbdb solid 1px;
+  border-radius: 3px;
+  padding: 0 24px;
+  cursor: pointer;
+  color: black;
+  font-weight: 600;
+  line-height: 26px;
+  font-size: 14px;
+}
+
 .posts-followers-following {
   margin-bottom: 20px;
 

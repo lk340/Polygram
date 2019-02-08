@@ -111,7 +111,8 @@ export default class UserProfile extends React.Component {
 
   handleUnfollow(event) {
     event.preventDefault();
-    this.props.unfollowUser()
+    // this.props.unfollowUser();
+    alert("hello!");
   }
 
   handleFollowersModal() {
