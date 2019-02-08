@@ -223,7 +223,15 @@ export default class UserProfile extends React.Component {
     if (this.props.allUsers[this.props.user_id]) {
       if (this.props.allUsers[this.props.user_id].user_followers) {
         followersLi = this.props.allUsers[this.props.user_id].user_followers.map((user_id, index) => {
-          return <li key={`follow-${index}`}><Link to={`/users/${this.props.allUsers[user_id].id}`} className="followers-profile-link" onClick={this.onModalClose2}>{this.props.allUsers[user_id].username}</Link></li>
+          return (
+            <li key={`follow-${index}`}>
+              <img src={this.state.profile_picture} alt="profile-picture" style={{"width": "30px"}} />
+              <div>
+                <Link to={`/users/${this.props.allUsers[user_id].id}`} className="followers-profile-link" onClick={this.onModalClose2}>{this.props.allUsers[user_id].username}</Link>
+                <div>{this.props.allUsers[user_id].name}</div>
+              </div>
+            </li>
+          )
         })
       }
     }
@@ -298,7 +306,7 @@ export default class UserProfile extends React.Component {
             </div>
 
             <div className="user-info">
-              <div className="users-name"><b>{ this.props.allUsers[this.props.user_id] ? this.props.allUsers[this.props.user_id].username : this.props.allUsers[this.props.sessionId].username }</b></div>
+              <div className="users-name"><b>{ this.props.allUsers[this.props.user_id] ? this.props.allUsers[this.props.user_id].name : this.props.allUsers[this.props.sessionId].name }</b></div>
               {/* <div className="user-bio">{ this.props.currentUser.biography }</div> */}
               <div className="user-bio">{ this.props.allUsers[this.props.user_id] ? this.props.allUsers[this.props.user_id].biography : this.props.allUsers[this.props.sessionId].username }</div>
             </div>
