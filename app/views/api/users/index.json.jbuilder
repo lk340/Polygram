@@ -11,13 +11,17 @@
       end
     end
 
-    json.user_followers do
-      user.followers.each do |follower|
-        # follower.pluck(:id)
-        # json.array! follower, :id
-        json.follow follower.id
-      end
-    end
+    json.user_followers user.followers.pluck(:id)
+    json.following 
+
+    # json.user_followers do
+    #   user.followers.each do |follower|
+    #     # follower.pluck(:id)
+    #     # json.array! follower, :id
+    #     json.follower_id follower.id
+        
+    #   end
+    # end
     
   end
 end

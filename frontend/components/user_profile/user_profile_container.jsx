@@ -13,6 +13,7 @@ const msp = state => {
     posts: state.entities.posts,
     profilePicture: state.entities.users[state.session.id].profile_picture,
     allUsers: state.entities.users,
+    allFollows: Object.values(state.entities.follows),
   };
 };
 

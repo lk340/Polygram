@@ -90,7 +90,7 @@ export default class UserProfile extends React.Component {
     this.props.followUser({
       user_id: this.props.user_id,
       follower_id: this.props.sessionId
-    }); 
+    });
   }
   
   render() {
@@ -119,6 +119,13 @@ export default class UserProfile extends React.Component {
         animation: "gearModal 0.05s linear",
       }
     };
+
+    let followCount = 0;
+    this.props.allFollows.forEach(follow => {
+      if (follow.follower_id === this.props.user_id) {
+        followCount += 1;
+      }
+    });
     
     let profileBar;
     if (this.props.user_id === this.props.sessionId) {
@@ -134,6 +141,19 @@ export default class UserProfile extends React.Component {
       profileBar = (
         <button className="user-profile-follow-button" onClick={this.handleFollow}>Follow</button>
       )
+    }
+
+    let followerLength;
+    if (this.props.allUsers[this.props.user_id]) {
+      if (this.props.allUsers[this.props.user_id].user_followers.length === 1) {
+        followerLength = "follower";
+      }
+      else {
+        followerLength = "followers";
+      }
+    }
+    else {
+      followerLength = "followers";
     }
     
     let userProfile;
@@ -177,9 +197,9 @@ export default class UserProfile extends React.Component {
             <div className="posts-followers-following">
               <div className="user-posts"><b>{ numberPosts }</b> { numberPosts > 1 || numberPosts === 0 ? "posts" : "post" } </div>
               {/* <div className="user-followers"><b>483m</b> followers</div> */}
-              <div className="user-followers"><b>{this.state.followers.length}</b> {this.state.followers.length === 1 ? "follower" : "followers"}</div>
+              <div className="user-followers"><b>{this.props.allUsers[this.props.user_id] ? this.props.allUsers[this.props.user_id].user_followers.length : this.state.followers.length}</b> {followerLength}</div>
               {/* <div className="user-following"><b>0</b> following</div> */}
-              <div className="user-following"><b>{this.state.following.length}</b> following</div>
+              <div className="user-following"><b>{followCount}</b> following</div>
             </div>
 
             <div className="user-info">
