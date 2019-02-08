@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Modal from 'react-modal';
 
+import FollowerModal from '../modals/follower_modal';
+
 // export default (props) => {
 export default class UserProfile extends React.Component {
   constructor(props) {
@@ -10,6 +12,7 @@ export default class UserProfile extends React.Component {
     // this.state = { class: "greeting-modal-closed" };
     this.state = {
       modalOpen: false,
+      modalOpen2: false,
       photoFile: null,
       photoURL: null,
       // profile_picture: (this.props.profilePicture === null ? window.userDefaultProfilePicture : this.props.profilePicture),
@@ -20,13 +23,19 @@ export default class UserProfile extends React.Component {
     
     this.handleClick = this.handleClick.bind(this);
     this.onModalClose = this.onModalClose.bind(this);
+
+
+    this.handleFollowersModal = this.handleFollowersModal.bind(this);
+    this.onModalClose2 = this.onModalClose2.bind(this);
+
+    this.handleFollowingModal = this.handleFollowingModal.bind(this);
+    
     this.handleSignOut = this.handleSignOut.bind(this);
     this.handleProfilePictureSubmit = this.handleProfilePictureSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleFollow = this.handleFollow.bind(this);
     this.handleUnfollow = this.handleUnfollow.bind(this);
-    this.handleFollowersModal = this.handleFollowersModal.bind(this);
-    this.handleFollowingModal = this.handleFollowingModal.bind(this);
+
   }
 
   componentDidMount() {
@@ -45,6 +54,10 @@ export default class UserProfile extends React.Component {
 
   onModalClose() {
     this.setState({ modalOpen: false });
+  }
+
+  onModalClose2() {
+    this.setState({ modalOpen2: false });
   }
 
   handleSignOut(event) {
@@ -102,7 +115,7 @@ export default class UserProfile extends React.Component {
   }
 
   handleFollowersModal() {
-
+    this.setState({ modalOpen2: true });
   }
 
   handleFollowingModal() {
@@ -133,6 +146,26 @@ export default class UserProfile extends React.Component {
         borderRadius: "14px",
         overflow: "hidden",
         animation: "gearModal 0.05s linear",
+      }
+    };
+
+    const modalStyle2 = {
+      overlay: {
+        position: "fixed",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        zIndex: 99999,
+      },
+      content: {
+        // width: "400px",
+        // height: "336px",
+        // margin: "auto",
+        // borderRadius: "14px",
+        // overflow: "hidden",
+        // animation: "gearModal 0.05s linear",
       }
     };
 
@@ -237,6 +270,13 @@ export default class UserProfile extends React.Component {
               {/* <div className="user-bio">{ this.props.currentUser.biography }</div> */}
               <div className="user-bio">{ this.props.allUsers[this.props.user_id] ? this.props.allUsers[this.props.user_id].biography : this.props.allUsers[this.props.sessionId].username }</div>
             </div>
+
+              <Modal isOpen={ this.state.modalOpen2 } onRequestClose={ this.onModalClose2 } style={ modalStyle2 }>
+                <div className="follower-modal">
+                hi
+                </div>
+              </Modal>
+
           </div>
         </div>
       )
