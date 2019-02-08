@@ -43,6 +43,14 @@ export default class UserProfile extends React.Component {
     this.props.allPosts();
     this.props.getFollows();
   }
+
+  componentDidUpdate(prevProps) {
+    // debugger;
+    if (prevProps.allFollows.length !== this.props.allFollows.length) {
+      this.props.getUsers();
+      this.props.getFollows();
+    }
+  }
   
   // showGreetingModal(event) {
   //   this.setState({ class: "cog-button-modal" })
@@ -109,10 +117,19 @@ export default class UserProfile extends React.Component {
     });
   }
 
-  handleUnfollow(event) {
-    event.preventDefault();
-    // this.props.unfollowUser();
-    alert("hello!");
+  handleUnfollow(userId) {
+    return event => {
+      event.preventDefault();
+
+      let followId;
+      this.props.allFollows.forEach(follow => {
+        // debugger;
+        if (follow.follower_id === this.props.sessionId && follow.user_id === userId) {
+          followId = follow.id;
+        }
+      });
+      this.props.unfollowUser(followId);
+    }
   }
 
   handleFollowersModal() {
@@ -197,7 +214,7 @@ export default class UserProfile extends React.Component {
           profileBar = <button className="user-profile-follow-button" onClick={this.handleFollow}>Follow</button>
         }
         else {
-          profileBar = <button className="user-profile-unfollow-button" onClick={this.handleUnfollow}>Following</button>
+          profileBar = <button className="user-profile-unfollow-button" onClick={this.handleUnfollow(this.props.user_id)}>Following</button>
         }
       }
     }
