@@ -108,6 +108,22 @@ export default class UserProfile extends React.Component {
       }
     };
     
+    let profileBar;
+    if (this.props.user_id === this.props.sessionId) {
+      profileBar = (
+        <div className="user-profile-top-bar">
+          <div><Link to="/accounts/edit" className="edit-profile-button">Edit Profile</Link></div>
+          <div className="user-profile-cog" onClick={ this.handleClick }><i className="fas fa-cog"></i></div>
+        </div>
+      )
+    }
+    
+    else {
+      profileBar = (
+        <button className="user-profile-follow-button">Follow</button>
+      )
+    }
+    
     let userProfile;
     if (this.props.currentUser) {
       userProfile = (
@@ -129,8 +145,9 @@ export default class UserProfile extends React.Component {
           <div className="profile-information">
             <div className="user-name-edit-profile-gear-icon">
               <div><span className="user-profile-username">{this.props.allUsers[this.props.user_id].username}</span></div>
-              <div><Link to="/accounts/edit" className="edit-profile-button">Edit Profile</Link></div>
-              <div className="user-profile-cog" onClick={ this.handleClick }><i className="fas fa-cog"></i></div>
+              {/* <div><Link to="/accounts/edit" className="edit-profile-button">Edit Profile</Link></div>
+              <div className="user-profile-cog" onClick={ this.handleClick }><i className="fas fa-cog"></i></div> */}
+              { profileBar }
             </div>
 
             <Modal isOpen={ this.state.modalOpen } onRequestClose={ this.onModalClose } style={ modalStyle } >

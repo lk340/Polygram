@@ -34,6 +34,27 @@
   margin-right: 17px;
 }
 
+.user-profile-top-bar {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile-top-bar div:first-child {
+  margin-right: 17px;
+}
+
+.user-profile-follow-button {
+  background-color: var(--lightBlue);
+  border: var(--lightBlue) solid 1px;
+  border-radius: 3px;
+  padding: 0 24px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  line-height: 26px;
+  font-size: 14px;
+}
+
 .posts-followers-following {
   margin-bottom: 20px;
 
