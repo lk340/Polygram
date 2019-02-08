@@ -14,6 +14,8 @@ export default class UserProfile extends React.Component {
       photoURL: null,
       // profile_picture: (this.props.profilePicture === null ? window.userDefaultProfilePicture : this.props.profilePicture),
       profile_picture: window.userDefaultProfilePicture,
+      followers: [],
+      following: [],
     };
     
     this.handleClick = this.handleClick.bind(this);
@@ -169,8 +171,10 @@ export default class UserProfile extends React.Component {
 
             <div className="posts-followers-following">
               <div className="user-posts"><b>{ numberPosts }</b> { numberPosts > 1 || numberPosts === 0 ? "posts" : "post" } </div>
-              <div className="user-followers"><b>483m</b> followers</div>
-              <div className="user-following"><b>0</b> following</div>
+              {/* <div className="user-followers"><b>483m</b> followers</div> */}
+              <div className="user-followers"><b>{this.state.followers.length}</b> {this.state.followers.length === 1 ? "follower" : "followers"}</div>
+              {/* <div className="user-following"><b>0</b> following</div> */}
+              <div className="user-following"><b>{this.state.following.length}</b> following</div>
             </div>
 
             <div className="user-info">

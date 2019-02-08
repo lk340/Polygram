@@ -11,7 +11,11 @@
       end
     end
 
-    
+    json.user_followers do
+      user.followers.each do |follower|
+        follower.pluck(:id)
+      end
+    end
     
   end
 end
