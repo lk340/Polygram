@@ -9,6 +9,7 @@ const msp = (state, ownProps) => {
     currentUser: state.entities.users[state.session.id],
     sessionId: state.session.id,
     path: ownProps.match.path,
+    allUsers: state.entities.users,
   };
 };
 

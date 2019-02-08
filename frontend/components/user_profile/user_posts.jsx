@@ -170,7 +170,8 @@ export default class UserPosts extends React.Component {
     this.props.makeComment({
       comment: this.state.comment,
       post_id: this.state.photoId,
-      user_id: this.state.photoUserId,
+      // user_id: this.state.photoUserId,
+      user_id: this.props.sessionId,
     });
     this.setState({ comment: "" });
   }

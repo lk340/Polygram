@@ -21,10 +21,12 @@ export default class UserProfile extends React.Component {
     this.handleSignOut = this.handleSignOut.bind(this);
     this.handleProfilePictureSubmit = this.handleProfilePictureSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.handleFollow = this.handleFollow.bind(this);
   }
 
   componentDidMount() {
-    // debugger;
+    // // debugger;
+    this.props.getUsers();
     this.props.allPosts();
   }
   
@@ -80,6 +82,10 @@ export default class UserProfile extends React.Component {
     //   profile_picture: this.props.profilePicture,
     // });
   }
+
+  handleFollow(event) {
+    event.preventDefault();
+  }
   
   render() {
     const allPosts = Object.values(this.props.posts);
@@ -120,7 +126,7 @@ export default class UserProfile extends React.Component {
     
     else {
       profileBar = (
-        <button className="user-profile-follow-button">Follow</button>
+        <button className="user-profile-follow-button" onClick={this.handleFollow}>Follow</button>
       )
     }
     
@@ -144,7 +150,7 @@ export default class UserProfile extends React.Component {
 
           <div className="profile-information">
             <div className="user-name-edit-profile-gear-icon">
-              <div><span className="user-profile-username">{this.props.allUsers[this.props.user_id].username}</span></div>
+              <div><span className="user-profile-username">{this.props.allUsers[this.props.user_id] ? this.props.allUsers[this.props.user_id].username : console.log("")}</span></div>
               {/* <div><Link to="/accounts/edit" className="edit-profile-button">Edit Profile</Link></div>
               <div className="user-profile-cog" onClick={ this.handleClick }><i className="fas fa-cog"></i></div> */}
               { profileBar }
