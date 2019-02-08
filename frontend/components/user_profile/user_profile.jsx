@@ -24,6 +24,7 @@ export default class UserProfile extends React.Component {
     this.handleProfilePictureSubmit = this.handleProfilePictureSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleFollow = this.handleFollow.bind(this);
+    this.handleUnfollow = this.handleUnfollow.bind(this);
   }
 
   componentDidMount() {
@@ -92,6 +93,11 @@ export default class UserProfile extends React.Component {
       follower_id: this.props.sessionId
     });
   }
+
+  handleUnfollow(event) {
+    event.preventDefault();
+    this.props.unfollowUser()
+  }
   
   render() {
     const allPosts = Object.values(this.props.posts);
@@ -139,17 +145,31 @@ export default class UserProfile extends React.Component {
     
     else {
       profileBar = (
+        // if I am NOT following the user, show the button below
         <button className="user-profile-follow-button" onClick={this.handleFollow}>Follow</button>
+        // otherwise, show the button below
+        // <button className="user-profile-unfollow-button" onClick={this.handleUnfollow}>Following</button>
+        
       )
     }
 
+    let followerLengthValue;
+    if (this.props.allUsers[this.props.user_id]) {
+      if(this.props.allUsers[this.props.user_id].user_followers) {
+        followerLengthValue = this.props.allUsers[this.props.user_id].user_followers.length;
+      }
+    }
+    // this.props.allUsers[this.props.user_id] ? this.props.allUsers[this.props.user_id].user_followers.length : this.state.followers.length
+
     let followerLength;
     if (this.props.allUsers[this.props.user_id]) {
-      if (this.props.allUsers[this.props.user_id].user_followers.length === 1) {
-        followerLength = "follower";
-      }
-      else {
-        followerLength = "followers";
+      if(this.props.allUsers[this.props.user_id].user_followers) {
+        if (this.props.allUsers[this.props.user_id].user_followers.length === 1) {
+          followerLength = "follower";
+        }
+        else {
+          followerLength = "followers";
+        }
       }
     }
     else {
@@ -197,7 +217,7 @@ export default class UserProfile extends React.Component {
             <div className="posts-followers-following">
               <div className="user-posts"><b>{ numberPosts }</b> { numberPosts > 1 || numberPosts === 0 ? "posts" : "post" } </div>
               {/* <div className="user-followers"><b>483m</b> followers</div> */}
-              <div className="user-followers"><b>{this.props.allUsers[this.props.user_id] ? this.props.allUsers[this.props.user_id].user_followers.length : this.state.followers.length}</b> {followerLength}</div>
+              <div className="user-followers"><b>{followerLengthValue}</b> {followerLength}</div>
               {/* <div className="user-following"><b>0</b> following</div> */}
               <div className="user-following"><b>{followCount}</b> following</div>
             </div>

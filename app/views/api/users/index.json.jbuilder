@@ -12,7 +12,7 @@
     end
 
     json.user_followers user.followers.pluck(:id)
-    json.following 
+    # json.following user.following.pluck(:id)
 
     # json.user_followers do
     #   user.followers.each do |follower|
