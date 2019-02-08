@@ -19,6 +19,8 @@ export default class Navbar extends React.Component {
     this.handleFile = this.handleFile.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmitForm = this.handleSubmitForm.bind(this);
+    this.handleCompassClick = this.handleCompassClick.bind(this);
+    this.handleHeartClick = this.handleHeartClick.bind(this);
   }
   
   handleFile(event) {
@@ -66,6 +68,14 @@ export default class Navbar extends React.Component {
     event.preventDefault();
     this.props.showPost;
   }
+
+  handleCompassClick(event) {
+    alert("This is under development!");
+  }
+
+  handleHeartClick(event) {
+    alert("this is under development!");
+  }
   
   render() {
     let navbarHeart = "navbar-heart";
@@ -93,8 +103,8 @@ export default class Navbar extends React.Component {
             <div className="navbar-icons">
               {/* <div><Link to="/posts/new"> {<i className="far fa-plus-square"></i>} </Link></div> */}
               <div onClick={this.handleModalClick}><i className="far fa-plus-square"></i></div>
-              <div className="navbar-compass"><Link to="/"> {<i className="far fa-compass"></i>} </Link></div>
-              <div className={navbarHeart}><i className="far fa-heart"></i></div>
+              <div className="navbar-compass" onClick={this.handleCompassClick}><Link to="/"> {<i className="far fa-compass"></i>} </Link></div>
+              <div className={navbarHeart} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div>
               {/* <div className="navbar-user"><Link to={`/${this.props.currentUser.username}`}>{<i className="far fa-user"></i>}</Link></div> */}
               {/* <div className="navbar-user"><Link to={"/users/profile"}>{<i className="far fa-user"></i>}</Link></div> */}
               <div className="navbar-user"><Link to={`/users/${this.props.sessionId}`}>{<i className="far fa-user"></i>}</Link></div>
