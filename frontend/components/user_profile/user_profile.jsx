@@ -220,13 +220,13 @@ export default class UserProfile extends React.Component {
     }
 
     let followersLi;
-    // if (this.props.allUsers[this.props.user_id]) {
-    //   if (this.props.allUsers[this.props.user_id].user_followers) {
-    //     this.props.allUsers[this.props.user_id].user_followers.map((user_id, index) => {
-    //       return <li key={`follow-${index}`}>{this.props.currentUser[user_id].username}</li>
-    //     })
-    //   }
-    // }
+    if (this.props.allUsers[this.props.user_id]) {
+      if (this.props.allUsers[this.props.user_id].user_followers) {
+        followersLi = this.props.allUsers[this.props.user_id].user_followers.map((user_id, index) => {
+          return <li key={`follow-${index}`}>{this.props.allUsers[user_id].username}</li>
+        })
+      }
+    }
 
     let followerLengthValue;
     if (this.props.allUsers[this.props.user_id]) {
