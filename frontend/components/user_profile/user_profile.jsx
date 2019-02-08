@@ -45,7 +45,6 @@ export default class UserProfile extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // debugger;
     if (prevProps.allFollows.length !== this.props.allFollows.length) {
       this.props.getUsers();
       this.props.getFollows();
@@ -162,6 +161,7 @@ export default class UserProfile extends React.Component {
         height: "336px",
         margin: "auto",
         borderRadius: "14px",
+        border: "none",
         overflow: "hidden",
         animation: "gearModal 0.05s linear",
       }
@@ -219,6 +219,15 @@ export default class UserProfile extends React.Component {
       }
     }
 
+    let followersLi;
+    // if (this.props.allUsers[this.props.user_id]) {
+    //   if (this.props.allUsers[this.props.user_id].user_followers) {
+    //     this.props.allUsers[this.props.user_id].user_followers.map((user_id, index) => {
+    //       return <li key={`follow-${index}`}>{this.props.currentUser[user_id].username}</li>
+    //     })
+    //   }
+    // }
+
     let followerLengthValue;
     if (this.props.allUsers[this.props.user_id]) {
       if(this.props.allUsers[this.props.user_id].user_followers) {
@@ -231,7 +240,7 @@ export default class UserProfile extends React.Component {
     if (this.props.allUsers[this.props.user_id]) {
       if(this.props.allUsers[this.props.user_id].user_followers) {
         if (this.props.allUsers[this.props.user_id].user_followers.length === 1) {
-          followerLength = "follower";
+          followerLength = <span className="followers-span" onClick={this.handleFollowersModal}>follower</span>;
         }
         else {
           followerLength = <span className="followers-span" onClick={this.handleFollowersModal}>followers</span>;
@@ -307,8 +316,9 @@ export default class UserProfile extends React.Component {
                   </div>
 
                   <div className="followers-modal-list">
-                    {/* { followersLi } */}
-                    
+                    <ul>
+                      { followersLi }
+                    </ul>
                   </div>
                 </div>
               </Modal>
