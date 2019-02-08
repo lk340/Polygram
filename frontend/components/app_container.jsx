@@ -4,7 +4,6 @@ import App from './app';
 import { fetchUsers } from '../utils/user_api_util';
 
 const msp = (state, ownProps) => {
-  // debugger;
   return {
     currentUser: state.entities.users[state.session.id],
     sessionId: state.session.id,

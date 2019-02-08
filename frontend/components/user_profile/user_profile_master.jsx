@@ -8,7 +8,6 @@ import CogButtonModal from './cog_button_modal';
 
 export default class UserProfileMaster extends React.Component {
   componentWillMount() {
-    // debugger;
     this.props.getUsers();
   }
   

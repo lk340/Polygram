@@ -23,7 +23,6 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    // debugger;
   }
 
   componentWillUpdate(prevProps) {

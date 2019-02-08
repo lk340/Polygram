@@ -109,7 +109,6 @@ export default class PostIndex extends React.Component {
     // if ((Object.keys(this.props.allUsers).length > 1) && (this.props.currentURL === "/")) {
     if ((this.props.currentUser) && (this.props.currentURL === "/")) {
       posts = this.props.allPosts.map((post, postIndex) => {
-        // debugger;
         if (this.props.allUsers[post.user_id]) {
           if (post.comment_objects) {
             commentLis = Object.values(post.comment_objects).map((commentObject, commentIndex) => {
