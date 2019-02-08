@@ -13,6 +13,7 @@ export default class UserProfile extends React.Component {
     this.state = {
       modalOpen: false,
       modalOpen2: false,
+      modalOpen3: false,
       photoFile: null,
       photoURL: null,
       // profile_picture: (this.props.profilePicture === null ? window.userDefaultProfilePicture : this.props.profilePicture),
@@ -29,6 +30,7 @@ export default class UserProfile extends React.Component {
     this.onModalClose2 = this.onModalClose2.bind(this);
 
     this.handleFollowingModal = this.handleFollowingModal.bind(this);
+    this.onModalClose3 = this.onModalClose3.bind(this);
     
     this.handleSignOut = this.handleSignOut.bind(this);
     this.handleProfilePictureSubmit = this.handleProfilePictureSubmit.bind(this);
@@ -65,6 +67,10 @@ export default class UserProfile extends React.Component {
 
   onModalClose2() {
     this.setState({ modalOpen2: false });
+  }
+
+  onModalClose3() {
+    this.setState({ modalOpen3: false });
   }
 
   handleSignOut(event) {
@@ -136,7 +142,8 @@ export default class UserProfile extends React.Component {
   }
 
   handleFollowingModal() {
-    alert("This is under development!");
+    // alert("This is under development!");
+    this.setState({ modalOpen3: true });
   }
   
   render() {
@@ -168,6 +175,30 @@ export default class UserProfile extends React.Component {
     };
 
     const modalStyle2 = {
+      overlay: {
+        position: "fixed",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        zIndex: 99999,
+      },
+      content: {
+        width: "400px",
+        height: "400px",
+        margin: "auto",
+        border: "none",
+        borderRadius: "0",
+        borderTopLeftRadius: "12px",
+        borderTopRightRadius: "12px",
+        overflow: "auto",
+        animation: "gearModal 0.05s linear",
+        padding: "0",
+      }
+    };
+
+    const modalStyle3 = {
       overlay: {
         position: "fixed",
         top: 0,
@@ -232,6 +263,25 @@ export default class UserProfile extends React.Component {
               </div>
             </li>
           )
+        })
+      }
+    }
+
+    let followingLi;
+    if (this.props.allUsers[this.props.user_id]) {
+      if (this.props.allUsers[this.props.user_id].user_followers) {
+        followingLi = this.props.allFollows.map((followObject, index) => {
+          if (followObject.follower_id === this.props.sessionId) {
+            return (
+              <li key={`follow-${index}`}>
+                <img src={this.state.profile_picture} alt="profile-picture" style={{"width": "30px"}} />
+                <div>
+                  <Link to={`/users/${followObject.user_id}`} className="following-profile-link" onClick={this.onModalClose3}>{this.props.allUsers[followObject.user_id].username}</Link>
+                  <div>{this.props.allUsers[followObject.user_id].name}</div>
+                </div>
+              </li>
+            )
+          }
         })
       }
     }
@@ -326,6 +376,26 @@ export default class UserProfile extends React.Component {
                   <div className="followers-modal-list">
                     <ul>
                       { followersLi }
+                    </ul>
+                  </div>
+                </div>
+              </Modal>
+              
+              <Modal isOpen={ this.state.modalOpen3 } onRequestClose={ this.onModalClose3 } style={ modalStyle3 }>
+                <div className="following-modal">
+                  <div className="following-modal-header">
+                    <div className="top-left"></div>
+
+                    <h3><div>Following</div></h3>
+
+                    <div className="following-modal-close" onClick={this.onModalClose2}>
+                      <div><img src={window.followerModalClose} alt="close-following-modal" /></div>
+                    </div>
+                  </div>
+
+                  <div className="following-modal-list">
+                    <ul>
+                      { followingLi }
                     </ul>
                   </div>
                 </div>
