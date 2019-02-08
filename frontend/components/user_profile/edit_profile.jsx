@@ -11,6 +11,7 @@ export default class EditProfile extends React.Component {
       username: this.props.currentUser.username,
       biography: this.props.currentUser.biography,
       email: this.props.currentUser.email,
+      editProfileSuccessful: "edit-profile-successful-hide",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,6 +26,7 @@ export default class EditProfile extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.editUser(this.state);
+    this.setState({ editProfileSuccessful: "edit-profile-successful-show" });
   }
   
   render() {
@@ -35,6 +37,8 @@ export default class EditProfile extends React.Component {
     // }
     
     const { name, username, biography, email } = this.state;
+
+    // let editProfileSuccessful = "edit-profile-successful";
 
     let editUserForm;
     let redirect;
@@ -68,7 +72,7 @@ export default class EditProfile extends React.Component {
                 <ul>
                   <li><input type="text" value={name} onChange={this.handleChange("name")} /></li>
                   <li><input type="text" value={username} onChange={this.handleChange("username")} /></li>
-                  <li><textarea onChange={this.handleChange("biography")} value={biography} ></textarea></li>
+                  <li><textarea onChange={this.handleChange("biography")} value={biography} maxLength="150"></textarea></li>
                   <li><div>Private Information</div></li>
                   <li><input type="text" value={email} onChange={this.handleChange("email")} /></li>
                   <li><a href="https://github.com/lk340" target="_blank" className="edit-profile-field-confirm-email">Github</a></li>
@@ -92,6 +96,7 @@ export default class EditProfile extends React.Component {
       <div>
         {editUserForm}
         {redirect}
+        <div className={this.state.editProfileSuccessful}><div>Profile saved.</div></div>
       </div>
     )
   }

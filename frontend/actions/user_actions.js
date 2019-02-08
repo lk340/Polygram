@@ -34,9 +34,14 @@ export const fetchUser = id => dispatch => {
 };
 
 export const editUser = user => dispatch => {
-  return UserAJAX.editUser(user).then(user => {
-    return dispatch(changeUserInfo(user));
-  });
+  return UserAJAX.editUser(user)
+    .then(
+      user => dispatch(changeUserInfo(user),
+      errors => {
+        debugger;
+      }
+    )
+  );
 };
 
 export const createUserAWS = formData => dispatch => {
