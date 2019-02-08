@@ -56,3 +56,17 @@
   list-style: none;
   text-align: center;
 }
+
+.followers-modal-list li {
+  margin: 7px 0;
+}
+
+.followers-profile-link {
+  text-decoration: none;
+  color: black;
+  transition-duration: 0.3s;
+}
+
+.followers-profile-link:hover {
+  color: var(--lightBlue);
+}
