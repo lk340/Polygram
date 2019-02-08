@@ -5,7 +5,7 @@ class Api::FollowersController < ApplicationController
     if @follower.save
       render :show
     else
-      render json: @follower.errors.full_messages, 422
+      render json: @follower.errors.full_messages, status: 422
     end
   end
 
@@ -16,7 +16,7 @@ class Api::FollowersController < ApplicationController
       @follower.destroy
       render :delete
     else
-      render json: @follower.errors.full_messages, 404
+      render json: @follower.errors.full_messages, status: 404
     end
   end
 
