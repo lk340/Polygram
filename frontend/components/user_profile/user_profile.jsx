@@ -25,6 +25,8 @@ export default class UserProfile extends React.Component {
     this.handleFile = this.handleFile.bind(this);
     this.handleFollow = this.handleFollow.bind(this);
     this.handleUnfollow = this.handleUnfollow.bind(this);
+    this.handleFollowersModal = this.handleFollowersModal.bind(this);
+    this.handleFollowingModal = this.handleFollowingModal.bind(this);
   }
 
   componentDidMount() {
@@ -98,6 +100,14 @@ export default class UserProfile extends React.Component {
     event.preventDefault();
     this.props.unfollowUser()
   }
+
+  handleFollowersModal() {
+
+  }
+
+  handleFollowingModal() {
+    alert("This is under development!");
+  }
   
   render() {
     const allPosts = Object.values(this.props.posts);
@@ -168,12 +178,12 @@ export default class UserProfile extends React.Component {
           followerLength = "follower";
         }
         else {
-          followerLength = "followers";
+          followerLength = <span className="followers-span" onClick={this.handleFollowersModal}>followers</span>;
         }
       }
     }
     else {
-      followerLength = "followers";
+      followerLength = <span className="followers-span" onClick={this.handleFollowersModal}>followers</span>;
     }
     
     let userProfile;
@@ -219,7 +229,7 @@ export default class UserProfile extends React.Component {
               {/* <div className="user-followers"><b>483m</b> followers</div> */}
               <div className="user-followers"><b>{followerLengthValue}</b> {followerLength}</div>
               {/* <div className="user-following"><b>0</b> following</div> */}
-              <div className="user-following"><b>{followCount}</b> following</div>
+              <div className="user-following"><b>{followCount}</b> <span className="following-span" onClick={this.handleFollowingModal}>following</span></div>
             </div>
 
             <div className="user-info">

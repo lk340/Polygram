@@ -121,3 +121,11 @@
 .user-profile-picture-form > input {
   display: none;
 } */
+
+.followers-span {
+  cursor: pointer;
+}
+
+.following-span {
+  cursor: pointer;
+}
