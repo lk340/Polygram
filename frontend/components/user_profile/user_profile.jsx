@@ -175,9 +175,9 @@ export default class UserProfile extends React.Component {
             </div>
 
             <div className="user-info">
-              <div className="users-name"><b>{ this.props.allUsers[this.props.user_id].username }</b></div>
+              <div className="users-name"><b>{ this.props.allUsers[this.props.user_id] ? this.props.allUsers[this.props.user_id].username : console.log("") }</b></div>
               {/* <div className="user-bio">{ this.props.currentUser.biography }</div> */}
-              <div className="user-bio">{ this.props.allUsers[this.props.user_id].biography }</div>
+              <div className="user-bio">{ this.props.allUsers[this.props.user_id] ? this.props.allUsers[this.props.user_id].biography : console.log("") }</div>
             </div>
           </div>
         </div>
