@@ -217,7 +217,7 @@ export default class PostIndexPost extends React.Component {
           <div className="post-index-post-modal">
             <div><a href="https://github.com/lk340" target="_bla{ nk}" >Github</a></div>
             <div><a href="https://www.linkedin.com/in/loyd-k-b58176166/" target="_blank">LinkedIn</a></div>
-            <div><a onClick={this.onModalClose2}>Cancel</a></div>
+            <div><a onClick={this.onModalClose}>Cancel</a></div>
           </div>
         </Modal>
       </div>
