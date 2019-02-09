@@ -2,6 +2,7 @@ import React from 'react';
 
 import { formatTime } from '../../utils/date_util';
 import { Link } from 'react-router-dom';
+import Modal from 'react-modal';
 
 export default class PostIndexPost extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class PostIndexPost extends React.Component {
       bookmark2Status: "bookmark-hide",
       comment: "",
       comments: [],
+      modalOpen: false,
     };
 
     this.handleHeartClick = this.handleHeartClick.bind(this);
@@ -21,6 +23,9 @@ export default class PostIndexPost extends React.Component {
     this.spanLike = this.spanLike.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handleCommentDelete = this.handleCommentDelete.bind(this);
+
+    this.onModalOpen = this.onModalOpen.bind(this);
+    this.onModalClose = this.onModalClose.bind(this);
   }
   
   componentDidMount() {
@@ -35,6 +40,13 @@ export default class PostIndexPost extends React.Component {
       this.props.getComments();
       this.props.posts();
     }
+  }
+  onModalOpen() {
+    this.setState({ modalOpen: true });
+  }
+  
+  onModalClose() {
+    this.setState({ modalOpen: false });
   }
   
   handleHeartClick(post) {
@@ -103,6 +115,13 @@ export default class PostIndexPost extends React.Component {
     }
   }
 
+  handleDeletePost(id) {
+    return () => {
+      this.props.deletePost(id);
+      this.onModalClose();
+    };
+  }
+
   render() {
     let commentLis;
     if (this.props.allUsers[this.props.post.user_id]) {
@@ -113,6 +132,27 @@ export default class PostIndexPost extends React.Component {
         });
       }
     }
+
+    const modalStyle = {
+      overlay: {
+        position: "fixed",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        zIndex: 99999,
+      },
+      content: {
+        width: "400px",
+        height: "146px",
+        margin: "auto",
+        borderRadius: "12px",
+        padding: 0,
+        border: "white solid 0px",
+        animation: "postEditDeleteModal 0.05s linear",
+      }
+    };
 
     return (
       <div className="post-container">
@@ -170,8 +210,16 @@ export default class PostIndexPost extends React.Component {
               <input id="index-comment" placeholder="Add a comment..." onChange={this.handleCommentChange} value={this.state.comment} ></input>
             </form>
           </div>
-          <span>...</span>
+          <span onClick={this.onModalOpen}>...</span>
         </div>
+
+        <Modal isOpen={this.state.modalOpen} onRequestClose={this.onModalClose} style={modalStyle}>
+          <div className="post-index-post-modal">
+            <div><a href="https://github.com/lk340" target="_bla{ nk}" >Github</a></div>
+            <div><a href="https://www.linkedin.com/in/loyd-k-b58176166/" target="_blank">LinkedIn</a></div>
+            <div><a onClick={this.onModalClose2}>Cancel</a></div>
+          </div>
+        </Modal>
       </div>
     )
   }

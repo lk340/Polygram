@@ -212,3 +212,33 @@
 .index-like-heart-hide {
   display: none;
 }
+
+.post-index-post-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-index-post-modal > div {
+  border-bottom: var(--lightGray) solid 1px;
+  cursor: pointer;
+}
+
+.post-index-post-modal div:last-child {
+  border-bottom: none;
+}
+
+.post-index-post-modal a {
+  text-decoration: none;
+  color: black;
+  width: 400px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-index-post-modal a:last-child {
+  border: none;
+}
