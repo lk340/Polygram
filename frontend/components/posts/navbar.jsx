@@ -102,12 +102,16 @@ export default class Navbar extends React.Component {
 
             <div className="navbar-icons">
               {/* <div><Link to="/posts/new"> {<i className="far fa-plus-square"></i>} </Link></div> */}
-              <div onClick={this.handleModalClick}><i className="far fa-plus-square"></i></div>
+              {/* <div onClick={this.handleModalClick}><i className="far fa-plus-square"></i></div>
               <div className="navbar-compass" onClick={this.handleCompassClick}><Link to="/"> {<i className="far fa-compass"></i>} </Link></div>
-              <div className={navbarHeart} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div>
+              <div className={navbarHeart} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div> */}
+              <div onClick={this.handleModalClick}><img className="navbar-icons-plus" src={window.plus} alt="plus"/></div>
+              <div className="navbar-compass" onClick={this.handleCompassClick}><Link to="/"> {<img className="navbar-icons-compass" src={window.compass} alt="compass"/>} </Link></div>
+              <div className={navbarHeart} onClick={this.handleHeartClick}><img className="navbar-icons-heart" src={window.heart_white} alt="heart"/></div>
               {/* <div className="navbar-user"><Link to={`/${this.props.currentUser.username}`}>{<i className="far fa-user"></i>}</Link></div> */}
               {/* <div className="navbar-user"><Link to={"/users/profile"}>{<i className="far fa-user"></i>}</Link></div> */}
-              <div className="navbar-user"><Link to={`/users/${this.props.sessionId}`}>{<i className="far fa-user"></i>}</Link></div>
+              {/* <div className="navbar-user"><Link to={`/users/${this.props.sessionId}`}>{<i className="far fa-user"></i>}</Link></div> */}
+              <div className="navbar-user"><Link to={`/users/${this.props.sessionId}`}>{<img className="navbar-icons-user" src={window.user} alt="user"/>}</Link></div>
             </div>
 
           </div>

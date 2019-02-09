@@ -60,9 +60,11 @@
 /* ============================================== */
 .post-actions {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   font-size: 1.6rem;
-  margin: 8px 0;
+  /* margin: 8px 0; */
+  margin-top: 10px;
 }
 
 .fa-heart, .fa-comment, .fa-bookmark {
@@ -241,4 +243,36 @@
 
 .post-index-post-modal a:last-child {
   border: none;
+}
+
+.post-index-post-bubble-icon {
+  width: 24px;
+  height: auto;
+  cursor: pointer;
+}
+
+.post-index-post-heart-icon {
+  width: 26px;
+  height: auto;
+  cursor: pointer;
+}
+
+.post-index-post-heart2-icon {
+  width: 26px;
+  height: auto;
+  cursor: pointer;
+}
+
+.post-index-post-bookmark-icon {
+  width: 20px;
+  height: auto;
+  margin-right: 14px;
+  cursor: pointer;
+}
+
+.post-index-post-bookmark2-icon {
+  width: 20.5px;
+  height: auto;
+  margin-right: 14px;
+  cursor: pointer;
 }

@@ -172,18 +172,23 @@ export default class PostIndexPost extends React.Component {
           <div className="post-like-comment">
             {/* <div className={this.state.heartStatus} onClick={this.handleHeartClick(post.id)}><i className="far fa-heart"></i></div>
             <div className={this.state.heart2Status} onClick={this.handleHeartClick(post.id)}><i className="fas fa-heart red-heart"></i></div> */}
-            <div className={this.props.post.likers.includes(this.props.sessionId) ? "heart-hide" : "heart-show"} onClick={this.handleHeartClick(this.props.post)}><i className="far fa-heart"></i></div>
-            <div className={this.props.post.likers.includes(this.props.sessionId) ? "heart-show" : "heart-hide"} onClick={this.handleHeartClick(this.props.post)}><i className="fas fa-heart red-heart"></i></div>
+            {/* <div className={this.props.post.likers.includes(this.props.sessionId) ? "heart-hide" : "heart-show"} onClick={this.handleHeartClick(this.props.post)}><i className="far fa-heart"></i></div>
+            <div className={this.props.post.likers.includes(this.props.sessionId) ? "heart-show" : "heart-hide"} onClick={this.handleHeartClick(this.props.post)}><i className="fas fa-heart red-heart"></i></div> */}
+            <div className={this.props.post.likers.includes(this.props.sessionId) ? "heart-hide" : "heart-show"} onClick={this.handleHeartClick(this.props.post)}><img className="post-index-post-heart-icon" src={window.heart_white} alt="heart"/></div>
+            <div className={this.props.post.likers.includes(this.props.sessionId) ? "heart-show" : "heart-hide"} onClick={this.handleHeartClick(this.props.post)}><img className="post-index-post-heart2-icon" src={window.heart_red} alt="heart2"/></div>
             <div>
               <label htmlFor="index-comment">
-                <i className="far fa-comment"></i>
+                {/* <i className="far fa-comment"></i> */}
+                <img className="post-index-post-bubble-icon" src={window.bubble} alt="bubble"/>
               </label>
             </div>
             <div></div>
           </div>
 
-          <div className={this.state.bookmarkStatus} onClick={this.handleBookmarkClick} ><i className="far fa-bookmark"></i></div>
-          <div className={this.state.bookmark2Status} onClick={this.handleBookmarkClick} ><i className="fas fa-bookmark"></i></div>
+          {/* <div className={this.state.bookmarkStatus} onClick={this.handleBookmarkClick} ><i className="far fa-bookmark"></i></div>
+          <div className={this.state.bookmark2Status} onClick={this.handleBookmarkClick} ><i className="fas fa-bookmark"></i></div> */}
+          <div className={this.state.bookmarkStatus} onClick={this.handleBookmarkClick} ><img className="post-index-post-bookmark-icon" src={window.bookmark} alt="bookmark"/></div>
+          <div className={this.state.bookmark2Status} onClick={this.handleBookmarkClick} ><img className="post-index-post-bookmark2-icon" src={window.bookmark2} alt="bookmark2"/></div>
         </div>
 
         <div className="post-likes">

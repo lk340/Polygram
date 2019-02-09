@@ -88,6 +88,7 @@
 /* ================== NAVBAR ICONS START ================== */
 .navbar-icons {
   display: flex;
+  align-items: center;
   font-size: 28px;
 }
 
@@ -172,3 +173,28 @@
   background-color: var(--lightBlue);
   color: white;
 }
+
+.navbar-icons-plus {
+  width: 24px;
+  height: auto;
+  cursor: pointer;
+}
+
+.navbar-icons-compass {
+  width: 24px;
+  height: auto;
+  cursor: pointer;
+}
+
+.navbar-icons-heart {
+  width: 26px;
+  height: auto;
+  cursor: pointer;
+}
+
+.navbar-icons-user {
+  width: 24px;
+  height: auto;
+  cursor: pointer;
+}
+
