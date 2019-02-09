@@ -128,7 +128,6 @@ export default class UserProfile extends React.Component {
 
       let followId;
       this.props.allFollows.forEach(follow => {
-        // debugger;
         if (follow.follower_id === this.props.sessionId && follow.user_id === userId) {
           followId = follow.id;
         }
