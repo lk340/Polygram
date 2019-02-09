@@ -246,7 +246,7 @@ export default class UserPosts extends React.Component {
       },
       content: {
         width: "400px",
-        height: "246px",
+        height: "242px",
         margin: "auto",
         borderRadius: "12px",
         padding: 0,
