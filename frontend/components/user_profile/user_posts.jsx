@@ -347,7 +347,7 @@ export default class UserPosts extends React.Component {
                     <form className="photo-modal-comment-form" onSubmit={this.handleCommentSubmit}>
                       <input id="show-post-comment" placeholder="Add a comment..." onChange={this.handleCommentChange} value={this.state.comment}/>
                     </form>
-                    <span className="photo-modal-span" onClick={this.modalCeption}>...</span>
+                    <span className="photo-modal-span" onClick={this.modalCeption}><span>...</span></span>
                   </div>
                 </div>
               </div>

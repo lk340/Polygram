@@ -233,6 +233,12 @@
 
 .photo-modal-span {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.photo-modal-span span {
+  margin-bottom: 7px;
 }
 
 .photo-modal-caption-comments ul {
