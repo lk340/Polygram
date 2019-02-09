@@ -127,6 +127,7 @@
   border-top: var(--lightGray) solid 1px;
   padding-top: 2px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -242,4 +243,36 @@
 
 .photo-modal-caption-comments ul li {
   padding: 3px 0;
+}
+
+.user-post-heart-icon {
+  width: 25.5px;
+  height: auto;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.user-post-heart2-icon {
+  width: 25.5px;
+  height: auto;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.user-post-bubble-icon {
+  width: 22px;
+  height: auto;
+  cursor: pointer;
+}
+
+.user-post-bookmark-icon {
+  width: 19px;
+  height: auto;
+  cursor: pointer;
+}
+
+.user-post-bookmark2-icon {
+  width: 19px;
+  height: auto;
+  cursor: pointer;
 }

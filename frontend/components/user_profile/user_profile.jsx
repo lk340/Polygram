@@ -233,7 +233,9 @@ export default class UserProfile extends React.Component {
       profileBar = (
         <div className="user-profile-top-bar">
           <div><Link to="/accounts/edit" className="edit-profile-button">Edit Profile</Link></div>
-          <div className="user-profile-cog" onClick={ this.handleClick }><i className="fas fa-cog"></i></div>
+          {/* <div className="user-profile-cog" onClick={ this.handleClick }><i className="fas fa-cog"></i></div> */}
+          {/* <div className="user-profile-cog" onClick={ this.handleClick }><img className="user-profile-gear" src={window.gear} alt="gear" /></div> */}
+          <img className="user-profile-gear" src={window.gear} alt="gear" onClick={ this.handleClick } />
         </div>
       )
     }

@@ -311,19 +311,24 @@ export default class UserPosts extends React.Component {
               <div className="photo-modal-data-bottom">
                 <div className="photo-modal-like-comment">
                   <div className="user-posts-heart-icon">
-                    <div className={this.state.post_likers.includes(this.props.sessionId) ? "heart-hide" : "heart-show"} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div>
-                    <div className={this.state.post_likers.includes(this.props.sessionId) ? "heart-show" : "heart-hide"} onClick={this.handleHeartClick}><i className="fas fa-heart red-heart"></i></div>
+                    {/* <div className={this.state.post_likers.includes(this.props.sessionId) ? "heart-hide" : "heart-show"} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div>
+                    <div className={this.state.post_likers.includes(this.props.sessionId) ? "heart-show" : "heart-hide"} onClick={this.handleHeartClick}><i className="fas fa-heart red-heart"></i></div> */}
+                    <div className={this.state.post_likers.includes(this.props.sessionId) ? "heart-hide" : "heart-show"} onClick={this.handleHeartClick}><img className="user-post-heart-icon" src={window.heart_white} alt="heart"/></div>
+                    <div className={this.state.post_likers.includes(this.props.sessionId) ? "heart-show" : "heart-hide"} onClick={this.handleHeartClick}><img className="user-post-heart2-icon" src={window.heart_red} alt="heart2"/></div>
 
                     <div>
                       <label htmlFor="show-post-comment">
-                        <i className="far fa-comment"></i>
+                        {/* <i className="far fa-comment"></i> */}
+                        <img className="user-post-bubble-icon" src={window.bubble} alt="bubble"/>
                       </label>
                     </div>
                   </div>
 
                   <div className="user-posts-bookmark-icon">
-                    <div className={this.state.bookmarkStatus} onClick={this.handleBookmarkClick}><i className="far fa-bookmark"></i></div>
-                    <div className={this.state.bookmark2Status} onClick={this.handleBookmarkClick}><i className="fas fa-bookmark"></i></div>
+                    {/* <div className={this.state.bookmarkStatus} onClick={this.handleBookmarkClick}><i className="far fa-bookmark"></i></div>
+                    <div className={this.state.bookmark2Status} onClick={this.handleBookmarkClick}><i className="fas fa-bookmark"></i></div> */}
+                    <div className={this.state.bookmarkStatus} onClick={this.handleBookmarkClick}><img className="user-post-bookmark-icon" src={window.bookmark} alt="bookmark"/></div>
+                    <div className={this.state.bookmark2Status} onClick={this.handleBookmarkClick}><img className="user-post-bookmark2-icon" src={window.bookmark2} alt="bookmark2"/></div>
                   </div>
                 </div>
                 

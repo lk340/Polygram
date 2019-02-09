@@ -141,3 +141,9 @@
 .following-span {
   cursor: pointer;
 }
+
+.user-profile-gear {
+  width: 24px;
+  height: auto;
+  cursor: pointer;
+}
