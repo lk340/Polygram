@@ -11,9 +11,7 @@ User.create(username: "demoUser", email: "demoUser@demo", password: "demodemo", 
 User.create(username: "aaa", email: "aaa@aaa", password: "aaaaaa", name: "AAA aaa", biography: "AaaaaAAaAAaaAA aa aaAAa aA? AA.")
 User.create(username: "michael", email: "michael@michael", password: "aaaaaa", name: "Michael Schwartz", biography: "I am Michael Schwartz.")
 User.create(username: "logic", email: "logic@logic", password: "aaaaaa", name: "Logic", biography: "Twitter: Logic301")
-User.create(username: "kevinhart4real", email: "kevinhart4real@kevinhart4real", password: "aaaaaa", name: "Kevin Hart", biography: "'Live Love & Laugh' Snapchat: Lilswag79 .... Facebook.com/HartKevin .... Twitter: Kevinhart4real .... #ComedicRockstar #IrresponsibleTour #HartBeat")
 User.create(username: "therock", email: "therock@therock", password: "aaaaaa", name: "therock", biography: "Mana. Gratitude. Tequila. And not necessarily in that order..")
-User.create(username: "marshmellomusic", email: "marshmellomusic@marshmellomusic", password: "aaaaaa", name: "marshmello", biography: "Mello made it right ™")
 User.create(username: "marvel", email: "marvel@marve", password: "aaaaaa", name: "Marvel Entertainment", biography: "The official Instagram for Marvel comics, movies, games, and more.")
 
 # Post.destroy_all
