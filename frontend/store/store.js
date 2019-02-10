@@ -11,5 +11,6 @@ import rootReducer from '../reducers/rootReducer';
 //     middelwares.push(logger);
 // }
 
-export default (preloadedState = {}) => createStore(rootReducer, preloadedState, applyMiddleware(thunk, logger));
+// export default (preloadedState = {}) => createStore(rootReducer, preloadedState, applyMiddleware(thunk, logger));
+export default (preloadedState = {}) => createStore(rootReducer, preloadedState, applyMiddleware(thunk));
 // export default (preloadedState = {}) => createStore(rootReducer, preloadedState, applyMiddleware(...middlewares));
