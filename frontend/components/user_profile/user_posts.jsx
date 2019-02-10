@@ -193,6 +193,18 @@ export default class UserPosts extends React.Component {
         return (
           <div className="user-post-photo" key={index}>
             <img src={ post.photoURL } alt="photo" onClick={ this.handlePostClick(post) } />
+            
+            {/* <div className="user-post-photo-likes-comments">
+              <div className="user-post-photo-likes">
+                <img src={window.heart_white} alt="heart-white"/>
+                <span>{this.state.post_likers.length}</span>
+              </div>
+
+              <div className="user-post-photo-comments">
+                <img src={window.bubble} alt="bubble"/>
+                <span>{this.state.comments ? this.state.comments.length : "0"}</span>
+              </div>
+            </div> */}
           </div>
         )
       }

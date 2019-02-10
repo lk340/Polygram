@@ -13,6 +13,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  position: relative;
+
+  /* border: red solid 3px; */
 }
 
 .user-post-photo img {
@@ -27,6 +31,47 @@
 .user-post-photo img:hover {
   cursor: pointer;
   opacity: 0.7;
+}
+
+.user-post-photo:hover .user-post-photo-likes-comments {
+  visibility: visible;
+}
+
+.user-post-photo-likes-comments {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.user-post-photo-likes img {
+  width: 20px;
+  height: auto;
+  margin-right: 7px;
+}
+
+.user-post-photo-comments img {
+  width: 19px;
+  height: auto;
+  margin-right: 7px;
+}
+
+.user-post-photo-likes-comments div span {
+  color: white;
+  display: block;
+  font-weight: 600;
+}
+
+.user-post-photo-likes, .user-post-photo-comments {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-post-photo-likes span {
+  color: white;
+  margin-right: 30px;
 }
 
 .user-posts-modal-ception {
