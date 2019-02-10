@@ -226,10 +226,11 @@ export default class UserPosts extends React.Component {
       content: {
         borderRadius: 0,
         width: "935px",
-        height: "602px",
+        height: "600px",
         margin: "auto",
         padding: "0",
-        backgroundColor: "transparent",
+        // backgroundColor: "transparent",
+        backgroundColor: "rgb(0, 0, 0)",
         border: "none",
       }
     };
