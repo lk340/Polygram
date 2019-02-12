@@ -198,3 +198,75 @@
   cursor: pointer;
 }
 
+.navbar-compass {
+  position: relative;
+}
+
+.navbar-compass > div {
+  position: absolute;
+  border: var(--lightGray) solid 1px;
+  border-radius: 4px;
+  background-color: white;
+  z-index: 9999999;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-compass div a {
+  transition-duration: 0.3s;
+  border-top: var(--lightGray) solid 1px;
+}
+
+.navbar-compass div a:first-child {
+  border-top: none;
+}
+
+.hide-explore, .hide-sites {
+  display: none;
+}
+
+.show-explore, .show-sites {
+  text-decoration: none;
+  font-size: 14px;
+  padding: 15px 20px;
+  background-color: white;
+  transition-duration: 0.3s;
+  display: block;
+}
+
+.navbar-compass > div > a:hover {
+  color: var(--lightBlue);
+}
+
+.navbar-heart {
+  position: relative;
+}
+
+.navbar-heart > div {
+  position: absolute;
+  border: var(--lightGray) solid 1px;
+  border-radius: 4px;
+  background-color: white;
+  z-index: 9999999;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-heart div a {
+  transition-duration: 0.3s;
+  border-top: var(--lightGray) solid 1px;
+}
+
+.navbar-heart div a:first-child {
+  border-top: none;
+}
+
+.navbar-heart > div > a:hover {
+  color: var(--lightBlue);
+}

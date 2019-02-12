@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
+import { timingSafeEqual } from 'crypto';
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -11,6 +12,8 @@ export default class Navbar extends React.Component {
       photoFile: null,
       photoURL: null,
       user_id: this.props.sessionId,
+      displayExplore: "hide-explore",
+      displaySite: "hide-sites",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,6 +24,10 @@ export default class Navbar extends React.Component {
     this.handleSubmitForm = this.handleSubmitForm.bind(this);
     this.handleCompassClick = this.handleCompassClick.bind(this);
     this.handleHeartClick = this.handleHeartClick.bind(this);
+    this.showExplore = this.showExplore.bind(this);
+    this.hideExplore = this.hideExplore.bind(this);
+    this.showSites = this.showSites.bind(this);
+    this.hideSites = this.hideSites.bind(this);
   }
   
   handleFile(event) {
@@ -76,6 +83,22 @@ export default class Navbar extends React.Component {
   handleHeartClick(event) {
     alert("This is under development!");
   }
+
+  showExplore() {
+    this.setState({ displayExplore: "show-explore" });
+  }
+
+  hideExplore() {
+    this.setState({ displayExplore: "hide-explore" });
+  }
+
+  showSites() {
+    this.setState({ displaySite: "show-sites" });
+  }
+
+  hideSites() {
+    this.setState({ displaySite: "hide-sites" });
+  }
   
   render() {
     let navbarHeart = "navbar-heart";
@@ -106,8 +129,22 @@ export default class Navbar extends React.Component {
               <div className="navbar-compass" onClick={this.handleCompassClick}><Link to="/"> {<i className="far fa-compass"></i>} </Link></div>
               <div className={navbarHeart} onClick={this.handleHeartClick}><i className="far fa-heart"></i></div> */}
               <div onClick={this.handleModalClick}><img className="navbar-icons-plus" src={window.plus} alt="plus"/></div>
-              <div className="navbar-compass" onClick={this.handleCompassClick}><Link to="/"> {<img className="navbar-icons-compass" src={window.compass} alt="compass"/>} </Link></div>
-              <div className={navbarHeart} onClick={this.handleHeartClick}><img className="navbar-icons-heart" src={window.heart_white} alt="heart"/></div>
+              {/* <div className="navbar-compass" onClick={this.handleCompassClick}><Link to="/"> {<img className="navbar-icons-compass" src={window.compass} alt="compass"/>} </Link></div> */}
+              <div className="navbar-compass" onMouseEnter={this.showExplore} onMouseLeave={this.hideExplore} >
+                <img className="navbar-icons-compass" src={window.compass} alt="compass"/>
+                <div>
+                  <a className={this.state.displayExplore} href="http://www.loydkim.com/" target="_blank">Website</a>
+                </div>
+              </div>
+              {/* <div className={navbarHeart} onClick={this.handleHeartClick}><img className="navbar-icons-heart" src={window.heart_white} alt="heart"/></div> */}
+              <div className={navbarHeart} onMouseEnter={this.showSites} onMouseLeave={this.hideSites} >
+                <img className="navbar-icons-heart" src={window.heart_white} alt="heart"/>
+                <div>
+                  <a className={this.state.displaySite} href="http://www.loydkim.com/PokeBlox/" target="_blank">PokéBlox</a>
+                  <a className={this.state.displaySite} href="https://github.com/lk340" target="_blank">GitHub</a>
+                  <a className={this.state.displaySite} href="https://www.linkedin.com/in/loyd-k-b58176166/" target="_blank">LinkedIn</a>
+                </div>
+              </div>
               {/* <div className="navbar-user"><Link to={`/${this.props.currentUser.username}`}>{<i className="far fa-user"></i>}</Link></div> */}
               {/* <div className="navbar-user"><Link to={"/users/profile"}>{<i className="far fa-user"></i>}</Link></div> */}
               {/* <div className="navbar-user"><Link to={`/users/${this.props.sessionId}`}>{<i className="far fa-user"></i>}</Link></div> */}
