@@ -28,6 +28,9 @@ export default class App extends React.Component {
   componentWillUpdate(prevProps) {
     // Updates the app component when changing pages
     if (this.props.path !== prevProps.path) {
+      if (document.documentElement.scrollTop !== 0) {
+        window.scrollTo(0, -document.documentElement.scrollTop);
+      }
       this.props.fetchUsers();
     }
   }

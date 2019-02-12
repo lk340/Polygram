@@ -14,6 +14,7 @@ import { allPosts, showPost, createPost, editPost, deletePost } from './utils/po
 // TEST IMPORTS END //
 
 document.addEventListener("DOMContentLoaded", () => {
+
   let store;
   
   if (window.currentUser) {

@@ -16,6 +16,9 @@ export default class UserProfileMaster extends React.Component {
   }
   
   render() {
+    if (document.documentElement.scrollTop !== 0) {
+      window.scrollTo(0, -document.documentElement.scrollTop);
+    }
     let userProfileMaster;
     if (this.props.currentUser) {
       userProfileMaster = (
