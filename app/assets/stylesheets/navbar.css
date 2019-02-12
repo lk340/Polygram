@@ -198,30 +198,45 @@
   cursor: pointer;
 }
 
-.navbar-compass {
+.navbar-compass, .navbar-heart {
   position: relative;
 }
 
-.navbar-compass > div {
+.navbar-compass > div, .navbar-heart > div {
   position: absolute;
   border: var(--lightGray) solid 1px;
   border-radius: 4px;
   background-color: white;
   z-index: 9999999;
 
+  transition-duration: 0.3s;
+  
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
 }
 
-.navbar-compass div a {
+.navbar-compass div, .navbar-heart div {
+  display: none;
+}
+
+.navbar-compass:hover div, .navbar-heart:hover div {
+  display: block;
+  animation: navbar-sites 0.2s linear;
+}
+
+.navbar-compass div a, .navbar-heart div a {
   transition-duration: 0.3s;
   border-top: var(--lightGray) solid 1px;
 }
 
-.navbar-compass div a:first-child {
+.navbar-compass div a:first-child, .navbar-heart div a:first-child {
   border-top: none;
+}
+
+.navbar-compass > div > a:hover, .navbar-heart > div > a:hover {
+  color: var(--lightBlue);
 }
 
 .hide-explore, .hide-sites {
@@ -233,40 +248,15 @@
   font-size: 14px;
   padding: 15px 20px;
   background-color: white;
-  transition-duration: 0.3s;
   display: block;
 }
 
-.navbar-compass > div > a:hover {
-  color: var(--lightBlue);
-}
+@keyframes navbar-sites {
+  0% {
+    transform: translateZ(15px) scale(1.2);
+  }
 
-.navbar-heart {
-  position: relative;
-}
-
-.navbar-heart > div {
-  position: absolute;
-  border: var(--lightGray) solid 1px;
-  border-radius: 4px;
-  background-color: white;
-  z-index: 9999999;
-
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  align-items: center;
-}
-
-.navbar-heart div a {
-  transition-duration: 0.3s;
-  border-top: var(--lightGray) solid 1px;
-}
-
-.navbar-heart div a:first-child {
-  border-top: none;
-}
-
-.navbar-heart > div > a:hover {
-  color: var(--lightBlue);
+  100% {
+    transform: translateZ(0) scale(1);
+  }
 }
