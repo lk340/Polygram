@@ -117,7 +117,7 @@ export default class PostIndex extends React.Component {
           }
 
           return (
-            <PostIndexPostContainer key={`index-post-${postIndex}`} post={post} />
+            <PostIndexPostContainer key={`index-post-${postIndex}`} index={postIndex} post={post} />
           )
         }
       });

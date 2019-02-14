@@ -177,10 +177,12 @@ export default class PostIndexPost extends React.Component {
             <div className={this.props.post.likers.includes(this.props.sessionId) ? "heart-hide" : "heart-show"} onClick={this.handleHeartClick(this.props.post)}><img className="post-index-post-heart-icon" src={window.heart_white} alt="heart"/></div>
             <div className={this.props.post.likers.includes(this.props.sessionId) ? "heart-show" : "heart-hide"} onClick={this.handleHeartClick(this.props.post)}><img className="post-index-post-heart2-icon" src={window.heart_red} alt="heart2"/></div>
             <div>
-              <label htmlFor="index-comment">
+
+              <label htmlFor={`index-comment-${this.props.index}`}>
                 {/* <i className="far fa-comment"></i> */}
                 <img className="post-index-post-bubble-icon" src={window.bubble} alt="bubble"/>
               </label>
+
             </div>
             <div></div>
           </div>
@@ -212,7 +214,7 @@ export default class PostIndexPost extends React.Component {
           <div className="post-index-comment">
             <form className="post-index-comment-form" onSubmit={this.handleCommentSubmit(this.props.post)}>
               {/* <textarea id="index-comment" placeholder="Add a comment..." onChange={this.handleCommentChange}></textarea> */}
-              <input id="index-comment" placeholder="Add a comment..." onChange={this.handleCommentChange} value={this.state.comment} ></input>
+              <input id={`index-comment-${this.props.index}`} placeholder="Add a comment..." onChange={this.handleCommentChange} value={this.state.comment} ></input>
             </form>
           </div>
           <span onClick={this.onModalOpen}>...</span>
