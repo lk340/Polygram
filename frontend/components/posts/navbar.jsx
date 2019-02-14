@@ -191,6 +191,7 @@ export default class Navbar extends React.Component {
               <div className="navbar-compass" onMouseEnter={this.showExplore} onMouseLeave={this.hideExplore} >
                 <img className="navbar-icons-compass" src={window.compass} alt="compass"/>
                 <div>
+                  <div className="compass-heart-spacer"></div>
                   <a className={this.state.displayExplore} href="http://www.loydkim.com/" target="_blank">Website</a>
                 </div>
               </div>
@@ -198,6 +199,7 @@ export default class Navbar extends React.Component {
               <div className={navbarHeart} onMouseEnter={this.showSites} onMouseLeave={this.hideSites} >
                 <img className="navbar-icons-heart" src={window.heart_white} alt="heart"/>
                 <div>
+                  <div className="compass-heart-spacer"></div>
                   <a className={this.state.displaySite} href="http://www.loydkim.com/PokeBlox/" target="_blank">PokéBlox</a>
                   <a className={this.state.displaySite} href="https://github.com/lk340" target="_blank">GitHub</a>
                   <a className={this.state.displaySite} href="https://www.linkedin.com/in/loyd-k-b58176166/" target="_blank">LinkedIn</a>
