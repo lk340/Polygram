@@ -7,6 +7,23 @@
   height: 77px;
 
   margin-bottom: 58px;
+
+  transition-duration: 0.3s;
+  transition-delay: 0.2s;
+}
+
+.navbar-container-resize {
+  z-index: 20;
+  position: relative;
+  
+  background-color: white;
+  /* border-bottom: var(--lightGray) solid 1px; */
+  height: 52px;
+
+  margin-bottom: 58px;
+
+  transition-duration: 0.3s;
+  transition-delay: 0.2s;
 }
 
 .navbar {
@@ -22,6 +39,27 @@
   top: 0;
   right: 0;
   left: 0;
+
+  transition-duration: 0.3s;
+  transition-delay: 0.2s;
+}
+
+.navbar-resize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 52px;
+  background-color: white;
+  border-bottom: var(--lightGray) solid 1px;
+
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  transition-duration: 0.3s;
+  transition-delay: 0.2s;
 }
 
 /* ================== POLYGRAM LOGO START ================== */
@@ -34,19 +72,44 @@
   font-size: 27px;
 }
 
-.navbar-polygram-logo div {
+.navbar-polygram-logo .navbar-divider {
   background-color: black;
   height: 28px;
   width: 1px;
   margin: 0 16px;
+
+  transition-duration: 0.3s;
+  transition-delay: 0.2s;
+}
+
+.navbar-divider-resize {
+  background-color: black;
+  height: 0px;
+  width: 1px;
+  margin: 0 16px;
+
+  transition-duration: 0.3s;
+  transition-delay: 0.2s;
 }
 
 .navbar-polygram-logo .fa-instagram {
   font-size: 26px;
 }
 
-.navbar-polygram-logo span {
+.navbar-polygram-logo .navbar-logo {
   font-size: 29px;
+  width: 88.7px;
+
+  transition-duration: 0.3s;
+  transition-delay: 0.2s;
+}
+
+.navbar-logo-resize {
+  font-size: 0px;
+  width: 88.7px;
+
+  transition-duration: 0.3s;
+  transition-delay: 0.2s;
 }
 /* ================== POLYGRAM LOGO END ================== */
 
@@ -132,6 +195,7 @@
 }
 
 .navbar-icons > div {
+  height: 25px;
   margin-left: 26px;
 }
 

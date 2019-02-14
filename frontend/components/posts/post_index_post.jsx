@@ -123,12 +123,16 @@ export default class PostIndexPost extends React.Component {
   }
 
   render() {
+    
+    
     let commentLis;
     if (this.props.allUsers[this.props.post.user_id]) {
       if (this.props.post.comment_objects) {
         commentLis = Object.values(this.props.post.comment_objects).map((commentObject, commentIndex) => {
           // return <li key={`comment-${commentIndex}`}><b>{this.props.allUsers[commentObject.user_id].username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span></li>
-          return <li key={`comment-${commentIndex}`}><b>{<Link className="profile-link" to={`/users/${this.props.allUsers[commentObject.user_id].id}`}>{this.props.allUsers[commentObject.user_id].username}</Link>}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span></li>
+          return (
+            <li key={`comment-${commentIndex}`}><b>{<Link className="profile-link" to={`/users/${this.props.allUsers[commentObject.user_id].id}`}>{this.props.allUsers[commentObject.user_id].username}</Link>}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span></li>
+          )
         });
       }
     }

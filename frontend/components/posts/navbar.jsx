@@ -160,14 +160,14 @@ export default class Navbar extends React.Component {
     let navBar;
     if (this.props.currentUser) {
       navBar = (
-        <div className="navbar-container">
-          <div className="navbar">
+        <div id="navbar-cont" className="navbar-container">
+          <div id="navbar" className="navbar">
 
             <div className="navbar-polygram-logo">
               <a href="#">
                 <i className="fab fa-instagram"></i>
-                <div></div>
-                <span className="navbar-logo">Polygram</span>
+                <div id="nav-div" className="navbar-divider"></div>
+                <span id="nav-logo" className="navbar-logo">Polygram</span>
               </a>
             </div>
 
