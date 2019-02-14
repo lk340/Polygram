@@ -45,6 +45,7 @@ export default class App extends React.Component {
               <header>
                 <nav>
                   <NavbarContainer />
+                  {/* <Route path="/users/:userId" component={NavbarContainer} /> */}
                 </nav>
               </header>
   

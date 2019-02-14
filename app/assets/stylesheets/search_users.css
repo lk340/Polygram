@@ -1,0 +1,22 @@
+.search-users-component {
+  border-top: var(--lightGray) solid 1px;
+}
+
+.search-users-component > div img {
+  width: 30px;
+  height: 30px;
+  margin-right: 13px;
+}
+
+.search-users-container {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.search-users-name {
+  color: #999;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}

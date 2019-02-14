@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import { timingSafeEqual } from 'crypto';
+import SearchUsers from './search_users';
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -14,6 +14,7 @@ export default class Navbar extends React.Component {
       user_id: this.props.sessionId,
       displayExplore: "hide-explore",
       displaySite: "hide-sites",
+      search: "",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,6 +29,11 @@ export default class Navbar extends React.Component {
     this.hideExplore = this.hideExplore.bind(this);
     this.showSites = this.showSites.bind(this);
     this.hideSites = this.hideSites.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.getUsers();
   }
   
   handleFile(event) {
@@ -71,11 +77,6 @@ export default class Navbar extends React.Component {
     this.setState({ photoFile: null, photoURL: null });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props.showPost;
-  }
-
   handleCompassClick(event) {
     alert("This is under development!");
   }
@@ -99,8 +100,23 @@ export default class Navbar extends React.Component {
   hideSites() {
     this.setState({ displaySite: "hide-sites" });
   }
+
+  handleSearchChange(event) {
+    this.setState({ search: event.currentTarget.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.showPost;
+  }
   
   render() {
+    const searchDivs = Object.values(this.props.allUsers).map((user, index) => {
+      if (user.username.includes(this.state.search) && this.state.search !== "") {
+        return <div key={`search-users-${index}`}><SearchUsers user={user} /></div>
+      }
+    });
+    
     let navbarHeart = "navbar-heart";
 
     let activityOnPosts = "activity-on-posts";
@@ -121,7 +137,13 @@ export default class Navbar extends React.Component {
 
             {/* <i className="fas fa-search"></i> */}
             {/* <div className="navbar-search-bar"><input type="search" placeholder={`${<i className="fas fa-search"></i>} Search`} onSubmit={this.handleSubmit} /></div> */}
-            <div className="navbar-search-bar"><input type="search" placeholder="Search" onSubmit={this.handleSubmit} /></div>
+            <div className="navbar-search-bar">
+              <img src={window.search} alt="search"/>
+              <input type="search" placeholder="Search" onChange={this.handleSearchChange} onSubmit={this.handleSubmit} />
+              <div className="search-dropdown">
+                {searchDivs}
+              </div>
+            </div>
 
             <div className="navbar-icons">
               {/* <div><Link to="/posts/new"> {<i className="far fa-plus-square"></i>} </Link></div> */}

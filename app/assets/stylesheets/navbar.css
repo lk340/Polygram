@@ -53,16 +53,47 @@
 /* ================== NAVBAR SEARCH BAR START ================== */
 .navbar-search-bar {
   margin: 0 240px;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  position: relative;
+}
+
+.navbar-search-bar > img {
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+  background-color: var(--lighterGray);
+  
+  border: #dbdbdb solid 1px;
+  border-right: none;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 
 .navbar-search-bar input {
   height: 28px;
   width: 215px;
   border: #dbdbdb solid 1px;
-  border-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
   padding: 0 10px;
   font-size: 14px;
   background-color: var(--lighterGray);
+}
+
+.search-dropdown {
+  position: absolute;
+  width: 215px;
+  /* height: 40px; */
+  top: 27px;
+  right: 0;
+  background-color: white;
+  
+  border: var(--lightGray) solid 1px;
+  border-top: none;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 
 .fa-search {
