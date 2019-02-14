@@ -122,6 +122,11 @@ export default class Navbar extends React.Component {
   }
   
   render() {
+    // document.addEventListener("keydown", event => {
+    // arrow key hover navigation functionality
+    //   if (event.which === )
+    // });
+    
     const searchDivs = Object.values(this.props.allUsers).map((user, index) => {
       if (user.username.toLowerCase().includes(this.state.search) && this.state.search !== "") {
         return (
