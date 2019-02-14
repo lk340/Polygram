@@ -123,7 +123,7 @@ export default class Navbar extends React.Component {
   
   render() {
     const searchDivs = Object.values(this.props.allUsers).map((user, index) => {
-      if (user.username.includes(this.state.search) && this.state.search !== "") {
+      if (user.username.toLowerCase().includes(this.state.search) && this.state.search !== "") {
         return (
           <div className="search-users-component">
             <div className="search-users-container">
