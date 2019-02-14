@@ -5,11 +5,12 @@ import { fetchUsers } from '../../actions/user_actions';
 import { showPost, createPostAWS } from '../../actions/post_actions';
 
 const msp = (state, ownProps) => {
-  debugger;
+  // debugger;
   return {
     sessionId: state.session.id,
     currentUser: state.entities.users[state.session.id],
     allUsers: state.entities.users,
+    path: ownProps.path,
   };
 };
 
