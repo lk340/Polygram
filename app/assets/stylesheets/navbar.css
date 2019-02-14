@@ -405,6 +405,11 @@
   display: flex;
   align-items: center;
   padding: 8px 16px;
+  transition-duration: 0.2s;
+}
+
+.search-users-container:hover {
+  background-color: var(--lighterGray);
 }
 
 .search-users-name {
