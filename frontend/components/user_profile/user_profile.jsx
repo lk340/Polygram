@@ -338,11 +338,16 @@ export default class UserProfile extends React.Component {
 
             <Modal isOpen={ this.state.modalOpen } onRequestClose={ this.onModalClose } style={ modalStyle } >
               <div className="greeting">
-                <div className="greeting-first-link"><Link to="/" target="_blank">Change Password</Link></div>
+                {/* <div className="greeting-first-link"><Link to="/" target="_blank">Change Password</Link></div>
                 <div><Link to="/" target="_blank">Nametag</Link></div>
                 <div><Link to="/" target="_blank">Authorized Apps</Link></div>
                 <div><Link to="/" target="_blank">Notifications</Link></div>
-                <div><Link to="/" target="_blank">Privacy and Security</Link></div>
+                <div><Link to="/" target="_blank">Privacy and Security</Link></div> */}
+                <div className="greeting-first-link"><a href="http://www.loydkim.com/" target="_blank">Website</a></div>
+                <div><a href="https://github.com/lk340" target="_blank">GitHub</a></div>
+                <div><a href="https://www.linkedin.com/in/loyd-k-b58176166/" target="_blank">LinkedIn</a></div>
+                <div><a href="https://angel.co/loyd-kim-1?al_content=view+your+profile&al_source=transaction_feed%2Fnetwork_sidebar" target="_blank">Angel-List</a></div>
+                <div><a href="https://www.instagram.com/" target="_blank">Instagram</a></div>
                 <div><a onClick={this.handleSignOut}> Log Out </a></div>
                 <div><a className="greeting-cancel" onClick={this.onModalClose}> Cancel </a></div>
               </div>
