@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
-import { formatTime } from '../../utils/date_util';
+import { timeSince } from '../../utils/date_util';
 
 import UserPostComments from './user_post_comments';
 import UserPostCommentsContainer from './user_post_comments_container';
@@ -64,6 +64,7 @@ export default class UserPosts extends React.Component {
   }
   
   handlePostClick(post) {
+    // debugger;
     return () => {
       this.setState({ 
         modalOpen: true, 
@@ -218,6 +219,8 @@ export default class UserPosts extends React.Component {
     //   )
     // });
 
+    window.timeSince = timeSince;
+
     let commentLis;
     if (this.state.comments) {
       commentLis = Object.values(this.state.comments).map((commentObject, index) => {
@@ -353,7 +356,8 @@ export default class UserPosts extends React.Component {
                   when it was posted
                 </div> */}
 
-                <div className="photo-modal-post-date"><a href="#">{formatTime(this.state.createdAt)}</a></div>
+                {/* <div className="photo-modal-post-date"><a href="#">{formatTime(this.state.createdAt)}</a></div> */}
+                <div className="photo-modal-post-date"><a href="#">{timeSince(new Date(this.state.createdAt))} Ago</a></div>
 
                 <div className="photo-modal-comment-and-modal">
                   <div>
