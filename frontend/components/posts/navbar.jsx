@@ -15,6 +15,7 @@ export default class Navbar extends React.Component {
       displayExplore: "hide-explore",
       displaySite: "hide-sites",
       search: "",
+      searchVisibility: "search-users-container",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,6 +32,8 @@ export default class Navbar extends React.Component {
     this.hideSites = this.hideSites.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.clearSearch = this.clearSearch.bind(this);
+    this.handleInputBlur = this.handleInputBlur.bind(this);
+    this.handleInputFocus = this.handleInputFocus.bind(this);
   }
 
   componentDidMount() {
@@ -120,10 +123,19 @@ export default class Navbar extends React.Component {
   clearSearch() {
     this.setState({ search: "" });
   }
+
+  handleInputBlur() {
+    // this.setState({ searchVisibility: "search-users-container-hide" });
+    // this.setState({ search: "" });
+  }
+
+  handleInputFocus() {
+    // this.setState({ searchVisibility: "search-users-container" });
+  }
   
   render() {
     // document.addEventListener("keydown", event => {
-    // arrow key hover navigation functionality
+    // // arrow key hover navigation functionality
     //   if (event.which === )
     // });
     
@@ -131,7 +143,7 @@ export default class Navbar extends React.Component {
       if (user.username.toLowerCase().includes(this.state.search) && this.state.search !== "") {
         return (
           <div className="search-users-component">
-            <div className="search-users-container">
+            <div className={this.state.searchVisibility}>
 
               <div><img src={window.userDefaultProfilePicture} alt="profile-picture"/></div>
 
@@ -175,7 +187,7 @@ export default class Navbar extends React.Component {
             {/* <div className="navbar-search-bar"><input type="search" placeholder={`${<i className="fas fa-search"></i>} Search`} onSubmit={this.handleSubmit} /></div> */}
             <div className="navbar-search-bar">
               <img src={window.search} alt="search"/>
-              <input type="search" placeholder="Search" onChange={this.handleSearchChange} onSubmit={this.handleSubmit} value={this.state.search} />
+              <input type="search" placeholder="Search" onChange={this.handleSearchChange} onFocus={this.handleInputFocus} onBlur={this.handleInputBlur} value={this.state.search} />
               <div className="search-dropdown">
                 {searchDivs}
               </div>

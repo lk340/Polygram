@@ -408,6 +408,10 @@
   transition-duration: 0.2s;
 }
 
+.search-users-container-hide {
+  display: none;
+}
+
 .search-users-container:hover {
   background-color: var(--lighterGray);
 }
