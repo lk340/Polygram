@@ -147,7 +147,7 @@ export default class Navbar extends React.Component {
         searchDropdown = "search-dropdown";
         searchDropdownSquare = "search-dropdown-square";
         return (
-          <div className="search-users-component">
+          <div key={`search-dropdown-${index}`} className="search-users-component">
             <div className={this.state.searchVisibility}>
 
               <div><img src={window.userDefaultProfilePicture} alt="profile-picture"/></div>

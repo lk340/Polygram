@@ -276,3 +276,18 @@
   margin-right: 14px;
   cursor: pointer;
 }
+
+.post-delete-span-hide {
+  /* display: none; */
+  opacity: 0;
+}
+
+.post-delete-span {
+  opacity: 1;
+  color: white;
+  background-color: red;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 5px;
+  transition-duration: 0.4s;
+}

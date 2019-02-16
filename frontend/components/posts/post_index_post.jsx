@@ -4,6 +4,8 @@ import { formatTime } from '../../utils/date_util';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 
+import CommentsContainer from '../comments/comments_container';
+
 export default class PostIndexPost extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +17,7 @@ export default class PostIndexPost extends React.Component {
       comment: "",
       comments: [],
       modalOpen: false,
+      postDeleteSpan: "post-delete-span-hide",
     };
 
     this.handleHeartClick = this.handleHeartClick.bind(this);
@@ -26,6 +29,9 @@ export default class PostIndexPost extends React.Component {
 
     this.onModalOpen = this.onModalOpen.bind(this);
     this.onModalClose = this.onModalClose.bind(this);
+
+    this.handleCommentMouseOver = this.handleCommentMouseOver.bind(this);
+    this.handleCommentMouseLeave = this.handleCommentMouseLeave.bind(this);
   }
   
   componentDidMount() {
@@ -122,17 +128,32 @@ export default class PostIndexPost extends React.Component {
     };
   }
 
+  handleCommentMouseOver() {
+    this.setState({ postDeleteSpan: "post-delete-span" });
+  }
+
+  handleCommentMouseLeave() {
+    this.setState({ postDeleteSpan: "post-delete-span-hide" });
+  }
+
   render() {
-    
     
     let commentLis;
     if (this.props.allUsers[this.props.post.user_id]) {
       if (this.props.post.comment_objects) {
         commentLis = Object.values(this.props.post.comment_objects).map((commentObject, commentIndex) => {
+          return <CommentsContainer key={`comment-${commentIndex}`} allUsers={this.props.allUsers} commentObject={commentObject} />
           // return <li key={`comment-${commentIndex}`}><b>{this.props.allUsers[commentObject.user_id].username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span></li>
-          return (
-            <li key={`comment-${commentIndex}`}><b>{<Link className="profile-link" to={`/users/${this.props.allUsers[commentObject.user_id].id}`}>{this.props.allUsers[commentObject.user_id].username}</Link>}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span></li>
-          )
+          // return (
+          //   <li key={`comment-${commentIndex}`}>
+          //     <b>{
+          //       <Link className="profile-link" to={`/users/${this.props.allUsers[commentObject.user_id].id}`}>
+          //         {this.props.allUsers[commentObject.user_id].username}</Link>
+          //     }</b>
+          //     &nbsp;<span className="comment-li" onMouseEnter={this.handleCommentMouseOver} onMouseLeave={this.handleCommentMouseLeave} onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span>
+          //     &nbsp;<span className={this.state.postDeleteSpan}>delete?</span>
+          //   </li>
+          // )
         });
       }
     }

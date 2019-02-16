@@ -59,6 +59,12 @@ export default class App extends React.Component {
 
         document.getElementById("nav-logo").classList.remove("navbar-logo");
         document.getElementById("nav-logo").classList.add("navbar-logo-resize");
+
+        document.getElementById("search-dropdown").classList.remove("search-dropdown-square");
+        document.getElementById("search-dropdown").classList.add("search-dropdown-square-hover");
+
+        // document.getElementById("search-dropdown-square").classList.remove("search-dropdown-square");
+        // document.getElementById("search-dropdown-square").classList.add("search-dropdown-square-hover");
       }
       else if (document.body.scrollTop <= 64 || document.documentElement.scrollTop <= 64) {
         document.getElementById("navbar-cont").classList.remove("navbar-container-resize");
@@ -72,6 +78,12 @@ export default class App extends React.Component {
 
         document.getElementById("nav-logo").classList.remove("navbar-logo-resize");
         document.getElementById("nav-logo").classList.add("navbar-logo");
+
+        document.getElementById("search-dropdown").classList.remove("search-dropdown-square-hover");
+        document.getElementById("search-dropdown").classList.add("search-dropdown-square");
+
+        // document.getElementById("search-dropdown-square").classList.remove("search-dropdown-square-hover");
+        // document.getElementById("search-dropdown-square").classList.add("search-dropdown-square");
       }
     }
     
