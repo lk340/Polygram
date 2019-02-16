@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { formatTime } from '../../utils/date_util';
+import { timeSince } from '../../utils/date_util';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 
@@ -178,7 +178,7 @@ export default class PostIndexPost extends React.Component {
         animation: "postEditDeleteModal 0.05s linear",
       }
     };
-
+    
     return (
       <div className="post-container">
         <div className="post-top">
@@ -233,7 +233,8 @@ export default class PostIndexPost extends React.Component {
           </ul>
         </div>
 
-        <div className="post-index-timestamp"><a href="#">{formatTime(this.props.post.created_at)}</a></div>
+        {/* <div className="post-index-timestamp"><a href="#">{formatTime(this.props.post.created_at)}</a></div> */}
+        <div className="post-index-timestamp"><a href="#">{timeSince(new Date(this.props.post.created_at))} Ago</a></div>
 
         <div className="post-index-comment-container">
           <div className="post-index-comment">

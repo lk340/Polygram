@@ -278,16 +278,29 @@
 }
 
 .post-delete-span-hide {
-  /* display: none; */
-  opacity: 0;
+  display: none;
+  /* opacity: 0; */
 }
 
 .post-delete-span {
-  opacity: 1;
   color: white;
-  background-color: red;
-  border-radius: 5px;
+  background-color: rgb(240, 64, 64);
+  border-radius: 4px;
   font-size: 12px;
   padding: 5px;
-  transition-duration: 0.4s;
+  margin-left: 6px;
+
+  animation: pds 0.2s linear;
+}
+
+@keyframes pds {
+  0% {
+    margin-left: 15px;
+    opacity: 0;
+  }
+
+  100% {
+    margin-left: 6px;
+    opacity: 1;
+  }
 }
