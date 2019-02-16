@@ -161,8 +161,7 @@
   margin-bottom: 5px;
   text-align: left;
   padding-left: 12px;
-
-  /* border: red solid 1px; */
+  width: 96px;
 }
 
 .post-index-timestamp a {
