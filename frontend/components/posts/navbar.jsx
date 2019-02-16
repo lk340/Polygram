@@ -139,8 +139,13 @@ export default class Navbar extends React.Component {
     //   if (event.which === )
     // });
     
+    let searchDropdown = "hide-search-dropdown";
+    let searchDropdownSquare = "search-dropdown-square-hide";
+
     const searchDivs = Object.values(this.props.allUsers).map((user, index) => {
       if (user.username.toLowerCase().includes(this.state.search) && this.state.search !== "") {
+        searchDropdown = "search-dropdown";
+        searchDropdownSquare = "search-dropdown-square";
         return (
           <div className="search-users-component">
             <div className={this.state.searchVisibility}>
@@ -188,7 +193,8 @@ export default class Navbar extends React.Component {
             <div className="navbar-search-bar">
               <img src={window.search} alt="search"/>
               <input type="search" placeholder="Search" onChange={this.handleSearchChange} onFocus={this.handleInputFocus} onBlur={this.handleInputBlur} value={this.state.search} />
-              <div className="search-dropdown">
+              <div className={searchDropdownSquare}></div>
+              <div className={searchDropdown}>
                 {searchDivs}
               </div>
             </div>
