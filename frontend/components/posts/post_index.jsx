@@ -17,6 +17,7 @@ export default class PostIndex extends React.Component {
     this.props.likes();
     this.props.posts();
     this.props.getComments();
+    this.props.getFollows();
     // this.interval = setInterval(() => this.tick(), 1000);
   }
 
@@ -28,6 +29,7 @@ export default class PostIndex extends React.Component {
     if ((prevProps.allPosts.length !== this.props.allPosts.length) || (prevProps.allComments.length !== this.props.allComments.length)) {
       this.props.getComments();
       this.props.posts();
+      this.props.getFollows();
     }
   }
 
@@ -106,22 +108,57 @@ export default class PostIndex extends React.Component {
   render() {
     let posts;
     let commentLis;
+    const followIds = [];
+    const userIds = [];
     // if ((Object.keys(this.props.allUsers).length > 1) && (this.props.currentURL === "/")) {
     if ((this.props.currentUser) && (this.props.currentURL === "/")) {
-      posts = this.props.allPosts.map((post, postIndex) => {
-        if (this.props.allUsers[post.user_id]) {
-          if (post.comment_objects) {
-            commentLis = Object.values(post.comment_objects).map((commentObject, commentIndex) => {
-              return <li key={`comment-${commentIndex}`}><b>{this.props.allUsers[commentObject.user_id].username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span></li>
-            });
-          }
+      // posts = this.props.allPosts.map((post, postIndex) => {
+      //   // debugger;
+      //   if (this.props.allUsers[post.user_id]) {
+      //     if (post.comment_objects) {
+      //       commentLis = Object.values(post.comment_objects).map((commentObject, commentIndex) => {
+      //         return <li key={`comment-${commentIndex}`}><b>{this.props.allUsers[commentObject.user_id].username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span></li>
+      //       });
+      //     }
 
-          return (
-            <PostIndexPostContainer key={`index-post-${postIndex}`} index={postIndex} post={post} />
-          )
+      //     // return (
+      //     //   <PostIndexPostContainer key={`index-post-${postIndex}`} index={postIndex} post={post} />
+      //     // )
+      //   }
+      // });
+
+      this.props.allFollows.forEach(follow => {
+        followIds.push(follow.follower_id);
+
+        if (follow.follower_id === this.props.sessionId) {
+          userIds.push(follow.user_id);
         }
       });
+  
+      if (!followIds.includes(this.props.sessionId)) {
+        // If the current user isn't following anyone, show all posts.
+        posts = this.props.allPosts.map((post, postIndex) => {
+          if (this.props.allUsers[post.user_id]) {
+            return (
+              <PostIndexPostContainer key={`index-post-${postIndex}`} index={postIndex} post={post} />
+            )
+          }
+        });
+      }
+  
+      else {
+        // If the current user IS following someone, ONLY show the posts of the users that the current user is following
+        // debugger;
+        posts = this.props.allPosts.map((post, postIndex) => {
+          if (userIds.includes(post.user_id)) {
+            return (
+              <PostIndexPostContainer key={`index-post-${postIndex}`} index={postIndex} post={post} />
+            )
+          }
+        });
+      }
     }
+    
 
     return (
       <div className="post-index">

@@ -5,6 +5,7 @@ import { allPosts } from '../../actions/post_actions';
 import { fetchUsers } from '../../actions/user_actions';
 import { fetchLikes, createLike, deleteLike } from '../../actions/like_actions';
 import { fetchComments, postComment, patchComment, deleteComment } from '../../actions/comment_actions';
+import { follows } from '../../actions/follower_action';
 
 const msp = (state, ownProps) => {
   return {
@@ -16,6 +17,7 @@ const msp = (state, ownProps) => {
     allPostsObject: state.entities.posts,
     allLikes: state.entities.likes,
     allComments: Object.values(state.entities.comments),
+    allFollows: Object.values(state.entities.follows),
   };
 };
 
@@ -30,6 +32,7 @@ const mdp = dispatch => {
     makeComment: comment => dispatch(postComment(comment)),
     editComment: comment => dispatch(patchComment(comment)),
     removeComment: commentId => dispatch(deleteComment(commentId)),
+    getFollows: () => dispatch(follows()),
   };
 };
 
