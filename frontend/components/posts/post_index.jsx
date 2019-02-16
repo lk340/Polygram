@@ -150,7 +150,7 @@ export default class PostIndex extends React.Component {
         // If the current user IS following someone, ONLY show the posts of the users that the current user is following
         // debugger;
         posts = this.props.allPosts.map((post, postIndex) => {
-          if (userIds.includes(post.user_id)) {
+          if (userIds.includes(post.user_id) || post.user_id === this.props.sessionId) {
             return (
               <PostIndexPostContainer key={`index-post-${postIndex}`} index={postIndex} post={post} />
             )
