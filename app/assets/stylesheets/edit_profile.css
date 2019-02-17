@@ -30,12 +30,23 @@
   background-color: var(--lighterGray);
 }
 
-.edit-profile-container h1 {
+/* .edit-profile-container h1 {
   font-size: 20px;
   font-weight: 400;
   line-height: 22px;
   margin-bottom: 13px;
   margin-left: 174px;
+
+  display: flex;
+  align-items: center;
+
+  border: red solid 1px;
+} */
+
+.edit-profile-container h1 span img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
 }
 
 .edit-profile-container .form-bottom {
@@ -72,7 +83,7 @@
 }
 
 .edit-profile-labels ul li:first-child {
-  margin-bottom: 18px;
+  margin-bottom: 6px;
 }
 
 .edit-profile-labels ul li:nth-child(2) {
@@ -80,7 +91,50 @@
 }
 
 .edit-profile-labels ul li:nth-child(3) {
-  margin-bottom: 91px;
+  margin-bottom: 17px;
+}
+
+.edit-profile-labels ul li:nth-child(4) {
+  margin-bottom: 92px;
+}
+
+.edit-profile-fields ul li:first-child div {
+  margin-bottom: 12px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  /* border: red solid 1px; */
+}
+
+.edit-profile-fields ul li:first-child div h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  line-height: 22px;
+  margin-bottom: 2px;
+  font-weight: 400;
+}
+
+.edit-profile-fields ul li:first-child div button {
+  color: #3897f0;
+  display: inline;
+  text-align: left;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  background: 0 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.edit-profile-labels ul li img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
 }
 
 .edit-profile-fields ul li input {
@@ -98,7 +152,7 @@
   height: 60px;
   border: var(--lightGray) solid 1px;
   border-radius: 3px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   font-size: 16px;
   padding: 6px 10px;
 }
@@ -109,6 +163,14 @@
   font-weight: 600;
   margin-top: 3px;
   margin-bottom: 22px;
+}
+
+.edit-profile-private-information {
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
 .edit-profile-field-confirm-email {
@@ -217,3 +279,6 @@
   font-size: 14px;
 }
 
+.edit-profile-labels ul li img, .edit-profile-fields ul li:first-child {
+  margin-top: 38px;
+}

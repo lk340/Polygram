@@ -63,10 +63,11 @@ export default class EditProfile extends React.Component {
           </div>
 
           <form onSubmit={this.handleSubmit}>
-            <h1>{this.props.currentUser.username}</h1>
+            {/* <h1><span><img src={window.userDefaultProfilePicture} alt="profile-picture"/></span>{this.props.currentUser.username}</h1> */}
             <div className="form-bottom">
               <div className="edit-profile-labels">
                 <ul>
+                  <li><img src={window.userDefaultProfilePicture} alt="profile-picture"/></li>
                   <li>Name</li>
                   <li>Username</li>
                   <li>Bio</li>
@@ -76,12 +77,17 @@ export default class EditProfile extends React.Component {
 
               <div className="edit-profile-fields">
                 <ul>
+                  <li>
+                    <div>
+                      <h1>{this.props.currentUser.username}</h1>
+                      <button onClick={this.handleProfilePhotoChange}>Change Profile Photo</button>
+                    </div>
+                  </li>
                   <li><input type="text" value={name} onChange={this.handleChange("name")} /></li>
                   <li><input type="text" value={username} onChange={this.handleChange("username")} /></li>
                   <li><textarea onChange={this.handleChange("biography")} value={biography} maxLength="150"></textarea></li>
-                  <li><div>Private Information</div></li>
+                  <li><div className="edit-profile-private-information">Private Information</div></li>
                   <li><input type="text" value={email} onChange={this.handleChange("email")} /></li>
-                  <li><a href="https://github.com/lk340" target="_blank" className="edit-profile-field-confirm-email">Github</a></li>
                   <li>
                     <button type="submit" className={editProfileSubmit}>
                       Submit
