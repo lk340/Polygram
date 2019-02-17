@@ -5,7 +5,12 @@ export default class Post extends React.Component {
   constructor(props) {
     super(props);
     const { sessionId } = this.props;
-    this.state = { caption: "", photoFile: null, photoURL: null, user_id: sessionId };
+    this.state = { 
+      caption: "",
+      photoFile: null,
+      photoURL: null,
+      user_id: sessionId
+    };
 
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
