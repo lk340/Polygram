@@ -6,6 +6,11 @@ export default class EditProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      idOG: this.props.currentUser.id,
+      nameOG: this.props.currentUser.name,
+      usernameOG: this.props.currentUser.username,
+      biographyOG: this.props.currentUser.biography,
+      emailOG: this.props.currentUser.email,
       id: this.props.currentUser.id,
       name: this.props.currentUser.name,
       username: this.props.currentUser.username,
@@ -15,6 +20,7 @@ export default class EditProfile extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleProfilePhotoChange = this.handleProfilePhotoChange.bind(this);
   }
 
   handleChange(field) {
@@ -35,12 +41,20 @@ export default class EditProfile extends React.Component {
     this.setState({ editProfileSuccessful: "edit-profile-successful-show" });
   }
   
+  handleProfilePhotoChange(event) {
+    event.preventDefault();
+  }
+  
   render() {
     // const initialState = this.state;
-    let editProfileSubmit = "edit-profile-submit";
-    // if (this.state === initialState) {
-    //   editProfileSubmit += " submit-fade";
-    // }
+    let editProfileSubmit;
+    if ( this.state.id === this.state.idOG && this.state.name === this.state.nameOG && this.state.username === this.state.usernameOG && this.state.biography === this.state.biographyOG && this.state.email === this.state.emailOG ) {
+      editProfileSubmit = "edit-profile-submit-hidden";
+    }
+
+    else {
+      editProfileSubmit = "edit-profile-submit";
+    }
     
     const { name, username, biography, email } = this.state;
 

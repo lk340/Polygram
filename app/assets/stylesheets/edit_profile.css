@@ -24,6 +24,8 @@
   /* font-weight: 600; */
   padding: 16px 16px 16px 30px;
   text-decoration: none;
+  border-left: #262626 solid 2px;
+  border-top-left-radius: 3px;
 }
 
 .edit-profile-options ul li a:hover {
@@ -129,6 +131,7 @@
   border: 0;
   padding: 0;
   margin: 0;
+  width: 142.41px;
 }
 
 .edit-profile-labels ul li img {
@@ -201,6 +204,22 @@
   font-size: 14px;
   text-align: center;
   cursor: pointer;
+}
+
+.edit-profile-submit-hidden {
+  width: 68.8px;
+  height: 30px;
+  background-color: var(--lightBlue);
+  color: white;
+  border: var(--lightBlue) solid 1px;
+  border-radius: 4px;
+  /* padding: 5px 9px; */
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.3;
 }
 
 .edit-profile-successful-hide {
