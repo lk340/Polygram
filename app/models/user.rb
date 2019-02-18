@@ -2,10 +2,18 @@ class User < ApplicationRecord
   validates :username, :password_digest, :session_token, :email, presence: true
   validates :username, length: { minimum: 3, maximum: 12 }
   validates :password, length: { minimum: 6, maximum: 40, allow_nil: true }
+  # validate ensure_photo
 
   attr_reader :password
   after_initialize :ensure_session_token
 
+  def ensure_photo
+    unless self.profile_picture.attached?
+      errors[:photo].push("You need to provide an image!");
+    end
+  end
+  
+  
   has_many :posts
 
   has_many :followers

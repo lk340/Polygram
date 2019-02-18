@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import EditProfile from './edit_profile';
-import { editUser } from '../../actions/user_actions';
+import { editUser, createUserAWS } from '../../actions/user_actions';
 
 const msp = state => {
   return {
@@ -13,6 +13,7 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     editUser: data => dispatch(editUser(data)),
+    createAWS: formData => dispatch(createUserAWS(formData)),
   };
 };
 

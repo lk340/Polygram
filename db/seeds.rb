@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-User.create(username: "demoUser", email: "demoUser@demo", password: "demodemo", name: "Demo User", biography: "I am a demo user!")
+User.create(username: "demoUser", email: "demoUser@demo.com", password: "demodemo", name: "Demo User", biography: "I am a demo user!")
 User.create(username: "aaa", email: "aaa@aaa", password: "aaaaaa", name: "AAA aaa", biography: "AaaaaAAaAAaaAA aa aaAAa aA? AA.")
 User.create(username: "michael", email: "michael@michael", password: "aaaaaa", name: "Michael Schwartz", biography: "I am Michael Schwartz.")
 User.create(username: "logic", email: "logic@logic", password: "aaaaaa", name: "Logic", biography: "Twitter: Logic301")

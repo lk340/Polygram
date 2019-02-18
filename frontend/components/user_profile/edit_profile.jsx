@@ -11,16 +11,21 @@ export default class EditProfile extends React.Component {
       usernameOG: this.props.currentUser.username,
       biographyOG: this.props.currentUser.biography,
       emailOG: this.props.currentUser.email,
+      photoFileOG: null,
+      photoURLOG: null,
       id: this.props.currentUser.id,
       name: this.props.currentUser.name,
       username: this.props.currentUser.username,
       biography: this.props.currentUser.biography,
       email: this.props.currentUser.email,
+      photoFile: null,
+      photoURL: null,
       editProfileSuccessful: "edit-profile-successful-hide",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleProfilePhotoChange = this.handleProfilePhotoChange.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   handleChange(field) {
@@ -31,18 +36,49 @@ export default class EditProfile extends React.Component {
   
   handleSubmit(event) {
     event.preventDefault();
-    this.props.editUser({
-      id: this.state.id,
-      name: this.state.name,
-      username: this.state.username,
-      biography: this.state.biography,
-      email: this.state.email,
-    });
+
+    // this.props.editUser({
+    //   id: this.state.id,
+    //   name: this.state.name,
+    //   username: this.state.username,
+    //   biography: this.state.biography,
+    //   email: this.state.email,
+    // });
+
+    const formData = new FormData();
+
+    if (this.state.photoFile) {
+      formData.append("user[profile_picture]", this.state.photoFile);
+    }
+    formData.append("user[name]", this.state.name);
+    formData.append("user[username]", this.state.username);
+    formData.append("user[biography]", this.state.biography);
+    formData.append("user[email]", this.state.email);
+
+    this.props.createAWS(formData);
+
     this.setState({ editProfileSuccessful: "edit-profile-successful-show" });
   }
   
   handleProfilePhotoChange(event) {
     event.preventDefault();
+  }
+
+  handleFile(event) {
+    const file = event.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ 
+        photoFileOG: file,
+        photoURLOG: fileReader.result,
+        photoFile: file,
+        photoURL: fileReader.result,
+      });
+    };
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
   
   render() {
@@ -81,8 +117,9 @@ export default class EditProfile extends React.Component {
             <div className="form-bottom">
               <div className="edit-profile-labels">
                 <ul>
-                  <li><img src={window.userDefaultProfilePicture} alt="profile-picture"/></li>
-                  <li>Name</li>
+                  <li><label htmlFor="profile-photo-edit">{this.state.photoURL ? <img src={this.state.photoURL} alt="profile-picture"/> : <img src={window.userDefaultProfilePicture} alt="profile-picture"/>}</label></li>
+                  {/* <li><label htmlFor="profile-photo-edit"><img src={window.userDefaultProfilePicture} alt="profile-picture"/></label></li> */}
+                  <li>Name</li> 
                   <li>Username</li>
                   <li>Bio</li>
                   <li>Email</li>
@@ -94,7 +131,10 @@ export default class EditProfile extends React.Component {
                   <li>
                     <div>
                       <h1>{this.props.currentUser.username}</h1>
-                      <button onClick={this.handleProfilePhotoChange}>Change Profile Photo</button>
+                      <label htmlFor="profile-photo-edit" onClick={this.handleProfilePhotoChange}>
+                        Change Profile Photo
+                      </label>
+                      <input type="file" id="profile-photo-edit" style={{"display": "none"}} onChange={this.handleFile} />
                     </div>
                   </li>
                   <li><input type="text" value={name} onChange={this.handleChange("name")} /></li>

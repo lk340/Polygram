@@ -119,7 +119,7 @@
   font-weight: 400;
 }
 
-.edit-profile-fields ul li:first-child div button {
+.edit-profile-fields ul li:first-child div label {
   color: #3897f0;
   display: inline;
   text-align: left;
@@ -138,6 +138,8 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
 }
 
 .edit-profile-fields ul li input {
