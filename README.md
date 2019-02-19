@@ -8,6 +8,15 @@ The backend is powered by Ruby on Rails with a PostgreSQL database. The frontend
 
 # Features
 
+## Authentication
+
+User passwords are protected via hashing + salting, done by BCrypt.
+Validations were also implemented to make sure the user inputs the correct data the website could work with.
+Users' session times were also preserved through the user of session tokens (cookies).
+
+![Session_Token](session_token.png)
+![User_Auth](user_validation.png)
+
 ## Images
 
 All features that require image uploads (posting and profile photo) utilize the AWS cloud service, allowing the website to run faster by not saving the images into the website itself.
@@ -33,25 +42,30 @@ Users can also delete their posts, which will disappear from their profile page 
 
 Users can like and unlike posts.
 
-## Commenting on Posts (under development)
+## Commenting on Posts
 
 Users can comment on any post.
 If the post belongs to the user, they can delete comments belonging to any user.
 If the post doesn't belong to the user, they can only delete their own comments.
 
-## Viewing Other Users' Profiles (under development)
+## Viewing Other Users' Profiles
 
 Users can have access to other users's profiles by clicking on their username on their post, clicking their username in a comment, or through the search feature.
 
 By having access to another user's profile, the user can choose to follow or unfollow them.
 
-## Following Other Users (under development)
+## Following Other Users
 
 Users can follow other users. By doing so, they will have access to posts created by other users on their dashboard.
 Users can also unfollow other users. By doing so, they will lose access to posts created by other users on their dashboard.
 
 By using Rails Association, database querying becomes more simple in development.
 
-## Searching for Other Users (under development)
+![Follow](follow.png)
+![Unfollow](unfollow.png)
+
+## Searching for Other Users
 
 Users can search for other users based on username. By searching for a user, they will be able to view the searched user's profile page.
+
+![Search_Box](search.png)
