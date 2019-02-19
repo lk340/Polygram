@@ -68,4 +68,6 @@ By using Rails Association, database querying becomes more simple in development
 
 Users can search for other users based on username. By searching for a user, they will be able to view the searched user's profile page.
 
+Searching is NOT case-sensitive.
+
 ![Search_Box](search.png)
