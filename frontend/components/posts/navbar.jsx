@@ -150,7 +150,10 @@ export default class Navbar extends React.Component {
           <div key={`search-dropdown-${index}`} className="search-users-component">
             <div className={this.state.searchVisibility}>
 
-              <div><img src={window.userDefaultProfilePicture} alt="profile-picture"/></div>
+              <div>
+                {/* <img src={window.userDefaultProfilePicture} alt="profile-picture"/> */}
+                { user.username === "demoUser" ? <img src={window.userProPic} alt="profile-photo"/> : user.username === "google" ? <img src={window.google} alt="profile-photo"/> : user.username === "microsoft" ? <img src={window.microsoft} alt="profile-photo"/> : user.username === "apple" ? <img src={window.apple} alt="profile-photo"/> : <img src={window.userDefaultProfilePicture} alt="profile-photo"/> }
+              </div>
 
               <div>
                 <div className="search-users-username">

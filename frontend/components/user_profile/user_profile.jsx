@@ -17,7 +17,7 @@ export default class UserProfile extends React.Component {
       photoFile: null,
       photoURL: null,
       // profile_picture: (this.props.profilePicture === null ? window.userDefaultProfilePicture : this.props.profilePicture),
-      profile_picture: window.userDefaultProfilePicture,
+      profile_picture: null,
       followers: [],
       following: [],
     };
@@ -44,12 +44,20 @@ export default class UserProfile extends React.Component {
     this.props.getUsers();
     this.props.allPosts();
     this.props.getFollows();
+
+    if (this.props.allUsers[this.props.user_id]) {
+      this.props.allUsers[this.props.user_id].username === "demoUser" ? this.setState({profile_picture: window.userProPic}) : this.props.allUsers[this.props.user_id].username === "apple" ? this.setState({profile_picture: window.apple}) : this.props.allUsers[this.props.user_id].username === "microsoft" ? this.setState({profile_picture: window.microsoft}) : this.props.allUsers[this.props.user_id].username === "google" ? this.setState({profile_picture: window.google}) : this.setState({profile_picture: window.userDefaultProfilePicture});
+    }
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.allFollows.length !== this.props.allFollows.length) {
       this.props.getUsers();
       this.props.getFollows();
+    }
+
+    if (prevProps.user_id !== this.props.user_id) {
+      this.props.allUsers[this.props.user_id].username === "demoUser" ? this.setState({profile_picture: window.userProPic}) : this.props.allUsers[this.props.user_id].username === "apple" ? this.setState({profile_picture: window.apple}) : this.props.allUsers[this.props.user_id].username === "microsoft" ? this.setState({profile_picture: window.microsoft}) : this.props.allUsers[this.props.user_id].username === "google" ? this.setState({profile_picture: window.google}) : this.setState({profile_picture: window.userDefaultProfilePicture});
     }
   }
   

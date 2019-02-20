@@ -16,6 +16,7 @@ const msp = state => {
     allUsers: state.entities.users,
     allLikes: state.entities.likes,
     allComments: Object.values(state.entities.comments),
+    allUsers: state.entities.users,
   };
 };
 
