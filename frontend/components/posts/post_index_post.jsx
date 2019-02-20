@@ -47,6 +47,7 @@ export default class PostIndexPost extends React.Component {
       this.props.posts();
     }
   }
+  
   onModalOpen() {
     this.setState({ modalOpen: true });
   }
