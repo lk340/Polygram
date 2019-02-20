@@ -184,7 +184,10 @@ export default class PostIndexPost extends React.Component {
       <div className="post-container">
         <div className="post-top">
           {/* <div className="user-photo">[ userphoto size 30x30 border-radius 50% on image ] &nbsp;</div> */}
-          <div className="user-photo"><img src={window.userDefaultProfilePicture} alt="user-profile-picture" /> &nbsp;</div>
+          <div className="user-photo">
+            {/* <img src={window.userDefaultProfilePicture} alt="user-profile-picture" /> &nbsp; */}
+            { this.props.allUsers[this.props.post.user_id].username === "demoUser" ? <img src={window.userProPic} alt="profile-photo"/> : this.props.allUsers[this.props.post.user_id].username === "google" ? <img src={window.google} alt="profile-photo"/> : this.props.allUsers[this.props.post.user_id].username === "microsoft" ? <img src={window.microsoft} alt="profile-photo"/> : this.props.allUsers[this.props.post.user_id].username === "apple" ? <img src={window.apple} alt="profile-photo"/> : <img src={window.userDefaultProfilePicture} alt="profile-photo"/> } &nbsp;
+          </div>
           {/* <div className="post-username">{this.props.allUsers[this.props.post.user_id].username}</div> */}
           <div className="post-username">{<Link className="profile-link" to={`/users/${this.props.allUsers[this.props.post.user_id].id}`}>{this.props.allUsers[this.props.post.user_id].username}</Link>}</div>
         </div>

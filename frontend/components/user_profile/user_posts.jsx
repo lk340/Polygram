@@ -288,6 +288,11 @@ export default class UserPosts extends React.Component {
         borderRadius: "5px",
       }
     };
+
+    let profilePhotos = null;
+    if (this.props.allUsers[this.state.photoUserId]) {
+      profilePhotos = this.props.allUsers[this.state.photoUserId].username === "demoUser" ? <img src={window.userProPic} alt="profile-photo"/> : this.props.allUsers[this.state.photoUserId].username === "google" ? <img src={window.google} alt="profile-photo"/> : this.props.allUsers[this.state.photoUserId].username === "microsoft" ? <img src={window.microsoft} alt="profile-photo"/> : this.props.allUsers[this.state.photoUserId].username === "apple" ? <img src={window.apple} alt="profile-photo"/> : <img src={window.userDefaultProfilePicture} alt="profile-photo"/>;
+    }
     
     return (
       <div className="user-posts">
@@ -303,7 +308,8 @@ export default class UserPosts extends React.Component {
               {/* <div className="photo-modal-username" onClick={this.onModalClose}><div><span className="photo-modal-username-span">{ this.props.currentUser.username }</span></div></div> */}
               <div className="photo-modal-username">
                 <div>
-                  <div className="photo-modal-user-photo"><img src={window.userDefaultProfilePicture} alt="user-profile-picture" /></div>
+                  {/* <div className="photo-modal-user-photo"><img src={window.userDefaultProfilePicture} alt="user-profile-picture" /></div> */}
+                  <div className="photo-modal-user-photo">{ profilePhotos }</div>
                   &nbsp; &nbsp; 
                   <span className="photo-modal-username-span" onClick={this.onModalClose}><b>{ this.props.allUsers[this.props.user_id] ? this.props.allUsers[this.props.user_id].username : this.props.allUsers[this.props.sessionId].username }</b></span>
                 </div>

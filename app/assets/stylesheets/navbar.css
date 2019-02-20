@@ -466,6 +466,7 @@
   width: 30px;
   height: 30px;
   margin-right: 13px;
+  border-radius: 50%;
 }
 
 .search-users-container {
