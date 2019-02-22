@@ -13,13 +13,9 @@ class User < ApplicationRecord
     end
   end
   
-  
   has_many :posts
 
   has_many :followers
-  # has_many :following,
-  #   through: :followers,
-  #   source: :user
 
   has_one_attached :profile_picture
   
