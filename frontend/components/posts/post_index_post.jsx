@@ -18,6 +18,9 @@ export default class PostIndexPost extends React.Component {
       comments: [],
       modalOpen: false,
       postDeleteSpan: "post-delete-span-hide",
+      commentsHidden: false,
+      numberComments: this.props.post.comment_objects ? Object.values(this.props.post.comment_objects): null,
+      toggleCommentsShow: true,
     };
 
     this.handleHeartClick = this.handleHeartClick.bind(this);
@@ -32,6 +35,7 @@ export default class PostIndexPost extends React.Component {
 
     this.handleCommentMouseOver = this.handleCommentMouseOver.bind(this);
     this.handleCommentMouseLeave = this.handleCommentMouseLeave.bind(this);
+    this.handleShowComments = this.handleShowComments.bind(this);
   }
   
   componentDidMount() {
@@ -45,6 +49,11 @@ export default class PostIndexPost extends React.Component {
     if ((prevProps.allPosts.length !== this.props.allPosts.length) || (prevProps.allComments.length !== this.props.allComments.length)) {
       this.props.getComments();
       this.props.posts();
+    }
+  
+    if(prevProps.allComments.length !== this.props.allComments.length) {
+      this.props.posts();
+      this.props.getComments();
     }
   }
   
@@ -137,13 +146,33 @@ export default class PostIndexPost extends React.Component {
     this.setState({ postDeleteSpan: "post-delete-span-hide" });
   }
 
-  render() {
+  handleShowComments() {
+    const {comment_objects} = this.props.post;
+    if (comment_objects) {
+      const postCommentArray = Object.values(comment_objects);
+      // if (postCommentArray.length > 4) {
+        for (let i = 0; i < postCommentArray.length; i++) {
+          if (document.getElementById(`${postCommentArray[i].id}`)) {
+            const commentClass = document.getElementById(`${postCommentArray[i].id}`).classList;
+            if (commentClass[0] === "hide-comment") {
+              commentClass.remove("hide-comment");
+              commentClass.add("comment");
+            }
+          }
+        // }
+      }
+    }
     
+    this.setState({ toggleCommentsShow: false });
+  }
+  
+  render() {
     let commentLis;
     if (this.props.allUsers[this.props.post.user_id]) {
       if (this.props.post.comment_objects) {
         commentLis = Object.values(this.props.post.comment_objects).map((commentObject, commentIndex) => {
-          return <CommentsContainer key={`comment-${commentIndex}`} allUsers={this.props.allUsers} commentObject={commentObject} />
+          // debugger;
+          return <CommentsContainer key={`comment-${commentIndex}`} allUsers={this.props.allUsers} commentObject={commentObject} style={{ transitionDuration: "0.4s"}} />
           // return <li key={`comment-${commentIndex}`}><b>{this.props.allUsers[commentObject.user_id].username}</b> <span className="comment-li" onClick={this.handleCommentDelete(commentObject)}>{commentObject.comment}</span></li>
           // return (
           //   <li key={`comment-${commentIndex}`}>
@@ -158,6 +187,23 @@ export default class PostIndexPost extends React.Component {
         });
       }
     }
+
+    if (this.props.post.comment_objects && this.state.toggleCommentsShow) {
+      const postCommentArray = Object.values(this.props.post.comment_objects);
+      if (postCommentArray.length > 4) {
+        for (let i = 0; i < postCommentArray.length - 4; i++) {
+          if (document.getElementById(`${postCommentArray[i].id}`)) {
+            const commentClass = document.getElementById(`${postCommentArray[i].id}`).classList;
+            if (commentClass[0] === "comment") {
+              commentClass.remove("comment");
+              commentClass.add("hide-comment");
+            }
+          }
+        };
+      }
+    }
+
+
 
     const modalStyle = {
       overlay: {
@@ -230,6 +276,10 @@ export default class PostIndexPost extends React.Component {
         <div className="post-caption">
           {/* <span className="post-username-span"> {this.props.allUsers[this.props.post.user_id].username} </span> {this.props.post.caption} */}
           <span className="post-username-span"> {<Link className="profile-link" to={`/users/${this.props.allUsers[this.props.post.user_id].id}`}>{this.props.allUsers[this.props.post.user_id].username}</Link>} </span> {this.props.post.caption}
+        </div>
+
+        <div className="show-all-comments">
+          <div className={ this.state.toggleCommentsShow === true ? "show-comment-button" : "hide-comment-button" } onClick={this.handleShowComments}>{ this.state.numberComments ? `View all ${this.state.numberComments.length} comments` : null }</div>
         </div>
 
         <div className="post-index-comments">

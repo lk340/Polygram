@@ -7,6 +7,7 @@ import { fetchLikes, createLike, deleteLike } from '../../actions/like_actions';
 import { fetchComments, postComment, patchComment, deleteComment } from '../../actions/comment_actions';
 
 const msp = (state, ownProps) => {
+  // debugger;
   return {
     currentUser: state.entities.users[state.session.id],
     sessionId: state.session.id,
@@ -16,6 +17,7 @@ const msp = (state, ownProps) => {
     allPostsObject: state.entities.posts,
     allLikes: state.entities.likes,
     allComments: Object.values(state.entities.comments),
+    // postComments: Object.values(state.entities.posts[ownProps.post.id].comment_objects),
   };
 };
 

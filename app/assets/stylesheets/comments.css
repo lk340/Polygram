@@ -1,0 +1,25 @@
+.comment {
+  display: block;
+}
+
+.hide-comment {
+  display: none;
+}
+
+.show-all-comments > div {
+  cursor: pointer;
+  text-align: left;
+  margin-left: 9px;
+  padding-left: 5px;
+  color: #999;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.show-comment-button {
+  display: block;
+}
+
+.hide-comment-button {
+  display: none;
+}
