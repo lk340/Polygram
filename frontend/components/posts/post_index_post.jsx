@@ -150,7 +150,6 @@ export default class PostIndexPost extends React.Component {
     const {comment_objects} = this.props.post;
     if (comment_objects) {
       const postCommentArray = Object.values(comment_objects);
-      // if (postCommentArray.length > 4) {
         for (let i = 0; i < postCommentArray.length; i++) {
           if (document.getElementById(`${postCommentArray[i].id}`)) {
             const commentClass = document.getElementById(`${postCommentArray[i].id}`).classList;
@@ -159,8 +158,7 @@ export default class PostIndexPost extends React.Component {
               commentClass.add("comment");
             }
           }
-        // }
-      }
+        }
     }
     
     this.setState({ toggleCommentsShow: false });
