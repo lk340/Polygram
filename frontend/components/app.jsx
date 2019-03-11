@@ -22,9 +22,6 @@ export default class App extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-  }
-
   componentWillUpdate(prevProps) {
     // Updates the app component when changing pages
     if (this.props.path !== prevProps.path) {
@@ -43,57 +40,61 @@ export default class App extends React.Component {
     // }
 
     const currentUser = this.props.currentUser;
-    if (currentUser) {
+
       window.onscroll = function() {
-        scrollFunction();
+        if (currentUser) {
+          scrollFunction();
+        }
       };
-    }
 
-    function scrollFunction() {
-      if (document.body.scrollTop > 64 || document.documentElement.scrollTop > 64) {
-        const navbar_container = document.getElementById("navbar-cont").classList;
-        const navbar = document.getElementById("navbar").classList;
-        const navbar_divider = document.getElementById("nav-div").classList;
-        const navbar_logo = document.getElementById("nav-logo").classList;
-        
-        navbar_container.remove("navbar-container");
-        navbar_container.add("navbar-container-resize");
-
-        navbar.remove("navbar");
-        navbar.add("navbar-resize");
-
-        navbar_divider.remove("navbar-divider");
-        navbar_divider.add("navbar-divider-resize");
-
-        navbar_logo.remove("navbar-logo");
-        navbar_logo.add("navbar-logo-resize");
-
-        // document.getElementById("search-dropdown").classList.remove("search-dropdown-square");
-        // document.getElementById("search-dropdown").classList.add("search-dropdown-square-hover");
-
-        // document.getElementById("search-dropdown-square").classList.remove("search-dropdown-square");
-        // document.getElementById("search-dropdown-square").classList.add("search-dropdown-square-hover");
+      function scrollFunction() {
+        if (document.body.scrollTop > 64 || document.documentElement.scrollTop > 64) {
+          if (currentUser) {
+            const navbar_container = document.getElementById("navbar-cont").classList;
+            const navbar = document.getElementById("navbar").classList;
+            const navbar_divider = document.getElementById("nav-div").classList;
+            const navbar_logo = document.getElementById("nav-logo").classList;
+  
+            navbar_container.remove("navbar-container");
+            navbar_container.add("navbar-container-resize");
+  
+            navbar.remove("navbar");
+            navbar.add("navbar-resize");
+  
+            navbar_divider.remove("navbar-divider");
+            navbar_divider.add("navbar-divider-resize");
+  
+            navbar_logo.remove("navbar-logo");
+            navbar_logo.add("navbar-logo-resize");
+          }
+  
+          // document.getElementById("search-dropdown").classList.remove("search-dropdown-square");
+          // document.getElementById("search-dropdown").classList.add("search-dropdown-square-hover");
+  
+          // document.getElementById("search-dropdown-square").classList.remove("search-dropdown-square");
+          // document.getElementById("search-dropdown-square").classList.add("search-dropdown-square-hover");
+        }
+        else if (document.body.scrollTop <= 64 || document.documentElement.scrollTop <= 64) {
+          if (currentUser) {
+            const navbar_container = document.getElementById("navbar-cont").classList;
+            const navbar = document.getElementById("navbar").classList;
+            const navbar_divider = document.getElementById("nav-div").classList;
+            const navbar_logo = document.getElementById("nav-logo").classList;
+  
+            navbar_container.remove("navbar-container-resize");
+            navbar_container.add("navbar-container");
+  
+            navbar.remove("navbar-resize");
+            navbar.add("navbar");
+  
+            navbar_divider.remove("navbar-divider-resize");
+            navbar_divider.add("navbar-divider");
+  
+            navbar_logo.remove("navbar-logo-resize");
+            navbar_logo.add("navbar-logo");
+          }
+        }
       }
-      else if (document.body.scrollTop <= 64 || document.documentElement.scrollTop <= 64) {
-        document.getElementById("navbar-cont").classList.remove("navbar-container-resize");
-        document.getElementById("navbar-cont").classList.add("navbar-container");
-
-        document.getElementById("navbar").classList.remove("navbar-resize");
-        document.getElementById("navbar").classList.add("navbar");
-
-        document.getElementById("nav-div").classList.remove("navbar-divider-resize");
-        document.getElementById("nav-div").classList.add("navbar-divider");
-
-        document.getElementById("nav-logo").classList.remove("navbar-logo-resize");
-        document.getElementById("nav-logo").classList.add("navbar-logo");
-
-        // document.getElementById("search-dropdown").classList.remove("search-dropdown-square-hover");
-        // document.getElementById("search-dropdown").classList.add("search-dropdown-square");
-
-        // document.getElementById("search-dropdown-square").classList.remove("search-dropdown-square-hover");
-        // document.getElementById("search-dropdown-square").classList.add("search-dropdown-square");
-      }
-    }
     
     return (
       <div className="app-container">
@@ -103,7 +104,8 @@ export default class App extends React.Component {
             <div className="app-body">
               <header>
                 <nav>
-                  <NavbarContainer path={this.props.url}/>
+                  <NavbarContainer />
+                  {/* <NavbarContainer path={this.props.url}/> */}
                   {/* <Route path="/users/:userId" component={NavbarContainer} /> */}
                 </nav>
               </header>
