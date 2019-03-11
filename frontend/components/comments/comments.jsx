@@ -24,7 +24,7 @@ export default class Comments extends React.Component {
 
   handleCommentDelete(commentObject) {
     // debugger;
-    if (commentObject) {
+    if (this.props.commentObject.comment) {
       if (commentObject.user_id === this.props.currentUser.id) {
         return () => {
           this.props.removeComment(commentObject.id);
