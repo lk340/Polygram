@@ -5,16 +5,34 @@ import { Link } from 'react-router-dom';
 export default class UserPostCommentsComment extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { postDeleteSpan: "post-delete-span-hide" };
+    this.state = {
+      postDeleteSpan: "post-delete-span-hide",
+      loading: false,
+      isMounted: false,
+    };
     
     this.handleCommentDelete = this.handleCommentDelete.bind(this);
     this.handleCommentMouseOver = this.handleCommentMouseOver.bind(this);
     this.handleCommentMouseLeave = this.handleCommentMouseLeave.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({ isMounted: true });
+  }
+  
+  componentWillUnmount() {
+    this.setState({ isMounted: false });
+  }
+
   handleCommentDelete(commentId) {
+    event.preventDefault();
     return () => {
-      this.props.removeComment(commentId);
+      if (!this.state.loading) {
+        if (this.state.isMounted) {
+          this.setState({ loading: true });
+          this.props.removeComment(commentId).then(() => this.setState({ loading: false }));
+        }
+      }
     };
   }
 

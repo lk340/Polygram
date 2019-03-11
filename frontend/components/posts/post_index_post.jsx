@@ -106,11 +106,13 @@ export default class PostIndexPost extends React.Component {
   handleCommentSubmit(post) {
     return (event) => {
       event.preventDefault();
-      this.props.makeComment({
-        comment: this.state.comment,
-        post_id: post.id,
-        user_id: this.props.currentUser.id,
-      });
+      if (this.state.comment !== "") {
+        this.props.makeComment({
+          comment: this.state.comment,
+          post_id: post.id,
+          user_id: this.props.currentUser.id,
+        });
+      }
       this.setState({ comment: "" });
     };
   }
