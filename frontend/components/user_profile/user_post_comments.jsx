@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { showPost } from '../../utils/post_api_util';
-import UserPostCommentsCommentContainer from '../comments/user_post_comments_comment_container';
+import CommentsContainer from '../comments/comments_container';
 
 export default class UserPostComments extends React.Component {
   constructor(props) {
@@ -61,7 +61,7 @@ export default class UserPostComments extends React.Component {
           //   &nbsp;<span className="comment-li" onMouseEnter={this.handleCommentMouseOver} onMouseLeave={this.handleCommentMouseLeave} onClick={commentObject.user_id === this.props.currentUser.id ? this.handleCommentDelete(commentObject.id) : this.handleCommentDelete(commentObject.id)}>{commentObject.comment}</span>
           //   &nbsp;<span className={this.state.postDeleteSpan}>delete?</span></li>
 
-          return <UserPostCommentsCommentContainer key={`comment-${index}`} modalClose={this.props.modalClose} currentUser={this.props.currentUser} allUsers={this.props.allUsers} commentObject={commentObject} />
+          return <CommentsContainer key={`comment-${index}`} modalClose={this.props.modalClose} currentUser={this.props.currentUser} allUsers={this.props.allUsers} commentObject={commentObject} />
         }
       });
     }
