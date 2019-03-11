@@ -224,6 +224,15 @@ export default class PostIndexPost extends React.Component {
         animation: "postEditDeleteModal 0.05s linear",
       }
     };
+
+    let commentShowText;
+    //this.state.numberComments ? `View all ${this.state.numberComments.length} comments` : null
+    if (this.state.numberComments) {
+      if (this.state.numberComments.length > 4) {
+        commentShowText = `View all ${this.state.numberComments.length} comments`;
+      }
+    }
+    else commentShowText = null;
     
     return (
       <div className="post-container">
@@ -277,7 +286,7 @@ export default class PostIndexPost extends React.Component {
         </div>
 
         <div className="show-all-comments">
-          <div className={ this.state.toggleCommentsShow === true ? "show-comment-button" : "hide-comment-button" } onClick={this.handleShowComments}>{ this.state.numberComments ? `View all ${this.state.numberComments.length} comments` : null }</div>
+          <div className={ this.state.toggleCommentsShow === true ? "show-comment-button" : "hide-comment-button" } onClick={this.handleShowComments}>{ commentShowText }</div>
         </div>
 
         <div className="post-index-comments">

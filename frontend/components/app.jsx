@@ -42,23 +42,31 @@ export default class App extends React.Component {
     //   console.log(document.getElementById("navbar-container"));
     // }
 
-    window.onscroll = function() {
-      scrollFunction();
-    };
+    const currentUser = this.props.currentUser;
+    if (currentUser) {
+      window.onscroll = function() {
+        scrollFunction();
+      };
+    }
 
     function scrollFunction() {
       if (document.body.scrollTop > 64 || document.documentElement.scrollTop > 64) {
-        document.getElementById("navbar-cont").classList.remove("navbar-container");
-        document.getElementById("navbar-cont").classList.add("navbar-container-resize");
+        const navbar_container = document.getElementById("navbar-cont").classList;
+        const navbar = document.getElementById("navbar").classList;
+        const navbar_divider = document.getElementById("nav-div").classList;
+        const navbar_logo = document.getElementById("nav-logo").classList;
+        
+        navbar_container.remove("navbar-container");
+        navbar_container.add("navbar-container-resize");
 
-        document.getElementById("navbar").classList.remove("navbar");
-        document.getElementById("navbar").classList.add("navbar-resize");
+        navbar.remove("navbar");
+        navbar.add("navbar-resize");
 
-        document.getElementById("nav-div").classList.remove("navbar-divider");
-        document.getElementById("nav-div").classList.add("navbar-divider-resize");
+        navbar_divider.remove("navbar-divider");
+        navbar_divider.add("navbar-divider-resize");
 
-        document.getElementById("nav-logo").classList.remove("navbar-logo");
-        document.getElementById("nav-logo").classList.add("navbar-logo-resize");
+        navbar_logo.remove("navbar-logo");
+        navbar_logo.add("navbar-logo-resize");
 
         // document.getElementById("search-dropdown").classList.remove("search-dropdown-square");
         // document.getElementById("search-dropdown").classList.add("search-dropdown-square-hover");
