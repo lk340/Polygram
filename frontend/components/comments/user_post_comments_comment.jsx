@@ -8,7 +8,6 @@ export default class UserPostCommentsComment extends React.Component {
     this.state = {
       postDeleteSpan: "post-delete-span-hide",
       loading: false,
-      isMounted: false,
     };
     
     this.handleCommentDelete = this.handleCommentDelete.bind(this);
@@ -16,22 +15,16 @@ export default class UserPostCommentsComment extends React.Component {
     this.handleCommentMouseLeave = this.handleCommentMouseLeave.bind(this);
   }
 
-  componentDidMount() {
-    this.setState({ isMounted: true });
-  }
-  
-  componentWillUnmount() {
-    this.setState({ isMounted: false });
-  }
-
   handleCommentDelete(commentId) {
     event.preventDefault();
     return () => {
       if (!this.state.loading) {
-        if (this.state.isMounted) {
-          this.setState({ loading: true });
-          this.props.removeComment(commentId).then(() => this.setState({ loading: false }));
-        }
+        // this.props.removeComment(commentId).then(() => this.setState({ loading: false }));
+        this.props.removeComment(commentId);
+        this.setState({ loading: true });
+      }
+      else {
+        this.setState({ loading: false });
       }
     };
   }

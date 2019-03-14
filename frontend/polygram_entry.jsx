@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // TEST ZONE END //
   
   ReactDOM.render(<Root store={store} />, document.getElementById("root"));
-});
+}); 
 
 // The Redux state structure below will be created by our reducers that will use the data given via our actions.
 // =================================================

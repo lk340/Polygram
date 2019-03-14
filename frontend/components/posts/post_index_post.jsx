@@ -3,6 +3,7 @@ import React from 'react';
 import { timeSince } from '../../utils/date_util';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
+import { debounce } from 'lodash';
 
 import CommentsContainer from '../comments/comments_container';
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 import { timeSince } from '../../utils/date_util';
+import { debounce } from 'lodash';
 
 import UserPostComments from './user_post_comments';
 import UserPostCommentsContainer from './user_post_comments_container';
@@ -180,7 +181,9 @@ export default class UserPosts extends React.Component {
   }
 
   handleCommentDelete(commentId) {
-    return () => this.props.removeComment(commentId);
+    return () => {
+      debounce(this.props.removeComment(commentId), [wait=1000]);
+    };
   }
   
   render() {
