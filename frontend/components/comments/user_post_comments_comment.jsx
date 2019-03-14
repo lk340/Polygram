@@ -15,18 +15,24 @@ export default class UserPostCommentsComment extends React.Component {
     this.handleCommentMouseLeave = this.handleCommentMouseLeave.bind(this);
   }
 
-  handleCommentDelete(commentId) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.commentObject.id !== this.props.commentObject.id) {
+      this.setState({ loading: false });
+    }
+  }
+
+  handleCommentDelete(event) {
     event.preventDefault();
-    return () => {
+    // return () => {
       if (!this.state.loading) {
         // this.props.removeComment(commentId).then(() => this.setState({ loading: false }));
-        this.props.removeComment(commentId);
+        this.props.removeComment(this.props.commentObject.id);
         this.setState({ loading: true });
       }
       else {
-        this.setState({ loading: false });
+        // this.setState({ loading: false });
       }
-    };
+    // };
   }
 
   handleCommentMouseOver() {
@@ -45,7 +51,7 @@ export default class UserPostCommentsComment extends React.Component {
             {this.props.allUsers[this.props.commentObject.user_id].username}
           </Link>
         }</b> 
-        &nbsp;<span className="comment-li" onMouseEnter={this.handleCommentMouseOver} onMouseLeave={this.handleCommentMouseLeave} onClick={this.props.commentObject.user_id === this.props.currentUser.id ? this.handleCommentDelete(this.props.commentObject.id) : this.handleCommentDelete(this.props.commentObject.id)}>{this.props.commentObject.comment}</span>
+        &nbsp;<span className="comment-li" onMouseEnter={this.handleCommentMouseOver} onMouseLeave={this.handleCommentMouseLeave} onClick={this.handleCommentDelete}>{this.props.commentObject.comment} {this.props.commentObject.id} {this.props.commentObject.user_id}</span>
         &nbsp;<span className={this.state.postDeleteSpan}>delete?</span>
       </li>
     );
