@@ -9,8 +9,8 @@ export default class UserPostShowModal extends React.Component {
   render() {
     return (
       <Modal isOpen={ this.props.modalOpen } onRequestClose={ this.props.modalClose } style={ this.props.modalStyle } >
-          <div className="photo-modal" onDoubleClick={this.handleHeartClick}>
-            <div className="photo-modal-picture">
+          <div className="photo-modal">
+            <div className="photo-modal-picture" onDoubleClick={this.handleHeartClick}>
               <img className="photo-modal-picture-image" src={ this.state.photoURL } alt="photo"/>
             </div>
 

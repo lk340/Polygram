@@ -43,6 +43,8 @@
   object-fit: contain;
   padding: 0;
   margin: 0;
+
+  border: red solid 1px;
 }
 /* ============== PHOTO MODAL PICTURE END ============== */
 
