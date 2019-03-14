@@ -23,16 +23,10 @@ export default class UserPostCommentsComment extends React.Component {
 
   handleCommentDelete(event) {
     event.preventDefault();
-    // return () => {
-      if (!this.state.loading) {
-        // this.props.removeComment(commentId).then(() => this.setState({ loading: false }));
-        this.props.removeComment(this.props.commentObject.id);
-        this.setState({ loading: true });
-      }
-      else {
-        // this.setState({ loading: false });
-      }
-    // };
+    if (!this.state.loading) {
+      this.setState({ loading: true });
+      this.props.removeComment(this.props.commentObject.id).then(() => this.setState({ loading: false }));
+    }
   }
 
   handleCommentMouseOver() {
