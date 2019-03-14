@@ -1,6 +1,9 @@
 .followers-modal {
   display: flex;
   flex-direction: column;
+
+  border-bottom-right-radius: 14px;
+  border-bottom-left-radius: 14px;
 }
 
 .followers-modal .followers-modal-header {
@@ -48,6 +51,9 @@
   height: 357px;
   width: 400px;
   overflow: auto;
+
+  border-bottom-right-radius: 14px;
+  border-bottom-left-radius: 14px;
 }
 
 .followers-modal-list ul {
