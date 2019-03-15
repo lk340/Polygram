@@ -41,6 +41,8 @@ export default class Comments extends React.Component {
         this.props.removeComment(this.props.commentObject.id).then(() => this.setState({ loading: false }));
       }
     }
+
+    console.log("hello from the comments.jsx!");
   }
   
   render() {

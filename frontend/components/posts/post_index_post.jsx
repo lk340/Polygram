@@ -23,6 +23,7 @@ export default class PostIndexPost extends React.Component {
       numberComments: this.props.post.comment_objects ? Object.values(this.props.post.comment_objects): null,
       toggleCommentsShow: true,
       loading: false,
+
     };
 
     this.handleHeartClick = this.handleHeartClick.bind(this);
@@ -45,6 +46,21 @@ export default class PostIndexPost extends React.Component {
     this.props.likes();
     this.props.posts();
     this.props.getComments();
+
+    if (this.props.post.comment_objects && this.state.toggleCommentsShow) {
+      const postCommentArray = Object.values(this.props.post.comment_objects);
+      if (postCommentArray.length > 4) {
+        for (let i = 0; i < postCommentArray.length - 4; i++) {
+          if (document.getElementById(`${postCommentArray[i].id}`)) {
+            const commentClass = document.getElementById(`${postCommentArray[i].id}`).classList;
+            if (commentClass[0] === "comment") {
+              commentClass.remove("comment");
+              commentClass.add("hide-comment");
+            }
+          }
+        };
+      }
+    }
   }
   
   componentDidUpdate(prevProps) {
@@ -145,7 +161,6 @@ export default class PostIndexPost extends React.Component {
         }
       };
     }
-    console.log("hello!");
   }
 
   handleDeletePost(id) {
@@ -167,15 +182,15 @@ export default class PostIndexPost extends React.Component {
     const {comment_objects} = this.props.post;
     if (comment_objects) {
       const postCommentArray = Object.values(comment_objects);
-        for (let i = 0; i < postCommentArray.length; i++) {
-          if (document.getElementById(`${postCommentArray[i].id}`)) {
-            const commentClass = document.getElementById(`${postCommentArray[i].id}`).classList;
-            if (commentClass[0] === "hide-comment") {
-              commentClass.remove("hide-comment");
-              commentClass.add("comment");
-            }
+      for (let i = 0; i < postCommentArray.length; i++) {
+        if (document.getElementById(`${postCommentArray[i].id}`)) {
+          const commentClass = document.getElementById(`${postCommentArray[i].id}`).classList;
+          if (commentClass[0] === "hide-comment") {
+            commentClass.remove("hide-comment");
+            commentClass.add("comment");
           }
         }
+      }
     }
     
     this.setState({ toggleCommentsShow: false });
@@ -203,20 +218,23 @@ export default class PostIndexPost extends React.Component {
       }
     }
 
-    if (this.props.post.comment_objects && this.state.toggleCommentsShow) {
-      const postCommentArray = Object.values(this.props.post.comment_objects);
-      if (postCommentArray.length > 4) {
-        for (let i = 0; i < postCommentArray.length - 4; i++) {
-          if (document.getElementById(`${postCommentArray[i].id}`)) {
-            const commentClass = document.getElementById(`${postCommentArray[i].id}`).classList;
-            if (commentClass[0] === "comment") {
-              commentClass.remove("comment");
-              commentClass.add("hide-comment");
-            }
-          }
-        };
-      }
-    }
+    //  If there are comments in the post, and if our toggling is set to true...
+    //    ...if we have more than four comments, hide everything except the four most recent comments.
+    // ==============================================================================================================================
+    // if (this.props.post.comment_objects && this.state.toggleCommentsShow) {
+    //   const postCommentArray = Object.values(this.props.post.comment_objects);
+    //   if (postCommentArray.length > 4) {
+    //     for (let i = 0; i < postCommentArray.length - 4; i++) {
+    //       if (document.getElementById(`${postCommentArray[i].id}`)) {
+    //         const commentClass = document.getElementById(`${postCommentArray[i].id}`).classList;
+    //         if (commentClass[0] === "comment") {
+    //           commentClass.remove("comment");
+    //           commentClass.add("hide-comment");
+    //         }
+    //       }
+    //     };
+    //   }
+    // }
 
     const modalStyle = {
       overlay: {
