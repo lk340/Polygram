@@ -37,8 +37,7 @@ export default class Comments extends React.Component {
 
     if (commentObject.user_id === currentUser.id) {
       if (!this.state.loading) {
-        this.setState({ loading: true });
-        this.props.removeComment(commentObject.id).then(() => this.setState({ loading: false }));
+        this.setState({ loading: true }, () => this.props.removeComment(commentObject.id).then(() => this.setState({ loading: false })));
       }
     }
 
