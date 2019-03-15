@@ -19,7 +19,7 @@ export default class Comments extends React.Component {
     this.setState({ postDeleteSpan: "post-delete-span" });
   }
 
-  handleCommentMouseLeave() {
+  handleCommentMouseLeave() { 
     this.setState({ postDeleteSpan: "post-delete-span-hide" });
   }
 
@@ -38,7 +38,7 @@ export default class Comments extends React.Component {
     if (commentObject.user_id === currentUser.id) {
       if (!this.state.loading) {
         this.setState({ loading: true });
-        this.props.removeComment(this.props.commentObject.id).then(() => this.setState({ loading: false }));
+        this.props.removeComment(commentObject.id).then(() => this.setState({ loading: false }));
       }
     }
 
