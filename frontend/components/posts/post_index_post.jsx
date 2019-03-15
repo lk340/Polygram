@@ -22,6 +22,7 @@ export default class PostIndexPost extends React.Component {
       commentsHidden: false,
       numberComments: this.props.post.comment_objects ? Object.values(this.props.post.comment_objects): null,
       toggleCommentsShow: true,
+      loading: false,
     };
 
     this.handleHeartClick = this.handleHeartClick.bind(this);
@@ -126,12 +127,25 @@ export default class PostIndexPost extends React.Component {
     this.setState({ comment: event.currentTarget.value });
   }
 
-  handleCommentDelete(commentObject) {
+  // handleCommentDelete(commentObject) {
+  //   if (commentObject.user_id === this.props.currentUser.id) {
+  //     return () => {
+  //       this.props.removeComment(commentObject.id);
+  //     };
+  //   }
+  // }
+
+  handleCommentDelete(event) {
+    event.preventDefault();
     if (commentObject.user_id === this.props.currentUser.id) {
       return () => {
-        this.props.removeComment(commentObject.id);
+        if (!this.state.loading) {
+          this.setState({ loading: true });
+          this.props.removeComment(this.props.commentObject.id).then(() => this.setState({ loading: false }));
+        }
       };
     }
+    console.log("hello!");
   }
 
   handleDeletePost(id) {
@@ -203,8 +217,6 @@ export default class PostIndexPost extends React.Component {
         };
       }
     }
-
-
 
     const modalStyle = {
       overlay: {

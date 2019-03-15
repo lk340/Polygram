@@ -103,6 +103,7 @@ export default class PostIndex extends React.Component {
         this.props.removeComment(commentObject.id);
       };
     }
+    console.log("hello comment!");
   }
   
   render() {
