@@ -27,9 +27,9 @@ export default class PostIndex extends React.Component {
   
   componentDidUpdate(prevProps) {
     if ((prevProps.allPosts.length !== this.props.allPosts.length) || (prevProps.allComments.length !== this.props.allComments.length)) {
-      this.props.getComments();
+      // this.props.getComments();
       this.props.posts();
-      this.props.getFollows();
+      // this.props.getFollows();
     }
   }
 
