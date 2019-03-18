@@ -52,7 +52,7 @@ export default class Comments extends React.Component {
             {this.props.allUsers[this.props.commentObject.user_id].username}
           </Link>
         }</b>
-        &nbsp;<span className="comment-li" onMouseEnter={this.handleCommentMouseOver} onMouseLeave={this.handleCommentMouseLeave} onClick={this.handleCommentDelete}>{this.props.commentObject.comment}</span>
+        &nbsp;<button className="comment-li" onMouseEnter={this.handleCommentMouseOver} onMouseLeave={this.handleCommentMouseLeave} onClick={this.handleCommentDelete}>{this.props.commentObject.comment}</button>
         &nbsp;<span className={this.state.postDeleteSpan}>delete?</span>
       </li>
     )
