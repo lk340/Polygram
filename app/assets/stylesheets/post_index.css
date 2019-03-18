@@ -189,7 +189,10 @@
 }
 
 .comment-li {
-  font-weight: 100;
+  /* font-weight: 100; */
+  border: none;
+  background-color: white;
+  font-size: 14px;
 }
 
 .comment-li:hover {
