@@ -39,6 +39,10 @@ export default class Comments extends React.Component {
       if (!this.state.loading) {
         this.setState({ loading: true }, () => this.props.removeComment(commentObject.id).then(() => this.setState({ loading: false })));
       }
+      // if (!this.state.loading) {
+      //   this.setState({ loading: true });
+      //   this.props.removeComment(commentObject.id);
+      // }
     }
 
     console.log("hello from the comments.jsx!");
@@ -52,7 +56,14 @@ export default class Comments extends React.Component {
             {this.props.allUsers[this.props.commentObject.user_id].username}
           </Link>
         }</b>
-        &nbsp;<button className="comment-li" onMouseEnter={this.handleCommentMouseOver} onMouseLeave={this.handleCommentMouseLeave} onClick={this.handleCommentDelete}>{this.props.commentObject.comment}</button>
+        &nbsp;<button 
+          className="comment-li" 
+          onMouseEnter={this.handleCommentMouseOver} 
+          onMouseLeave={this.handleCommentMouseLeave} 
+          onClick={this.handleCommentDelete}
+          disabled={ this.state.loading }>
+            {this.props.commentObject.comment}
+          </button>
         &nbsp;<span className={this.state.postDeleteSpan}>delete?</span>
       </li>
     )
